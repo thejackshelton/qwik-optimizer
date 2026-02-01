@@ -36,6 +36,155 @@ use std::collections::HashMap;
 use std::fs;
 use std::path::PathBuf;
 
+/// Parse a snapshot into sections keyed by filename.
+///
+/// Section headers look like:
+/// - `============================= test.js ==`
+/// - `============================= test.tsx_App_component_ckEPmXZlub0.js (ENTRY POINT)==`
+/// - `==INPUT==`
+///
+/// Returns HashMap mapping filename -> code content (trimmed, metadata comments excluded).
+fn parse_snapshot_sections(content: &str) -> HashMap<String, String> {
+    let mut sections: HashMap<String, String> = HashMap::new();
+
+    // Regex to match section headers
+    // Captures: filename (potentially with "(ENTRY POINT)" or similar suffix)
+    let section_re = Regex::new(r"^=+\s*([^\s=]+(?:\s*\([^)]+\))?)\s*=+$").unwrap();
+    let input_re = Regex::new(r"^==INPUT==$").unwrap();
+    let diagnostics_re = Regex::new(r"^==\s*DIAGNOSTICS\s*==$").unwrap();
+
+    let mut current_section: Option<String> = None;
+    let mut current_content = String::new();
+    let mut in_metadata = false;
+
+    for line in content.lines() {
+        // Check for INPUT section
+        if input_re.is_match(line) {
+            // Save previous section
+            if let Some(ref section_name) = current_section {
+                let trimmed = strip_metadata_comments(&current_content);
+                if !trimmed.is_empty() {
+                    sections.insert(section_name.clone(), trimmed);
+                }
+            }
+            current_section = Some("INPUT".to_string());
+            current_content = String::new();
+            in_metadata = false;
+            continue;
+        }
+
+        // Check for DIAGNOSTICS section (skip it)
+        if diagnostics_re.is_match(line) {
+            // Save previous section
+            if let Some(ref section_name) = current_section {
+                let trimmed = strip_metadata_comments(&current_content);
+                if !trimmed.is_empty() {
+                    sections.insert(section_name.clone(), trimmed);
+                }
+            }
+            current_section = None;
+            current_content = String::new();
+            continue;
+        }
+
+        // Check for regular section header
+        if let Some(caps) = section_re.captures(line) {
+            // Save previous section
+            if let Some(ref section_name) = current_section {
+                let trimmed = strip_metadata_comments(&current_content);
+                if !trimmed.is_empty() {
+                    sections.insert(section_name.clone(), trimmed);
+                }
+            }
+
+            // Extract just the filename (strip "(ENTRY POINT)" suffix)
+            let full_match = caps.get(1).map_or("", |m| m.as_str());
+            let filename = full_match.split_whitespace().next().unwrap_or(full_match);
+            current_section = Some(filename.to_string());
+            current_content = String::new();
+            in_metadata = false;
+            continue;
+        }
+
+        // Detect metadata comment start
+        if line.trim().starts_with("/*") && !line.contains("*/") {
+            in_metadata = true;
+            continue;
+        }
+
+        // Detect metadata comment end
+        if in_metadata && line.contains("*/") {
+            in_metadata = false;
+            continue;
+        }
+
+        // Skip metadata content
+        if in_metadata {
+            continue;
+        }
+
+        // Skip single-line metadata comments (JSON blocks after code)
+        if line.trim().starts_with("/*") && line.trim().ends_with("*/") {
+            continue;
+        }
+
+        // Skip source map lines (None or Some("..."))
+        if line.trim() == "None" || line.trim().starts_with("Some(\"") {
+            continue;
+        }
+
+        // Add content to current section
+        if current_section.is_some() {
+            current_content.push_str(line);
+            current_content.push('\n');
+        }
+    }
+
+    // Save final section
+    if let Some(ref section_name) = current_section {
+        let trimmed = strip_metadata_comments(&current_content);
+        if !trimmed.is_empty() {
+            sections.insert(section_name.clone(), trimmed);
+        }
+    }
+
+    sections
+}
+
+/// Strip metadata comments (/* { ... } */) from code content
+fn strip_metadata_comments(content: &str) -> String {
+    let mut result = String::new();
+    let mut in_metadata = false;
+
+    for line in content.lines() {
+        // Start of metadata block
+        if line.trim().starts_with("/*") && line.trim().contains("{") {
+            in_metadata = true;
+            continue;
+        }
+
+        // End of metadata block
+        if in_metadata && line.contains("*/") {
+            in_metadata = false;
+            continue;
+        }
+
+        if in_metadata {
+            continue;
+        }
+
+        // Skip lines that are just the metadata JSON
+        if line.trim().starts_with("\"") && line.contains(":") {
+            continue;
+        }
+
+        result.push_str(line);
+        result.push('\n');
+    }
+
+    result.trim().to_string()
+}
+
 fn oxc_snapshots_dir() -> PathBuf {
     PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("src/snapshots")
 }
@@ -429,4 +578,91 @@ fn verify_snapshots_match_qwik_core() {
     // );
     println!("NOTE: This test documents differences but does not fail on them.");
     println!("Functional correctness is verified by the 163 spec_parity tests.");
+}
+
+#[test]
+fn test_parse_snapshot_sections() {
+    let sample = r#"---
+source: optimizer/src/spec_parity_tests.rs
+expression: output
+---
+==INPUT==
+
+import { component$ } from '@qwik.dev/core';
+
+export const App = component$(() => {
+  return <div>Hello</div>;
+});
+
+============================= test.js ==
+
+import { componentQrl, qrl } from "@qwik.dev/core";
+const i_abc123 = ()=>import("./test.tsx_App_component_abc123");
+export const App = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_abc123, "App_component_abc123"));
+
+
+None
+============================= test.tsx_App_component_abc123.js (ENTRY POINT)==
+
+import { _jsxSorted } from "@qwik.dev/core";
+export const App_component_abc123 = ()=>{
+    return /*#__PURE__*/ _jsxSorted("div", null, null, "Hello", 1, null);
+};
+
+
+None
+/*
+{
+  "origin": "test.tsx",
+  "name": "App_component_abc123",
+  "hash": "abc123"
+}
+*/
+== DIAGNOSTICS ==
+
+[]
+"#;
+
+    let sections = parse_snapshot_sections(sample);
+
+    // Verify INPUT section is extracted
+    assert!(sections.contains_key("INPUT"), "Should have INPUT section");
+    let input = sections.get("INPUT").unwrap();
+    assert!(
+        input.contains("component$"),
+        "INPUT should contain component$"
+    );
+
+    // Verify test.js section is extracted
+    assert!(sections.contains_key("test.js"), "Should have test.js section");
+    let test_js = sections.get("test.js").unwrap();
+    assert!(
+        test_js.contains("componentQrl"),
+        "test.js should contain componentQrl"
+    );
+    assert!(
+        !test_js.contains("None"),
+        "test.js should not contain None (source map)"
+    );
+
+    // Verify entry point section is extracted (filename without "(ENTRY POINT)")
+    assert!(
+        sections.contains_key("test.tsx_App_component_abc123.js"),
+        "Should have entry point section"
+    );
+    let entry = sections.get("test.tsx_App_component_abc123.js").unwrap();
+    assert!(
+        entry.contains("_jsxSorted"),
+        "Entry point should contain _jsxSorted"
+    );
+    assert!(
+        !entry.contains("\"origin\""),
+        "Entry point should not contain metadata JSON"
+    );
+
+    // Verify DIAGNOSTICS is not included as a section
+    assert!(
+        !sections.contains_key("DIAGNOSTICS"),
+        "Should not have DIAGNOSTICS section"
+    );
 }
