@@ -432,6 +432,307 @@ impl<'gen> TransformGenerator<'gen> {
             ));
         }
     }
+
+    /// Handle inlined QRL generation for Inline/Hoist entry strategies.
+    /// Generates inlinedQrl(expr, "symbol_name", [captures]) and keeps code in main file.
+    fn handle_inline_qrl<'b>(
+        &mut self,
+        node: &mut CallExpression<'b>,
+        ctx: &mut TraverseCtx<'b, ()>,
+    ) where
+        'b: 'gen,
+    {
+        use oxc_allocator::CloneIn;
+
+        let Some(arg0) = node.arguments.first() else {
+            return;
+        };
+
+        let descendent_idents = {
+            use crate::collector::IdentCollector;
+            let mut collector = IdentCollector::new();
+            if let Some(expr) = arg0.as_expression() {
+                use oxc_ast_visit::Visit;
+                collector.visit_expression(expr);
+            }
+            collector.get_words()
+        };
+
+        let all_decl: Vec<IdPlusType> = self
+            .decl_stack
+            .iter()
+            .flat_map(|v| v.iter())
+            .cloned()
+            .collect();
+
+        let (decl_collect, _invalid_decl): (Vec<_>, Vec<_>) = all_decl
+            .into_iter()
+            .partition(|(_, t)| matches!(t, IdentType::Var(_)));
+
+        let (scoped_idents, _is_const) =
+            qrl_module::compute_scoped_idents(&descendent_idents, &decl_collect);
+
+        // Pop imports but merge them back for inline mode (code stays in main file)
+        let imports: Vec<Import> = self
+            .import_stack
+            .pop()
+            .unwrap_or_default()
+            .iter()
+            .cloned()
+            .collect();
+
+        // Pop hoisted imports/functions (not used for inline, but need to pop)
+        let _segment_hoisted_imports = self.hoisted_imports_stack.pop().unwrap_or_default();
+        let _segment_hoisted_fns = self.component_hoisted_fns.pop().unwrap_or_default();
+
+        // Merge imports back into parent scope (code stays in main file)
+        if let Some(parent_imports) = self.import_stack.last_mut() {
+            for import in imports {
+                parent_imports.insert(import);
+            }
+        }
+
+        let imported_names = if let Some(imports) = self.import_stack.last() {
+            qrl_module::collect_imported_names(&imports.iter().cloned().collect::<Vec<_>>())
+        } else {
+            std::collections::HashSet::new()
+        };
+        let scoped_idents = qrl_module::filter_imported_from_scoped(scoped_idents, &imported_names);
+
+        let display_name = self.current_display_name();
+        let hash = self.current_hash();
+        let symbol_name = format!("{}_{}", display_name, hash);
+
+        // Get the callee name for prefixed QRLs (e.g., component$, useTask$)
+        let ctx_name = node.callee_name().unwrap_or("$").to_string();
+        let is_prefixed = ctx_name != "$" && ctx_name.ends_with(MARKER_SUFFIX);
+
+        // Transform the function expression to add useLexicalScope if captures exist
+        let transformed_expr = if let Some(expr) = arg0.as_expression() {
+            if !scoped_idents.is_empty() {
+                use crate::code_move::transform_function_expr;
+                let expr_cloned = expr.clone_in(ctx.ast.allocator);
+                transform_function_expr(expr_cloned, &scoped_idents, ctx.ast.allocator)
+            } else {
+                expr.clone_in(ctx.ast.allocator)
+            }
+        } else {
+            return;
+        };
+
+        // Build inlinedQrl(expr, "symbol_name") or inlinedQrl(expr, "symbol_name", [captures])
+        let mut args: OxcVec<'b, Argument<'b>> = if scoped_idents.is_empty() {
+            ctx.ast.vec_with_capacity(2)
+        } else {
+            ctx.ast.vec_with_capacity(3)
+        };
+
+        args.push(Argument::from(transformed_expr));
+        args.push(Argument::from(ctx.ast.expression_string_literal(
+            SPAN,
+            ctx.ast.atom(&symbol_name),
+            None,
+        )));
+
+        if !scoped_idents.is_empty() {
+            let mut elements: OxcVec<'b, ArrayExpressionElement<'b>> =
+                ctx.ast.vec_with_capacity(scoped_idents.len());
+            for (name, _scope_id) in &scoped_idents {
+                let ident_ref = ctx.ast.expression_identifier(SPAN, ctx.ast.atom(name.as_str()));
+                elements.push(ArrayExpressionElement::from(ident_ref));
+            }
+            let captures_array = ctx.ast.expression_array(SPAN, elements);
+            args.push(Argument::from(captures_array));
+
+            // Add useLexicalScope import
+            if let Some(parent_imports) = self.import_stack.last_mut() {
+                parent_imports.insert(Import::use_lexical_scope());
+            }
+        }
+
+        // Create inlinedQrl call with PURE annotation
+        let inlined_qrl_call = ctx.ast.call_expression_with_pure(
+            SPAN,
+            ctx.ast.expression_identifier(SPAN, "inlinedQrl"),
+            NONE,
+            args,
+            false,
+            true, // pure: true
+        );
+
+        self.needs_inlined_qrl_import = true;
+
+        // Handle prefixed QRLs (e.g., component$, useTask$)
+        if is_prefixed {
+            let prefix = ctx_name.strip_suffix(MARKER_SUFFIX).unwrap_or(&ctx_name);
+            let qrl_fn_name = format!("{}{}", prefix, QRL_SUFFIX);
+
+            // Create prefixedQrl(inlinedQrl(...))
+            let prefixed_args = ctx.ast.vec1(Argument::CallExpression(
+                ctx.ast.alloc(inlined_qrl_call),
+            ));
+            let prefixed_call = ctx.ast.call_expression_with_pure(
+                SPAN,
+                ctx.ast.expression_identifier(SPAN, ctx.ast.atom(&qrl_fn_name)),
+                NONE,
+                prefixed_args,
+                false,
+                true, // pure: true
+            );
+
+            // Add prefixedQrl import
+            if let Some(parent_imports) = self.import_stack.last_mut() {
+                parent_imports.insert(Import::new(
+                    vec![qrl_fn_name.as_str().into()],
+                    QWIK_CORE_SOURCE,
+                ));
+            }
+
+            *node = prefixed_call;
+        } else {
+            *node = inlined_qrl_call;
+        }
+    }
+
+    /// Handle segment QRL generation for Segment/Component/Smart entry strategies.
+    /// Generates qrl with separate segment files.
+    fn handle_segment_qrl<'b>(
+        &mut self,
+        node: &mut CallExpression<'b>,
+        ctx: &mut TraverseCtx<'b, ()>,
+    ) where
+        'b: 'gen,
+    {
+        let comp = node.arguments.first().map(|arg0| {
+            let descendent_idents = {
+                use crate::collector::IdentCollector;
+                let mut collector = IdentCollector::new();
+                if let Some(expr) = arg0.as_expression() {
+                    use oxc_ast_visit::Visit;
+                    collector.visit_expression(expr);
+                }
+                collector.get_words()
+            };
+
+            let all_decl: Vec<IdPlusType> = self
+                .decl_stack
+                .iter()
+                .flat_map(|v| v.iter())
+                .cloned()
+                .collect();
+
+            let (decl_collect, _invalid_decl): (Vec<_>, Vec<_>) = all_decl
+                .into_iter()
+                .partition(|(_, t)| matches!(t, IdentType::Var(_)));
+
+            let (scoped_idents, _is_const) =
+                qrl_module::compute_scoped_idents(&descendent_idents, &decl_collect);
+
+            let imports: Vec<Import> = self
+                .import_stack
+                .pop()
+                .unwrap_or_default()
+                .iter()
+                .cloned()
+                .collect();
+
+            // Pop hoisted imports for this QRL scope (contains child QRL imports)
+            let segment_hoisted_imports = self
+                .hoisted_imports_stack
+                .pop()
+                .unwrap_or_default();
+
+            // Pop hoisted functions for this component scope
+            let segment_hoisted_fns = self
+                .component_hoisted_fns
+                .pop()
+                .unwrap_or_default();
+
+            let imported_names = qrl_module::collect_imported_names(&imports);
+            let scoped_idents = qrl_module::filter_imported_from_scoped(scoped_idents, &imported_names);
+
+            let referenced_exports = qrl_module::collect_referenced_exports(
+                &descendent_idents,
+                &imported_names,
+                &scoped_idents,
+                &self.export_by_name,
+            );
+
+            let ctx_name = node.callee_name().unwrap_or("$").to_string();
+
+            let display_name = self.current_display_name();
+
+            let hash = self.current_hash();
+
+            let parent_segment = self.segment_stack.iter().rev().skip(1).find_map(|s| {
+                if s.is_qrl() {
+                    Some(s.to_string())
+                } else {
+                    None
+                }
+            });
+
+            // Get the source span from the QRL argument (the arrow/function expression)
+            let loc = arg0.as_expression()
+                .map(|expr| {
+                    let span = expr.span();
+                    (span.start, span.end)
+                })
+                .unwrap_or((0, 0));
+
+            let segment_data = SegmentData::new_with_loc(
+                &ctx_name,
+                display_name,
+                hash,
+                self.source_info.rel_path.clone(),
+                scoped_idents,
+                descendent_idents,
+                parent_segment,
+                referenced_exports,
+                Vec::new(), // iteration_params (populated elsewhere if needed)
+                loc,
+            );
+
+            let entry = self.entry_policy.get_entry_for_sym(&self.stack_ctxt, &segment_data);
+
+            QrlComponent::from_call_expression_argument_with_hoisted_fns(
+                arg0,
+                imports,
+                segment_hoisted_imports,
+                segment_hoisted_fns,
+                &self.segment_stack,
+                &self.scope,
+                &self.options,
+                self.source_info,
+                Some(segment_data),
+                entry,
+                ctx.ast.allocator,
+            )
+        });
+
+        if let Some(comp) = &comp {
+            let qrl = &comp.qrl;
+            let qrl = qrl.clone();
+            // Get the parent hoisted imports level (second-to-last)
+            // The hoisted import for this QRL should be in the parent scope
+            let parent_idx = self.hoisted_imports_stack.len().saturating_sub(2);
+            let hoisted_imports = self.hoisted_imports_stack.get_mut(parent_idx)
+                .expect("hoisted_imports_stack should have parent level");
+            *node = qrl.into_call_expression(
+                ctx,
+                &mut self.symbol_by_name,
+                &mut self.import_by_symbol,
+                hoisted_imports,
+            );
+        }
+
+        if let Some(comp) = comp {
+            let import: Import = comp.qrl.qrl_type.clone().into();
+            self.qrl_stack.push(comp.qrl.clone());
+            self.components.push(comp);
+            self.import_stack.last_mut().unwrap().insert(import);
+        }
+    }
 }
 
 fn move_expression<'gen>(
@@ -616,134 +917,12 @@ impl<'a> Traverse<'a, ()> for TransformGenerator<'a> {
 
         let is_qrl = self.segment_stack.last().is_some_and(|s| s.is_qrl());
         if is_qrl {
-            let comp = node.arguments.first().map(|arg0| {
-                let descendent_idents = {
-                    use crate::collector::IdentCollector;
-                    let mut collector = IdentCollector::new();
-                    if let Some(expr) = arg0.as_expression() {
-                        use oxc_ast_visit::Visit;
-                        collector.visit_expression(expr);
-                    }
-                    collector.get_words()
-                };
-
-                let all_decl: Vec<IdPlusType> = self
-                    .decl_stack
-                    .iter()
-                    .flat_map(|v| v.iter())
-                    .cloned()
-                    .collect();
-
-                let (decl_collect, _invalid_decl): (Vec<_>, Vec<_>) = all_decl
-                    .into_iter()
-                    .partition(|(_, t)| matches!(t, IdentType::Var(_)));
-
-                let (scoped_idents, _is_const) =
-                    qrl_module::compute_scoped_idents(&descendent_idents, &decl_collect);
-
-                let imports: Vec<Import> = self
-                    .import_stack
-                    .pop()
-                    .unwrap_or_default()
-                    .iter()
-                    .cloned()
-                    .collect();
-
-                // Pop hoisted imports for this QRL scope (contains child QRL imports)
-                let segment_hoisted_imports = self
-                    .hoisted_imports_stack
-                    .pop()
-                    .unwrap_or_default();
-
-                // Pop hoisted functions for this component scope
-                let segment_hoisted_fns = self
-                    .component_hoisted_fns
-                    .pop()
-                    .unwrap_or_default();
-
-                let imported_names = qrl_module::collect_imported_names(&imports);
-                let scoped_idents = qrl_module::filter_imported_from_scoped(scoped_idents, &imported_names);
-
-                let referenced_exports = qrl_module::collect_referenced_exports(
-                    &descendent_idents,
-                    &imported_names,
-                    &scoped_idents,
-                    &self.export_by_name,
-                );
-
-                let ctx_name = node.callee_name().unwrap_or("$").to_string();
-
-                let display_name = self.current_display_name();
-
-                let hash = self.current_hash();
-
-                let parent_segment = self.segment_stack.iter().rev().skip(1).find_map(|s| {
-                    if s.is_qrl() {
-                        Some(s.to_string())
-                    } else {
-                        None
-                    }
-                });
-
-                // Get the source span from the QRL argument (the arrow/function expression)
-                let loc = arg0.as_expression()
-                    .map(|expr| {
-                        let span = expr.span();
-                        (span.start, span.end)
-                    })
-                    .unwrap_or((0, 0));
-
-                let segment_data = SegmentData::new_with_loc(
-                    &ctx_name,
-                    display_name,
-                    hash,
-                    self.source_info.rel_path.clone(),
-                    scoped_idents,
-                    descendent_idents,
-                    parent_segment,
-                    referenced_exports,
-                    Vec::new(), // iteration_params (populated elsewhere if needed)
-                    loc,
-                );
-
-                let entry = self.entry_policy.get_entry_for_sym(&self.stack_ctxt, &segment_data);
-
-                QrlComponent::from_call_expression_argument_with_hoisted_fns(
-                    arg0,
-                    imports,
-                    segment_hoisted_imports,
-                    segment_hoisted_fns,
-                    &self.segment_stack,
-                    &self.scope,
-                    &self.options,
-                    self.source_info,
-                    Some(segment_data),
-                    entry,
-                    ctx.ast.allocator,
-                )
-            });
-
-            if let Some(comp) = &comp {
-                let qrl = &comp.qrl;
-                let qrl = qrl.clone();
-                // Get the parent hoisted imports level (second-to-last)
-                // The hoisted import for this QRL should be in the parent scope
-                let parent_idx = self.hoisted_imports_stack.len().saturating_sub(2);
-                let hoisted_imports = self.hoisted_imports_stack.get_mut(parent_idx)
-                    .expect("hoisted_imports_stack should have parent level");
-                *node = qrl.into_call_expression(
-                    ctx,
-                    &mut self.symbol_by_name,
-                    &mut self.import_by_symbol,
-                    hoisted_imports,
-                );
-            }
-
-            if let Some(comp) = comp {
-                let import: Import = comp.qrl.qrl_type.clone().into();
-                self.qrl_stack.push(comp.qrl.clone());
-                self.components.push(comp);
-                self.import_stack.last_mut().unwrap().insert(import);
+            if self.is_inline() {
+                // Inline/Hoist strategy: generate inlinedQrl, keep code in main file
+                self.handle_inline_qrl(node, ctx);
+            } else {
+                // Segment strategy: generate qrl with separate segment files
+                self.handle_segment_qrl(node, ctx);
             }
         }
 
