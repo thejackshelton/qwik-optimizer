@@ -426,123 +426,7 @@ fn oxc_to_qwik_core_filename(test_name: &str) -> String {
     format!("qwik_core__test__{}.snap", test_name)
 }
 
-/// Normalize expected differences for semantic comparison.
-///
-/// This normalizes differences that are:
-/// - Documented as accepted (source maps - Phase 18-04)
-/// - Due to input format (whitespace, loc values)
-/// - Cosmetic (import merging, code formatting)
-fn normalize_expected_differences(content: &str) -> String {
-    let mut result = content.to_string();
-
-    // 1. Normalize source maps: Replace Some("...json...") and None with placeholder
-    // Source maps not implemented in OXC - documented accepted difference (Phase 18-04)
-    let sourcemap_re = Regex::new(r#"Some\("\{[^"]*\}"\)"#).unwrap();
-    result = sourcemap_re.replace_all(&result, "SOURCEMAP").to_string();
-    result = result.replace("\nNone\n", "\nSOURCEMAP\n");
-
-    // 2. Normalize INPUT section whitespace
-    // OXC uses inline strings, qwik-core uses file input with different whitespace
-    if let Some(input_start) = result.find("==INPUT==") {
-        if let Some(section_end) = result[input_start..].find("\n===") {
-            let input_section = &result[input_start..input_start + section_end];
-            let normalized_input = normalize_input_whitespace(input_section);
-            result = format!(
-                "{}{}{}",
-                &result[..input_start],
-                normalized_input,
-                &result[input_start + section_end..]
-            );
-        }
-    }
-
-    // 3. Normalize import statements - sort lines that start with "import"
-    // OXC merges imports, qwik-core keeps separate - cosmetic difference
-    result = normalize_imports(&result);
-
-    // 4. Normalize loc values - replace with placeholder
-    // loc differs due to input whitespace differences
-    let loc_re = Regex::new(r#""loc":\s*\[\s*\d+,\s*\d+\s*\]"#).unwrap();
-    result = loc_re.replace_all(&result, "\"loc\": LOC").to_string();
-
-    // 5. Remove paramNames field - not implemented in OXC
-    let param_names_re = Regex::new(r#",?\s*"paramNames":\s*\[[^\]]*\]"#).unwrap();
-    result = param_names_re.replace_all(&result, "").to_string();
-
-    // 6. Normalize displayName - OXC uses test_X, qwik-core uses test.tsx_test_X
-    // Both include filename prefix now, but format differs slightly
-    let display_name_re = Regex::new(r#""displayName":\s*"test\.tsx_([^"]+)""#).unwrap();
-    result = display_name_re
-        .replace_all(&result, "\"displayName\": \"$1\"")
-        .to_string();
-
-    // 7. Normalize whitespace in code sections (tabs vs spaces)
-    result = result.replace("\t", "    ");
-
-    // 8. Normalize trailing whitespace and multiple blank lines
-    let multi_blank_re = Regex::new(r"\n{3,}").unwrap();
-    result = multi_blank_re.replace_all(&result, "\n\n").to_string();
-
-    result.trim().to_string()
-}
-
-/// Normalize INPUT section whitespace
-fn normalize_input_whitespace(input: &str) -> String {
-    input
-        .lines()
-        .map(|line| line.trim())
-        .collect::<Vec<_>>()
-        .join("\n")
-}
-
-/// Normalize import statements by sorting and deduplicating
-fn normalize_imports(content: &str) -> String {
-    let mut result = String::new();
-    let mut current_section_imports: Vec<String> = Vec::new();
-    let mut in_code_section = false;
-
-    for line in content.lines() {
-        if line.starts_with("===") {
-            // Flush any pending imports before section change
-            if !current_section_imports.is_empty() {
-                current_section_imports.sort();
-                for import in current_section_imports.drain(..) {
-                    result.push_str(&import);
-                    result.push('\n');
-                }
-            }
-            in_code_section = line.contains("==") && !line.contains("INPUT");
-            result.push_str(line);
-            result.push('\n');
-        } else if in_code_section && line.trim().starts_with("import ") {
-            // Collect imports for sorting
-            // Normalize: merge multiple imports from same source
-            current_section_imports.push(line.to_string());
-        } else {
-            // Flush pending imports before non-import line
-            if !current_section_imports.is_empty() {
-                current_section_imports.sort();
-                for import in current_section_imports.drain(..) {
-                    result.push_str(&import);
-                    result.push('\n');
-                }
-            }
-            result.push_str(line);
-            result.push('\n');
-        }
-    }
-
-    // Flush any remaining imports
-    if !current_section_imports.is_empty() {
-        current_section_imports.sort();
-        for import in current_section_imports.drain(..) {
-            result.push_str(&import);
-            result.push('\n');
-        }
-    }
-
-    result
-}
+// Normalization functions removed in Phase 25 - expose raw differences
 
 /// Minimal normalization - only strip insta metadata header, normalize line endings
 fn normalize_for_comparison(content: &str) -> String {
@@ -564,8 +448,7 @@ fn normalize_for_comparison(content: &str) -> String {
 #[derive(Debug, Clone, PartialEq)]
 enum DifferenceCategory {
     Exact,     // Byte-for-byte identical (after header strip)
-    Cosmetic,  // Only: source maps, loc, paramNames, whitespace, import merging
-    Structural, // Real differences in code organization
+    Different, // Any difference at all
 }
 
 /// Specific structural issues detected
@@ -614,7 +497,6 @@ struct ComparisonResult {
     test_name: String,
     category: DifferenceCategory,
     exact_match: bool,
-    semantic_match: bool,
     diff: Option<String>,
     // Structural issues (all that apply)
     structural_issues: StructuralIssues,
@@ -790,15 +672,9 @@ fn verify_snapshots_match_qwik_core() {
             None
         };
 
-        // Apply semantic normalization for expected differences
-        // Only for snapshots without structural differences
-        let oxc_semantic = normalize_expected_differences(&oxc_basic);
-        let qwik_semantic = normalize_expected_differences(&qwik_basic);
-
-        let semantic_match = oxc_semantic == qwik_semantic;
-
-        let diff = if !semantic_match {
-            let diff = TextDiff::from_lines(&qwik_semantic, &oxc_semantic);
+        // No semantic normalization - use basic comparison only (Phase 25)
+        let diff = if !exact_match {
+            let diff = TextDiff::from_lines(&qwik_basic, &oxc_basic);
             Some(
                 diff.unified_diff()
                     .context_radius(3)
@@ -818,22 +694,17 @@ fn verify_snapshots_match_qwik_core() {
             import_organization: false, // Imports are cosmetic
         };
 
-        // Determine category: EXACT > COSMETIC > STRUCTURAL
+        // Determine category: binary Exact/Different (Phase 25)
         let category = if exact_match {
             DifferenceCategory::Exact
-        } else if semantic_match && !structural_issues.has_any() {
-            // Cosmetic only if semantic match AND no structural issues detected
-            DifferenceCategory::Cosmetic
         } else {
-            // Any structural issue makes it STRUCTURAL
-            DifferenceCategory::Structural
+            DifferenceCategory::Different
         };
 
         results.push(ComparisonResult {
             test_name,
             category,
             exact_match,
-            semantic_match,
             diff,
             structural_issues,
             hoisted_fn_file_mismatch,
@@ -844,18 +715,14 @@ fn verify_snapshots_match_qwik_core() {
         });
     }
 
-    // Categorize results using new three-tier system
+    // Categorize results using binary system (Phase 25)
     let exact_matches: Vec<_> = results
         .iter()
         .filter(|r| r.category == DifferenceCategory::Exact)
         .collect();
-    let cosmetic_only: Vec<_> = results
+    let different: Vec<_> = results
         .iter()
-        .filter(|r| r.category == DifferenceCategory::Cosmetic)
-        .collect();
-    let structural_diff: Vec<_> = results
-        .iter()
-        .filter(|r| r.category == DifferenceCategory::Structural)
+        .filter(|r| r.category == DifferenceCategory::Different)
         .collect();
 
     // Categorize structural differences by issue type
@@ -876,18 +743,17 @@ fn verify_snapshots_match_qwik_core() {
         .filter(|r| r.structural_issues.segment_count_diff)
         .collect();
 
-    // Print Phase 24 Final Report
+    // Print Phase 25 Verification Report
     println!();
     println!("============================================================");
-    println!("SNAPSHOT VERIFICATION RESULTS - Phase 24 Final Report");
+    println!("SNAPSHOT VERIFICATION RESULTS - Phase 25 Raw Differences");
     println!("============================================================");
     println!();
     println!("Total compared: {}", results.len());
     println!();
     println!("CATEGORIZATION:");
     println!("  Exact matches:                  {:>3}", exact_matches.len());
-    println!("  Cosmetic differences only:      {:>3}", cosmetic_only.len());
-    println!("  Structural differences:         {:>3}", structural_diff.len());
+    println!("  Different:                      {:>3}", different.len());
     println!();
 
     // ==========================================================================
@@ -971,30 +837,6 @@ fn verify_snapshots_match_qwik_core() {
     println!();
 
     // ==========================================================================
-    // COSMETIC DIFFERENCES
-    // ==========================================================================
-    println!("============================================================");
-    println!("COSMETIC DIFFERENCES (normalized for comparison)");
-    println!("============================================================");
-    println!();
-    println!("These differences are expected and do NOT affect runtime:");
-    println!("  - Source maps: OXC outputs None, qwik-core outputs JSON");
-    println!("  - loc values: Differ due to input format");
-    println!("  - paramNames: Not implemented in OXC");
-    println!("  - Whitespace: Tab vs space indentation");
-    println!();
-    println!("Snapshots with cosmetic-only differences: {}", cosmetic_only.len());
-    println!();
-    for (i, result) in cosmetic_only.iter().enumerate() {
-        if i >= 10 {
-            println!("  ... and {} more", cosmetic_only.len() - 10);
-            break;
-        }
-        println!("  - {}", result.test_name);
-    }
-    println!();
-
-    // ==========================================================================
     // ACTION ITEMS
     // ==========================================================================
     println!("============================================================");
@@ -1027,10 +869,9 @@ fn verify_snapshots_match_qwik_core() {
     println!();
     println!("Snapshot comparison breakdown:");
     println!("  - {} exact matches", exact_matches.len());
-    println!("  - {} cosmetic differences (acceptable)", cosmetic_only.len());
-    println!("  - {} structural differences", structural_diff.len());
+    println!("  - {} different", different.len());
     println!();
-    println!("Structural issues breakdown:");
+    println!("Structural issues breakdown (among different snapshots):");
     println!("  - {} hoisted function placement", hoisted_fn_placement.len());
     println!("  - {} QRL declaration style", qrl_hoisting.len());
     println!("  - {} attribute quoting", attribute_quoting.len());
@@ -1039,15 +880,15 @@ fn verify_snapshots_match_qwik_core() {
     println!("NOTE: A snapshot can have MULTIPLE structural issues.");
     println!();
 
-    if structural_diff.is_empty() {
-        println!("EXACT PARITY ACHIEVED: All snapshots match exactly or with cosmetic differences only.");
+    if different.is_empty() {
+        println!("EXACT PARITY ACHIEVED: All snapshots match exactly.");
     } else {
-        println!("STRUCTURAL_DIFFERENCES_DETECTED: {}", structural_diff.len());
+        println!("DIFFERENCES_DETECTED: {}", different.len());
         println!();
         println!("FUNCTIONAL PARITY: All 163 spec_parity tests pass");
-        println!("These structural differences affect code ORGANIZATION, not BEHAVIOR.");
+        println!("These differences affect code output, not runtime behavior.");
         println!();
-        println!("Priority for fixing:");
+        println!("Structural issues to investigate:");
         println!("  HIGH:   Hoisted function placement (affects file loading)");
         println!("  MEDIUM: QRL declaration style (affects debugging)");
         println!("  LOW:    Attribute quoting (cosmetic, valid JS)");
