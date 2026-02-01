@@ -132,13 +132,16 @@ pub fn exit_jsx_child<'a>(
                                 ));
                             }
 
-                            // Push the arrow function to hoisted_fns for module-level declaration
+                            // Serialize the arrow function and push to component_hoisted_fns
+                            // This will be emitted in the segment file, not the main file
                             let hoisted_fn_expr = Expression::ArrowFunctionExpression(ctx.ast.alloc(result.hoisted_fn));
-                            gen.hoisted_fns.push((
-                                hf_name.clone(),
-                                hoisted_fn_expr,
-                                result.hoisted_str.clone(),
-                            ));
+                            let mut codegen = oxc_codegen::Codegen::new();
+                            codegen.print_expression(&hoisted_fn_expr);
+                            let hoisted_fn_code = codegen.into_source_text();
+                            let hoisted_fn_code = hoisted_fn_code.replace(") => ", ")=>");
+                            if let Some(hf_stack) = gen.component_hoisted_fns.last_mut() {
+                                hf_stack.push((hf_name.clone(), hoisted_fn_code, result.hoisted_str.clone()));
+                            }
 
                             // Create captures array with original variable references
                             let captures_array = ctx.ast.expression_array(
