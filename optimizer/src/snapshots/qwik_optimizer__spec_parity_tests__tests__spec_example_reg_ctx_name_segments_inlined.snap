@@ -56,7 +56,7 @@ import { _jsxSorted, qrl, serverQrl } from "@qwik.dev/core";
 const i_OsNoEFc5SM4 = ()=>import("./test.tsx_Works_component_div_onClick_server_OsNoEFc5SM4");
 export const Works_component_t45qL4vNGv0 = (props)=>{
 	const text = "hola";
-	return /*#__PURE__*/ _jsxSorted("div", { on:click: /*#__PURE__*/ serverQrl(/*#__PURE__*/ qrl(i_OsNoEFc5SM4, "Works_component_div_onClick_server_OsNoEFc5SM4", [text])) }, null, null, 3, null);
+	return /*#__PURE__*/ _jsxSorted("div", { "on:click": /*#__PURE__*/ serverQrl(/*#__PURE__*/ qrl(i_OsNoEFc5SM4, "Works_component_div_onClick_server_OsNoEFc5SM4", [text])) }, null, null, 3, null);
 };
 
 

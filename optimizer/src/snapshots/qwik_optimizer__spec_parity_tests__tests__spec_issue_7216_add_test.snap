@@ -32,12 +32,12 @@ const i_onConst = ()=>import("./test.tsx");
 const i_onHi = ()=>import("./test.tsx");
 export const test_component_LUXeXe0DQrg = (props)=>{
 	return /*#__PURE__*/ _jsxSplit("p", {
-		on:hi: /*#__PURE__*/ qrl(i_onHi, "test_component_p_onHi"),
+		"on:hi": /*#__PURE__*/ qrl(i_onHi, "test_component_p_onHi"),
 		..._getVarProps(props.foo),
-		on:hello: props.helloHandler$,
+		"on:hello": props.helloHandler$,
 		..._getVarProps(props.rest),
-		on:var: props.onVarHandler$,
-		on:const: /*#__PURE__*/ qrl(i_onConst, "test_component_p_onConst"),
+		"on:var": props.onVarHandler$,
+		"on:const": /*#__PURE__*/ qrl(i_onConst, "test_component_p_onConst"),
 		asd: "1"
 	}, _getConstProps(props.rest), null, 0, null);
 };

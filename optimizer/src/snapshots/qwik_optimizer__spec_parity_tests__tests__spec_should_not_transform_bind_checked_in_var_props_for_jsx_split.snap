@@ -41,7 +41,7 @@ export const FieldInput_component_V4XAtJSTRKg = (props)=>{
 	const input = useSignal(true);
 	return /*#__PURE__*/ _jsxSorted(_Fragment, null, null, [/*#__PURE__*/ _jsxSplit("input", {
 		checked: input,
-		on:input: inlinedQrl(_chk, "_chk", [input]),
+		"on:input": inlinedQrl(_chk, "_chk", [input]),
 		..._getVarProps(props)
 	}, _getConstProps(props), null, 0, null), /*#__PURE__*/ _jsxSplit("input", { ..._getVarProps(props) }, _getConstProps(props), null, 0, null)], 3, null);
 };

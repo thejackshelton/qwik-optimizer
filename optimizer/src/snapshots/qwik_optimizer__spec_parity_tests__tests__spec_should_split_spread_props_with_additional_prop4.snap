@@ -25,7 +25,7 @@ const i_onClick = ()=>import("./test.tsx");
 export const test_component_LUXeXe0DQrg = (props)=>{
 	return /*#__PURE__*/ _jsxSplit("button", {
 		..._getVarProps(props),
-		on:click: /*#__PURE__*/ qrl(i_onClick, "test_component_button_onClick", [props])
+		"on:click": /*#__PURE__*/ qrl(i_onClick, "test_component_button_onClick", [props])
 	}, _getConstProps(props), null, 0, null);
 };
 

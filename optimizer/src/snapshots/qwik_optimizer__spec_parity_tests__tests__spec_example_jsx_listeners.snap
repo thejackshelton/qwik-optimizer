@@ -91,20 +91,20 @@ const i_H10xZtD0e7w = ()=>import("./test.tsx_Foo_component_handler_H10xZtD0e7w")
 export const Foo_component_1_DvU6FitWglY = ()=>{
 	const handler = /*#__PURE__*/ qrl(i_H10xZtD0e7w, "Foo_component_handler_H10xZtD0e7w");
 	return /*#__PURE__*/ _jsxSorted("div", {
-		on:click: /*#__PURE__*/ qrl(i_onClick, "Foo_component_1_div_onClick"),
-		on:documentscroll: /*#__PURE__*/ qrl(i_onDocumentScroll, "Foo_component_1_div_onDocumentScroll"),
-		on:documentscroll: /*#__PURE__*/ qrl(i_1, "Foo_component_1_div_onDocumentScroll_1"),
-		on:c-lick: /*#__PURE__*/ qrl(i_on-cLick, "Foo_component_1_div_on-cLick"),
-		on:document-scroll: /*#__PURE__*/ qrl(i_onDocument-sCroll, "Foo_component_1_div_onDocument-sCroll"),
-		on:document-scroll: /*#__PURE__*/ qrl(i_onDocument-scroLL, "Foo_component_1_div_onDocument-scroLL"),
-		host:onClick$: /*#__PURE__*/ qrl(i_1, "Foo_component_1_div_onClick_1"),
-		host:onDocumentScroll$: /*#__PURE__*/ qrl(i_2, "Foo_component_1_div_onDocumentScroll_2"),
-		host:onDocumentScroll$: /*#__PURE__*/ qrl(i_3, "Foo_component_1_div_onDocumentScroll_3"),
-		custom$: /*#__PURE__*/ qrl(i_custom, "Foo_component_1_div_custom")
+		custom$: /*#__PURE__*/ qrl(i_custom, "Foo_component_1_div_custom"),
+		"host:onClick$": /*#__PURE__*/ qrl(i_1, "Foo_component_1_div_onClick_1"),
+		"host:onDocumentScroll$": /*#__PURE__*/ qrl(i_2, "Foo_component_1_div_onDocumentScroll_2"),
+		"host:onDocumentScroll$": /*#__PURE__*/ qrl(i_3, "Foo_component_1_div_onDocumentScroll_3"),
+		"on:c-lick": /*#__PURE__*/ qrl(i_on-cLick, "Foo_component_1_div_on-cLick"),
+		"on:click": /*#__PURE__*/ qrl(i_onClick, "Foo_component_1_div_onClick"),
+		"on:document-scroll": /*#__PURE__*/ qrl(i_onDocument-sCroll, "Foo_component_1_div_onDocument-sCroll"),
+		"on:document-scroll": /*#__PURE__*/ qrl(i_onDocument-scroLL, "Foo_component_1_div_onDocument-scroLL"),
+		"on:documentscroll": /*#__PURE__*/ qrl(i_onDocumentScroll, "Foo_component_1_div_onDocumentScroll"),
+		"on:documentscroll": /*#__PURE__*/ qrl(i_1, "Foo_component_1_div_onDocumentScroll_1")
 	}, {
-		on:keyup: handler,
-		on:document:keyup: handler,
-		on:window:keyup: handler
+		"on:keyup": handler,
+		"on:document:keyup": handler,
+		"on:window:keyup": handler
 	}, null, 3, null);
 };
 

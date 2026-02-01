@@ -34,7 +34,7 @@ import { _jsxSorted, qrl, useSignal } from "@qwik.dev/core";
 const i_onClick = ()=>import("./test.tsx");
 export const Issue3742_component_svSy0PlWTAw = ({ description = "", other })=>{
 	const counter = useSignal(0);
-	return /*#__PURE__*/ _jsxSorted("div", { title: description && "description" in other ? `Hello ${counter.value}` : `Bye ${counter.value}` }, null, ["Issue3742", /*#__PURE__*/ _jsxSorted("button", { on:click: /*#__PURE__*/ qrl(i_onClick, "Issue3742_component_div_button_onClick", [counter]) }, null, "Increment", 3, null)], 3, null);
+	return /*#__PURE__*/ _jsxSorted("div", { title: description && "description" in other ? `Hello ${counter.value}` : `Bye ${counter.value}` }, null, ["Issue3742", /*#__PURE__*/ _jsxSorted("button", { "on:click": /*#__PURE__*/ qrl(i_onClick, "Issue3742_component_div_button_onClick", [counter]) }, null, "Increment", 3, null)], 3, null);
 };
 
 

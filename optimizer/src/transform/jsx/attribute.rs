@@ -157,12 +157,11 @@ pub fn exit_jsx_attribute<'a>(
                                     bind_handler,
                                 );
 
-                                let on_input_atom = gen.builder.atom("on:input");
                                 jsx.const_props[idx] =
                                     gen.builder.object_property_kind_object_property(
                                         node.span,
                                         PropertyKind::Init,
-                                        gen.builder.property_key_static_identifier(SPAN, on_input_atom),
+                                        create_property_key(&gen.builder, SPAN, "on:input"),
                                         merged,
                                         false,
                                         false,
@@ -170,11 +169,10 @@ pub fn exit_jsx_attribute<'a>(
                                     );
                             }
                         } else {
-                            let on_input_atom = gen.builder.atom("on:input");
                             jsx.const_props.push(gen.builder.object_property_kind_object_property(
                                 node.span,
                                 PropertyKind::Init,
-                                gen.builder.property_key_static_identifier(SPAN, on_input_atom),
+                                create_property_key(&gen.builder, SPAN, "on:input"),
                                 bind_handler,
                                 false,
                                 false,
@@ -338,12 +336,11 @@ pub fn exit_jsx_attribute<'a>(
                                             )
                                         };
 
-                                    let prop_name_atom = gen.builder.atom(prop_name);
                                     jsx.var_props.push(
                                         gen.builder.object_property_kind_object_property(
                                             SPAN,
                                             PropertyKind::Init,
-                                            gen.builder.property_key_static_identifier(SPAN, prop_name_atom),
+                                            create_property_key(&gen.builder, SPAN, prop_name),
                                             value,
                                             false,
                                             false,
@@ -541,7 +538,6 @@ pub fn exit_jsx_attribute<'a>(
                 jsx.key_prop = Some(expr);
             } else {
                 let prop_name = get_jsx_attribute_full_name(&node.name);
-                let prop_name_atom = gen.builder.atom(&prop_name);
 
                 if prop_name == "on:input" {
                     let existing_on_input_idx = jsx.const_props.iter().position(|prop| {
@@ -565,7 +561,7 @@ pub fn exit_jsx_attribute<'a>(
                             jsx.const_props[idx] = gen.builder.object_property_kind_object_property(
                                 node.span,
                                 PropertyKind::Init,
-                                gen.builder.property_key_static_identifier(SPAN, prop_name_atom),
+                                create_property_key(&gen.builder, SPAN, &prop_name),
                                 merged,
                                 false,
                                 false,
@@ -581,7 +577,7 @@ pub fn exit_jsx_attribute<'a>(
                         props.push(gen.builder.object_property_kind_object_property(
                             node.span,
                             PropertyKind::Init,
-                            gen.builder.property_key_static_identifier(node.name.span(), prop_name_atom),
+                            create_property_key(&gen.builder, node.name.span(), &prop_name),
                             expr,
                             false,
                             false,
@@ -597,7 +593,7 @@ pub fn exit_jsx_attribute<'a>(
                     props.push(gen.builder.object_property_kind_object_property(
                         node.span,
                         PropertyKind::Init,
-                        gen.builder.property_key_static_identifier(node.name.span(), prop_name_atom),
+                        create_property_key(&gen.builder, node.name.span(), &prop_name),
                         expr,
                         false,
                         false,

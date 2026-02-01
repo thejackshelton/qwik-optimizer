@@ -182,7 +182,7 @@ export const s_0TaiDayHrlo = ()=>{
 	/*#__PURE__*/ serverStuffQrl(/*#__PURE__*/ qrl(i_r1qAHX7Opp0, "s_r1qAHX7Opp0"));
 	/*#__PURE__*/ serverLoaderQrl(/*#__PURE__*/ qrl(i_k1L0DiPQV1I, "s_k1L0DiPQV1I"));
 	/*#__PURE__*/ useTaskQrl(/*#__PURE__*/ qrl(i_P8oRQhHsurk, "s_P8oRQhHsurk"));
-	return /*#__PURE__*/ _jsxSorted("div", { on:click: /*#__PURE__*/ useTaskQrl(/*#__PURE__*/ qrl(i_P8oRQhHsurk, "s_P8oRQhHsurk")) }, null, state.text, 1, null);
+	return /*#__PURE__*/ _jsxSorted("div", { "on:click": /*#__PURE__*/ useTaskQrl(/*#__PURE__*/ qrl(i_P8oRQhHsurk, "s_P8oRQhHsurk")) }, null, state.text, 1, null);
 };
 
 

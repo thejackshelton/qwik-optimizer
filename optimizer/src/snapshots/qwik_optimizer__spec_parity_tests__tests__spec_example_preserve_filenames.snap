@@ -27,7 +27,7 @@ None
 import { _jsxSorted, qrl } from "@qwik.dev/core";
 const i_onClick = ()=>import("./test.tsx");
 export const App_component_ckEPmXZlub0 = (props)=>{
-	return _jsxSorted(Cmp, null, null, /*#__PURE__*/ _jsxSorted("p", { on:click: /*#__PURE__*/ qrl(i_onClick, "App_component_Cmp_p_onClick") }, { class: "stuff" }, "Hello Qwik", 3, null), 3, null);
+	return _jsxSorted(Cmp, null, null, /*#__PURE__*/ _jsxSorted("p", { "on:click": /*#__PURE__*/ qrl(i_onClick, "App_component_Cmp_p_onClick") }, { class: "stuff" }, "Hello Qwik", 3, null), 3, null);
 };
 
 

@@ -80,7 +80,7 @@ export const test_component_LUXeXe0DQrg = ()=>{
 	const { math3 } = { math3: Math.random() };
 	const [store4] = useForm();
 	const { store5 } = useForm2();
-	return /*#__PURE__*/ _jsxSorted("div", null, null, [/*#__PURE__*/ _jsxSorted("button", { on:click: /*#__PURE__*/ qrl(i_onClick, "test_component_div_button_onClick") }, null, "click", 3, null), _jsxSorted(Input, {
+	return /*#__PURE__*/ _jsxSorted("div", null, null, [/*#__PURE__*/ _jsxSorted("button", { "on:click": /*#__PURE__*/ qrl(i_onClick, "test_component_div_button_onClick") }, null, "click", 3, null), _jsxSorted(Input, {
 		error: store.errors.test,
 		error2: store2.errors.test,
 		error3: store3.errors.test,

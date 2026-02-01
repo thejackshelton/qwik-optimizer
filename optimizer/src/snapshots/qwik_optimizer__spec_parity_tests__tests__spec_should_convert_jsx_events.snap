@@ -48,14 +48,14 @@ const i_onDblClick = ()=>import("./test.tsx");
 const i_onClick = ()=>import("./test.tsx");
 export const ManyEventsComponent_component_ndbrzxiyG3g = ()=>{
 	return /*#__PURE__*/ _jsxSorted("div", null, null, [/*#__PURE__*/ _jsxSorted("button", {
-		on:click: /*#__PURE__*/ qrl(i_onClick, "ManyEventsComponent_component_div_button_onClick"),
-		on:dblclick: /*#__PURE__*/ qrl(i_onDblClick, "ManyEventsComponent_component_div_button_onDblClick")
+		"on:click": /*#__PURE__*/ qrl(i_onClick, "ManyEventsComponent_component_div_button_onClick"),
+		"on:dblclick": /*#__PURE__*/ qrl(i_onDblClick, "ManyEventsComponent_component_div_button_onDblClick")
 	}, null, "click", 3, null), /*#__PURE__*/ _jsxSorted("button", {
-		on:click: /*#__PURE__*/ qrl(i_1, "ManyEventsComponent_component_div_button_onClick_1"),
-		on:blur: /*#__PURE__*/ qrl(i_onBlur, "ManyEventsComponent_component_div_button_onBlur"),
-		on:another-custom: /*#__PURE__*/ qrl(i_on-anotherCustom, "ManyEventsComponent_component_div_button_on-anotherCustom"),
-		on-document:focus: /*#__PURE__*/ qrl(i_onFocus, "ManyEventsComponent_component_div_button_onFocus"),
-		on-window:click: /*#__PURE__*/ qrl(i_2, "ManyEventsComponent_component_div_button_onClick_2")
+		"on-document:focus": /*#__PURE__*/ qrl(i_onFocus, "ManyEventsComponent_component_div_button_onFocus"),
+		"on-window:click": /*#__PURE__*/ qrl(i_2, "ManyEventsComponent_component_div_button_onClick_2"),
+		"on:another-custom": /*#__PURE__*/ qrl(i_on-anotherCustom, "ManyEventsComponent_component_div_button_on-anotherCustom"),
+		"on:blur": /*#__PURE__*/ qrl(i_onBlur, "ManyEventsComponent_component_div_button_onBlur"),
+		"on:click": /*#__PURE__*/ qrl(i_1, "ManyEventsComponent_component_div_button_onClick_1")
 	}, null, "click", 3, null)], 3, null);
 };
 

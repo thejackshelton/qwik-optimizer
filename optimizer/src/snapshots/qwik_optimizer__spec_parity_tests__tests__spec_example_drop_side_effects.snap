@@ -90,7 +90,7 @@ None
 import { _jsxSorted, qrl } from "@qwik.dev/core";
 const i_onClick = ()=>import("./test.tsx");
 export const test_component_LUXeXe0DQrg = ()=>{
-	return /*#__PURE__*/ _jsxSorted("button", { on:click: /*#__PURE__*/ qrl(i_onClick, "test_component_button_onClick") }, null, null, 3, null);
+	return /*#__PURE__*/ _jsxSorted("button", { "on:click": /*#__PURE__*/ qrl(i_onClick, "test_component_button_onClick") }, null, null, 3, null);
 };
 
 

@@ -89,14 +89,14 @@ export const App_component_ckEPmXZlub0 = (props)=>{
 	const thing = useStore({ thing: 0 });
 	const STEP_2 = 2;
 	const count2 = state.count * 2;
-	return /*#__PURE__*/ _jsxSorted("div", { on:click: /*#__PURE__*/ qrl(i_onClick, "App_component_div_onClick", [count2, state]) }, null, [/*#__PURE__*/ _jsxSorted("span", null, null, state.count, 1, null), buttons.map((btn)=>/*#__PURE__*/ _jsxSorted("button", {
-		q:p: btn,
-		on:click: /*#__PURE__*/ qrl(i_K5Zt4qx8Rig, "App_component_div_map_button_onClick_K5Zt4qx8Rig", [
+	return /*#__PURE__*/ _jsxSorted("div", { "on:click": /*#__PURE__*/ qrl(i_onClick, "App_component_div_onClick", [count2, state]) }, null, [/*#__PURE__*/ _jsxSorted("span", null, null, state.count, 1, null), buttons.map((btn)=>/*#__PURE__*/ _jsxSorted("button", {
+		"on:click": /*#__PURE__*/ qrl(i_K5Zt4qx8Rig, "App_component_div_map_button_onClick_K5Zt4qx8Rig", [
 			STEP_2,
 			props,
 			state,
 			thing
-		])
+		]),
+		"q:p": btn
 	}, null, _fnSignal(_hf0, [btn], _hf0_str), 1, null))], 1, null);
 };
 

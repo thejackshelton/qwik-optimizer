@@ -51,11 +51,11 @@ export const Parent_component_0TaiDayHrlo = ()=>{
 	const cart = useStore([]);
 	const results = useSignal(["foo", "bar"]);
 	return /*#__PURE__*/ _jsxSorted("div", null, null, [
-		/*#__PURE__*/ _jsxSorted("button", { on:click: /*#__PURE__*/ qrl(i_onClick, "Parent_component_div_button_onClick", [results]) }, { id: "first" }, null, 3, null),
+		/*#__PURE__*/ _jsxSorted("button", { "on:click": /*#__PURE__*/ qrl(i_onClick, "Parent_component_div_button_onClick", [results]) }, { id: "first" }, null, 3, null),
 		results.value.map((item, key)=>/*#__PURE__*/ _jsxSorted("button", {
 			id: "second-" + key,
-			q:p: item,
-			on:click: /*#__PURE__*/ qrl(i_MKOvE0RDw7w, "Parent_component_div_map_button_onClick_MKOvE0RDw7w", [cart])
+			"on:click": /*#__PURE__*/ qrl(i_MKOvE0RDw7w, "Parent_component_div_map_button_onClick_MKOvE0RDw7w", [cart]),
+			"q:p": item
 		}, null, item, 1, null)),
 		/*#__PURE__*/ _jsxSorted("ul", null, null, cart.map((item)=>/*#__PURE__*/ _jsxSorted("li", null, null, /*#__PURE__*/ _jsxSorted("span", null, null, item, 1, null), 3, null)), 1, null)
 	], 1, null);

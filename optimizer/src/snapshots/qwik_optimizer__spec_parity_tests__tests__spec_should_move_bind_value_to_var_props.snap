@@ -42,7 +42,7 @@ export const FieldInput_component_V4XAtJSTRKg = (props)=>{
 	const rest = destructureBindings(props, initialValues);
 	return /*#__PURE__*/ _jsxSplit("input", {
 		..._getVarProps(rest),
-		on:click: /*#__PURE__*/ qrl(i_onClick, "FieldInput_component_input_onClick")
+		"on:click": /*#__PURE__*/ qrl(i_onClick, "FieldInput_component_input_onClick")
 	}, _getConstProps(rest), null, 0, null);
 };
 

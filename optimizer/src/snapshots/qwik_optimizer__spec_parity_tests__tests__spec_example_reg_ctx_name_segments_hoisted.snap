@@ -90,7 +90,7 @@ const i_i40UL9JyQpg = ()=>import("./test.tsx_Works_component_useStyle_i40UL9JyQp
 export const Works_component_t45qL4vNGv0 = (props)=>{
 	/*#__PURE__*/ useStyleQrl(/*#__PURE__*/ qrl(i_i40UL9JyQpg, "Works_component_useStyle_i40UL9JyQpg"));
 	const text = /*#__PURE__*/ useStyleQrl(/*#__PURE__*/ qrl(i_i40UL9JyQpg, "Works_component_useStyle_i40UL9JyQpg"));
-	return /*#__PURE__*/ _jsxSorted("div", { on:click: /*#__PURE__*/ serverQrl(/*#__PURE__*/ qrl(i_OsNoEFc5SM4, "Works_component_div_onClick_server_OsNoEFc5SM4", [text])) }, null, null, 3, null);
+	return /*#__PURE__*/ _jsxSorted("div", { "on:click": /*#__PURE__*/ serverQrl(/*#__PURE__*/ qrl(i_OsNoEFc5SM4, "Works_component_div_onClick_server_OsNoEFc5SM4", [text])) }, null, null, 3, null);
 };
 
 

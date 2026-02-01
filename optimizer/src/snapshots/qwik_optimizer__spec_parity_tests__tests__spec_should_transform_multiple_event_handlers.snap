@@ -33,12 +33,12 @@ const i_mfLVIFxdDiU = ()=>import("./test.tsx_Foo_component_div_map_div_onClick_m
 export const Foo_component_HTDRsvUbLiE = function() {
 	const data = useSignal([]);
 	return /*#__PURE__*/ _jsxSorted("div", null, null, data.value.map((row)=>/*#__PURE__*/ _jsxSorted("div", {
-		q:p: row,
-		on:click: /*#__PURE__*/ qrl(i_mfLVIFxdDiU, "Foo_component_div_map_div_onClick_mfLVIFxdDiU"),
-		on:mouseover: /*#__PURE__*/ qrl(i_ixif7o07rP0, "Foo_component_div_map_div_onMouseOver_ixif7o07rP0")
+		"on:click": /*#__PURE__*/ qrl(i_mfLVIFxdDiU, "Foo_component_div_map_div_onClick_mfLVIFxdDiU"),
+		"on:mouseover": /*#__PURE__*/ qrl(i_ixif7o07rP0, "Foo_component_div_map_div_onMouseOver_ixif7o07rP0"),
+		"q:p": row
 	}, null, /*#__PURE__*/ _jsxSorted("p", {
-		q:p: row,
-		on:click: /*#__PURE__*/ qrl(i_QcT2tClxN5w, "Foo_component_div_map_div_p_onClick_QcT2tClxN5w")
+		"on:click": /*#__PURE__*/ qrl(i_QcT2tClxN5w, "Foo_component_div_map_div_p_onClick_QcT2tClxN5w"),
+		"q:p": row
 	}, null, item.value.id, 1, null), 3, null)), 1, null);
 };
 

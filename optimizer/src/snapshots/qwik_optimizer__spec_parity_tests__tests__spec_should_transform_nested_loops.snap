@@ -38,11 +38,11 @@ export const Foo_component_HTDRsvUbLiE = function() {
 	const data = useSignal([]);
 	const data2 = useSignal([]);
 	return /*#__PURE__*/ _jsxSorted("div", null, null, data.value.map((row)=>/*#__PURE__*/ _jsxSorted("div", {
-		q:p: row,
-		on:click: /*#__PURE__*/ qrl(i_mfLVIFxdDiU, "Foo_component_div_map_div_onClick_mfLVIFxdDiU")
+		"on:click": /*#__PURE__*/ qrl(i_mfLVIFxdDiU, "Foo_component_div_map_div_onClick_mfLVIFxdDiU"),
+		"q:p": row
 	}, null, data2.value.map((item)=>/*#__PURE__*/ _jsxSorted("p", {
-		q:p: item,
-		on:click: /*#__PURE__*/ qrl(i_5OQc040LebY, "Foo_component_div_map_div_map_p_onClick_5OQc040LebY", [row])
+		"on:click": /*#__PURE__*/ qrl(i_5OQc040LebY, "Foo_component_div_map_div_map_p_onClick_5OQc040LebY", [row]),
+		"q:p": item
 	}, null, [
 		row.value.id,
 		"-",

@@ -66,7 +66,7 @@ import { _jsxSorted, qrl } from "@qwik.dev/core";
 const i_onClick = ()=>import("./test.tsx");
 export const App_component_1_w0t0o3QMovU = ()=>{
 	const [state] = useLexicalScope();
-	return /*#__PURE__*/ _jsxSorted("div", { on:click: /*#__PURE__*/ qrl(i_onClick, "App_component_1_div_onClick", [state]) }, null, [
+	return /*#__PURE__*/ _jsxSorted("div", { "on:click": /*#__PURE__*/ qrl(i_onClick, "App_component_1_div_onClick", [state]) }, null, [
 		I2,
 		I3,
 		I4,

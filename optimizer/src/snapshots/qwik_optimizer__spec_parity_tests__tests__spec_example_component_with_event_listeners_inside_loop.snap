@@ -149,8 +149,8 @@ export const App_component_ckEPmXZlub0 = ()=>{
 	const results = useSignal(["foo"]);
 	return /*#__PURE__*/ _jsxSorted("div", null, null, [
 		results.value.map((item)=>/*#__PURE__*/ _jsxSorted("button", {
-			q:p: item,
-			on:click: /*#__PURE__*/ qrl(i_K5Zt4qx8Rig, "App_component_div_map_button_onClick_K5Zt4qx8Rig", [cart])
+			"on:click": /*#__PURE__*/ qrl(i_K5Zt4qx8Rig, "App_component_div_map_button_onClick_K5Zt4qx8Rig", [cart]),
+			"q:p": item
 		}, { id: "second" }, item, 1, null)),
 		loopArrowFn(results.value),
 		loopForI(results.value),

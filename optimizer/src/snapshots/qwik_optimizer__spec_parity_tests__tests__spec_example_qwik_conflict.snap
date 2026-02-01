@@ -90,7 +90,7 @@ export const Foo_component_HTDRsvUbLiE = ()=>{
 	const qwik = /*#__PURE__*/ useStylesQrl(/*#__PURE__*/ qrl(i_pV9TSCBIhw8, "Foo_component_useStyles_pV9TSCBIhw8"));
 	console.log(qwik);
 	const qrl = 23;
-	return /*#__PURE__*/ _jsxSorted("div", { on:click: /*#__PURE__*/ qrl(i_onClick, "Foo_component_div_onClick", [qrl]) }, null, null, 3, null);
+	return /*#__PURE__*/ _jsxSorted("div", { "on:click": /*#__PURE__*/ qrl(i_onClick, "Foo_component_div_onClick", [qrl]) }, null, null, 3, null);
 };
 
 
