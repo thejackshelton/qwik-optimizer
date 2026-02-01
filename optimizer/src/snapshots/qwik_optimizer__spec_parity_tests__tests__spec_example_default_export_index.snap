@@ -16,17 +16,17 @@ export default component$(() => {
 ============================= src/components/mongo/index.tsx ==
 
 import { componentQrl, qrl } from "@qwik.dev/core";
-const i_Hb9awKgAnpI = ()=>import("./index.tsx_component_Hb9awKgAnpI");
-export default /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_Hb9awKgAnpI, "component_Hb9awKgAnpI"));
+const i_Dke0F2YikK4 = ()=>import("./index.tsx_mongo_component_Dke0F2YikK4");
+export default /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_Dke0F2YikK4, "mongo_component_Dke0F2YikK4"));
 
 
 None
-============================= index.tsx_component_Hb9awKgAnpI.tsx (ENTRY POINT)==
+============================= index.tsx_mongo_component_Dke0F2YikK4.tsx (ENTRY POINT)==
 
 import { qrl } from "@qwik.dev/core";
 const i_onClick = ()=>import("./index.tsx");
-export const component_Hb9awKgAnpI = ()=>{
-	return <div on:click={/*#__PURE__*/ qrl(i_onClick, "component_div_onClick")}>
+export const mongo_component_Dke0F2YikK4 = ()=>{
+	return <div on:click={/*#__PURE__*/ qrl(i_onClick, "mongo_component_div_onClick")}>
 		</div>;
 };
 
@@ -35,11 +35,11 @@ None
 /*
 {
   "origin": "src/components/mongo/index.tsx",
-  "name": "component_Hb9awKgAnpI",
+  "name": "mongo_component_Dke0F2YikK4",
   "entry": "entry_segments",
-  "displayName": "index.tsx_component",
-  "hash": "Hb9awKgAnpI",
-  "canonicalFilename": "index.tsx_component_Hb9awKgAnpI",
+  "displayName": "index.tsx_mongo_component",
+  "hash": "Dke0F2YikK4",
+  "canonicalFilename": "index.tsx_mongo_component_Dke0F2YikK4",
   "path": "src/components/mongo",
   "extension": "tsx",
   "parent": null,

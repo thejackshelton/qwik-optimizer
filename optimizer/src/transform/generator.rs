@@ -861,6 +861,33 @@ impl<'a> Traverse<'a, ()> for TransformGenerator<'a> {
         node: &mut ExportDefaultDeclaration<'a>,
         _ctx: &mut TraverseCtx<'a, ()>,
     ) {
+        // Push file_stem onto stack_ctxt AND segment_stack for default exports
+        // (matches qwik-core fold_export_default_expr)
+        // This adds context between filename and component name in displayName
+        let file_stem = self.source_info.rel_path
+            .file_stem()
+            .and_then(|s| s.to_str())
+            .unwrap_or(&self.source_info.file_name)
+            .to_string();
+
+        // If file_stem is "index", use parent folder name instead (matches qwik-core)
+        let context_name = if file_stem == "index" {
+            self.source_info.rel_dir
+                .file_name()
+                .and_then(|n| n.to_str())
+                .map(|s| s.to_string())
+                .unwrap_or(file_stem)
+        } else {
+            file_stem
+        };
+
+        // Push onto stack_ctxt for entry policy
+        self.stack_ctxt.push(context_name.clone());
+
+        // Push onto segment_stack for displayName building
+        let segment = self.new_segment(&context_name);
+        self.segment_stack.push(segment);
+
         let local_name = match &node.declaration {
             ExportDefaultDeclarationKind::FunctionDeclaration(fn_decl) => {
                 if let Some(ident) = &fn_decl.id {
@@ -888,6 +915,16 @@ impl<'a> Traverse<'a, ()> for TransformGenerator<'a> {
             is_default: true,
             source: None,
         });
+    }
+
+    fn exit_export_default_declaration(
+        &mut self,
+        _node: &mut ExportDefaultDeclaration<'a>,
+        _ctx: &mut TraverseCtx<'a, ()>,
+    ) {
+        // Pop file_stem from stack_ctxt and segment_stack (matches qwik-core fold_export_default_expr)
+        self.stack_ctxt.pop();
+        self.segment_stack.pop();
     }
 
     fn enter_arrow_function_expression(

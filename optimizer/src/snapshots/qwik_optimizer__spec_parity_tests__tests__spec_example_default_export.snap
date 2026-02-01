@@ -17,17 +17,17 @@ export default component$(() => {
 ============================= src/routes/_repl/[id]/[[...slug]].js ==
 
 import { componentQrl, qrl } from "@qwik.dev/core";
-const i_9bPxInzOIxw = ()=>import("./[[...slug]].tsx_component_9bPxInzOIxw");
-export default /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_9bPxInzOIxw, "component_9bPxInzOIxw"));
+const i_xfLQfKUZqyM = ()=>import("./[[...slug]].tsx__slug_component_xfLQfKUZqyM");
+export default /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_xfLQfKUZqyM, "_slug_component_xfLQfKUZqyM"));
 
 
 None
-============================= [[...slug]].tsx_component_9bPxInzOIxw.js (ENTRY POINT)==
+============================= [[...slug]].tsx__slug_component_xfLQfKUZqyM.js (ENTRY POINT)==
 
 import { _jsxSorted, qrl } from "@qwik.dev/core";
 const i_onClick = ()=>import("./[[...slug]].tsx");
-export const component_9bPxInzOIxw = ()=>{
-	return /*#__PURE__*/ _jsxSorted("div", { on:click: /*#__PURE__*/ qrl(i_onClick, "component_div_onClick") }, null, null, 3, null);
+export const _slug_component_xfLQfKUZqyM = ()=>{
+	return /*#__PURE__*/ _jsxSorted("div", { on:click: /*#__PURE__*/ qrl(i_onClick, "[[...slug]]_component_div_onClick") }, null, null, 3, null);
 };
 
 
@@ -35,11 +35,11 @@ None
 /*
 {
   "origin": "src/routes/_repl/[id]/[[...slug]].tsx",
-  "name": "component_9bPxInzOIxw",
-  "entry": "./src/routes/_repl/[id]/[[...slug]].tsx_entry_component$",
-  "displayName": "[[...slug]].tsx_component",
-  "hash": "9bPxInzOIxw",
-  "canonicalFilename": "[[...slug]].tsx_component_9bPxInzOIxw",
+  "name": "_slug_component_xfLQfKUZqyM",
+  "entry": "./src/routes/_repl/[id]/[[...slug]].tsx_entry_[[...slug]]",
+  "displayName": "[[...slug]].tsx__slug_component",
+  "hash": "xfLQfKUZqyM",
+  "canonicalFilename": "[[...slug]].tsx__slug_component_xfLQfKUZqyM",
   "path": "src/routes/_repl/[id]",
   "extension": "js",
   "parent": null,

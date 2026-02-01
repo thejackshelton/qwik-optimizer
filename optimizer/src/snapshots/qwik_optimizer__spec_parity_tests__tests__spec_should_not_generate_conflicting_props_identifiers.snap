@@ -19,58 +19,27 @@ return 'hi'
 ============================= test.js ==
 
 import { componentQrl, qrl } from "@qwik.dev/core";
-const i_QryzEgKN0dU = ()=>import("./test.tsx_component_useComputed_QryzEgKN0dU");
-const i_JTJcH3nK8No = ()=>import("./test.tsx_component_useTask_JTJcH3nK8No");
-const i_G7jVUwdBFEM = ()=>import("./test.tsx_component_G7jVUwdBFEM");
-export default /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_G7jVUwdBFEM, "component_G7jVUwdBFEM"));
+const i_T02e7s0RAk8 = ()=>import("./test.tsx_test_component_useComputed_T02e7s0RAk8");
+const i_F6JQKR8P1Ko = ()=>import("./test.tsx_test_component_useTask_F6JQKR8P1Ko");
+const i_3ghsHSPcTK0 = ()=>import("./test.tsx_test_component_3ghsHSPcTK0");
+export default /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_3ghsHSPcTK0, "test_component_3ghsHSPcTK0"));
 
 
 None
-============================= test.tsx_component_G7jVUwdBFEM.js (ENTRY POINT)==
+============================= test.tsx_test_component_useComputed_T02e7s0RAk8.js (ENTRY POINT)==
 
-import { qrl, useComputedQrl, useTaskQrl } from "@qwik.dev/core";
-export const component_G7jVUwdBFEM = ({ color, ...props })=>{
-	/*#__PURE__*/ useComputedQrl(/*#__PURE__*/ qrl(i_QryzEgKN0dU, "component_useComputed_QryzEgKN0dU"));
-	/*#__PURE__*/ useTaskQrl(/*#__PURE__*/ qrl(i_JTJcH3nK8No, "component_useTask_JTJcH3nK8No"));
-	return "hi";
-};
+export const test_component_useComputed_T02e7s0RAk8 = ()=>color;
 
 
 None
 /*
 {
   "origin": "test.tsx",
-  "name": "component_G7jVUwdBFEM",
+  "name": "test_component_useComputed_T02e7s0RAk8",
   "entry": "entry_segments",
-  "displayName": "test.tsx_component",
-  "hash": "G7jVUwdBFEM",
-  "canonicalFilename": "test.tsx_component_G7jVUwdBFEM",
-  "path": "",
-  "extension": "js",
-  "parent": null,
-  "ctxKind": "function",
-  "ctxName": "component$",
-  "captures": false,
-  "loc": [
-    95,
-    198
-  ]
-}
-*/
-============================= test.tsx_component_useComputed_QryzEgKN0dU.js (ENTRY POINT)==
-
-export const component_useComputed_QryzEgKN0dU = ()=>color;
-
-
-None
-/*
-{
-  "origin": "test.tsx",
-  "name": "component_useComputed_QryzEgKN0dU",
-  "entry": "entry_segments",
-  "displayName": "test.tsx_component_useComputed",
-  "hash": "QryzEgKN0dU",
-  "canonicalFilename": "test.tsx_component_useComputed_QryzEgKN0dU",
+  "displayName": "test.tsx_test_component_useComputed",
+  "hash": "T02e7s0RAk8",
+  "canonicalFilename": "test.tsx_test_component_useComputed_T02e7s0RAk8",
   "path": "",
   "extension": "js",
   "parent": "component",
@@ -83,9 +52,9 @@ None
   ]
 }
 */
-============================= test.tsx_component_useTask_JTJcH3nK8No.js (ENTRY POINT)==
+============================= test.tsx_test_component_useTask_F6JQKR8P1Ko.js (ENTRY POINT)==
 
-export const component_useTask_JTJcH3nK8No = ()=>{
+export const test_component_useTask_F6JQKR8P1Ko = ()=>{
 	props.checked;
 };
 
@@ -94,11 +63,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "component_useTask_JTJcH3nK8No",
+  "name": "test_component_useTask_F6JQKR8P1Ko",
   "entry": "entry_segments",
-  "displayName": "test.tsx_component_useTask",
-  "hash": "JTJcH3nK8No",
-  "canonicalFilename": "test.tsx_component_useTask_JTJcH3nK8No",
+  "displayName": "test.tsx_test_component_useTask",
+  "hash": "F6JQKR8P1Ko",
+  "canonicalFilename": "test.tsx_test_component_useTask_F6JQKR8P1Ko",
   "path": "",
   "extension": "js",
   "parent": "component",
@@ -108,6 +77,37 @@ None
   "loc": [
     158,
     182
+  ]
+}
+*/
+============================= test.tsx_test_component_3ghsHSPcTK0.js (ENTRY POINT)==
+
+import { qrl, useComputedQrl, useTaskQrl } from "@qwik.dev/core";
+export const test_component_3ghsHSPcTK0 = ({ color, ...props })=>{
+	/*#__PURE__*/ useComputedQrl(/*#__PURE__*/ qrl(i_T02e7s0RAk8, "test_component_useComputed_T02e7s0RAk8"));
+	/*#__PURE__*/ useTaskQrl(/*#__PURE__*/ qrl(i_F6JQKR8P1Ko, "test_component_useTask_F6JQKR8P1Ko"));
+	return "hi";
+};
+
+
+None
+/*
+{
+  "origin": "test.tsx",
+  "name": "test_component_3ghsHSPcTK0",
+  "entry": "entry_segments",
+  "displayName": "test.tsx_test_component",
+  "hash": "3ghsHSPcTK0",
+  "canonicalFilename": "test.tsx_test_component_3ghsHSPcTK0",
+  "path": "",
+  "extension": "js",
+  "parent": null,
+  "ctxKind": "function",
+  "ctxName": "component$",
+  "captures": false,
+  "loc": [
+    95,
+    198
   ]
 }
 */

@@ -56,64 +56,12 @@ export default component$(() => {
 import { componentQrl, qrl } from "@qwik.dev/core";
 const i_bdBx80StzIk = ()=>import("./test.tsx_Input_component_useTask_bdBx80StzIk");
 const i_BdCmNVLMFOM = ()=>import("./test.tsx_Input_component_BdCmNVLMFOM");
-const i_G7jVUwdBFEM = ()=>import("./test.tsx_component_G7jVUwdBFEM");
+const i_3ghsHSPcTK0 = ()=>import("./test.tsx_test_component_3ghsHSPcTK0");
 export const Input = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_BdCmNVLMFOM, "Input_component_BdCmNVLMFOM"));
-export default /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_G7jVUwdBFEM, "component_G7jVUwdBFEM"));
+export default /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_3ghsHSPcTK0, "test_component_3ghsHSPcTK0"));
 
 
 None
-============================= test.tsx_component_G7jVUwdBFEM.js (ENTRY POINT)==
-
-import { useForm, useForm2 } from "./some-file.ts";
-import { Input } from "./test";
-import { _jsxSorted, qrl, useStore } from "@qwik.dev/core";
-const i_onClick = ()=>import("./test.tsx");
-const i_bdBx80StzIk = ()=>import("./test.tsx_Input_component_useTask_bdBx80StzIk");
-export const component_G7jVUwdBFEM = ()=>{
-	/*#__PURE__*/ useTaskQrl(/*#__PURE__*/ qrl(i_bdBx80StzIk, "Input_component_useTask_bdBx80StzIk", [props]));
-	const [[store2]] = [[useStore({ errors: {} })]];
-	const { store3, math4 } = {
-		store3: useStore({ errors: {} }),
-		math4: Math.random()
-	};
-	const math2 = [Math.random()];
-	const { math3 } = { math3: Math.random() };
-	const [store4] = useForm();
-	const { store5 } = useForm2();
-	return /*#__PURE__*/ _jsxSorted("div", null, null, [/*#__PURE__*/ _jsxSorted("button", { on:click: /*#__PURE__*/ qrl(i_onClick, "component_div_button_onClick") }, null, "click", 3, null), _jsxSorted(Input, {
-		error: store.errors.test,
-		error2: store2.errors.test,
-		error3: store3.errors.test,
-		error4: store4.errors.test,
-		error5: store5.errors.test,
-		math,
-		math3,
-		math4
-	}, { math2 }, null, 3, null)], 3, null);
-};
-
-
-None
-/*
-{
-  "origin": "test.tsx",
-  "name": "component_G7jVUwdBFEM",
-  "entry": null,
-  "displayName": "test.tsx_component",
-  "hash": "G7jVUwdBFEM",
-  "canonicalFilename": "test.tsx_component_G7jVUwdBFEM",
-  "path": "",
-  "extension": "js",
-  "parent": null,
-  "ctxKind": "function",
-  "ctxName": "component$",
-  "captures": false,
-  "loc": [
-    400,
-    1139
-  ]
-}
-*/
 ============================= test.tsx_Input_component_useTask_bdBx80StzIk.js (ENTRY POINT)==
 
 export const Input_component_useTask_bdBx80StzIk = ({ track })=>{
@@ -142,6 +90,58 @@ None
   "loc": [
     225,
     334
+  ]
+}
+*/
+============================= test.tsx_test_component_3ghsHSPcTK0.js (ENTRY POINT)==
+
+import { useForm, useForm2 } from "./some-file.ts";
+import { Input } from "./test";
+import { _jsxSorted, qrl, useStore } from "@qwik.dev/core";
+const i_onClick = ()=>import("./test.tsx");
+const i_bdBx80StzIk = ()=>import("./test.tsx_Input_component_useTask_bdBx80StzIk");
+export const test_component_3ghsHSPcTK0 = ()=>{
+	/*#__PURE__*/ useTaskQrl(/*#__PURE__*/ qrl(i_bdBx80StzIk, "Input_component_useTask_bdBx80StzIk", [props]));
+	const [[store2]] = [[useStore({ errors: {} })]];
+	const { store3, math4 } = {
+		store3: useStore({ errors: {} }),
+		math4: Math.random()
+	};
+	const math2 = [Math.random()];
+	const { math3 } = { math3: Math.random() };
+	const [store4] = useForm();
+	const { store5 } = useForm2();
+	return /*#__PURE__*/ _jsxSorted("div", null, null, [/*#__PURE__*/ _jsxSorted("button", { on:click: /*#__PURE__*/ qrl(i_onClick, "test_component_div_button_onClick") }, null, "click", 3, null), _jsxSorted(Input, {
+		error: store.errors.test,
+		error2: store2.errors.test,
+		error3: store3.errors.test,
+		error4: store4.errors.test,
+		error5: store5.errors.test,
+		math,
+		math3,
+		math4
+	}, { math2 }, null, 3, null)], 3, null);
+};
+
+
+None
+/*
+{
+  "origin": "test.tsx",
+  "name": "test_component_3ghsHSPcTK0",
+  "entry": null,
+  "displayName": "test.tsx_test_component",
+  "hash": "3ghsHSPcTK0",
+  "canonicalFilename": "test.tsx_test_component_3ghsHSPcTK0",
+  "path": "",
+  "extension": "js",
+  "parent": null,
+  "ctxKind": "function",
+  "ctxName": "component$",
+  "captures": false,
+  "loc": [
+    400,
+    1139
   ]
 }
 */
