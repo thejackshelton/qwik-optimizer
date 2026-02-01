@@ -241,6 +241,15 @@ impl<'gen> TransformGenerator<'gen> {
             .unwrap_or(false)
     }
 
+    /// Returns true when entry_strategy is Inline or Hoist.
+    /// When true, generates inlinedQrl instead of qrl with separate segment files.
+    const fn is_inline(&self) -> bool {
+        matches!(
+            self.options.entry_strategy,
+            EntryStrategy::Inline | EntryStrategy::Hoist
+        )
+    }
+
     pub(crate) fn render_segments(&self) -> String {
         let ss: Vec<String> = self
             .segment_stack
