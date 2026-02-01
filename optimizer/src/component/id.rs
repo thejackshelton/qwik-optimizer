@@ -118,15 +118,18 @@ impl Id {
             .strip_prefix("./")
             .unwrap_or(&local_file_name);
 
-        // Include full filename (with extension) in display_name before hashing (matches qwik-core)
-        // qwik-core uses: display_name = format!("{}_{}", &self.options.path_data.file_name, display_name);
-        // display_name_without_file is used for symbol_name in dev mode (e.g., "renderHeader")
-        // display_name is used for hash calculation and canonical filename (e.g., "test.tsx_renderHeader")
+        // display_name_without_file is the component name only (e.g., "test_component")
+        // qwik-core hashes display_name WITHOUT file prefix, then adds file prefix AFTER for output
+        // See qwik-core transform.rs:359 - hashes display_name.as_bytes() where display_name = "test_component"
+        // See qwik-core transform.rs:368 - AFTER hashing: display_name = format!("{}_{}", file_name, display_name)
         let display_name_without_file = display_name;
-        let display_name = format!("{}_{}", source_info.file_name, display_name_without_file);
 
+        // Hash is calculated BEFORE adding file prefix (matches qwik-core order)
         let (sort_order, hash) =
-            Self::calculate_hash(normalized_local_file_name, &display_name, scope);
+            Self::calculate_hash(normalized_local_file_name, &display_name_without_file, scope);
+
+        // Add file prefix AFTER hashing for output (display_name and local_file_name)
+        let display_name = format!("{}_{}", source_info.file_name, display_name_without_file);
 
         // In dev mode, symbol_name is component_hash (without file prefix) - matches qwik-core
         // qwik-core: s_n = if dev { symbol_name.clone() } else { format!("s_{}", hash) }
