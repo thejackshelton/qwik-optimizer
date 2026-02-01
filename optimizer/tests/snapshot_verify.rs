@@ -205,6 +205,23 @@ struct ContentDiff {
     oxc_has_hoisted_qrls: bool,
     qwik_has_inlined_qrls: bool,
     qwik_has_hoisted_qrls: bool,
+    oxc_attribute_formats: AttributeFormats,
+    qwik_attribute_formats: AttributeFormats,
+}
+
+/// Attribute quoting format detection
+///
+/// JavaScript object keys can be written as identifiers (unquoted) or strings (quoted):
+/// - Unquoted: `{ q:p: row }` - identifier style, OXC produces this
+/// - Quoted: `{ "q:p": row }` - string literal style, qwik-core produces this
+///
+/// Both are valid JavaScript but represent different code generation approaches.
+#[derive(Debug, Default, Clone)]
+struct AttributeFormats {
+    unquoted_qp: bool,       // q:p: (OXC style)
+    quoted_qp: bool,         // "q:p": (qwik-core style)
+    unquoted_on_event: bool, // on:click: (OXC style)
+    quoted_on_event: bool,   // "on:click": (qwik-core style)
 }
 
 impl ContentDiff {
@@ -216,6 +233,22 @@ impl ContentDiff {
         // OXC inlines QRLs, qwik-core hoists them to const declarations
         (self.oxc_has_inlined_qrls && self.qwik_has_hoisted_qrls)
             || (self.oxc_has_hoisted_qrls && self.qwik_has_inlined_qrls)
+    }
+
+    fn has_attribute_format_mismatch(&self) -> bool {
+        // Check if q:p quoting differs
+        let qp_mismatch = (self.oxc_attribute_formats.unquoted_qp
+            && self.qwik_attribute_formats.quoted_qp)
+            || (self.oxc_attribute_formats.quoted_qp
+                && self.qwik_attribute_formats.unquoted_qp);
+
+        // Check if on:event quoting differs
+        let on_event_mismatch = (self.oxc_attribute_formats.unquoted_on_event
+            && self.qwik_attribute_formats.quoted_on_event)
+            || (self.oxc_attribute_formats.quoted_on_event
+                && self.qwik_attribute_formats.unquoted_on_event);
+
+        qp_mismatch || on_event_mismatch
     }
 }
 
@@ -262,6 +295,8 @@ fn compare_file_structures(
             oxc_has_hoisted_qrls: has_hoisted_qrls(oxc_content),
             qwik_has_inlined_qrls: has_inlined_qrls(qwik_content),
             qwik_has_hoisted_qrls: has_hoisted_qrls(qwik_content),
+            oxc_attribute_formats: detect_attribute_formats(oxc_content),
+            qwik_attribute_formats: detect_attribute_formats(qwik_content),
         };
 
         content_diffs.insert(filename.clone(), diff);
@@ -312,6 +347,39 @@ fn has_hoisted_qrls(content: &str) -> bool {
         const_qrl_re.is_match(before_return)
     } else {
         false
+    }
+}
+
+/// Detect attribute quoting formats in code content
+///
+/// JavaScript object keys containing colons (like `q:p` or `on:click`) can be written:
+/// - As identifiers (unquoted): `{ q:p: row }` - requires colons at end
+/// - As string literals (quoted): `{ "q:p": row }` - standard object syntax
+///
+/// OXC produces unquoted keys, qwik-core produces quoted keys.
+/// Both are valid JavaScript but represent different code generation approaches.
+fn detect_attribute_formats(content: &str) -> AttributeFormats {
+    // Unquoted q:p: (identifier style with trailing colon for value)
+    // Pattern: q:p: followed by space or identifier character
+    let unquoted_qp_re = Regex::new(r"\bq:p:\s").unwrap();
+
+    // Quoted "q:p": (string literal style)
+    // Pattern: "q:p": with quotes around the key
+    let quoted_qp_re = Regex::new(r#""q:p":"#).unwrap();
+
+    // Unquoted on:xxx: (identifier style with trailing colon for value)
+    // Pattern: on: followed by word characters, then colon and space
+    let unquoted_on_event_re = Regex::new(r"\bon:\w+:\s").unwrap();
+
+    // Quoted "on:xxx": (string literal style)
+    // Pattern: "on:xxx": with quotes around the key
+    let quoted_on_event_re = Regex::new(r#""on:\w+":"#).unwrap();
+
+    AttributeFormats {
+        unquoted_qp: unquoted_qp_re.is_match(content),
+        quoted_qp: quoted_qp_re.is_match(content),
+        unquoted_on_event: unquoted_on_event_re.is_match(content),
+        quoted_on_event: quoted_on_event_re.is_match(content),
     }
 }
 
@@ -1069,5 +1137,74 @@ import { componentQrl } from "@qwik.dev/core";
     assert!(
         comparison.files_only_in_qwik.is_empty(),
         "Should have no qwik-only files"
+    );
+}
+
+#[test]
+fn test_detect_attribute_formats() {
+    // OXC-style: unquoted keys with trailing colon
+    let oxc_style_content = r#"
+return /*#__PURE__*/ _jsxSorted("div", {
+    q:p: row,
+    on:click: /*#__PURE__*/ qrl(i_click, "click_handler")
+}, null, "Hello", 1, null);
+"#;
+
+    let oxc_formats = detect_attribute_formats(oxc_style_content);
+    assert!(
+        oxc_formats.unquoted_qp,
+        "Should detect unquoted q:p: in OXC style"
+    );
+    assert!(
+        !oxc_formats.quoted_qp,
+        "Should NOT detect quoted \"q:p\" in OXC style"
+    );
+    assert!(
+        oxc_formats.unquoted_on_event,
+        "Should detect unquoted on:click: in OXC style"
+    );
+    assert!(
+        !oxc_formats.quoted_on_event,
+        "Should NOT detect quoted \"on:click\" in OXC style"
+    );
+
+    // qwik-core-style: quoted keys
+    let qwik_style_content = r#"
+return /*#__PURE__*/ _jsxSorted("div", {
+    "on:click": click_handler,
+    "q:p": row
+}, null, "Hello", 1, null);
+"#;
+
+    let qwik_formats = detect_attribute_formats(qwik_style_content);
+    assert!(
+        !qwik_formats.unquoted_qp,
+        "Should NOT detect unquoted q:p: in qwik-core style"
+    );
+    assert!(
+        qwik_formats.quoted_qp,
+        "Should detect quoted \"q:p\" in qwik-core style"
+    );
+    assert!(
+        !qwik_formats.unquoted_on_event,
+        "Should NOT detect unquoted on:click: in qwik-core style"
+    );
+    assert!(
+        qwik_formats.quoted_on_event,
+        "Should detect quoted \"on:click\" in qwik-core style"
+    );
+
+    // Test other event handlers (on:input, on:keyup, etc.)
+    let multi_event_content = r#"
+return /*#__PURE__*/ _jsxSorted("input", {
+    on:input: /*#__PURE__*/ qrl(i_input, "handler"),
+    on:keyup: /*#__PURE__*/ qrl(i_keyup, "handler")
+}, null, null, 1, null);
+"#;
+
+    let multi_formats = detect_attribute_formats(multi_event_content);
+    assert!(
+        multi_formats.unquoted_on_event,
+        "Should detect unquoted on:input and on:keyup"
     );
 }
