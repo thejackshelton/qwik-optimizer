@@ -57,7 +57,7 @@ None
 */
 ============================= test.tsx_Foo_component_Inner_component_AuJ9mTBx5YA.js (ENTRY POINT)==
 
-import { _fnSignal, _jsxSorted, qrl } from "@qwik.dev/core";
+import { _fnSignal, _jsxSorted } from "@qwik.dev/core";
 const i_htbkkW8S4e0 = ()=>import("./test.tsx_Foo_component_Inner_component_div_map_p_onClick_htbkkW8S4e0");
 const _hf0 = (p0)=>p0.value.id;
 const _hf0_str = "p0.value.id";

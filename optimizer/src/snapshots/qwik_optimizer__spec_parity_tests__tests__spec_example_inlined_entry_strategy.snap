@@ -28,104 +28,23 @@ export const Child = component$(() => {
 
 ============================= test.tsx ==
 
-import { componentQrl, qrl } from "@qwik.dev/core";
-const i_qBZTuFM0160 = ()=>import("./test.tsx_Child_component_useStyles_qBZTuFM0160");
-const i_0IGFPOyJmQA = ()=>import("./test.tsx_Child_component_useBrowserVisibleTask_0IGFPOyJmQA");
-const i_9GyF01GDKqw = ()=>import("./test.tsx_Child_component_9GyF01GDKqw");
-export const Child = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_9GyF01GDKqw, "Child_component_9GyF01GDKqw"));
-
-
-None
-============================= test.tsx_Child_component_useBrowserVisibleTask_0IGFPOyJmQA.tsx (ENTRY POINT)==
-
 import { thing } from "./sibling";
-export const Child_component_useBrowserVisibleTask_0IGFPOyJmQA = ()=>{
-	const [state] = useLexicalScope();
-	state.count = thing.doStuff() + import("./sibling");
-};
-
-
-None
-/*
-{
-  "origin": "test.tsx",
-  "name": "Child_component_useBrowserVisibleTask_0IGFPOyJmQA",
-  "entry": "entry_segments",
-  "displayName": "test.tsx_Child_component_useBrowserVisibleTask",
-  "hash": "0IGFPOyJmQA",
-  "canonicalFilename": "test.tsx_Child_component_useBrowserVisibleTask_0IGFPOyJmQA",
-  "path": "",
-  "extension": "tsx",
-  "parent": "component",
-  "ctxKind": "function",
-  "ctxName": "useBrowserVisibleTask$",
-  "captures": true,
-  "loc": [
-    316,
-    381
-  ]
-}
-*/
-============================= test.tsx_Child_component_9GyF01GDKqw.tsx (ENTRY POINT)==
-
-const i_0IGFPOyJmQA = ()=>import("./test.tsx_Child_component_useBrowserVisibleTask_0IGFPOyJmQA");
-const i_qBZTuFM0160 = ()=>import("./test.tsx_Child_component_useStyles_qBZTuFM0160");
-export const Child_component_9GyF01GDKqw = ()=>{
-	/*#__PURE__*/ useStylesQrl(/*#__PURE__*/ qrl(i_qBZTuFM0160, "Child_component_useStyles_qBZTuFM0160"));
-	const state = /*#__PURE__*/ useStylesQrl(/*#__PURE__*/ qrl(i_qBZTuFM0160, "Child_component_useStyles_qBZTuFM0160"));
-	/*#__PURE__*/ useBrowserVisibleTaskQrl(/*#__PURE__*/ qrl(i_0IGFPOyJmQA, "Child_component_useBrowserVisibleTask_0IGFPOyJmQA", [state]));
-	return <div on:click={/*#__PURE__*/ useBrowserVisibleTaskQrl(/*#__PURE__*/ qrl(i_0IGFPOyJmQA, "Child_component_useBrowserVisibleTask_0IGFPOyJmQA", [state]))}>
+import { componentQrl, inlinedQrl, useBrowserVisibleTaskQrl, useLexicalScope, useStore, useStylesQrl } from "@qwik.dev/core";
+import mongodb from "mongodb";
+export const Child = /*#__PURE__*/ componentQrl(/*#__PURE__*/ inlinedQrl(()=>{
+	/*#__PURE__*/ useStylesQrl(/*#__PURE__*/ inlinedQrl("somestring", "Child_component_useStyles_qBZTuFM0160"));
+	const state = useStore({ count: 0 });
+	// Double count watch
+	/*#__PURE__*/ useBrowserVisibleTaskQrl(/*#__PURE__*/ inlinedQrl(()=>{
+		const [state] = useLexicalScope();
+		state.count = thing.doStuff() + import("./sibling");
+	}, "Child_component_useBrowserVisibleTask_0IGFPOyJmQA", [state]));
+	return <div on:click={/*#__PURE__*/ inlinedQrl(()=>console.log(mongodb), "Child_component_div_onClick_elliVSnAiOQ")}>
 		</div>;
-};
+}, "Child_component_9GyF01GDKqw"));
 
 
 None
-/*
-{
-  "origin": "test.tsx",
-  "name": "Child_component_9GyF01GDKqw",
-  "entry": "entry_segments",
-  "displayName": "test.tsx_Child_component",
-  "hash": "9GyF01GDKqw",
-  "canonicalFilename": "test.tsx_Child_component_9GyF01GDKqw",
-  "path": "",
-  "extension": "tsx",
-  "parent": null,
-  "ctxKind": "function",
-  "ctxName": "component$",
-  "captures": false,
-  "loc": [
-    190,
-    455
-  ]
-}
-*/
-============================= test.tsx_Child_component_useStyles_qBZTuFM0160.tsx (ENTRY POINT)==
-
-export const Child_component_useStyles_qBZTuFM0160 = "somestring";
-
-
-None
-/*
-{
-  "origin": "test.tsx",
-  "name": "Child_component_useStyles_qBZTuFM0160",
-  "entry": "entry_segments",
-  "displayName": "test.tsx_Child_component_useStyles",
-  "hash": "qBZTuFM0160",
-  "canonicalFilename": "test.tsx_Child_component_useStyles_qBZTuFM0160",
-  "path": "",
-  "extension": "tsx",
-  "parent": "component",
-  "ctxKind": "function",
-  "ctxName": "useStyles$",
-  "captures": false,
-  "loc": [
-    211,
-    223
-  ]
-}
-*/
 == DIAGNOSTICS ==
 
 []

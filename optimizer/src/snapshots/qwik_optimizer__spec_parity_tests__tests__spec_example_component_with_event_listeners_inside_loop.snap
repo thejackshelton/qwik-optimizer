@@ -142,7 +142,7 @@ None
 */
 ============================= test.tsx_App_component_ckEPmXZlub0.js (ENTRY POINT)==
 
-import { _jsxSorted, qrl, useSignal, useStore } from "@qwik.dev/core";
+import { _jsxSorted, useSignal, useStore } from "@qwik.dev/core";
 const i_K5Zt4qx8Rig = ()=>import("./test.tsx_App_component_div_map_button_onClick_K5Zt4qx8Rig");
 export const App_component_ckEPmXZlub0 = ()=>{
 	const cart = useStore([]);

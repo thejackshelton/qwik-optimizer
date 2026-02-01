@@ -24,17 +24,9 @@ export const Greeter = component$(() => {
 
 ============================= test.js ==
 
-import { componentQrl, qrl } from "@qwik.dev/core";
-const i_n7HuG2hhU0Q = ()=>import("./test.tsx_Greeter_component_n7HuG2hhU0Q");
-export const Greeter = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_n7HuG2hhU0Q, "s_n7HuG2hhU0Q"));
-
-
-None
-============================= test.tsx_Greeter_component_n7HuG2hhU0Q.js (ENTRY POINT)==
-
-import { _jsxSorted } from "@qwik.dev/core";
+import { _chk, _jsxSorted, _val, _wrapProp, componentQrl, inlinedQrl } from "@qwik.dev/core";
 import { Fragment as _Fragment } from "@qwik.dev/core/jsx-runtime";
-export const s_n7HuG2hhU0Q = ()=>{
+export const Greeter = /*#__PURE__*/ componentQrl(/*#__PURE__*/ inlinedQrl(()=>{
 	const value = useSignal(0);
 	const checked = useSignal(false);
 	const stuff = useSignal();
@@ -51,30 +43,10 @@ export const s_n7HuG2hhU0Q = ()=>{
 		/*#__PURE__*/ _jsxSorted("div", null, null, value, 1, null),
 		/*#__PURE__*/ _jsxSorted("div", null, null, _wrapProp(value), 1, null)
 	], 3, null);
-};
+}, "Greeter_component_n7HuG2hhU0Q"));
 
 
 None
-/*
-{
-  "origin": "test.tsx",
-  "name": "s_n7HuG2hhU0Q",
-  "entry": "entry_segments",
-  "displayName": "test.tsx_Greeter_component",
-  "hash": "n7HuG2hhU0Q",
-  "canonicalFilename": "test.tsx_Greeter_component_n7HuG2hhU0Q",
-  "path": "",
-  "extension": "js",
-  "parent": null,
-  "ctxKind": "function",
-  "ctxName": "component$",
-  "captures": false,
-  "loc": [
-    83,
-    359
-  ]
-}
-*/
 == DIAGNOSTICS ==
 
 []

@@ -27,15 +27,8 @@ export const Issue3561 = component$(() => {
 
 ============================= test.tsx ==
 
-import { componentQrl, qrl } from "@qwik.dev/core";
-const i_hHTw654BZB8 = ()=>import("./test.tsx_Issue3561_component_hHTw654BZB8");
-export const Issue3561 = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_hHTw654BZB8, "Issue3561_component_hHTw654BZB8"));
-
-
-None
-============================= test.tsx_Issue3561_component_hHTw654BZB8.tsx (ENTRY POINT)==
-
-export const Issue3561_component_hHTw654BZB8 = ()=>{
+import { componentQrl, inlinedQrl } from "@qwik.dev/core";
+export const Issue3561 = /*#__PURE__*/ componentQrl(/*#__PURE__*/ inlinedQrl(()=>{
 	const props = useStore({ product: { currentVariant: {
 		variantImage: "image",
 		variantNumber: "number",
@@ -44,30 +37,10 @@ export const Issue3561_component_hHTw654BZB8 = ()=>{
 	const { currentVariant: { variantImage, variantNumber, setContents } = {} } = props.product;
 	console.log(variantImage, variantNumber, setContents);
 	return <p></p>;
-};
+}, "Issue3561_component_hHTw654BZB8"));
 
 
 None
-/*
-{
-  "origin": "test.tsx",
-  "name": "Issue3561_component_hHTw654BZB8",
-  "entry": "entry_segments",
-  "displayName": "test.tsx_Issue3561_component",
-  "hash": "hHTw654BZB8",
-  "canonicalFilename": "test.tsx_Issue3561_component_hHTw654BZB8",
-  "path": "",
-  "extension": "tsx",
-  "parent": null,
-  "ctxKind": "function",
-  "ctxName": "component$",
-  "captures": false,
-  "loc": [
-    82,
-    420
-  ]
-}
-*/
 == DIAGNOSTICS ==
 
 []

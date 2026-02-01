@@ -18,45 +18,17 @@ export const Issue3795 = component$(() => {
 
 ============================= test.js ==
 
-import { componentQrl, qrl } from "@qwik.dev/core";
-const i_wsE8beycatI = ()=>import("./test.tsx_Issue3795_component_wsE8beycatI");
-export const Issue3795 = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_wsE8beycatI, "Issue3795_component_wsE8beycatI"));
-
-
-None
-============================= test.tsx_Issue3795_component_wsE8beycatI.js (ENTRY POINT)==
-
-import { _jsxSorted } from "@qwik.dev/core";
-export const Issue3795_component_wsE8beycatI = ()=>{
+import { _jsxSorted, componentQrl, inlinedQrl } from "@qwik.dev/core";
+export const Issue3795 = /*#__PURE__*/ componentQrl(/*#__PURE__*/ inlinedQrl(()=>{
 	let base = "foo";
 	const firstAssignment = base;
 	base += "bar";
 	const secondAssignment = base;
 	return /*#__PURE__*/ _jsxSorted("div", null, { id: "issue-3795-result" }, [firstAssignment, secondAssignment], 1, null);
-};
+}, "Issue3795_component_wsE8beycatI"));
 
 
 None
-/*
-{
-  "origin": "test.tsx",
-  "name": "Issue3795_component_wsE8beycatI",
-  "entry": "entry_segments",
-  "displayName": "test.tsx_Issue3795_component",
-  "hash": "wsE8beycatI",
-  "canonicalFilename": "test.tsx_Issue3795_component_wsE8beycatI",
-  "path": "",
-  "extension": "js",
-  "parent": null,
-  "ctxKind": "function",
-  "ctxName": "component$",
-  "captures": false,
-  "loc": [
-    82,
-    276
-  ]
-}
-*/
 == DIAGNOSTICS ==
 
 []

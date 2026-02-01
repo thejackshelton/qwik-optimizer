@@ -243,7 +243,7 @@ impl<'gen> TransformGenerator<'gen> {
 
     /// Returns true when entry_strategy is Inline or Hoist.
     /// When true, generates inlinedQrl instead of qrl with separate segment files.
-    const fn is_inline(&self) -> bool {
+    pub(crate) const fn is_inline(&self) -> bool {
         matches!(
             self.options.entry_strategy,
             EntryStrategy::Inline | EntryStrategy::Hoist

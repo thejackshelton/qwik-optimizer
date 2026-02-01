@@ -440,7 +440,7 @@ mod tests {
         .unwrap()
     }
 
-    /// Test InlineStrategy groups all segments into "entry_segments"
+    /// Test InlineStrategy uses inlinedQrl and keeps code in main file (no separate segments)
     #[test]
     fn test_entry_strategy_inline() {
         let code = r#"
@@ -452,21 +452,26 @@ mod tests {
 
         let result = transform_with_strategy(code, EntryStrategy::Inline);
 
+        // InlineStrategy should NOT create separate segment files
+        // Code stays in the main file using inlinedQrl
         let segments: Vec<_> = result
             .modules
             .iter()
             .filter_map(|m| m.segment.as_ref())
             .collect();
 
-        assert!(!segments.is_empty(), "Should have segments");
-        for segment in segments {
-            assert_eq!(
-                segment.entry,
-                Some("entry_segments".to_string()),
-                "InlineStrategy should group all to entry_segments, got {:?}",
-                segment.entry
-            );
-        }
+        assert!(
+            segments.is_empty(),
+            "InlineStrategy should not create separate segments, found {} segments",
+            segments.len()
+        );
+
+        // Verify the main module uses inlinedQrl
+        let main_module = result.modules.first().expect("Should have main module");
+        assert!(
+            main_module.code.contains("inlinedQrl"),
+            "InlineStrategy should use inlinedQrl in main file"
+        );
     }
 
     /// Test SingleStrategy groups all segments into "entry_segments"

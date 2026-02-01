@@ -58,18 +58,10 @@ export const App = component$((props) => {
 
 ============================= test.js ==
 
-import { componentQrl, qrl } from "@qwik.dev/core";
-const i_ckEPmXZlub0 = ()=>import("./test.tsx_App_component_ckEPmXZlub0");
-export const App = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_ckEPmXZlub0, "App_component_ckEPmXZlub0"));
-
-
-None
-============================= test.tsx_App_component_ckEPmXZlub0.js (ENTRY POINT)==
-
 import { dep } from "./file";
 import styles from "./styles.module.css";
-import { _jsxSorted, mutable, useStore } from "@qwik.dev/core";
-export const App_component_ckEPmXZlub0 = (props)=>{
+import { _jsxSorted, _wrapProp, componentQrl, inlinedQrl, mutable, useStore } from "@qwik.dev/core";
+export const App = /*#__PURE__*/ componentQrl(/*#__PURE__*/ inlinedQrl((props)=>{
 	const signal = useSignal(0);
 	const store = useStore({});
 	const count = props.counter.count;
@@ -105,30 +97,10 @@ export const App_component_ckEPmXZlub0 = (props)=>{
 		signal,
 		dep
 	}, null, 3, null);
-};
+}, "App_component_ckEPmXZlub0"));
 
 
 None
-/*
-{
-  "origin": "test.tsx",
-  "name": "App_component_ckEPmXZlub0",
-  "entry": "entry_segments",
-  "displayName": "test.tsx_App_component",
-  "hash": "ckEPmXZlub0",
-  "canonicalFilename": "test.tsx_App_component_ckEPmXZlub0",
-  "path": "",
-  "extension": "js",
-  "parent": null,
-  "ctxKind": "function",
-  "ctxName": "component$",
-  "captures": false,
-  "loc": [
-    166,
-    1164
-  ]
-}
-*/
 == DIAGNOSTICS ==
 
 []

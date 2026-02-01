@@ -21,45 +21,18 @@ export const Works = component$((props) => {
 
 ============================= test.tsx ==
 
-import { componentQrl, qrl } from "@qwik.dev/core";
-const i_t45qL4vNGv0 = ()=>import("./test.tsx_Works_component_t45qL4vNGv0");
-export const Works = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_t45qL4vNGv0, "Works_component_t45qL4vNGv0"));
-
-
-None
-============================= test.tsx_Works_component_t45qL4vNGv0.tsx (ENTRY POINT)==
-
-export const Works_component_t45qL4vNGv0 = (props)=>{
+import { componentQrl, inlinedQrl } from "@qwik.dev/core";
+export const Works = /*#__PURE__*/ componentQrl(/*#__PURE__*/ inlinedQrl((props)=>{
 	const { countNested } = useStore({ value: { count: 0 } }).value;
 	const countNested2 = countNested;
 	const { hello } = countNested2;
 	const bye = hello.bye;
 	const { ciao } = bye.italian;
 	return <div ciao={ciao}>{foo}</div>;
-};
+}, "Works_component_t45qL4vNGv0"));
 
 
 None
-/*
-{
-  "origin": "test.tsx",
-  "name": "Works_component_t45qL4vNGv0",
-  "entry": "entry_segments",
-  "displayName": "test.tsx_Works_component",
-  "hash": "t45qL4vNGv0",
-  "canonicalFilename": "test.tsx_Works_component_t45qL4vNGv0",
-  "path": "",
-  "extension": "tsx",
-  "parent": null,
-  "ctxKind": "function",
-  "ctxName": "component$",
-  "captures": false,
-  "loc": [
-    121,
-    360
-  ]
-}
-*/
 == DIAGNOSTICS ==
 
 []

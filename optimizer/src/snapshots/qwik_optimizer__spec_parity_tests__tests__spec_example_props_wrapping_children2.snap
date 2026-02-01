@@ -23,16 +23,8 @@ export const Works = component$((props) => {
 
 ============================= test.js ==
 
-import { componentQrl, qrl } from "@qwik.dev/core";
-const i_t45qL4vNGv0 = ()=>import("./test.tsx_Works_component_t45qL4vNGv0");
-export const Works = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_t45qL4vNGv0, "Works_component_t45qL4vNGv0"));
-
-
-None
-============================= test.tsx_Works_component_t45qL4vNGv0.js (ENTRY POINT)==
-
-import { _jsxSorted, useSignal } from "@qwik.dev/core";
-export const Works_component_t45qL4vNGv0 = (props)=>{
+import { _jsxSorted, componentQrl, inlinedQrl, useSignal } from "@qwik.dev/core";
+export const Works = /*#__PURE__*/ componentQrl(/*#__PURE__*/ inlinedQrl((props)=>{
 	let fromLocal = useSignal(0);
 	return /*#__PURE__*/ _jsxSorted("div", null, null, [
 		"before-",
@@ -47,30 +39,10 @@ export const Works_component_t45qL4vNGv0 = (props)=>{
 		},
 		"-after"
 	], 1, null);
-};
+}, "Works_component_t45qL4vNGv0"));
 
 
 None
-/*
-{
-  "origin": "test.tsx",
-  "name": "Works_component_t45qL4vNGv0",
-  "entry": "entry_segments",
-  "displayName": "test.tsx_Works_component",
-  "hash": "t45qL4vNGv0",
-  "canonicalFilename": "test.tsx_Works_component_t45qL4vNGv0",
-  "path": "",
-  "extension": "js",
-  "parent": null,
-  "ctxKind": "function",
-  "ctxName": "component$",
-  "captures": false,
-  "loc": [
-    91,
-    360
-  ]
-}
-*/
 == DIAGNOSTICS ==
 
 []

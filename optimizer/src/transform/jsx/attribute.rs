@@ -351,7 +351,70 @@ pub fn exit_jsx_attribute<'a>(
                                 }
                             }
                         }
+                    } else if gen.is_inline() {
+                        // Inline/Hoist strategy: generate inlinedQrl, keep code in main file
+                        let hash = qrl_module::compute_hash(
+                            &gen.source_info.rel_path,
+                            &display_name,
+                            gen.scope.as_deref(),
+                        );
+                        let symbol_name = format!("{}_{}", display_name, hash);
+
+                        // Transform the function expression to add useLexicalScope if captures exist
+                        let transformed_expr = if !lexical_captures.is_empty() {
+                            use crate::code_move::transform_function_expr;
+                            let expr_cloned = expr.clone_in(ctx.ast.allocator);
+                            transform_function_expr(expr_cloned, &lexical_captures, ctx.ast.allocator)
+                        } else {
+                            expr.clone_in(ctx.ast.allocator)
+                        };
+
+                        // Build inlinedQrl(expr, "symbol_name") or inlinedQrl(expr, "symbol_name", [captures])
+                        let mut args: oxc_allocator::Vec<'a, Argument<'a>> = if lexical_captures.is_empty() {
+                            ctx.ast.vec_with_capacity(2)
+                        } else {
+                            ctx.ast.vec_with_capacity(3)
+                        };
+
+                        args.push(Argument::from(transformed_expr));
+                        args.push(Argument::from(ctx.ast.expression_string_literal(
+                            SPAN,
+                            ctx.ast.atom(&symbol_name),
+                            None,
+                        )));
+
+                        if !lexical_captures.is_empty() {
+                            let mut elements: oxc_allocator::Vec<'a, ArrayExpressionElement<'a>> =
+                                ctx.ast.vec_with_capacity(lexical_captures.len());
+                            for (name, _scope_id) in &lexical_captures {
+                                let ident_ref = ctx.ast.expression_identifier(SPAN, ctx.ast.atom(name.as_str()));
+                                elements.push(ArrayExpressionElement::from(ident_ref));
+                            }
+                            let captures_array = ctx.ast.expression_array(SPAN, elements);
+                            args.push(Argument::from(captures_array));
+
+                            // Add useLexicalScope import
+                            if let Some(import_set) = gen.import_stack.last_mut() {
+                                import_set.insert(Import::use_lexical_scope());
+                            }
+                        }
+
+                        // Create inlinedQrl call with PURE annotation
+                        let inlined_qrl_call = ctx.ast.call_expression_with_pure(
+                            SPAN,
+                            ctx.ast.expression_identifier(SPAN, "inlinedQrl"),
+                            NONE,
+                            args,
+                            false,
+                            true, // pure: true
+                        );
+
+                        gen.needs_inlined_qrl_import = true;
+
+                        container.expression =
+                            JSXExpression::from(Expression::CallExpression(ctx.ast.alloc(inlined_qrl_call)));
                     } else {
+                        // Segment strategy: generate qrl with separate segment files
                         let qrl = Qrl::new_with_iteration_params(
                             gen.source_info.rel_path.clone(),
                             &display_name,
@@ -370,10 +433,10 @@ pub fn exit_jsx_attribute<'a>(
 
                         container.expression =
                             JSXExpression::from(Expression::CallExpression(ctx.ast.alloc(call_expr)));
-                    }
 
-                    if let Some(import_set) = gen.import_stack.last_mut() {
-                        import_set.insert(Import::qrl());
+                        if let Some(import_set) = gen.import_stack.last_mut() {
+                            import_set.insert(Import::qrl());
+                        }
                     }
                 }
             }

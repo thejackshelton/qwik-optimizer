@@ -90,7 +90,7 @@ None
 */
 ============================= test.tsx_App_component_ckEPmXZlub0.js (ENTRY POINT)==
 
-import { _fnSignal, _jsxSorted, qrl, useSignal } from "@qwik.dev/core";
+import { _fnSignal, _jsxSorted, useSignal } from "@qwik.dev/core";
 const i_oAuQ8nCHRUg = ()=>import("./test.tsx_App_component_div_map_tr_td_a_onClick_1_oAuQ8nCHRUg");
 const i_mlLHNlVHR0g = ()=>import("./test.tsx_App_component_div_map_tr_td_a_onClick_mlLHNlVHR0g");
 const _hf0 = (p0)=>p0.value.selected.value ? "danger" : "";

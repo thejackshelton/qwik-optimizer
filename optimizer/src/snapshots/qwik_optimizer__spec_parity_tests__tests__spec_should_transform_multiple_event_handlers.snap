@@ -26,7 +26,7 @@ const i_HTDRsvUbLiE = ()=>import("./test.tsx_Foo_component_HTDRsvUbLiE");
 None
 ============================= test.tsx_Foo_component_HTDRsvUbLiE.js (ENTRY POINT)==
 
-import { _jsxSorted, qrl, useSignal } from "@qwik.dev/core";
+import { _jsxSorted, useSignal } from "@qwik.dev/core";
 const i_QcT2tClxN5w = ()=>import("./test.tsx_Foo_component_div_map_div_p_onClick_QcT2tClxN5w");
 const i_ixif7o07rP0 = ()=>import("./test.tsx_Foo_component_div_map_div_onMouseOver_ixif7o07rP0");
 const i_mfLVIFxdDiU = ()=>import("./test.tsx_Foo_component_div_map_div_onClick_mfLVIFxdDiU");
