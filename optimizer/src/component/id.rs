@@ -118,14 +118,9 @@ impl Id {
             .strip_prefix("./")
             .unwrap_or(&local_file_name);
 
-        // Include file stem in display_name before hashing (matches qwik-core)
-        // qwik-core builds display_name from stack context which includes filename
-        let file_stem = source_info
-            .file_name
-            .rsplit('.')
-            .last()
-            .unwrap_or(&source_info.file_name);
-        let display_name = format!("{}_{}", file_stem, display_name);
+        // Include full filename (with extension) in display_name before hashing (matches qwik-core)
+        // qwik-core uses: display_name = format!("{}_{}", &self.options.path_data.file_name, display_name);
+        let display_name = format!("{}_{}", source_info.file_name, display_name);
 
         let (sort_order, hash) =
             Self::calculate_hash(normalized_local_file_name, &display_name, scope);
