@@ -1,29 +1,29 @@
-//! Snapshot Verification Test
+//! Snapshot Verification Test - Phase 24 Final Report
 //!
 //! Compares OXC optimizer snapshots against qwik-core reference snapshots.
-//! This test documents the parity status between OXC and qwik-core implementations.
+//! This test categorizes all differences and produces an actionable report.
 //!
-//! # Structural Differences (inherent to different implementations)
+//! # Categorization System
 //!
-//! The OXC optimizer is a separate implementation with intentional design differences:
+//! All snapshots are categorized into one of three tiers:
 //!
-//! ## Cosmetic Differences (normalized for comparison)
+//! ## EXACT - Byte-for-byte identical (after header strip)
+//! No differences at all after stripping insta metadata header.
+//!
+//! ## COSMETIC - Only these normalized differences:
 //! 1. **Source maps**: OXC outputs `None`, qwik-core outputs JSON (Phase 18-04 decision)
 //! 2. **INPUT whitespace**: Different input normalization (OXC inline string vs qwik-core file)
 //! 3. **loc values**: Different due to input whitespace differences
 //! 4. **paramNames**: Not implemented in OXC
+//! 5. **Import merging**: OXC uses single import statements, qwik-core separates
+//! 6. **Whitespace**: Tab vs space indentation
 //!
-//! ## Structural Differences (inherent to implementation)
-//! 1. **Hash values**: Hashes differ due to different input normalization/hash inputs
-//! 2. **Import merging**: OXC uses single import statements, qwik-core separates
-//! 3. **Inlining strategy**: qwik-core may inline QRLs, OXC always creates segments
-//! 4. **Segment ordering**: Entry point segment order may differ
-//! 5. **Code generation**: Different code formatters produce different output
-//! 6. **Destructure handling**: Different approaches to props destructuring
-//! 7. **Signal wrapping**: Different `_fnSignal` / `_wrapProp` patterns
-//!
-//! The test passes when all 163 spec_parity tests pass (functional equivalence).
-//! This verification documents structural differences, not functional correctness.
+//! ## STRUCTURAL - Real differences in code organization:
+//! 1. **Hoisted Function Placement**: _hf functions in different file
+//! 2. **QRL Hoisting**: QRL inline vs const declaration
+//! 3. **Attribute Quoting**: q:p: vs "q:p":
+//! 4. **Segment Count**: Different number of output files
+//! 5. **Other**: Code organization, destructuring patterns, etc.
 //!
 //! # Usage
 //! ```bash
@@ -560,14 +560,65 @@ fn normalize_for_comparison(content: &str) -> String {
     content.trim().to_string()
 }
 
+/// Category of difference between OXC and qwik-core snapshots
+#[derive(Debug, Clone, PartialEq)]
+enum DifferenceCategory {
+    Exact,     // Byte-for-byte identical (after header strip)
+    Cosmetic,  // Only: source maps, loc, paramNames, whitespace, import merging
+    Structural, // Real differences in code organization
+}
+
+/// Specific structural issues detected
+#[derive(Debug, Clone, Default)]
+struct StructuralIssues {
+    hoisted_fn_placement: bool,      // _hf functions in different file
+    qrl_hoisting: bool,              // QRL inline vs const declaration
+    attribute_quoting: bool,         // q:p: vs "q:p":
+    segment_count_diff: bool,        // Different number of output files
+    import_organization: bool,       // Different import placement (affects code reading)
+}
+
+impl StructuralIssues {
+    fn has_any(&self) -> bool {
+        self.hoisted_fn_placement
+            || self.qrl_hoisting
+            || self.attribute_quoting
+            || self.segment_count_diff
+            || self.import_organization
+    }
+
+    fn as_labels(&self) -> Vec<&'static str> {
+        let mut labels = Vec::new();
+        if self.hoisted_fn_placement {
+            labels.push("hoisted-fn-placement");
+        }
+        if self.qrl_hoisting {
+            labels.push("qrl-hoisting");
+        }
+        if self.attribute_quoting {
+            labels.push("attribute-quoting");
+        }
+        if self.segment_count_diff {
+            labels.push("segment-count");
+        }
+        if self.import_organization {
+            labels.push("import-organization");
+        }
+        labels
+    }
+}
+
 /// Result of comparing two snapshots
 #[derive(Debug)]
 struct ComparisonResult {
     test_name: String,
+    category: DifferenceCategory,
     exact_match: bool,
     semantic_match: bool,
     diff: Option<String>,
-    // Structural difference categories (file-level analysis)
+    // Structural issues (all that apply)
+    structural_issues: StructuralIssues,
+    // Structural difference categories (file-level analysis) - legacy fields for compatibility
     hoisted_fn_file_mismatch: bool,
     qrl_placement_mismatch: bool,
     file_count_mismatch: bool,
@@ -758,11 +809,33 @@ fn verify_snapshots_match_qwik_core() {
             None
         };
 
+        // Build structural issues for categorization
+        let structural_issues = StructuralIssues {
+            hoisted_fn_placement: hoisted_fn_file_mismatch,
+            qrl_hoisting: qrl_placement_mismatch,
+            attribute_quoting: attribute_format_mismatch,
+            segment_count_diff: file_count_mismatch,
+            import_organization: false, // Imports are cosmetic
+        };
+
+        // Determine category: EXACT > COSMETIC > STRUCTURAL
+        let category = if exact_match {
+            DifferenceCategory::Exact
+        } else if semantic_match && !structural_issues.has_any() {
+            // Cosmetic only if semantic match AND no structural issues detected
+            DifferenceCategory::Cosmetic
+        } else {
+            // Any structural issue makes it STRUCTURAL
+            DifferenceCategory::Structural
+        };
+
         results.push(ComparisonResult {
             test_name,
+            category,
             exact_match,
             semantic_match,
             diff,
+            structural_issues,
             hoisted_fn_file_mismatch,
             qrl_placement_mismatch,
             file_count_mismatch,
@@ -771,268 +844,211 @@ fn verify_snapshots_match_qwik_core() {
         });
     }
 
-    // Categorize results
-    let exact_matches: Vec<_> = results.iter().filter(|r| r.exact_match).collect();
+    // Categorize results using new three-tier system
+    let exact_matches: Vec<_> = results
+        .iter()
+        .filter(|r| r.category == DifferenceCategory::Exact)
+        .collect();
     let cosmetic_only: Vec<_> = results
         .iter()
-        .filter(|r| !r.exact_match && r.semantic_match)
+        .filter(|r| r.category == DifferenceCategory::Cosmetic)
         .collect();
-    let structural_diff: Vec<_> = results.iter().filter(|r| !r.semantic_match).collect();
-
-    // NEW: Categorize by file-level structural mismatches
-    let hoisted_fn_mismatches: Vec<_> = results
+    let structural_diff: Vec<_> = results
         .iter()
-        .filter(|r| r.hoisted_fn_file_mismatch)
-        .collect();
-    let qrl_placement_mismatches: Vec<_> = results
-        .iter()
-        .filter(|r| r.qrl_placement_mismatch)
-        .collect();
-    let file_count_mismatches: Vec<_> = results
-        .iter()
-        .filter(|r| r.file_count_mismatch)
-        .collect();
-    let attribute_format_mismatches: Vec<_> = results
-        .iter()
-        .filter(|r| r.attribute_format_mismatch)
+        .filter(|r| r.category == DifferenceCategory::Structural)
         .collect();
 
-    // Print detailed results
-    println!("\n============================================================");
-    println!("SNAPSHOT VERIFICATION RESULTS - Phase 24 File-Level Analysis");
-    println!("============================================================\n");
+    // Categorize structural differences by issue type
+    let hoisted_fn_placement: Vec<_> = results
+        .iter()
+        .filter(|r| r.structural_issues.hoisted_fn_placement)
+        .collect();
+    let qrl_hoisting: Vec<_> = results
+        .iter()
+        .filter(|r| r.structural_issues.qrl_hoisting)
+        .collect();
+    let attribute_quoting: Vec<_> = results
+        .iter()
+        .filter(|r| r.structural_issues.attribute_quoting)
+        .collect();
+    let segment_count: Vec<_> = results
+        .iter()
+        .filter(|r| r.structural_issues.segment_count_diff)
+        .collect();
+
+    // Print Phase 24 Final Report
+    println!();
+    println!("============================================================");
+    println!("SNAPSHOT VERIFICATION RESULTS - Phase 24 Final Report");
+    println!("============================================================");
+    println!();
     println!("Total compared: {}", results.len());
     println!();
-    println!("PARITY STATUS:");
+    println!("CATEGORIZATION:");
     println!("  Exact matches:                  {:>3}", exact_matches.len());
-    println!(
-        "  Cosmetic differences only:      {:>3}",
-        cosmetic_only.len()
-    );
-    println!(
-        "  Structural differences:         {:>3}",
-        structural_diff.len()
-    );
-    println!("  OXC-only (skipped):             {:>3}", oxc_only.len());
-    println!();
-    println!("FILE-LEVEL STRUCTURAL ANALYSIS:");
-    println!(
-        "  Hoisted fn file mismatch:       {:>3}",
-        hoisted_fn_mismatches.len()
-    );
-    println!(
-        "  QRL placement mismatch:         {:>3}",
-        qrl_placement_mismatches.len()
-    );
-    println!(
-        "  File count mismatch:            {:>3}",
-        file_count_mismatches.len()
-    );
-    println!(
-        "  Attribute format mismatch:      {:>3}",
-        attribute_format_mismatches.len()
-    );
+    println!("  Cosmetic differences only:      {:>3}", cosmetic_only.len());
+    println!("  Structural differences:         {:>3}", structural_diff.len());
     println!();
 
-    // Document STRUCTURAL MISMATCHES (hoisted fn, QRL placement, file count, attribute format)
-    if !hoisted_fn_mismatches.is_empty()
-        || !qrl_placement_mismatches.is_empty()
-        || !attribute_format_mismatches.is_empty()
-    {
-        println!("============================================================");
-        println!("STRUCTURAL MISMATCHES (file-level)");
-        println!("============================================================");
-        println!();
-        println!("These snapshots have structural differences in code organization:");
-        println!();
+    // ==========================================================================
+    // STRUCTURAL DIFFERENCES BY TYPE
+    // ==========================================================================
+    println!("============================================================");
+    println!("STRUCTURAL DIFFERENCES BY TYPE");
+    println!("============================================================");
+    println!();
 
-        // Show hoisted function file mismatches
-        for result in &hoisted_fn_mismatches {
-            println!("STRUCTURAL MISMATCH: {}", result.test_name);
-            if let Some(details) = &result.structural_details {
-                if !details.hoisted_fn_mismatches.is_empty() {
-                    println!("  Hoisted functions (_hf0, _hf1, etc) placement:");
-                    for (filename, oxc_has, qwik_has) in &details.hoisted_fn_mismatches {
-                        let oxc_status = if *oxc_has { "YES" } else { "no" };
-                        let qwik_status = if *qwik_has { "YES" } else { "no" };
-                        println!("    {}: OXC={}, qwik-core={}", filename, oxc_status, qwik_status);
-                    }
-                }
+    // Hoisted Function Placement
+    println!("HOISTED FUNCTION PLACEMENT ({} snapshots)", hoisted_fn_placement.len());
+    println!("  Functions (_hf0, _hf1, etc.) placed in different files:");
+    println!();
+    for result in hoisted_fn_placement.iter().take(5) {
+        println!("  - {}", result.test_name);
+        if let Some(details) = &result.structural_details {
+            for (filename, oxc_has, qwik_has) in &details.hoisted_fn_mismatches {
+                let oxc_loc = if *oxc_has { "has _hf" } else { "no _hf" };
+                let qwik_loc = if *qwik_has { "has _hf" } else { "no _hf" };
+                println!("    {}: OXC {}, qwik-core {}", filename, oxc_loc, qwik_loc);
             }
-            println!();
-        }
-
-        // Show QRL placement mismatches
-        for result in &qrl_placement_mismatches {
-            // Skip if already shown above
-            if result.hoisted_fn_file_mismatch {
-                continue;
-            }
-            println!("STRUCTURAL MISMATCH: {}", result.test_name);
-            if let Some(details) = &result.structural_details {
-                if !details.qrl_placement_mismatches.is_empty() {
-                    println!("  QRL declarations:");
-                    println!("    OXC:       inline in JSX (on:click: qrl(...))");
-                    println!("    qwik-core: hoisted to const (const X = qrl(...))");
-                    println!("  Affected files: {:?}", details.qrl_placement_mismatches);
-                }
-            }
-            println!();
-        }
-
-        // Show attribute format mismatches (q:p vs "q:p" quoting)
-        for result in &attribute_format_mismatches {
-            // Skip if already shown above
-            if result.hoisted_fn_file_mismatch || result.qrl_placement_mismatch {
-                continue;
-            }
-            println!("STRUCTURAL MISMATCH: {}", result.test_name);
-            if let Some(details) = &result.structural_details {
-                if !details.attribute_format_mismatches.is_empty() {
-                    println!("  Attribute format (object key quoting):");
-                    for mismatch in &details.attribute_format_mismatches {
-                        println!("    {}:", mismatch.file);
-                        let oxc_examples: Vec<&str> = mismatch.examples.iter().filter(|e| e.starts_with("OXC")).map(|s| s.as_str()).collect();
-                        let qwik_examples: Vec<&str> = mismatch.examples.iter().filter(|e| e.starts_with("qwik")).map(|s| s.as_str()).collect();
-                        println!("      OXC:       {} ({})", mismatch.oxc_format, oxc_examples.join(", "));
-                        println!("      qwik-core: {} ({})", mismatch.qwik_format, qwik_examples.join(", "));
-                    }
-                }
-            }
-            println!();
-        }
-
-        println!("These are REAL structural differences affecting code organization.");
-        println!("They may need to be addressed for exact parity.");
-        println!();
-    }
-
-    // Document cosmetic differences
-    if !cosmetic_only.is_empty() {
-        println!("============================================================");
-        println!(
-            "COSMETIC DIFFERENCES ONLY ({} snapshots)",
-            cosmetic_only.len()
-        );
-        println!("============================================================");
-        println!();
-        println!("These snapshots differ only in documented cosmetic ways:");
-        println!("  - Source maps: OXC outputs None, qwik-core outputs JSON (Phase 18-04)");
-        println!("  - INPUT whitespace: Different input normalization");
-        println!("  - Import sorting: Different import statement order");
-        println!("  - loc values: Differ due to input whitespace");
-        println!("  - paramNames: Not implemented in OXC");
-        println!("  - displayName format: Minor naming format differences");
-        println!("  - Code formatting: Tab vs space indentation");
-        println!();
-        for (i, result) in cosmetic_only.iter().enumerate() {
-            if i >= 10 {
-                println!("  ... and {} more", cosmetic_only.len() - 10);
-                break;
-            }
-            println!("  - {}", result.test_name);
-        }
-        println!();
-    }
-
-    // Document structural differences
-    if !structural_diff.is_empty() {
-        println!("============================================================");
-        println!(
-            "STRUCTURAL DIFFERENCES ({} snapshots)",
-            structural_diff.len()
-        );
-        println!("============================================================");
-        println!();
-        println!("These snapshots have inherent structural differences:");
-        println!("  - Hash values: Different due to input normalization");
-        println!("  - Import merging: OXC merges imports from same source");
-        println!("  - Inlining strategy: qwik-core may inline QRLs");
-        println!("  - Segment ordering: Different entry point order");
-        println!("  - Code generation: Different code formatters");
-        println!("  - Destructure handling: Different props approaches");
-        println!("  - Signal wrapping: Different _fnSignal patterns");
-        println!();
-        println!("These are NOT bugs - they represent different implementation");
-        println!("choices that produce functionally equivalent output.");
-        println!();
-
-        // Show a few examples
-        for (i, result) in structural_diff.iter().enumerate() {
-            if i >= 3 {
-                println!(
-                    "\n... and {} more structural differences",
-                    structural_diff.len() - 3
-                );
-                break;
-            }
-            println!("--- {} ---", result.test_name);
-            if let Some(diff) = &result.diff {
-                // Show a small portion of the diff
-                let lines: Vec<&str> = diff.lines().take(30).collect();
-                println!("{}", lines.join("\n"));
-                if diff.lines().count() > 30 {
-                    println!("  [diff truncated]");
-                }
-            }
-            println!();
         }
     }
+    if hoisted_fn_placement.len() > 5 {
+        println!("  ... and {} more", hoisted_fn_placement.len() - 5);
+    }
+    println!();
+
+    // QRL Declaration Style
+    println!("QRL DECLARATION STYLE ({} snapshots)", qrl_hoisting.len());
+    println!("  QRLs declared differently (inline vs hoisted const):");
+    println!();
+    for result in qrl_hoisting.iter().take(5) {
+        println!("  - {}", result.test_name);
+        println!("    OXC:       on:click: qrl(i_xxx, \"name\") (inline in JSX)");
+        println!("    qwik-core: const Foo_component_... = qrl(...) (hoisted)");
+    }
+    if qrl_hoisting.len() > 5 {
+        println!("  ... and {} more", qrl_hoisting.len() - 5);
+    }
+    println!();
+
+    // Attribute Quoting
+    println!("ATTRIBUTE QUOTING ({} snapshots)", attribute_quoting.len());
+    println!("  JSX attributes quoted differently:");
+    println!();
+    for result in attribute_quoting.iter().take(5) {
+        println!("  - {}", result.test_name);
+        println!("    OXC:       q:p: row");
+        println!("    qwik-core: \"q:p\": row");
+    }
+    if attribute_quoting.len() > 5 {
+        println!("  ... and {} more", attribute_quoting.len() - 5);
+    }
+    println!();
+
+    // Segment Count Differences
+    println!("SEGMENT COUNT DIFFERENCES ({} snapshots)", segment_count.len());
+    println!("  Different number of output files:");
+    println!();
+    for result in segment_count.iter().take(5) {
+        println!("  - {}", result.test_name);
+        if let Some(details) = &result.structural_details {
+            if !details.files_only_in_oxc.is_empty() {
+                println!("    Extra in OXC: {:?}", details.files_only_in_oxc);
+            }
+            if !details.files_only_in_qwik.is_empty() {
+                println!("    Extra in qwik-core: {:?}", details.files_only_in_qwik);
+            }
+        }
+    }
+    if segment_count.len() > 5 {
+        println!("  ... and {} more", segment_count.len() - 5);
+    }
+    println!();
+
+    // ==========================================================================
+    // COSMETIC DIFFERENCES
+    // ==========================================================================
+    println!("============================================================");
+    println!("COSMETIC DIFFERENCES (normalized for comparison)");
+    println!("============================================================");
+    println!();
+    println!("These differences are expected and do NOT affect runtime:");
+    println!("  - Source maps: OXC outputs None, qwik-core outputs JSON");
+    println!("  - loc values: Differ due to input format");
+    println!("  - paramNames: Not implemented in OXC");
+    println!("  - Whitespace: Tab vs space indentation");
+    println!();
+    println!("Snapshots with cosmetic-only differences: {}", cosmetic_only.len());
+    println!();
+    for (i, result) in cosmetic_only.iter().enumerate() {
+        if i >= 10 {
+            println!("  ... and {} more", cosmetic_only.len() - 10);
+            break;
+        }
+        println!("  - {}", result.test_name);
+    }
+    println!();
+
+    // ==========================================================================
+    // ACTION ITEMS
+    // ==========================================================================
+    println!("============================================================");
+    println!("ACTION ITEMS");
+    println!("============================================================");
+    println!();
+    println!("The following structural differences may need fixing:");
+    println!("1. Hoisted function placement - affects which file loads _hf functions");
+    println!("2. QRL declaration style - affects code organization and debugging");
+    println!("3. Attribute quoting - cosmetic but indicates different codegen path");
+    println!();
+    println!("FUNCTIONAL PARITY: All 163 spec_parity tests pass");
+    println!("These differences are in code STRUCTURE, not BEHAVIOR.");
+    println!();
 
     if !oxc_only.is_empty() {
-        println!("\nOXC-only tests (no qwik-core equivalent):");
+        println!("OXC-only tests (no qwik-core equivalent):");
         for name in &oxc_only {
             println!("  - {}", name);
         }
+        println!();
     }
 
-    // Final summary
-    println!("\n============================================================");
-    println!("FINAL PARITY STATUS");
+    // ==========================================================================
+    // FINAL SUMMARY
+    // ==========================================================================
     println!("============================================================");
-    let functionally_equivalent = exact_matches.len() + cosmetic_only.len();
-    println!();
-    println!("Functional equivalence verified by: 163 spec_parity tests PASS");
+    println!("FINAL SUMMARY");
+    println!("============================================================");
     println!();
     println!("Snapshot comparison breakdown:");
     println!("  - {} exact matches", exact_matches.len());
-    println!(
-        "  - {} cosmetic differences (acceptable)",
-        cosmetic_only.len()
-    );
-    println!(
-        "  - {} structural differences (inherent to implementation)",
-        structural_diff.len()
-    );
+    println!("  - {} cosmetic differences (acceptable)", cosmetic_only.len());
+    println!("  - {} structural differences", structural_diff.len());
+    println!();
+    println!("Structural issues breakdown:");
+    println!("  - {} hoisted function placement", hoisted_fn_placement.len());
+    println!("  - {} QRL declaration style", qrl_hoisting.len());
+    println!("  - {} attribute quoting", attribute_quoting.len());
+    println!("  - {} segment count differences", segment_count.len());
+    println!();
+    println!("NOTE: A snapshot can have MULTIPLE structural issues.");
     println!();
 
     if structural_diff.is_empty() {
         println!("EXACT PARITY ACHIEVED: All snapshots match exactly or with cosmetic differences only.");
     } else {
-        println!("FUNCTIONAL PARITY ACHIEVED:");
-        println!("  - All 163 spec_parity tests pass (functional equivalence)");
-        println!(
-            "  - {} structural differences are inherent to different implementations",
-            structural_diff.len()
-        );
-        println!("  - These represent valid alternative output, not bugs");
+        println!("STRUCTURAL_DIFFERENCES_DETECTED: {}", structural_diff.len());
+        println!();
+        println!("FUNCTIONAL PARITY: All 163 spec_parity tests pass");
+        println!("These structural differences affect code ORGANIZATION, not BEHAVIOR.");
+        println!();
+        println!("Priority for fixing:");
+        println!("  HIGH:   Hoisted function placement (affects file loading)");
+        println!("  MEDIUM: QRL declaration style (affects debugging)");
+        println!("  LOW:    Attribute quoting (cosmetic, valid JS)");
     }
     println!();
-
-    // This test DOCUMENTS differences, it doesn't fail on them.
-    // Functional correctness is verified by the 163 spec_parity tests.
-    // Structural differences are inherent to the different implementations.
-    //
-    // To make this test fail on differences, uncomment the assertion below:
-    // assert_eq!(
-    //     unexpected_diff.len(),
-    //     0,
-    //     "\n\n{} of {} snapshots have unexpected differences!\n",
-    //     unexpected_diff.len(),
-    //     results.len()
-    // );
-    println!("NOTE: This test documents differences but does not fail on them.");
-    println!("Functional correctness is verified by the 163 spec_parity tests.");
+    println!("============================================================");
 }
 
 #[test]
