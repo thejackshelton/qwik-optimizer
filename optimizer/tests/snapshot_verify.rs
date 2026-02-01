@@ -1208,15 +1208,18 @@ fn test_attribute_formats_with_real_snapshot() {
     println!("OXC entry point exists: {}", oxc_entry.is_some());
     println!("qwik-core entry point exists: {}", qwik_entry.is_some());
 
+    // After Phase 26-01 fix: OXC now uses quoted format like qwik-core
+    // (using create_property_key helper that detects colons and uses StringLiteral)
     if let Some(oxc_entry_content) = oxc_entry {
         println!("\n=== OXC Entry Point Content ===");
         println!("{}", oxc_entry_content);
         let oxc_formats = detect_attribute_formats(oxc_entry_content);
         println!("\nOXC formats: {:?}", oxc_formats);
-        assert!(oxc_formats.unquoted_qp, "OXC should have unquoted q:p:");
+        // OXC now uses quoted format for colon-containing keys (matches qwik-core)
+        assert!(oxc_formats.quoted_qp, "OXC should have quoted \"q:p\":");
         assert!(
-            oxc_formats.unquoted_on_event,
-            "OXC should have unquoted on:click:"
+            oxc_formats.quoted_on_event,
+            "OXC should have quoted \"on:click\":"
         );
     }
 
