@@ -125,6 +125,11 @@ pub struct TransformGenerator<'gen> {
     /// Each entry is a Vec of (identifier_name, filename) pairs
     pub(crate) hoisted_imports_stack: Vec<Vec<(String, String)>>,
 
+    /// Stack of hoisted functions per component/QRL scope.
+    /// Each entry is (hf_name, serialized_fn_code, str_value).
+    /// Push new Vec when entering component$/marker$, pop when exiting.
+    pub(crate) component_hoisted_fns: Vec<Vec<(String, String, String)>>,
+
     pub(crate) pending_bind_directives: Vec<(bool, Expression<'gen>)>,
 
     pending_on_input_handlers: Vec<Expression<'gen>>,
@@ -193,6 +198,7 @@ impl<'gen> TransformGenerator<'gen> {
             hoisted_fn_counter: 0,
             needs_fn_signal_import: false,
             hoisted_imports_stack: vec![Vec::new()],
+            component_hoisted_fns: vec![Vec::new()],
             pending_bind_directives: Vec::new(),
             pending_on_input_handlers: Vec::new(),
             needs_val_import: false,
@@ -457,38 +463,8 @@ impl<'a> Traverse<'a, ()> for TransformGenerator<'a> {
             }
         }
 
-        for (name, fn_expr, str_val) in self.hoisted_fns.drain(..).rev() {
-            let fn_stmt = Statement::VariableDeclaration(ctx.ast.alloc(ctx.ast.variable_declaration(
-                SPAN,
-                VariableDeclarationKind::Const,
-                ctx.ast.vec1(ctx.ast.variable_declarator(
-                    SPAN,
-                    VariableDeclarationKind::Const,
-                    ctx.ast.binding_pattern_binding_identifier(SPAN, ctx.ast.atom(&name)),
-                    NONE,
-                    Some(fn_expr),
-                    false,
-                )),
-                false,
-            )));
-            node.body.insert(0, fn_stmt);
-
-            let str_name = format!("{}_str", name);
-            let str_stmt = Statement::VariableDeclaration(ctx.ast.alloc(ctx.ast.variable_declaration(
-                SPAN,
-                VariableDeclarationKind::Const,
-                ctx.ast.vec1(ctx.ast.variable_declarator(
-                    SPAN,
-                    VariableDeclarationKind::Const,
-                    ctx.ast.binding_pattern_binding_identifier(SPAN, ctx.ast.atom(&str_name)),
-                    NONE,
-                    Some(ctx.ast.expression_string_literal(SPAN, ctx.ast.atom(&str_val), None)),
-                    false,
-                )),
-                false,
-            )));
-            node.body.insert(1, str_stmt);
-        }
+        // Note: hoisted_fns are now emitted in segment files via component_hoisted_fns stack
+        // See component.rs for segment-level emission
 
         // Emit hoisted import functions at module level
         // Format: const i_{name} = () => import("./file.js");
@@ -594,6 +570,7 @@ impl<'a> Traverse<'a, ()> for TransformGenerator<'a> {
         if name.ends_with(MARKER_SUFFIX) {
             self.import_stack.push(BTreeSet::new());
             self.hoisted_imports_stack.push(Vec::new());
+            self.component_hoisted_fns.push(Vec::new());
             self.stack_ctxt.push(name.clone());
         }
 
@@ -669,6 +646,12 @@ impl<'a> Traverse<'a, ()> for TransformGenerator<'a> {
                     .pop()
                     .unwrap_or_default();
 
+                // Pop hoisted functions for this component scope
+                let segment_hoisted_fns = self
+                    .component_hoisted_fns
+                    .pop()
+                    .unwrap_or_default();
+
                 let imported_names = qrl_module::collect_imported_names(&imports);
                 let scoped_idents = qrl_module::filter_imported_from_scoped(scoped_idents, &imported_names);
 
@@ -716,10 +699,11 @@ impl<'a> Traverse<'a, ()> for TransformGenerator<'a> {
 
                 let entry = self.entry_policy.get_entry_for_sym(&self.stack_ctxt, &segment_data);
 
-                QrlComponent::from_call_expression_argument(
+                QrlComponent::from_call_expression_argument_with_hoisted_fns(
                     arg0,
                     imports,
                     segment_hoisted_imports,
+                    segment_hoisted_fns,
                     &self.segment_stack,
                     &self.scope,
                     &self.options,
