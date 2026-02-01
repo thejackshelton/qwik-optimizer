@@ -173,8 +173,26 @@ fn strip_metadata_comments(content: &str) -> String {
             continue;
         }
 
-        // Skip lines that are just the metadata JSON
-        if line.trim().starts_with("\"") && line.contains(":") {
+        // Skip lines that are metadata JSON (have specific metadata keys)
+        // These are keys like "origin", "name", "hash", etc. NOT code attributes like "q:p" or "on:click"
+        let trimmed = line.trim();
+        if trimmed.starts_with("\"")
+            && (trimmed.starts_with("\"origin\"")
+                || trimmed.starts_with("\"name\"")
+                || trimmed.starts_with("\"entry\"")
+                || trimmed.starts_with("\"displayName\"")
+                || trimmed.starts_with("\"hash\"")
+                || trimmed.starts_with("\"canonicalFilename\"")
+                || trimmed.starts_with("\"path\"")
+                || trimmed.starts_with("\"extension\"")
+                || trimmed.starts_with("\"parent\"")
+                || trimmed.starts_with("\"ctxKind\"")
+                || trimmed.starts_with("\"ctxName\"")
+                || trimmed.starts_with("\"captures\"")
+                || trimmed.starts_with("\"loc\"")
+                || trimmed.starts_with("\"paramNames\"")
+                || trimmed.starts_with("\"captureNames\""))
+        {
             continue;
         }
 
@@ -553,6 +571,7 @@ struct ComparisonResult {
     hoisted_fn_file_mismatch: bool,
     qrl_placement_mismatch: bool,
     file_count_mismatch: bool,
+    attribute_format_mismatch: bool,
     structural_details: Option<StructuralDetails>,
 }
 
@@ -563,6 +582,32 @@ struct StructuralDetails {
     files_only_in_qwik: Vec<String>,
     hoisted_fn_mismatches: Vec<(String, bool, bool)>, // (filename, oxc_has, qwik_has)
     qrl_placement_mismatches: Vec<String>,            // filenames with QRL placement issues
+    attribute_format_mismatches: Vec<AttributeFormatMismatch>, // files with quoting differences
+}
+
+/// Details about attribute format differences in a single file
+#[derive(Debug)]
+struct AttributeFormatMismatch {
+    file: String,
+    oxc_format: String,  // "unquoted" or "quoted" (or both)
+    qwik_format: String, // "unquoted" or "quoted" (or both)
+    examples: Vec<String>, // Sample attribute patterns found
+}
+
+/// Format attribute style description for reporting
+fn format_attribute_style(fmt: &AttributeFormats) -> String {
+    let mut styles = Vec::new();
+    if fmt.unquoted_qp || fmt.unquoted_on_event {
+        styles.push("unquoted");
+    }
+    if fmt.quoted_qp || fmt.quoted_on_event {
+        styles.push("quoted");
+    }
+    if styles.is_empty() {
+        "none".to_string()
+    } else {
+        styles.join("+")
+    }
 }
 
 #[test]
@@ -622,8 +667,10 @@ fn verify_snapshots_match_qwik_core() {
 
         let mut hoisted_fn_file_mismatch = false;
         let mut qrl_placement_mismatch = false;
+        let mut attribute_format_mismatch = false;
         let mut hoisted_fn_mismatches: Vec<(String, bool, bool)> = Vec::new();
         let mut qrl_placement_mismatches: Vec<String> = Vec::new();
+        let mut attribute_format_mismatches: Vec<AttributeFormatMismatch> = Vec::new();
 
         for (filename, content_diff) in &file_comparison.content_diffs {
             if content_diff.has_hoisted_fn_mismatch() {
@@ -638,17 +685,55 @@ fn verify_snapshots_match_qwik_core() {
                 qrl_placement_mismatch = true;
                 qrl_placement_mismatches.push(filename.clone());
             }
+            if content_diff.has_attribute_format_mismatch() {
+                attribute_format_mismatch = true;
+
+                // Build format description
+                let oxc_fmt = &content_diff.oxc_attribute_formats;
+                let qwik_fmt = &content_diff.qwik_attribute_formats;
+
+                let oxc_format = format_attribute_style(oxc_fmt);
+                let qwik_format = format_attribute_style(qwik_fmt);
+
+                // Collect example patterns
+                let mut examples = Vec::new();
+                if oxc_fmt.unquoted_qp || qwik_fmt.quoted_qp {
+                    if oxc_fmt.unquoted_qp {
+                        examples.push("OXC: q:p: row".to_string());
+                    }
+                    if qwik_fmt.quoted_qp {
+                        examples.push("qwik-core: \"q:p\": row".to_string());
+                    }
+                }
+                if oxc_fmt.unquoted_on_event || qwik_fmt.quoted_on_event {
+                    if oxc_fmt.unquoted_on_event {
+                        examples.push("OXC: on:click: qrl(...)".to_string());
+                    }
+                    if qwik_fmt.quoted_on_event {
+                        examples.push("qwik-core: \"on:click\": handler".to_string());
+                    }
+                }
+
+                attribute_format_mismatches.push(AttributeFormatMismatch {
+                    file: filename.clone(),
+                    oxc_format,
+                    qwik_format,
+                    examples,
+                });
+            }
         }
 
         let structural_details = if hoisted_fn_file_mismatch
             || qrl_placement_mismatch
             || file_count_mismatch
+            || attribute_format_mismatch
         {
             Some(StructuralDetails {
                 files_only_in_oxc: file_comparison.files_only_in_oxc,
                 files_only_in_qwik: file_comparison.files_only_in_qwik,
                 hoisted_fn_mismatches,
                 qrl_placement_mismatches,
+                attribute_format_mismatches,
             })
         } else {
             None
@@ -681,6 +766,7 @@ fn verify_snapshots_match_qwik_core() {
             hoisted_fn_file_mismatch,
             qrl_placement_mismatch,
             file_count_mismatch,
+            attribute_format_mismatch,
             structural_details,
         });
     }
@@ -705,6 +791,10 @@ fn verify_snapshots_match_qwik_core() {
     let file_count_mismatches: Vec<_> = results
         .iter()
         .filter(|r| r.file_count_mismatch)
+        .collect();
+    let attribute_format_mismatches: Vec<_> = results
+        .iter()
+        .filter(|r| r.attribute_format_mismatch)
         .collect();
 
     // Print detailed results
@@ -738,10 +828,17 @@ fn verify_snapshots_match_qwik_core() {
         "  File count mismatch:            {:>3}",
         file_count_mismatches.len()
     );
+    println!(
+        "  Attribute format mismatch:      {:>3}",
+        attribute_format_mismatches.len()
+    );
     println!();
 
-    // Document STRUCTURAL MISMATCHES (hoisted fn, QRL placement, file count)
-    if !hoisted_fn_mismatches.is_empty() || !qrl_placement_mismatches.is_empty() {
+    // Document STRUCTURAL MISMATCHES (hoisted fn, QRL placement, file count, attribute format)
+    if !hoisted_fn_mismatches.is_empty()
+        || !qrl_placement_mismatches.is_empty()
+        || !attribute_format_mismatches.is_empty()
+    {
         println!("============================================================");
         println!("STRUCTURAL MISMATCHES (file-level)");
         println!("============================================================");
@@ -778,6 +875,28 @@ fn verify_snapshots_match_qwik_core() {
                     println!("    OXC:       inline in JSX (on:click: qrl(...))");
                     println!("    qwik-core: hoisted to const (const X = qrl(...))");
                     println!("  Affected files: {:?}", details.qrl_placement_mismatches);
+                }
+            }
+            println!();
+        }
+
+        // Show attribute format mismatches (q:p vs "q:p" quoting)
+        for result in &attribute_format_mismatches {
+            // Skip if already shown above
+            if result.hoisted_fn_file_mismatch || result.qrl_placement_mismatch {
+                continue;
+            }
+            println!("STRUCTURAL MISMATCH: {}", result.test_name);
+            if let Some(details) = &result.structural_details {
+                if !details.attribute_format_mismatches.is_empty() {
+                    println!("  Attribute format (object key quoting):");
+                    for mismatch in &details.attribute_format_mismatches {
+                        println!("    {}:", mismatch.file);
+                        let oxc_examples: Vec<&str> = mismatch.examples.iter().filter(|e| e.starts_with("OXC")).map(|s| s.as_str()).collect();
+                        let qwik_examples: Vec<&str> = mismatch.examples.iter().filter(|e| e.starts_with("qwik")).map(|s| s.as_str()).collect();
+                        println!("      OXC:       {} ({})", mismatch.oxc_format, oxc_examples.join(", "));
+                        println!("      qwik-core: {} ({})", mismatch.qwik_format, qwik_examples.join(", "));
+                    }
                 }
             }
             println!();
@@ -1142,13 +1261,8 @@ import { componentQrl } from "@qwik.dev/core";
 
 #[test]
 fn test_detect_attribute_formats() {
-    // OXC-style: unquoted keys with trailing colon
-    let oxc_style_content = r#"
-return /*#__PURE__*/ _jsxSorted("div", {
-    q:p: row,
-    on:click: /*#__PURE__*/ qrl(i_click, "click_handler")
-}, null, "Hello", 1, null);
-"#;
+    // OXC-style: unquoted keys with trailing colon (using tabs like actual snapshot)
+    let oxc_style_content = "\treturn /*#__PURE__*/ _jsxSorted(\"div\", {\n\t\tq:p: row,\n\t\ton:click: /*#__PURE__*/ qrl(i_click, \"click_handler\")\n\t}, null, \"Hello\", 1, null);\n";
 
     let oxc_formats = detect_attribute_formats(oxc_style_content);
     assert!(
@@ -1207,4 +1321,52 @@ return /*#__PURE__*/ _jsxSorted("input", {
         multi_formats.unquoted_on_event,
         "Should detect unquoted on:input and on:keyup"
     );
+}
+
+#[test]
+fn test_attribute_formats_with_real_snapshot() {
+    use std::fs;
+    use std::path::PathBuf;
+
+    let oxc_path = PathBuf::from(env!("CARGO_MANIFEST_DIR"))
+        .join("src/snapshots/qwik_optimizer__spec_parity_tests__tests__spec_should_transform_nested_loops.snap");
+    let qwik_path = PathBuf::from(env!("CARGO_MANIFEST_DIR"))
+        .join("../qwik-core/src/snapshots/qwik_core__test__should_transform_nested_loops.snap");
+
+    let oxc_content = fs::read_to_string(&oxc_path).expect("Failed to read OXC snapshot");
+    let qwik_content = fs::read_to_string(&qwik_path).expect("Failed to read qwik-core snapshot");
+
+    let oxc_sections = parse_snapshot_sections(&oxc_content);
+    let qwik_sections = parse_snapshot_sections(&qwik_content);
+
+    // Find the entry point file that has q:p
+    let oxc_entry = oxc_sections.get("test.tsx_Foo_component_HTDRsvUbLiE.js");
+    let qwik_entry = qwik_sections.get("test.tsx_Foo_component_HTDRsvUbLiE.js");
+
+    println!("OXC entry point exists: {}", oxc_entry.is_some());
+    println!("qwik-core entry point exists: {}", qwik_entry.is_some());
+
+    if let Some(oxc_entry_content) = oxc_entry {
+        println!("\n=== OXC Entry Point Content ===");
+        println!("{}", oxc_entry_content);
+        let oxc_formats = detect_attribute_formats(oxc_entry_content);
+        println!("\nOXC formats: {:?}", oxc_formats);
+        assert!(oxc_formats.unquoted_qp, "OXC should have unquoted q:p:");
+        assert!(
+            oxc_formats.unquoted_on_event,
+            "OXC should have unquoted on:click:"
+        );
+    }
+
+    if let Some(qwik_entry_content) = qwik_entry {
+        println!("\n=== qwik-core Entry Point Content ===");
+        println!("{}", qwik_entry_content);
+        let qwik_formats = detect_attribute_formats(qwik_entry_content);
+        println!("\nqwik-core formats: {:?}", qwik_formats);
+        assert!(qwik_formats.quoted_qp, "qwik-core should have quoted \"q:p\":");
+        assert!(
+            qwik_formats.quoted_on_event,
+            "qwik-core should have quoted \"on:click\":"
+        );
+    }
 }
