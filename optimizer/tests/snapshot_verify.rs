@@ -185,6 +185,136 @@ fn strip_metadata_comments(content: &str) -> String {
     result.trim().to_string()
 }
 
+/// Result of file structure comparison
+#[derive(Debug)]
+struct FileStructureComparison {
+    files_only_in_oxc: Vec<String>,
+    files_only_in_qwik: Vec<String>,
+    matching_files: Vec<String>,
+    content_diffs: HashMap<String, ContentDiff>,
+}
+
+/// Content differences for a single file
+#[derive(Debug, Default)]
+struct ContentDiff {
+    oxc_has_hoisted_fns: bool,
+    qwik_has_hoisted_fns: bool,
+    oxc_has_qrl_imports: bool,
+    qwik_has_qrl_imports: bool,
+    oxc_has_inlined_qrls: bool,
+    oxc_has_hoisted_qrls: bool,
+    qwik_has_inlined_qrls: bool,
+    qwik_has_hoisted_qrls: bool,
+}
+
+impl ContentDiff {
+    fn has_hoisted_fn_mismatch(&self) -> bool {
+        self.oxc_has_hoisted_fns != self.qwik_has_hoisted_fns
+    }
+
+    fn has_qrl_placement_mismatch(&self) -> bool {
+        // OXC inlines QRLs, qwik-core hoists them to const declarations
+        (self.oxc_has_inlined_qrls && self.qwik_has_hoisted_qrls)
+            || (self.oxc_has_hoisted_qrls && self.qwik_has_inlined_qrls)
+    }
+}
+
+/// Compare file structures between OXC and qwik-core snapshots
+fn compare_file_structures(
+    oxc_sections: &HashMap<String, String>,
+    qwik_sections: &HashMap<String, String>,
+) -> FileStructureComparison {
+    let oxc_files: std::collections::HashSet<_> = oxc_sections.keys().collect();
+    let qwik_files: std::collections::HashSet<_> = qwik_sections.keys().collect();
+
+    // Files only in one implementation
+    let files_only_in_oxc: Vec<String> = oxc_files
+        .difference(&qwik_files)
+        .filter(|f| **f != "INPUT")
+        .map(|s| (*s).clone())
+        .collect();
+    let files_only_in_qwik: Vec<String> = qwik_files
+        .difference(&oxc_files)
+        .filter(|f| **f != "INPUT")
+        .map(|s| (*s).clone())
+        .collect();
+
+    // Matching files (excluding INPUT)
+    let matching_files: Vec<String> = oxc_files
+        .intersection(&qwik_files)
+        .filter(|f| **f != "INPUT")
+        .map(|s| (*s).clone())
+        .collect();
+
+    // Analyze content differences for matching files
+    let mut content_diffs: HashMap<String, ContentDiff> = HashMap::new();
+
+    for filename in &matching_files {
+        let oxc_content = oxc_sections.get(filename).map(|s| s.as_str()).unwrap_or("");
+        let qwik_content = qwik_sections.get(filename).map(|s| s.as_str()).unwrap_or("");
+
+        let diff = ContentDiff {
+            oxc_has_hoisted_fns: has_hoisted_functions(oxc_content),
+            qwik_has_hoisted_fns: has_hoisted_functions(qwik_content),
+            oxc_has_qrl_imports: has_qrl_imports(oxc_content),
+            qwik_has_qrl_imports: has_qrl_imports(qwik_content),
+            oxc_has_inlined_qrls: has_inlined_qrls(oxc_content),
+            oxc_has_hoisted_qrls: has_hoisted_qrls(oxc_content),
+            qwik_has_inlined_qrls: has_inlined_qrls(qwik_content),
+            qwik_has_hoisted_qrls: has_hoisted_qrls(qwik_content),
+        };
+
+        content_diffs.insert(filename.clone(), diff);
+    }
+
+    FileStructureComparison {
+        files_only_in_oxc,
+        files_only_in_qwik,
+        matching_files,
+        content_diffs,
+    }
+}
+
+/// Detect hoisted functions (_hf0, _hf1, etc.)
+fn has_hoisted_functions(content: &str) -> bool {
+    let re = Regex::new(r"const _hf\d+").unwrap();
+    re.is_match(content)
+}
+
+/// Detect QRL import declarations (const i_xxx = ()=>import(...))
+fn has_qrl_imports(content: &str) -> bool {
+    let re = Regex::new(r"const i_\w+ = \(\)=>import\(").unwrap();
+    re.is_match(content)
+}
+
+/// Detect inlined QRLs in JSX props
+///
+/// Looks for qrl() calls that appear inside _jsxSorted() props objects.
+/// Pattern: on:click: qrl(i_xxx, "name") or on:click: /*#__PURE__*/ qrl(...)
+fn has_inlined_qrls(content: &str) -> bool {
+    // Find qrl calls that are values in object properties (JSX props)
+    // Pattern: property: qrl(...) or property: /*#__PURE__*/ qrl(...)
+    let inline_re = Regex::new(r":\s*(/\*#__PURE__\*/\s*)?qrl\(i_").unwrap();
+    inline_re.is_match(content)
+}
+
+/// Detect hoisted QRLs as const declarations before return
+///
+/// Looks for const declarations that assign qrl() calls, appearing
+/// before the return statement (function body level, not in JSX).
+fn has_hoisted_qrls(content: &str) -> bool {
+    // Find const declarations that are qrl() calls
+    let const_qrl_re = Regex::new(r"const \w+_\w+ = /\*#__PURE__\*/ qrl\(").unwrap();
+
+    // Check if there's a const qrl declaration followed by a return statement
+    if let Some(return_pos) = content.find("return ") {
+        let before_return = &content[..return_pos];
+        const_qrl_re.is_match(before_return)
+    } else {
+        false
+    }
+}
+
 fn oxc_snapshots_dir() -> PathBuf {
     PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("src/snapshots")
 }
@@ -664,5 +794,142 @@ None
     assert!(
         !sections.contains_key("DIAGNOSTICS"),
         "Should not have DIAGNOSTICS section"
+    );
+}
+
+#[test]
+fn test_compare_file_structures() {
+    // OXC-style snapshot: hoisted functions in main file, QRLs inline in JSX
+    let oxc_content = r#"============================= test.js ==
+
+import { componentQrl, qrl } from "@qwik.dev/core";
+const i_abc123 = ()=>import("./test.tsx_App_component_abc123");
+const _hf0 = (p0)=>p0.value.id;
+const _hf0_str = "p0.value.id";
+export const App = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_abc123, "App_component_abc123"));
+
+============================= test.tsx_App_component_abc123.js (ENTRY POINT)==
+
+import { _jsxSorted, qrl } from "@qwik.dev/core";
+const i_click = ()=>import("./test.tsx_click");
+export const App_component_abc123 = ()=>{
+    return /*#__PURE__*/ _jsxSorted("div", {
+        on:click: /*#__PURE__*/ qrl(i_click, "click_handler")
+    }, null, "Hello", 1, null);
+};
+"#;
+
+    // qwik-core-style snapshot: hoisted functions in entry point, QRLs hoisted to const
+    let qwik_content = r#"============================= test.js ==
+
+import { componentQrl, qrl } from "@qwik.dev/core";
+const i_abc123 = ()=>import("./test.tsx_App_component_abc123");
+export const App = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_abc123, "App_component_abc123"));
+
+============================= test.tsx_App_component_abc123.js (ENTRY POINT)==
+
+import { _jsxSorted, qrl } from "@qwik.dev/core";
+const _hf0 = (p0)=>p0.value.id;
+const _hf0_str = "p0.value.id";
+const i_click = ()=>import("./test.tsx_click");
+export const App_component_abc123 = ()=>{
+    const click_handler = /*#__PURE__*/ qrl(i_click, "click_handler");
+    return /*#__PURE__*/ _jsxSorted("div", {
+        "on:click": click_handler
+    }, null, "Hello", 1, null);
+};
+"#;
+
+    let oxc_sections = parse_snapshot_sections(oxc_content);
+    let qwik_sections = parse_snapshot_sections(qwik_content);
+    let comparison = compare_file_structures(&oxc_sections, &qwik_sections);
+
+    // Both have the same files
+    assert!(
+        comparison.files_only_in_oxc.is_empty(),
+        "Should have no OXC-only files"
+    );
+    assert!(
+        comparison.files_only_in_qwik.is_empty(),
+        "Should have no qwik-only files"
+    );
+
+    // Check hoisted functions detection
+    let test_js_diff = comparison.content_diffs.get("test.js").unwrap();
+    assert!(
+        test_js_diff.oxc_has_hoisted_fns,
+        "OXC test.js should have hoisted functions"
+    );
+    assert!(
+        !test_js_diff.qwik_has_hoisted_fns,
+        "qwik-core test.js should NOT have hoisted functions"
+    );
+
+    let entry_diff = comparison
+        .content_diffs
+        .get("test.tsx_App_component_abc123.js")
+        .unwrap();
+    assert!(
+        !entry_diff.oxc_has_hoisted_fns,
+        "OXC entry point should NOT have hoisted functions"
+    );
+    assert!(
+        entry_diff.qwik_has_hoisted_fns,
+        "qwik-core entry point should have hoisted functions"
+    );
+
+    // Check QRL placement detection
+    assert!(
+        entry_diff.oxc_has_inlined_qrls,
+        "OXC should have inlined QRLs"
+    );
+    assert!(
+        entry_diff.qwik_has_hoisted_qrls,
+        "qwik-core should have hoisted QRLs"
+    );
+
+    // Verify mismatch detection
+    assert!(
+        test_js_diff.has_hoisted_fn_mismatch(),
+        "test.js should have hoisted fn mismatch"
+    );
+    assert!(
+        entry_diff.has_hoisted_fn_mismatch(),
+        "entry point should have hoisted fn mismatch"
+    );
+    assert!(
+        entry_diff.has_qrl_placement_mismatch(),
+        "entry point should have QRL placement mismatch"
+    );
+}
+
+#[test]
+fn test_file_only_in_one() {
+    // OXC has extra file
+    let oxc_content = r#"============================= test.js ==
+
+import { componentQrl } from "@qwik.dev/core";
+
+============================= extra_file.js ==
+
+const extra = true;
+"#;
+
+    let qwik_content = r#"============================= test.js ==
+
+import { componentQrl } from "@qwik.dev/core";
+"#;
+
+    let oxc_sections = parse_snapshot_sections(oxc_content);
+    let qwik_sections = parse_snapshot_sections(qwik_content);
+    let comparison = compare_file_structures(&oxc_sections, &qwik_sections);
+
+    assert!(
+        comparison.files_only_in_oxc.contains(&"extra_file.js".to_string()),
+        "Should detect extra_file.js as OXC-only"
+    );
+    assert!(
+        comparison.files_only_in_qwik.is_empty(),
+        "Should have no qwik-only files"
     );
 }
