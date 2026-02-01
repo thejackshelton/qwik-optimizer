@@ -35,8 +35,6 @@ export const Child = component$(() => {
 
 import { componentQrl, qrl } from "@qwik.dev/core";
 const i_9GyF01GDKqw = ()=>import("./test.tsx_Child_component_9GyF01GDKqw");
-const _hf0 = (p0, p1)=>p0.attributeInArray.counter;
-const _hf0_str = "p0.attributeInArray.counter";
 export const Child = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_9GyF01GDKqw, "Child_component_9GyF01GDKqw"));
 
 
@@ -45,6 +43,8 @@ None
 
 import { TestComponent } from "./testComponent";
 import { _fnSignal, _jsxSorted, useSignal } from "@qwik.dev/core";
+const _hf0 = (p0, p1)=>p0.attributeInArray.counter;
+const _hf0_str = "p0.attributeInArray.counter";
 export const Child_component_9GyF01GDKqw = ()=>{
 	const propCounterWithNested = useSignal(()=>{
 		return { data: [{ attributeInArray: { counter: globalThis.propsCounter++ } }, { attributeInArray: { counter: globalThis.propsCounter } }] };

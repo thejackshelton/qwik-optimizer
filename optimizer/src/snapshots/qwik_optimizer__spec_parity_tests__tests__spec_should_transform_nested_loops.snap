@@ -23,8 +23,6 @@ const Foo = component$(function() {
 
 import { componentQrl, qrl } from "@qwik.dev/core";
 const i_HTDRsvUbLiE = ()=>import("./test.tsx_Foo_component_HTDRsvUbLiE");
-const _hf0 = (p0)=>p0.value.id;
-const _hf0_str = "p0.value.id";
 /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_HTDRsvUbLiE, "Foo_component_HTDRsvUbLiE"));
 
 
@@ -34,6 +32,8 @@ None
 import { _fnSignal, _jsxSorted, qrl, useSignal } from "@qwik.dev/core";
 const i_5OQc040LebY = ()=>import("./test.tsx_Foo_component_div_map_div_map_p_onClick_5OQc040LebY");
 const i_mfLVIFxdDiU = ()=>import("./test.tsx_Foo_component_div_map_div_onClick_mfLVIFxdDiU");
+const _hf0 = (p0)=>p0.value.id;
+const _hf0_str = "p0.value.id";
 export const Foo_component_HTDRsvUbLiE = function() {
 	const data = useSignal([]);
 	const data2 = useSignal([]);

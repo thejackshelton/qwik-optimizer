@@ -41,12 +41,6 @@ export const RouterHead = component$(() => {
 
 import { componentQrl, qrl } from "@qwik.dev/core";
 const i_DPA76mgIou0 = ()=>import("./test.tsx_RouterHead_component_DPA76mgIou0");
-const _hf0 = (p0)=>p0.key;
-const _hf0_str = "p0.key";
-const _hf1 = (p0)=>p0.style;
-const _hf1_str = "p0.style";
-const _hf2 = (p0)=>p0.key;
-const _hf2_str = "p0.key";
 /**
 * The RouterHead component is placed inside of the document `<head>` element.
 */
@@ -59,6 +53,12 @@ None
 import { _fnSignal, _getConstProps, _getVarProps, _jsxSorted, _jsxSplit } from "@qwik.dev/core";
 import { Fragment as _Fragment } from "@qwik.dev/core/jsx-runtime";
 import { useDocumentHead, useLocation } from "@qwik.dev/router";
+const _hf0 = (p0)=>p0.key;
+const _hf0_str = "p0.key";
+const _hf1 = (p0)=>p0.style;
+const _hf1_str = "p0.style";
+const _hf2 = (p0)=>p0.key;
+const _hf2_str = "p0.key";
 export const RouterHead_component_DPA76mgIou0 = ()=>{
 	const head = useDocumentHead();
 	const loc = useLocation();
