@@ -19,28 +19,57 @@ const renderHeader = component($(() => {
 ============================= test.tsx ==
 
 import { component, qrl } from "@qwik.dev/core";
-const i_43pxkjb2yIw = ()=>import("./test.tsx_test_renderHeader_div_onClick_43pxkjb2yIw");
-const i_3KQ6mQ0LwJY = ()=>import("./test.tsx_test_renderHeader_3KQ6mQ0LwJY");
-const i_MZzzfQhITNs = ()=>import("./test.tsx_test_renderHeader_component_MZzzfQhITNs");
-export const renderHeader = /*#__PURE__*/ qrl(i_3KQ6mQ0LwJY, "test_renderHeader_3KQ6mQ0LwJY");
-const renderHeader = component(/*#__PURE__*/ qrl(i_MZzzfQhITNs, "test_renderHeader_component_MZzzfQhITNs"));
+const i_wNMbGa8f0Dw = ()=>import("./test.tsx_test.tsx_renderHeader_div_onClick_wNMbGa8f0Dw");
+const i_AcV95hWr76k = ()=>import("./test.tsx_test.tsx_renderHeader_AcV95hWr76k");
+const i_dZG2Ib1X4QU = ()=>import("./test.tsx_test.tsx_renderHeader_component_dZG2Ib1X4QU");
+export const renderHeader = /*#__PURE__*/ qrl(i_AcV95hWr76k, "test.tsx_renderHeader_AcV95hWr76k");
+const renderHeader = component(/*#__PURE__*/ qrl(i_dZG2Ib1X4QU, "test.tsx_renderHeader_component_dZG2Ib1X4QU"));
 
 
 None
-============================= test.tsx_test_renderHeader_div_onClick_43pxkjb2yIw.tsx (ENTRY POINT)==
+============================= test.tsx_test.tsx_renderHeader_component_dZG2Ib1X4QU.tsx (ENTRY POINT)==
 
-export const test_renderHeader_div_onClick_43pxkjb2yIw = (ctx)=>console.log(ctx);
+export const test.tsx_renderHeader_component_dZG2Ib1X4QU = ()=>{
+	console.log("mount");
+	return render;
+};
 
 
 None
 /*
 {
   "origin": "test.tsx",
-  "name": "test_renderHeader_div_onClick_43pxkjb2yIw",
+  "name": "test.tsx_renderHeader_component_dZG2Ib1X4QU",
   "entry": null,
-  "displayName": "test_renderHeader_div_onClick",
-  "hash": "43pxkjb2yIw",
-  "canonicalFilename": "test.tsx_test_renderHeader_div_onClick_43pxkjb2yIw",
+  "displayName": "test.tsx_renderHeader_component",
+  "hash": "dZG2Ib1X4QU",
+  "canonicalFilename": "test.tsx_test.tsx_renderHeader_component_dZG2Ib1X4QU",
+  "path": "",
+  "extension": "tsx",
+  "parent": null,
+  "ctxKind": "function",
+  "ctxName": "$",
+  "captures": false,
+  "loc": [
+    195,
+    243
+  ]
+}
+*/
+============================= test.tsx_test.tsx_renderHeader_div_onClick_wNMbGa8f0Dw.tsx (ENTRY POINT)==
+
+export const test.tsx_renderHeader_div_onClick_wNMbGa8f0Dw = (ctx)=>console.log(ctx);
+
+
+None
+/*
+{
+  "origin": "test.tsx",
+  "name": "test.tsx_renderHeader_div_onClick_wNMbGa8f0Dw",
+  "entry": null,
+  "displayName": "test.tsx_renderHeader_div_onClick",
+  "hash": "wNMbGa8f0Dw",
+  "canonicalFilename": "test.tsx_test.tsx_renderHeader_div_onClick_wNMbGa8f0Dw",
   "path": "",
   "extension": "tsx",
   "parent": "$0",
@@ -53,12 +82,12 @@ None
   ]
 }
 */
-============================= test.tsx_test_renderHeader_3KQ6mQ0LwJY.tsx (ENTRY POINT)==
+============================= test.tsx_test.tsx_renderHeader_AcV95hWr76k.tsx (ENTRY POINT)==
 
 import { qrl } from "@qwik.dev/core";
-const i_43pxkjb2yIw = ()=>import("./test.tsx_test_renderHeader_div_onClick_43pxkjb2yIw");
-export const test_renderHeader_3KQ6mQ0LwJY = ()=>{
-	return <div onClick={/*#__PURE__*/ qrl(i_43pxkjb2yIw, "test_renderHeader_div_onClick_43pxkjb2yIw")} />;
+const i_wNMbGa8f0Dw = ()=>import("./test.tsx_test.tsx_renderHeader_div_onClick_wNMbGa8f0Dw");
+export const test.tsx_renderHeader_AcV95hWr76k = ()=>{
+	return <div onClick={/*#__PURE__*/ qrl(i_wNMbGa8f0Dw, "test.tsx_renderHeader_div_onClick_wNMbGa8f0Dw")} />;
 };
 
 
@@ -66,11 +95,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "test_renderHeader_3KQ6mQ0LwJY",
+  "name": "test.tsx_renderHeader_AcV95hWr76k",
   "entry": null,
-  "displayName": "test_renderHeader",
-  "hash": "3KQ6mQ0LwJY",
-  "canonicalFilename": "test.tsx_test_renderHeader_3KQ6mQ0LwJY",
+  "displayName": "test.tsx_renderHeader",
+  "hash": "AcV95hWr76k",
+  "canonicalFilename": "test.tsx_test.tsx_renderHeader_AcV95hWr76k",
   "path": "",
   "extension": "tsx",
   "parent": null,
@@ -80,35 +109,6 @@ None
   "loc": [
     88,
     159
-  ]
-}
-*/
-============================= test.tsx_test_renderHeader_component_MZzzfQhITNs.tsx (ENTRY POINT)==
-
-export const test_renderHeader_component_MZzzfQhITNs = ()=>{
-	console.log("mount");
-	return render;
-};
-
-
-None
-/*
-{
-  "origin": "test.tsx",
-  "name": "test_renderHeader_component_MZzzfQhITNs",
-  "entry": null,
-  "displayName": "test_renderHeader_component",
-  "hash": "MZzzfQhITNs",
-  "canonicalFilename": "test.tsx_test_renderHeader_component_MZzzfQhITNs",
-  "path": "",
-  "extension": "tsx",
-  "parent": null,
-  "ctxKind": "function",
-  "ctxName": "$",
-  "captures": false,
-  "loc": [
-    195,
-    243
   ]
 }
 */

@@ -19,25 +19,25 @@ const Foo = component$(function() {
 ============================= test.js ==
 
 import { componentQrl, qrl } from "@qwik.dev/core";
-const i_NK5Hyit5tec = ()=>import("./test.tsx_test_Foo_component_NK5Hyit5tec");
-/*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_NK5Hyit5tec, "test_Foo_component_NK5Hyit5tec"));
+const i_gZqPatVoDqw = ()=>import("./test.tsx_test.tsx_Foo_component_gZqPatVoDqw");
+/*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_gZqPatVoDqw, "test.tsx_Foo_component_gZqPatVoDqw"));
 
 
 None
-============================= test.tsx_test_Foo_component_div_map_div_onMouseOver_JIfOMS6PpZo.js (ENTRY POINT)==
+============================= test.tsx_test.tsx_Foo_component_div_map_div_onMouseOver_Q0uudMQZHCA.js (ENTRY POINT)==
 
-export const test_Foo_component_div_map_div_onMouseOver_JIfOMS6PpZo = (_, _1, row)=>console.log("over" + row.value.id);
+export const test.tsx_Foo_component_div_map_div_onMouseOver_Q0uudMQZHCA = (_, _1, row)=>console.log("over" + row.value.id);
 
 
 None
 /*
 {
   "origin": "test.tsx",
-  "name": "test_Foo_component_div_map_div_onMouseOver_JIfOMS6PpZo",
+  "name": "test.tsx_Foo_component_div_map_div_onMouseOver_Q0uudMQZHCA",
   "entry": null,
-  "displayName": "test_Foo_component_div_map_div_onMouseOver",
-  "hash": "JIfOMS6PpZo",
-  "canonicalFilename": "test.tsx_test_Foo_component_div_map_div_onMouseOver_JIfOMS6PpZo",
+  "displayName": "test.tsx_Foo_component_div_map_div_onMouseOver",
+  "hash": "Q0uudMQZHCA",
+  "canonicalFilename": "test.tsx_test.tsx_Foo_component_div_map_div_onMouseOver_Q0uudMQZHCA",
   "path": "",
   "extension": "js",
   "parent": null,
@@ -50,47 +50,21 @@ None
   ]
 }
 */
-============================= test.tsx_test_Foo_component_div_map_div_p_onClick_0NpjtiEz3bA.js (ENTRY POINT)==
-
-export const test_Foo_component_div_map_div_p_onClick_0NpjtiEz3bA = (_, _1, row)=>console.log("inner" + row.value.id);
-
-
-None
-/*
-{
-  "origin": "test.tsx",
-  "name": "test_Foo_component_div_map_div_p_onClick_0NpjtiEz3bA",
-  "entry": null,
-  "displayName": "test_Foo_component_div_map_div_p_onClick",
-  "hash": "0NpjtiEz3bA",
-  "canonicalFilename": "test.tsx_test_Foo_component_div_map_div_p_onClick_0NpjtiEz3bA",
-  "path": "",
-  "extension": "js",
-  "parent": null,
-  "ctxKind": "eventHandler",
-  "ctxName": "onClick$",
-  "captures": false,
-  "loc": [
-    0,
-    0
-  ]
-}
-*/
-============================= test.tsx_test_Foo_component_NK5Hyit5tec.js (ENTRY POINT)==
+============================= test.tsx_test.tsx_Foo_component_gZqPatVoDqw.js (ENTRY POINT)==
 
 import { _jsxSorted, qrl, useSignal } from "@qwik.dev/core";
-const i_0NpjtiEz3bA = ()=>import("./test.tsx_test_Foo_component_div_map_div_p_onClick_0NpjtiEz3bA");
-const i_JIfOMS6PpZo = ()=>import("./test.tsx_test_Foo_component_div_map_div_onMouseOver_JIfOMS6PpZo");
-const i_0ECFp3N7wOw = ()=>import("./test.tsx_test_Foo_component_div_map_div_onClick_0ECFp3N7wOw");
-export const test_Foo_component_NK5Hyit5tec = function() {
+const i_y9dqu3LYito = ()=>import("./test.tsx_test.tsx_Foo_component_div_map_div_p_onClick_y9dqu3LYito");
+const i_Q0uudMQZHCA = ()=>import("./test.tsx_test.tsx_Foo_component_div_map_div_onMouseOver_Q0uudMQZHCA");
+const i_zM4Cumgzius = ()=>import("./test.tsx_test.tsx_Foo_component_div_map_div_onClick_zM4Cumgzius");
+export const test.tsx_Foo_component_gZqPatVoDqw = function() {
 	const data = useSignal([]);
 	return /*#__PURE__*/ _jsxSorted("div", null, null, data.value.map((row, idx)=>/*#__PURE__*/ _jsxSorted("div", {
 		q:ps: [idx, row],
-		on:click: /*#__PURE__*/ qrl(i_0ECFp3N7wOw, "test_Foo_component_div_map_div_onClick_0ECFp3N7wOw"),
-		on:mouseover: /*#__PURE__*/ qrl(i_JIfOMS6PpZo, "test_Foo_component_div_map_div_onMouseOver_JIfOMS6PpZo")
+		on:click: /*#__PURE__*/ qrl(i_zM4Cumgzius, "test.tsx_Foo_component_div_map_div_onClick_zM4Cumgzius"),
+		on:mouseover: /*#__PURE__*/ qrl(i_Q0uudMQZHCA, "test.tsx_Foo_component_div_map_div_onMouseOver_Q0uudMQZHCA")
 	}, null, /*#__PURE__*/ _jsxSorted("p", {
 		q:p: row,
-		on:click: /*#__PURE__*/ qrl(i_0NpjtiEz3bA, "test_Foo_component_div_map_div_p_onClick_0NpjtiEz3bA")
+		on:click: /*#__PURE__*/ qrl(i_y9dqu3LYito, "test.tsx_Foo_component_div_map_div_p_onClick_y9dqu3LYito")
 	}, null, item.value.id, 1, null), 3, null)), 1, null);
 };
 
@@ -99,11 +73,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "test_Foo_component_NK5Hyit5tec",
+  "name": "test.tsx_Foo_component_gZqPatVoDqw",
   "entry": null,
-  "displayName": "test_Foo_component",
-  "hash": "NK5Hyit5tec",
-  "canonicalFilename": "test.tsx_test_Foo_component_NK5Hyit5tec",
+  "displayName": "test.tsx_Foo_component",
+  "hash": "gZqPatVoDqw",
+  "canonicalFilename": "test.tsx_test.tsx_Foo_component_gZqPatVoDqw",
   "path": "",
   "extension": "js",
   "parent": null,
@@ -116,20 +90,46 @@ None
   ]
 }
 */
-============================= test.tsx_test_Foo_component_div_map_div_onClick_0ECFp3N7wOw.js (ENTRY POINT)==
+============================= test.tsx_test.tsx_Foo_component_div_map_div_p_onClick_y9dqu3LYito.js (ENTRY POINT)==
 
-export const test_Foo_component_div_map_div_onClick_0ECFp3N7wOw = (_, _1, idx, row)=>console.log(row.value.id, idx);
+export const test.tsx_Foo_component_div_map_div_p_onClick_y9dqu3LYito = (_, _1, row)=>console.log("inner" + row.value.id);
 
 
 None
 /*
 {
   "origin": "test.tsx",
-  "name": "test_Foo_component_div_map_div_onClick_0ECFp3N7wOw",
+  "name": "test.tsx_Foo_component_div_map_div_p_onClick_y9dqu3LYito",
   "entry": null,
-  "displayName": "test_Foo_component_div_map_div_onClick",
-  "hash": "0ECFp3N7wOw",
-  "canonicalFilename": "test.tsx_test_Foo_component_div_map_div_onClick_0ECFp3N7wOw",
+  "displayName": "test.tsx_Foo_component_div_map_div_p_onClick",
+  "hash": "y9dqu3LYito",
+  "canonicalFilename": "test.tsx_test.tsx_Foo_component_div_map_div_p_onClick_y9dqu3LYito",
+  "path": "",
+  "extension": "js",
+  "parent": null,
+  "ctxKind": "eventHandler",
+  "ctxName": "onClick$",
+  "captures": false,
+  "loc": [
+    0,
+    0
+  ]
+}
+*/
+============================= test.tsx_test.tsx_Foo_component_div_map_div_onClick_zM4Cumgzius.js (ENTRY POINT)==
+
+export const test.tsx_Foo_component_div_map_div_onClick_zM4Cumgzius = (_, _1, idx, row)=>console.log(row.value.id, idx);
+
+
+None
+/*
+{
+  "origin": "test.tsx",
+  "name": "test.tsx_Foo_component_div_map_div_onClick_zM4Cumgzius",
+  "entry": null,
+  "displayName": "test.tsx_Foo_component_div_map_div_onClick",
+  "hash": "zM4Cumgzius",
+  "canonicalFilename": "test.tsx_test.tsx_Foo_component_div_map_div_onClick_zM4Cumgzius",
   "path": "",
   "extension": "js",
   "parent": null,

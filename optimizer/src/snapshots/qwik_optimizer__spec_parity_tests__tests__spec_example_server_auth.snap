@@ -47,61 +47,19 @@ export const { onRequest, logout, getSession, signup } = auth$({
 
 import { authQrl, serverAuthQrl } from "@auth/qwik";
 import { authQrl, qrl, serverAuthQrl } from "@qwik.dev/core";
-const i_fOwC85dKyEY = ()=>import("./test.tsx_test_serverAuth_fOwC85dKyEY");
-const i_bL3Fr0lPRI0 = ()=>import("./test.tsx_test_auth_bL3Fr0lPRI0");
-export const { onRequest, logout, getSession, signup } = /*#__PURE__*/ serverAuthQrl(/*#__PURE__*/ qrl(i_fOwC85dKyEY, "test_serverAuth_fOwC85dKyEY"));
-export const { onRequest, logout, getSession, signup } = /*#__PURE__*/ authQrl(/*#__PURE__*/ qrl(i_bL3Fr0lPRI0, "test_auth_bL3Fr0lPRI0"));
+const i_vPbyaRdcMu4 = ()=>import("./test.tsx_test.tsx_serverAuth_vPbyaRdcMu4");
+const i_US9XKovuOyI = ()=>import("./test.tsx_test.tsx_auth_US9XKovuOyI");
+export const { onRequest, logout, getSession, signup } = /*#__PURE__*/ serverAuthQrl(/*#__PURE__*/ qrl(i_vPbyaRdcMu4, "test.tsx_serverAuth_vPbyaRdcMu4"));
+export const { onRequest, logout, getSession, signup } = /*#__PURE__*/ authQrl(/*#__PURE__*/ qrl(i_US9XKovuOyI, "test.tsx_auth_US9XKovuOyI"));
 
 
 None
-============================= test.tsx_test_serverAuth_fOwC85dKyEY.js (ENTRY POINT)==
+============================= test.tsx_test.tsx_auth_US9XKovuOyI.js (ENTRY POINT)==
 
 import GitHub from "@auth/core/providers/github";
 import Facebook from "next-auth/providers/facebook";
 import Google from "next-auth/providers/google";
-export const test_serverAuth_fOwC85dKyEY = { providers: [
-	GitHub({
-		clientId: process.env.GITHUB_ID,
-		clientSecret: process.env.GITHUB_SECRET
-	}),
-	Facebook({
-		clientId: import.meta.env.FACEBOOK_ID,
-		clientSecret: import.meta.env.FACEBOOK_SECRET
-	}),
-	Google({
-		clientId: process.env.GOOGLE_ID,
-		clientSecret: process.env.GOOGLE_SECRET
-	})
-] };
-
-
-None
-/*
-{
-  "origin": "test.tsx",
-  "name": "test_serverAuth_fOwC85dKyEY",
-  "entry": null,
-  "displayName": "test_serverAuth",
-  "hash": "fOwC85dKyEY",
-  "canonicalFilename": "test.tsx_test_serverAuth_fOwC85dKyEY",
-  "path": "",
-  "extension": "js",
-  "parent": null,
-  "ctxKind": "function",
-  "ctxName": "serverAuth$",
-  "captures": false,
-  "loc": [
-    266,
-    575
-  ]
-}
-*/
-============================= test.tsx_test_auth_bL3Fr0lPRI0.js (ENTRY POINT)==
-
-import GitHub from "@auth/core/providers/github";
-import Facebook from "next-auth/providers/facebook";
-import Google from "next-auth/providers/google";
-export const test_auth_bL3Fr0lPRI0 = { providers: [
+export const test.tsx_auth_US9XKovuOyI = { providers: [
 	GitHub({
 		clientId: process.env.GITHUB_ID,
 		clientSecret: process.env.GITHUB_SECRET
@@ -121,11 +79,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "test_auth_bL3Fr0lPRI0",
+  "name": "test.tsx_auth_US9XKovuOyI",
   "entry": null,
-  "displayName": "test_auth",
-  "hash": "bL3Fr0lPRI0",
-  "canonicalFilename": "test.tsx_test_auth_bL3Fr0lPRI0",
+  "displayName": "test.tsx_auth",
+  "hash": "US9XKovuOyI",
+  "canonicalFilename": "test.tsx_test.tsx_auth_US9XKovuOyI",
   "path": "",
   "extension": "js",
   "parent": null,
@@ -135,6 +93,48 @@ None
   "loc": [
     642,
     943
+  ]
+}
+*/
+============================= test.tsx_test.tsx_serverAuth_vPbyaRdcMu4.js (ENTRY POINT)==
+
+import GitHub from "@auth/core/providers/github";
+import Facebook from "next-auth/providers/facebook";
+import Google from "next-auth/providers/google";
+export const test.tsx_serverAuth_vPbyaRdcMu4 = { providers: [
+	GitHub({
+		clientId: process.env.GITHUB_ID,
+		clientSecret: process.env.GITHUB_SECRET
+	}),
+	Facebook({
+		clientId: import.meta.env.FACEBOOK_ID,
+		clientSecret: import.meta.env.FACEBOOK_SECRET
+	}),
+	Google({
+		clientId: process.env.GOOGLE_ID,
+		clientSecret: process.env.GOOGLE_SECRET
+	})
+] };
+
+
+None
+/*
+{
+  "origin": "test.tsx",
+  "name": "test.tsx_serverAuth_vPbyaRdcMu4",
+  "entry": null,
+  "displayName": "test.tsx_serverAuth",
+  "hash": "vPbyaRdcMu4",
+  "canonicalFilename": "test.tsx_test.tsx_serverAuth_vPbyaRdcMu4",
+  "path": "",
+  "extension": "js",
+  "parent": null,
+  "ctxKind": "function",
+  "ctxName": "serverAuth$",
+  "captures": false,
+  "loc": [
+    266,
+    575
   ]
 }
 */

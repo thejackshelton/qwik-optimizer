@@ -22,53 +22,62 @@ export const App = component$(() => {
 ============================= test.js ==
 
 import { componentQrl, qrl } from "@qwik.dev/core";
-const i_1rDnnw0v4xw = ()=>import("./test.tsx_test_App_component_useStyles_1rDnnw0v4xw");
-const i_eRb5Uu4bkw4 = ()=>import("./test.tsx_test_App_component_1_eRb5Uu4bkw4");
-const i_jYXJI01qFIU = ()=>import("./test.tsx_test_App_component_jYXJI01qFIU");
-export const App = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_jYXJI01qFIU, "test_App_component_jYXJI01qFIU"));
+const i_GZvaNEi0pm0 = ()=>import("./test.tsx_test.tsx_App_component_useStyles_GZvaNEi0pm0");
+const i_zT40dUYPQNs = ()=>import("./test.tsx_test.tsx_App_component_1_zT40dUYPQNs");
+const i_XumqEURaLxI = ()=>import("./test.tsx_test.tsx_App_component_XumqEURaLxI");
+export const App = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_XumqEURaLxI, "test.tsx_App_component_XumqEURaLxI"));
 
 
 None
-============================= test.tsx_test_App_component_1_eRb5Uu4bkw4.js (ENTRY POINT)==
+============================= test.tsx_test.tsx_App_component_XumqEURaLxI.js (ENTRY POINT)==
 
-export const test_App_component_1_eRb5Uu4bkw4 = render;
+import css1 from "./global.css";
+import css2 from "./style.css";
+import { qrl, useStylesQrl } from "@qwik.dev/core";
+const i_GZvaNEi0pm0 = ()=>import("./test.tsx_test.tsx_App_component_useStyles_GZvaNEi0pm0");
+export const test.tsx_App_component_XumqEURaLxI = ()=>{
+	const style = `${css1}${css2}`;
+	/*#__PURE__*/ useStylesQrl(/*#__PURE__*/ qrl(i_GZvaNEi0pm0, "test.tsx_App_component_useStyles_GZvaNEi0pm0", [style]));
+	const render = /*#__PURE__*/ useStylesQrl(/*#__PURE__*/ qrl(i_GZvaNEi0pm0, "test.tsx_App_component_useStyles_GZvaNEi0pm0", [style]));
+	return /*#__PURE__*/ qrl(i_zT40dUYPQNs, "test.tsx_App_component_1_zT40dUYPQNs", [render]);
+};
 
 
 None
 /*
 {
   "origin": "test.tsx",
-  "name": "test_App_component_1_eRb5Uu4bkw4",
+  "name": "test.tsx_App_component_XumqEURaLxI",
   "entry": null,
-  "displayName": "test_App_component_1",
-  "hash": "eRb5Uu4bkw4",
-  "canonicalFilename": "test.tsx_test_App_component_1_eRb5Uu4bkw4",
+  "displayName": "test.tsx_App_component",
+  "hash": "XumqEURaLxI",
+  "canonicalFilename": "test.tsx_test.tsx_App_component_XumqEURaLxI",
   "path": "",
   "extension": "js",
-  "parent": "component",
+  "parent": null,
   "ctxKind": "function",
-  "ctxName": "$",
-  "captures": true,
+  "ctxName": "component$",
+  "captures": false,
   "loc": [
-    285,
-    291
+    156,
+    295
   ]
 }
 */
-============================= test.tsx_test_App_component_useStyles_1rDnnw0v4xw.js (ENTRY POINT)==
+============================= test.tsx_test.tsx_App_component_useStyles_GZvaNEi0pm0.js (ENTRY POINT)==
 
-export const test_App_component_useStyles_1rDnnw0v4xw = style;
+export const test.tsx_App_component_useStyles_GZvaNEi0pm0 = style;
 
 
 None
 /*
 {
   "origin": "test.tsx",
-  "name": "test_App_component_useStyles_1rDnnw0v4xw",
+  "name": "test.tsx_App_component_useStyles_GZvaNEi0pm0",
   "entry": null,
-  "displayName": "test_App_component_useStyles",
-  "hash": "1rDnnw0v4xw",
-  "canonicalFilename": "test.tsx_test_App_component_useStyles_1rDnnw0v4xw",
+  "displayName": "test.tsx_App_component_useStyles",
+  "hash": "GZvaNEi0pm0",
+  "canonicalFilename": "test.tsx_test.tsx_App_component_useStyles_GZvaNEi0pm0",
   "path": "",
   "extension": "js",
   "parent": "component",
@@ -81,38 +90,29 @@ None
   ]
 }
 */
-============================= test.tsx_test_App_component_jYXJI01qFIU.js (ENTRY POINT)==
+============================= test.tsx_test.tsx_App_component_1_zT40dUYPQNs.js (ENTRY POINT)==
 
-import css1 from "./global.css";
-import css2 from "./style.css";
-import { qrl, useStylesQrl } from "@qwik.dev/core";
-const i_1rDnnw0v4xw = ()=>import("./test.tsx_test_App_component_useStyles_1rDnnw0v4xw");
-export const test_App_component_jYXJI01qFIU = ()=>{
-	const style = `${css1}${css2}`;
-	/*#__PURE__*/ useStylesQrl(/*#__PURE__*/ qrl(i_1rDnnw0v4xw, "test_App_component_useStyles_1rDnnw0v4xw", [style]));
-	const render = /*#__PURE__*/ useStylesQrl(/*#__PURE__*/ qrl(i_1rDnnw0v4xw, "test_App_component_useStyles_1rDnnw0v4xw", [style]));
-	return /*#__PURE__*/ qrl(i_eRb5Uu4bkw4, "test_App_component_1_eRb5Uu4bkw4", [render]);
-};
+export const test.tsx_App_component_1_zT40dUYPQNs = render;
 
 
 None
 /*
 {
   "origin": "test.tsx",
-  "name": "test_App_component_jYXJI01qFIU",
+  "name": "test.tsx_App_component_1_zT40dUYPQNs",
   "entry": null,
-  "displayName": "test_App_component",
-  "hash": "jYXJI01qFIU",
-  "canonicalFilename": "test.tsx_test_App_component_jYXJI01qFIU",
+  "displayName": "test.tsx_App_component_1",
+  "hash": "zT40dUYPQNs",
+  "canonicalFilename": "test.tsx_test.tsx_App_component_1_zT40dUYPQNs",
   "path": "",
   "extension": "js",
-  "parent": null,
+  "parent": "component",
   "ctxKind": "function",
-  "ctxName": "component$",
-  "captures": false,
+  "ctxName": "$",
+  "captures": true,
   "loc": [
-    156,
-    295
+    285,
+    291
   ]
 }
 */

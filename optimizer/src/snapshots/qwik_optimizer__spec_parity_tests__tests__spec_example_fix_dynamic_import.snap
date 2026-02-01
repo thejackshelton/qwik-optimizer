@@ -23,18 +23,18 @@ export const Header = component$(() => {
 ============================= project/folder/test.tsx ==
 
 import { componentQrl, qrl } from "@qwik.dev/core";
-const i_mhm0uCOWjik = ()=>import("./test.tsx_test_Header_component_mhm0uCOWjik");
+const i_IBi0rCZj5ZQ = ()=>import("./test.tsx_test.tsx_Header_component_IBi0rCZj5ZQ");
 export function foo() {
 	return import("../foo/state2");
 }
-export const Header = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_mhm0uCOWjik, "test_Header_component_mhm0uCOWjik"));
+export const Header = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_IBi0rCZj5ZQ, "test.tsx_Header_component_IBi0rCZj5ZQ"));
 
 
 None
-============================= project/folder/test.tsx_test_Header_component_mhm0uCOWjik.tsx (ENTRY POINT)==
+============================= project/folder/test.tsx_test.tsx_Header_component_IBi0rCZj5ZQ.tsx (ENTRY POINT)==
 
 import thing from "../state";
-export const test_Header_component_mhm0uCOWjik = ()=>{
+export const test.tsx_Header_component_IBi0rCZj5ZQ = ()=>{
 	return <div>
 			{import("../folder/state3")}
 			{thing}
@@ -46,11 +46,11 @@ None
 /*
 {
   "origin": "project/folder/test.tsx",
-  "name": "test_Header_component_mhm0uCOWjik",
+  "name": "test.tsx_Header_component_IBi0rCZj5ZQ",
   "entry": "entry_segments",
-  "displayName": "test_Header_component",
-  "hash": "mhm0uCOWjik",
-  "canonicalFilename": "test.tsx_test_Header_component_mhm0uCOWjik",
+  "displayName": "test.tsx_Header_component",
+  "hash": "IBi0rCZj5ZQ",
+  "canonicalFilename": "test.tsx_test.tsx_Header_component_IBi0rCZj5ZQ",
   "path": "project/folder",
   "extension": "tsx",
   "parent": null,

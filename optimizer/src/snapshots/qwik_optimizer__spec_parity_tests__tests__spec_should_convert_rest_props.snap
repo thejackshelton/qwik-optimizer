@@ -17,45 +17,17 @@ return 'hi'
 ============================= test.js ==
 
 import { componentQrl, qrl } from "@qwik.dev/core";
-const i_jewzFYh3XmQ = ()=>import("./test.tsx_test_component_useTask_jewzFYh3XmQ");
-const i_LUXeXe0DQrg = ()=>import("./test.tsx_test_component_LUXeXe0DQrg");
-export default /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_LUXeXe0DQrg, "test_component_LUXeXe0DQrg"));
+const i_JTJcH3nK8No = ()=>import("./test.tsx_test.tsx_component_useTask_JTJcH3nK8No");
+const i_G7jVUwdBFEM = ()=>import("./test.tsx_test.tsx_component_G7jVUwdBFEM");
+export default /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_G7jVUwdBFEM, "test.tsx_component_G7jVUwdBFEM"));
 
 
 None
-============================= test.tsx_test_component_useTask_jewzFYh3XmQ.js (ENTRY POINT)==
-
-export const test_component_useTask_jewzFYh3XmQ = ()=>{
-	props.checked;
-};
-
-
-None
-/*
-{
-  "origin": "test.tsx",
-  "name": "test_component_useTask_jewzFYh3XmQ",
-  "entry": null,
-  "displayName": "test_component_useTask",
-  "hash": "jewzFYh3XmQ",
-  "canonicalFilename": "test.tsx_test_component_useTask_jewzFYh3XmQ",
-  "path": "",
-  "extension": "js",
-  "parent": "component",
-  "ctxKind": "function",
-  "ctxName": "useTask$",
-  "captures": false,
-  "loc": [
-    115,
-    139
-  ]
-}
-*/
-============================= test.tsx_test_component_LUXeXe0DQrg.js (ENTRY POINT)==
+============================= test.tsx_test.tsx_component_G7jVUwdBFEM.js (ENTRY POINT)==
 
 import { qrl, useTaskQrl } from "@qwik.dev/core";
-export const test_component_LUXeXe0DQrg = ({ ...props })=>{
-	/*#__PURE__*/ useTaskQrl(/*#__PURE__*/ qrl(i_jewzFYh3XmQ, "test_component_useTask_jewzFYh3XmQ"));
+export const test.tsx_component_G7jVUwdBFEM = ({ ...props })=>{
+	/*#__PURE__*/ useTaskQrl(/*#__PURE__*/ qrl(i_JTJcH3nK8No, "test.tsx_component_useTask_JTJcH3nK8No"));
 	return "hi";
 };
 
@@ -64,11 +36,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "test_component_LUXeXe0DQrg",
+  "name": "test.tsx_component_G7jVUwdBFEM",
   "entry": null,
-  "displayName": "test_component",
-  "hash": "LUXeXe0DQrg",
-  "canonicalFilename": "test.tsx_test_component_LUXeXe0DQrg",
+  "displayName": "test.tsx_component",
+  "hash": "G7jVUwdBFEM",
+  "canonicalFilename": "test.tsx_test.tsx_component_G7jVUwdBFEM",
   "path": "",
   "extension": "js",
   "parent": null,
@@ -78,6 +50,34 @@ None
   "loc": [
     86,
     155
+  ]
+}
+*/
+============================= test.tsx_test.tsx_component_useTask_JTJcH3nK8No.js (ENTRY POINT)==
+
+export const test.tsx_component_useTask_JTJcH3nK8No = ()=>{
+	props.checked;
+};
+
+
+None
+/*
+{
+  "origin": "test.tsx",
+  "name": "test.tsx_component_useTask_JTJcH3nK8No",
+  "entry": null,
+  "displayName": "test.tsx_component_useTask",
+  "hash": "JTJcH3nK8No",
+  "canonicalFilename": "test.tsx_test.tsx_component_useTask_JTJcH3nK8No",
+  "path": "",
+  "extension": "js",
+  "parent": "component",
+  "ctxKind": "function",
+  "ctxName": "useTask$",
+  "captures": false,
+  "loc": [
+    115,
+    139
   ]
 }
 */

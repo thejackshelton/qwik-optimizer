@@ -27,14 +27,14 @@ const Header = $((decl1, {decl2}, [decl3]) => {
 ============================= project/test.tsx ==
 
 import { qrl } from "@qwik.dev/core";
-const i_hK08HU61t5U = ()=>import("./test.tsx_test_Header_hK08HU61t5U");
-/*#__PURE__*/ qrl(i_hK08HU61t5U, "test_Header_hK08HU61t5U");
+const i_E8Lhlb0qSdA = ()=>import("./test.tsx_test.tsx_Header_E8Lhlb0qSdA");
+/*#__PURE__*/ qrl(i_E8Lhlb0qSdA, "test.tsx_Header_E8Lhlb0qSdA");
 
 
 None
-============================= project/test.tsx_test_Header_hK08HU61t5U.tsx (ENTRY POINT)==
+============================= project/test.tsx_test.tsx_Header_E8Lhlb0qSdA.tsx (ENTRY POINT)==
 
-export const test_Header_hK08HU61t5U = (decl1, { decl2 }, [decl3])=>{
+export const test.tsx_Header_E8Lhlb0qSdA = (decl1, { decl2 }, [decl3])=>{
 	const hola = ident1.no;
 	ident2;
 	const a = ident1 + ident3;
@@ -48,11 +48,11 @@ None
 /*
 {
   "origin": "project/test.tsx",
-  "name": "test_Header_hK08HU61t5U",
+  "name": "test.tsx_Header_E8Lhlb0qSdA",
   "entry": null,
-  "displayName": "test_Header",
-  "hash": "hK08HU61t5U",
-  "canonicalFilename": "test.tsx_test_Header_hK08HU61t5U",
+  "displayName": "test.tsx_Header",
+  "hash": "E8Lhlb0qSdA",
+  "canonicalFilename": "test.tsx_test.tsx_Header_E8Lhlb0qSdA",
   "path": "project",
   "extension": "tsx",
   "parent": null,

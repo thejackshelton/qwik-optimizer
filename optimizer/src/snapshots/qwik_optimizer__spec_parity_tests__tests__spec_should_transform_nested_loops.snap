@@ -22,57 +22,27 @@ const Foo = component$(function() {
 ============================= test.js ==
 
 import { componentQrl, qrl } from "@qwik.dev/core";
-const i_NK5Hyit5tec = ()=>import("./test.tsx_test_Foo_component_NK5Hyit5tec");
+const i_gZqPatVoDqw = ()=>import("./test.tsx_test.tsx_Foo_component_gZqPatVoDqw");
 const _hf0 = (p0)=>p0.value.id;
 const _hf0_str = "p0.value.id";
-/*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_NK5Hyit5tec, "test_Foo_component_NK5Hyit5tec"));
+/*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_gZqPatVoDqw, "test.tsx_Foo_component_gZqPatVoDqw"));
 
 
 None
-============================= test.tsx_test_Foo_component_div_map_div_map_p_onClick_TlIzsC7iPEM.js (ENTRY POINT)==
-
-import { useLexicalScope } from "@qwik.dev/core";
-export const test_Foo_component_div_map_div_map_p_onClick_TlIzsC7iPEM = (_, _1, item)=>{
-	const [row] = useLexicalScope();
-	return console.log(row.value.id, item.value.id);
-};
-
-
-None
-/*
-{
-  "origin": "test.tsx",
-  "name": "test_Foo_component_div_map_div_map_p_onClick_TlIzsC7iPEM",
-  "entry": null,
-  "displayName": "test_Foo_component_div_map_div_map_p_onClick",
-  "hash": "TlIzsC7iPEM",
-  "canonicalFilename": "test.tsx_test_Foo_component_div_map_div_map_p_onClick_TlIzsC7iPEM",
-  "path": "",
-  "extension": "js",
-  "parent": null,
-  "ctxKind": "eventHandler",
-  "ctxName": "onClick$",
-  "captures": true,
-  "loc": [
-    0,
-    0
-  ]
-}
-*/
-============================= test.tsx_test_Foo_component_NK5Hyit5tec.js (ENTRY POINT)==
+============================= test.tsx_test.tsx_Foo_component_gZqPatVoDqw.js (ENTRY POINT)==
 
 import { _fnSignal, _jsxSorted, qrl, useSignal } from "@qwik.dev/core";
-const i_TlIzsC7iPEM = ()=>import("./test.tsx_test_Foo_component_div_map_div_map_p_onClick_TlIzsC7iPEM");
-const i_0ECFp3N7wOw = ()=>import("./test.tsx_test_Foo_component_div_map_div_onClick_0ECFp3N7wOw");
-export const test_Foo_component_NK5Hyit5tec = function() {
+const i_chpE6lPsE9s = ()=>import("./test.tsx_test.tsx_Foo_component_div_map_div_map_p_onClick_chpE6lPsE9s");
+const i_zM4Cumgzius = ()=>import("./test.tsx_test.tsx_Foo_component_div_map_div_onClick_zM4Cumgzius");
+export const test.tsx_Foo_component_gZqPatVoDqw = function() {
 	const data = useSignal([]);
 	const data2 = useSignal([]);
 	return /*#__PURE__*/ _jsxSorted("div", null, null, data.value.map((row)=>/*#__PURE__*/ _jsxSorted("div", {
 		q:p: row,
-		on:click: /*#__PURE__*/ qrl(i_0ECFp3N7wOw, "test_Foo_component_div_map_div_onClick_0ECFp3N7wOw")
+		on:click: /*#__PURE__*/ qrl(i_zM4Cumgzius, "test.tsx_Foo_component_div_map_div_onClick_zM4Cumgzius")
 	}, null, data2.value.map((item)=>/*#__PURE__*/ _jsxSorted("p", {
 		q:p: item,
-		on:click: /*#__PURE__*/ qrl(i_TlIzsC7iPEM, "test_Foo_component_div_map_div_map_p_onClick_TlIzsC7iPEM", [row])
+		on:click: /*#__PURE__*/ qrl(i_chpE6lPsE9s, "test.tsx_Foo_component_div_map_div_map_p_onClick_chpE6lPsE9s", [row])
 	}, null, [
 		row.value.id,
 		"-",
@@ -85,11 +55,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "test_Foo_component_NK5Hyit5tec",
+  "name": "test.tsx_Foo_component_gZqPatVoDqw",
   "entry": null,
-  "displayName": "test_Foo_component",
-  "hash": "NK5Hyit5tec",
-  "canonicalFilename": "test.tsx_test_Foo_component_NK5Hyit5tec",
+  "displayName": "test.tsx_Foo_component",
+  "hash": "gZqPatVoDqw",
+  "canonicalFilename": "test.tsx_test.tsx_Foo_component_gZqPatVoDqw",
   "path": "",
   "extension": "js",
   "parent": null,
@@ -102,20 +72,50 @@ None
   ]
 }
 */
-============================= test.tsx_test_Foo_component_div_map_div_onClick_0ECFp3N7wOw.js (ENTRY POINT)==
+============================= test.tsx_test.tsx_Foo_component_div_map_div_map_p_onClick_chpE6lPsE9s.js (ENTRY POINT)==
 
-export const test_Foo_component_div_map_div_onClick_0ECFp3N7wOw = (_, _1, row)=>console.log(row.value.id);
+import { useLexicalScope } from "@qwik.dev/core";
+export const test.tsx_Foo_component_div_map_div_map_p_onClick_chpE6lPsE9s = (_, _1, item)=>{
+	const [row] = useLexicalScope();
+	return console.log(row.value.id, item.value.id);
+};
 
 
 None
 /*
 {
   "origin": "test.tsx",
-  "name": "test_Foo_component_div_map_div_onClick_0ECFp3N7wOw",
+  "name": "test.tsx_Foo_component_div_map_div_map_p_onClick_chpE6lPsE9s",
   "entry": null,
-  "displayName": "test_Foo_component_div_map_div_onClick",
-  "hash": "0ECFp3N7wOw",
-  "canonicalFilename": "test.tsx_test_Foo_component_div_map_div_onClick_0ECFp3N7wOw",
+  "displayName": "test.tsx_Foo_component_div_map_div_map_p_onClick",
+  "hash": "chpE6lPsE9s",
+  "canonicalFilename": "test.tsx_test.tsx_Foo_component_div_map_div_map_p_onClick_chpE6lPsE9s",
+  "path": "",
+  "extension": "js",
+  "parent": null,
+  "ctxKind": "eventHandler",
+  "ctxName": "onClick$",
+  "captures": true,
+  "loc": [
+    0,
+    0
+  ]
+}
+*/
+============================= test.tsx_test.tsx_Foo_component_div_map_div_onClick_zM4Cumgzius.js (ENTRY POINT)==
+
+export const test.tsx_Foo_component_div_map_div_onClick_zM4Cumgzius = (_, _1, row)=>console.log(row.value.id);
+
+
+None
+/*
+{
+  "origin": "test.tsx",
+  "name": "test.tsx_Foo_component_div_map_div_onClick_zM4Cumgzius",
+  "entry": null,
+  "displayName": "test.tsx_Foo_component_div_map_div_onClick",
+  "hash": "zM4Cumgzius",
+  "canonicalFilename": "test.tsx_test.tsx_Foo_component_div_map_div_onClick_zM4Cumgzius",
   "path": "",
   "extension": "js",
   "parent": null,

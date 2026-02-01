@@ -17,16 +17,16 @@ export default component$(() => {
 ============================= src/routes/_repl/[id]/[[...slug]].js ==
 
 import { componentQrl, qrl } from "@qwik.dev/core";
-const i_TcBOm8u2moY = ()=>import("./[[...slug]].tsx_[[_component_TcBOm8u2moY");
-export default /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_TcBOm8u2moY, "[[_component_TcBOm8u2moY"));
+const i_9bPxInzOIxw = ()=>import("./[[...slug]].tsx_[[...slug]].tsx_component_9bPxInzOIxw");
+export default /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_9bPxInzOIxw, "[[...slug]].tsx_component_9bPxInzOIxw"));
 
 
 None
-============================= src/routes/_repl/[id]/[[...slug]].tsx_[[_component_TcBOm8u2moY.js (ENTRY POINT)==
+============================= src/routes/_repl/[id]/[[...slug]].tsx_[[...slug]].tsx_component_9bPxInzOIxw.js (ENTRY POINT)==
 
 import { _jsxSorted, qrl } from "@qwik.dev/core";
 const i_onClick = ()=>import("./[[...slug]].tsx");
-export const [[_component_TcBOm8u2moY = ()=>{
+export const [[...slug]].tsx_component_9bPxInzOIxw = ()=>{
 	return /*#__PURE__*/ _jsxSorted("div", { on:click: /*#__PURE__*/ qrl(i_onClick, "component_div_onClick") }, null, null, 3, null);
 };
 
@@ -35,11 +35,11 @@ None
 /*
 {
   "origin": "src/routes/_repl/[id]/[[...slug]].tsx",
-  "name": "[[_component_TcBOm8u2moY",
+  "name": "[[...slug]].tsx_component_9bPxInzOIxw",
   "entry": "./src/routes/_repl/[id]/[[...slug]].tsx_entry_component$",
-  "displayName": "[[_component",
-  "hash": "TcBOm8u2moY",
-  "canonicalFilename": "[[...slug]].tsx_[[_component_TcBOm8u2moY",
+  "displayName": "[[...slug]].tsx_component",
+  "hash": "9bPxInzOIxw",
+  "canonicalFilename": "[[...slug]].tsx_[[...slug]].tsx_component_9bPxInzOIxw",
   "path": "src/routes/_repl/[id]",
   "extension": "js",
   "parent": null,

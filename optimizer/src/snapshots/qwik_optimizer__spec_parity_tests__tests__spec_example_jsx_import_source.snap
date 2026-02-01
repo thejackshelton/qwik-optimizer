@@ -21,28 +21,28 @@ export const App2 = qwikify$(() => (
 import { qwikifyQrl } from "./qwikfy";
 import { _jsxSorted, qrl, qwikifyQrl } from "@qwik.dev/core";
 const i_onClick = ()=>import("./test.tsx");
-const i_5uoPoR00zCg = ()=>import("./test.tsx_test_App2_qwikify_5uoPoR00zCg");
+const i_4Tc4MzcFY0U = ()=>import("./test.tsx_test.tsx_App2_qwikify_4Tc4MzcFY0U");
 export const App = ()=>/*#__PURE__*/ _jsxSorted("div", { on:click: /*#__PURE__*/ qrl(i_onClick, "App_div_onClick") }, null, null, 3, null);
-export const App2 = /*#__PURE__*/ qwikifyQrl(/*#__PURE__*/ qrl(i_5uoPoR00zCg, "test_App2_qwikify_5uoPoR00zCg"));
+export const App2 = /*#__PURE__*/ qwikifyQrl(/*#__PURE__*/ qrl(i_4Tc4MzcFY0U, "test.tsx_App2_qwikify_4Tc4MzcFY0U"));
 
 
 None
-============================= test.tsx_test_App2_qwikify_5uoPoR00zCg.js (ENTRY POINT)==
+============================= test.tsx_test.tsx_App2_qwikify_4Tc4MzcFY0U.js (ENTRY POINT)==
 
 import { _jsxSorted, qrl } from "@qwik.dev/core";
 const i_onClick = ()=>import("./test.tsx");
-export const test_App2_qwikify_5uoPoR00zCg = ()=>/*#__PURE__*/ _jsxSorted("div", { on:click: /*#__PURE__*/ qrl(i_onClick, "App2_qwikify_div_onClick") }, null, null, 3, null);
+export const test.tsx_App2_qwikify_4Tc4MzcFY0U = ()=>/*#__PURE__*/ _jsxSorted("div", { on:click: /*#__PURE__*/ qrl(i_onClick, "App2_qwikify_div_onClick") }, null, null, 3, null);
 
 
 None
 /*
 {
   "origin": "test.tsx",
-  "name": "test_App2_qwikify_5uoPoR00zCg",
+  "name": "test.tsx_App2_qwikify_4Tc4MzcFY0U",
   "entry": null,
-  "displayName": "test_App2_qwikify",
-  "hash": "5uoPoR00zCg",
-  "canonicalFilename": "test.tsx_test_App2_qwikify_5uoPoR00zCg",
+  "displayName": "test.tsx_App2_qwikify",
+  "hash": "4Tc4MzcFY0U",
+  "canonicalFilename": "test.tsx_test.tsx_App2_qwikify_4Tc4MzcFY0U",
   "path": "",
   "extension": "js",
   "parent": null,

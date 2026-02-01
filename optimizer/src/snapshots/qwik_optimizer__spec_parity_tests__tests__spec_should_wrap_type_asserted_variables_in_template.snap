@@ -18,15 +18,15 @@ export default component$(() => {
 ============================= test.js ==
 
 import { componentQrl, qrl } from "@qwik.dev/core";
-const i_LUXeXe0DQrg = ()=>import("./test.tsx_test_component_LUXeXe0DQrg");
-export default /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_LUXeXe0DQrg, "test_component_LUXeXe0DQrg"));
+const i_G7jVUwdBFEM = ()=>import("./test.tsx_test.tsx_component_G7jVUwdBFEM");
+export default /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_G7jVUwdBFEM, "test.tsx_component_G7jVUwdBFEM"));
 
 
 None
-============================= test.tsx_test_component_LUXeXe0DQrg.js (ENTRY POINT)==
+============================= test.tsx_test.tsx_component_G7jVUwdBFEM.js (ENTRY POINT)==
 
 import { _jsxSorted, useSignal } from "@qwik.dev/core";
-export const test_component_LUXeXe0DQrg = ()=>{
+export const test.tsx_component_G7jVUwdBFEM = ()=>{
 	const count = useSignal(0);
 	return /*#__PURE__*/ _jsxSorted("div", null, null, _wrapProp(count), 1, null);
 };
@@ -36,11 +36,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "test_component_LUXeXe0DQrg",
+  "name": "test.tsx_component_G7jVUwdBFEM",
   "entry": null,
-  "displayName": "test_component",
-  "hash": "LUXeXe0DQrg",
-  "canonicalFilename": "test.tsx_test_component_LUXeXe0DQrg",
+  "displayName": "test.tsx_component",
+  "hash": "G7jVUwdBFEM",
+  "canonicalFilename": "test.tsx_test.tsx_component_G7jVUwdBFEM",
   "path": "",
   "extension": "js",
   "parent": null,

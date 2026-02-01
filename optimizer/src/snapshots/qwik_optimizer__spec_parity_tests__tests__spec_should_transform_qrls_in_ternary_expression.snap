@@ -30,51 +30,15 @@ export const FieldInput = component$(() => {
 ============================= test.js ==
 
 import { componentQrl, qrl } from "@qwik.dev/core";
-const i_zacDI0VJAjI = ()=>import("./test.tsx_test_FieldInput_component_input_onInput_1_zacDI0VJAjI");
-const i_TcrbhczYDyU = ()=>import("./test.tsx_test_FieldInput_component_TcrbhczYDyU");
-export const FieldInput = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_TcrbhczYDyU, "test_FieldInput_component_TcrbhczYDyU"));
+const i_GIFLU8BTj7k = ()=>import("./test.tsx_test.tsx_FieldInput_component_input_onInput_1_GIFLU8BTj7k");
+const i_O84bGdeej0g = ()=>import("./test.tsx_test.tsx_FieldInput_component_O84bGdeej0g");
+export const FieldInput = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_O84bGdeej0g, "test.tsx_FieldInput_component_O84bGdeej0g"));
 
 
 None
-============================= test.tsx_test_FieldInput_component_TcrbhczYDyU.js (ENTRY POINT)==
+============================= test.tsx_test.tsx_FieldInput_component_input_onInput_1_GIFLU8BTj7k.js (ENTRY POINT)==
 
-import { _jsxSorted, qrl, useSignal } from "@qwik.dev/core";
-const i_onFocus = ()=>import("./test.tsx");
-const i_zacDI0VJAjI = ()=>import("./test.tsx_test_FieldInput_component_input_onInput_1_zacDI0VJAjI");
-export const test_FieldInput_component_TcrbhczYDyU = ()=>{
-	const enabled = useSignal(false);
-	const input = useSignal("");
-	return /*#__PURE__*/ _jsxSorted("input", {
-		on:input: /*#__PURE__*/ qrl(i_zacDI0VJAjI, "test_FieldInput_component_input_onInput_1_zacDI0VJAjI", [input]),
-		on:focus: /*#__PURE__*/ qrl(i_onFocus, "FieldInput_component_input_onFocus", [enabled])
-	}, { id: "input" }, null, 3, null);
-};
-
-
-None
-/*
-{
-  "origin": "test.tsx",
-  "name": "test_FieldInput_component_TcrbhczYDyU",
-  "entry": null,
-  "displayName": "test_FieldInput_component",
-  "hash": "TcrbhczYDyU",
-  "canonicalFilename": "test.tsx_test_FieldInput_component_TcrbhczYDyU",
-  "path": "",
-  "extension": "js",
-  "parent": null,
-  "ctxKind": "function",
-  "ctxName": "component$",
-  "captures": false,
-  "loc": [
-    97,
-    370
-  ]
-}
-*/
-============================= test.tsx_test_FieldInput_component_input_onInput_1_zacDI0VJAjI.js (ENTRY POINT)==
-
-export const test_FieldInput_component_input_onInput_1_zacDI0VJAjI = (ev, el)=>{
+export const test.tsx_FieldInput_component_input_onInput_1_GIFLU8BTj7k = (ev, el)=>{
 	const [input] = useLexicalScope();
 	input.value = el.value;
 };
@@ -84,11 +48,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "test_FieldInput_component_input_onInput_1_zacDI0VJAjI",
+  "name": "test.tsx_FieldInput_component_input_onInput_1_GIFLU8BTj7k",
   "entry": null,
-  "displayName": "test_FieldInput_component_input_onInput_1",
-  "hash": "zacDI0VJAjI",
-  "canonicalFilename": "test.tsx_test_FieldInput_component_input_onInput_1_zacDI0VJAjI",
+  "displayName": "test.tsx_FieldInput_component_input_onInput_1",
+  "hash": "GIFLU8BTj7k",
+  "canonicalFilename": "test.tsx_test.tsx_FieldInput_component_input_onInput_1_GIFLU8BTj7k",
   "path": "",
   "extension": "js",
   "parent": "onInput",
@@ -98,6 +62,42 @@ None
   "loc": [
     243,
     289
+  ]
+}
+*/
+============================= test.tsx_test.tsx_FieldInput_component_O84bGdeej0g.js (ENTRY POINT)==
+
+import { _jsxSorted, qrl, useSignal } from "@qwik.dev/core";
+const i_onFocus = ()=>import("./test.tsx");
+const i_GIFLU8BTj7k = ()=>import("./test.tsx_test.tsx_FieldInput_component_input_onInput_1_GIFLU8BTj7k");
+export const test.tsx_FieldInput_component_O84bGdeej0g = ()=>{
+	const enabled = useSignal(false);
+	const input = useSignal("");
+	return /*#__PURE__*/ _jsxSorted("input", {
+		on:input: /*#__PURE__*/ qrl(i_GIFLU8BTj7k, "test.tsx_FieldInput_component_input_onInput_1_GIFLU8BTj7k", [input]),
+		on:focus: /*#__PURE__*/ qrl(i_onFocus, "FieldInput_component_input_onFocus", [enabled])
+	}, { id: "input" }, null, 3, null);
+};
+
+
+None
+/*
+{
+  "origin": "test.tsx",
+  "name": "test.tsx_FieldInput_component_O84bGdeej0g",
+  "entry": null,
+  "displayName": "test.tsx_FieldInput_component",
+  "hash": "O84bGdeej0g",
+  "canonicalFilename": "test.tsx_test.tsx_FieldInput_component_O84bGdeej0g",
+  "path": "",
+  "extension": "js",
+  "parent": null,
+  "ctxKind": "function",
+  "ctxName": "component$",
+  "captures": false,
+  "loc": [
+    97,
+    370
   ]
 }
 */

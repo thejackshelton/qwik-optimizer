@@ -31,12 +31,12 @@ const ManyEventsComponent = component$(() => {
 ============================= test.js ==
 
 import { componentQrl, qrl } from "@qwik.dev/core";
-const i_JDzwMBQYzyg = ()=>import("./test.tsx_test_ManyEventsComponent_component_JDzwMBQYzyg");
-/*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_JDzwMBQYzyg, "test_ManyEventsComponent_component_JDzwMBQYzyg"));
+const i_d0rUoq0Y7Qo = ()=>import("./test.tsx_test.tsx_ManyEventsComponent_component_d0rUoq0Y7Qo");
+/*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_d0rUoq0Y7Qo, "test.tsx_ManyEventsComponent_component_d0rUoq0Y7Qo"));
 
 
 None
-============================= test.tsx_test_ManyEventsComponent_component_JDzwMBQYzyg.js (ENTRY POINT)==
+============================= test.tsx_test.tsx_ManyEventsComponent_component_d0rUoq0Y7Qo.js (ENTRY POINT)==
 
 import { _jsxSorted, qrl } from "@qwik.dev/core";
 const i_2 = ()=>import("./test.tsx");
@@ -46,7 +46,7 @@ const i_onBlur = ()=>import("./test.tsx");
 const i_1 = ()=>import("./test.tsx");
 const i_onDblClick = ()=>import("./test.tsx");
 const i_onClick = ()=>import("./test.tsx");
-export const test_ManyEventsComponent_component_JDzwMBQYzyg = ()=>{
+export const test.tsx_ManyEventsComponent_component_d0rUoq0Y7Qo = ()=>{
 	return /*#__PURE__*/ _jsxSorted("div", null, null, [/*#__PURE__*/ _jsxSorted("button", {
 		on:click: /*#__PURE__*/ qrl(i_onClick, "ManyEventsComponent_component_div_button_onClick"),
 		on:dblclick: /*#__PURE__*/ qrl(i_onDblClick, "ManyEventsComponent_component_div_button_onDblClick")
@@ -64,11 +64,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "test_ManyEventsComponent_component_JDzwMBQYzyg",
+  "name": "test.tsx_ManyEventsComponent_component_d0rUoq0Y7Qo",
   "entry": null,
-  "displayName": "test_ManyEventsComponent_component",
-  "hash": "JDzwMBQYzyg",
-  "canonicalFilename": "test.tsx_test_ManyEventsComponent_component_JDzwMBQYzyg",
+  "displayName": "test.tsx_ManyEventsComponent_component",
+  "hash": "d0rUoq0Y7Qo",
+  "canonicalFilename": "test.tsx_test.tsx_ManyEventsComponent_component_d0rUoq0Y7Qo",
   "path": "",
   "extension": "js",
   "parent": null,

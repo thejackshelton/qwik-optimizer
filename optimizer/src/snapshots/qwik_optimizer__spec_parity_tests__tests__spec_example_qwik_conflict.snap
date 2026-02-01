@@ -40,34 +40,34 @@ export const Root = component$(() => {
 
 import { componentQrl, qrl } from "@qwik.dev/core";
 import { qrl } from "@qwik.dev/core/what";
-const i_pnb0KSS7tbU = ()=>import("./test.tsx_test_Foo_component_useStyles_pnb0KSS7tbU");
-const i_NK5Hyit5tec = ()=>import("./test.tsx_test_Foo_component_NK5Hyit5tec");
-const i_0SnjuFgYQwM = ()=>import("./test.tsx_test_Root_component_useStyles_0SnjuFgYQwM");
-const i_4LcUydpMwDo = ()=>import("./test.tsx_test_Root_component_1_4LcUydpMwDo");
-const i_Fdi7ywWnD40 = ()=>import("./test.tsx_test_Root_component_Fdi7ywWnD40");
+const i_JG9QnIkplMk = ()=>import("./test.tsx_test.tsx_Foo_component_useStyles_JG9QnIkplMk");
+const i_gZqPatVoDqw = ()=>import("./test.tsx_test.tsx_Foo_component_gZqPatVoDqw");
+const i_RefWVhWbrwk = ()=>import("./test.tsx_test.tsx_Root_component_useStyles_RefWVhWbrwk");
+const i_cX5WLpIzsoU = ()=>import("./test.tsx_test.tsx_Root_component_1_cX5WLpIzsoU");
+const i_YvjM3SoLvrM = ()=>import("./test.tsx_test.tsx_Root_component_YvjM3SoLvrM");
 export const hW = 12;
 export const handleWatch = 42;
 const componentQrl = ()=>console.log("not this", qrl());
 componentQrl();
-export const Foo = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_NK5Hyit5tec, "test_Foo_component_NK5Hyit5tec"));
-export const Root = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_Fdi7ywWnD40, "test_Root_component_Fdi7ywWnD40"));
+export const Foo = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_gZqPatVoDqw, "test.tsx_Foo_component_gZqPatVoDqw"));
+export const Root = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_YvjM3SoLvrM, "test.tsx_Root_component_YvjM3SoLvrM"));
 
 
 None
-============================= test.tsx_test_Root_component_useStyles_0SnjuFgYQwM.js (ENTRY POINT)==
+============================= test.tsx_test.tsx_Root_component_useStyles_RefWVhWbrwk.js (ENTRY POINT)==
 
-export const test_Root_component_useStyles_0SnjuFgYQwM = "thing";
+export const test.tsx_Root_component_useStyles_RefWVhWbrwk = "thing";
 
 
 None
 /*
 {
   "origin": "test.tsx",
-  "name": "test_Root_component_useStyles_0SnjuFgYQwM",
+  "name": "test.tsx_Root_component_useStyles_RefWVhWbrwk",
   "entry": null,
-  "displayName": "test_Root_component_useStyles",
-  "hash": "0SnjuFgYQwM",
-  "canonicalFilename": "test.tsx_test_Root_component_useStyles_0SnjuFgYQwM",
+  "displayName": "test.tsx_Root_component_useStyles",
+  "hash": "RefWVhWbrwk",
+  "canonicalFilename": "test.tsx_test.tsx_Root_component_useStyles_RefWVhWbrwk",
   "path": "",
   "extension": "js",
   "parent": "component",
@@ -80,10 +80,10 @@ None
   ]
 }
 */
-============================= test.tsx_test_Root_component_1_4LcUydpMwDo.js (ENTRY POINT)==
+============================= test.tsx_test.tsx_Root_component_1_cX5WLpIzsoU.js (ENTRY POINT)==
 
 import { _jsxSorted } from "@qwik.dev/core";
-export const test_Root_component_1_4LcUydpMwDo = ()=>{
+export const test.tsx_Root_component_1_cX5WLpIzsoU = ()=>{
 	return /*#__PURE__*/ _jsxSorted("div", null, null, null, 3, null);
 };
 
@@ -92,11 +92,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "test_Root_component_1_4LcUydpMwDo",
+  "name": "test.tsx_Root_component_1_cX5WLpIzsoU",
   "entry": null,
-  "displayName": "test_Root_component_1",
-  "hash": "4LcUydpMwDo",
-  "canonicalFilename": "test.tsx_test_Root_component_1_4LcUydpMwDo",
+  "displayName": "test.tsx_Root_component_1",
+  "hash": "cX5WLpIzsoU",
+  "canonicalFilename": "test.tsx_test.tsx_Root_component_1_cX5WLpIzsoU",
   "path": "",
   "extension": "js",
   "parent": "component",
@@ -109,13 +109,17 @@ None
   ]
 }
 */
-============================= test.tsx_test_Root_component_Fdi7ywWnD40.js (ENTRY POINT)==
+============================= test.tsx_test.tsx_Foo_component_gZqPatVoDqw.js (ENTRY POINT)==
 
-import { qrl, useStyles } from "@qwik.dev/core";
-const i_0SnjuFgYQwM = ()=>import("./test.tsx_test_Root_component_useStyles_0SnjuFgYQwM");
-export const test_Root_component_Fdi7ywWnD40 = ()=>{
-	useStyles(/*#__PURE__*/ qrl(i_0SnjuFgYQwM, "test_Root_component_useStyles_0SnjuFgYQwM"));
-	return /*#__PURE__*/ qrl(i_4LcUydpMwDo, "test_Root_component_1_4LcUydpMwDo");
+import { _jsxSorted, useStylesQrl } from "@qwik.dev/core";
+const i_onClick = ()=>import("./test.tsx");
+const i_JG9QnIkplMk = ()=>import("./test.tsx_test.tsx_Foo_component_useStyles_JG9QnIkplMk");
+export const test.tsx_Foo_component_gZqPatVoDqw = ()=>{
+	/*#__PURE__*/ useStylesQrl(/*#__PURE__*/ qrl(i_JG9QnIkplMk, "test.tsx_Foo_component_useStyles_JG9QnIkplMk"));
+	const qwik = /*#__PURE__*/ useStylesQrl(/*#__PURE__*/ qrl(i_JG9QnIkplMk, "test.tsx_Foo_component_useStyles_JG9QnIkplMk"));
+	console.log(qwik);
+	const qrl = 23;
+	return /*#__PURE__*/ _jsxSorted("div", { on:click: /*#__PURE__*/ qrl(i_onClick, "Foo_component_div_onClick", [qrl]) }, null, null, 3, null);
 };
 
 
@@ -123,11 +127,42 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "test_Root_component_Fdi7ywWnD40",
+  "name": "test.tsx_Foo_component_gZqPatVoDqw",
   "entry": null,
-  "displayName": "test_Root_component",
-  "hash": "Fdi7ywWnD40",
-  "canonicalFilename": "test.tsx_test_Root_component_Fdi7ywWnD40",
+  "displayName": "test.tsx_Foo_component",
+  "hash": "gZqPatVoDqw",
+  "canonicalFilename": "test.tsx_test.tsx_Foo_component_gZqPatVoDqw",
+  "path": "",
+  "extension": "js",
+  "parent": null,
+  "ctxKind": "function",
+  "ctxName": "component$",
+  "captures": false,
+  "loc": [
+    263,
+    418
+  ]
+}
+*/
+============================= test.tsx_test.tsx_Root_component_YvjM3SoLvrM.js (ENTRY POINT)==
+
+import { qrl, useStyles } from "@qwik.dev/core";
+const i_RefWVhWbrwk = ()=>import("./test.tsx_test.tsx_Root_component_useStyles_RefWVhWbrwk");
+export const test.tsx_Root_component_YvjM3SoLvrM = ()=>{
+	useStyles(/*#__PURE__*/ qrl(i_RefWVhWbrwk, "test.tsx_Root_component_useStyles_RefWVhWbrwk"));
+	return /*#__PURE__*/ qrl(i_cX5WLpIzsoU, "test.tsx_Root_component_1_cX5WLpIzsoU");
+};
+
+
+None
+/*
+{
+  "origin": "test.tsx",
+  "name": "test.tsx_Root_component_YvjM3SoLvrM",
+  "entry": null,
+  "displayName": "test.tsx_Root_component",
+  "hash": "YvjM3SoLvrM",
+  "canonicalFilename": "test.tsx_test.tsx_Root_component_YvjM3SoLvrM",
   "path": "",
   "extension": "js",
   "parent": null,
@@ -140,20 +175,20 @@ None
   ]
 }
 */
-============================= test.tsx_test_Foo_component_useStyles_pnb0KSS7tbU.js (ENTRY POINT)==
+============================= test.tsx_test.tsx_Foo_component_useStyles_JG9QnIkplMk.js (ENTRY POINT)==
 
-export const test_Foo_component_useStyles_pnb0KSS7tbU = "thing";
+export const test.tsx_Foo_component_useStyles_JG9QnIkplMk = "thing";
 
 
 None
 /*
 {
   "origin": "test.tsx",
-  "name": "test_Foo_component_useStyles_pnb0KSS7tbU",
+  "name": "test.tsx_Foo_component_useStyles_JG9QnIkplMk",
   "entry": null,
-  "displayName": "test_Foo_component_useStyles",
-  "hash": "pnb0KSS7tbU",
-  "canonicalFilename": "test.tsx_test_Foo_component_useStyles_pnb0KSS7tbU",
+  "displayName": "test.tsx_Foo_component_useStyles",
+  "hash": "JG9QnIkplMk",
+  "canonicalFilename": "test.tsx_test.tsx_Foo_component_useStyles_JG9QnIkplMk",
   "path": "",
   "extension": "js",
   "parent": "component",
@@ -163,41 +198,6 @@ None
   "loc": [
     283,
     290
-  ]
-}
-*/
-============================= test.tsx_test_Foo_component_NK5Hyit5tec.js (ENTRY POINT)==
-
-import { _jsxSorted, useStylesQrl } from "@qwik.dev/core";
-const i_onClick = ()=>import("./test.tsx");
-const i_pnb0KSS7tbU = ()=>import("./test.tsx_test_Foo_component_useStyles_pnb0KSS7tbU");
-export const test_Foo_component_NK5Hyit5tec = ()=>{
-	/*#__PURE__*/ useStylesQrl(/*#__PURE__*/ qrl(i_pnb0KSS7tbU, "test_Foo_component_useStyles_pnb0KSS7tbU"));
-	const qwik = /*#__PURE__*/ useStylesQrl(/*#__PURE__*/ qrl(i_pnb0KSS7tbU, "test_Foo_component_useStyles_pnb0KSS7tbU"));
-	console.log(qwik);
-	const qrl = 23;
-	return /*#__PURE__*/ _jsxSorted("div", { on:click: /*#__PURE__*/ qrl(i_onClick, "Foo_component_div_onClick", [qrl]) }, null, null, 3, null);
-};
-
-
-None
-/*
-{
-  "origin": "test.tsx",
-  "name": "test_Foo_component_NK5Hyit5tec",
-  "entry": null,
-  "displayName": "test_Foo_component",
-  "hash": "NK5Hyit5tec",
-  "canonicalFilename": "test.tsx_test_Foo_component_NK5Hyit5tec",
-  "path": "",
-  "extension": "js",
-  "parent": null,
-  "ctxKind": "function",
-  "ctxName": "component$",
-  "captures": false,
-  "loc": [
-    263,
-    418
   ]
 }
 */

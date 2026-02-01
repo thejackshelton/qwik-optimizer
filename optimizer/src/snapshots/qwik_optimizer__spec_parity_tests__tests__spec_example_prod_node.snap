@@ -19,18 +19,18 @@ export const Foo = component$(() => {
 ============================= test.tsx ==
 
 import { componentQrl, qrl } from "@qwik.dev/core";
-const i_NK5Hyit5tec = ()=>import("./test.tsx_s_NK5Hyit5tec");
-export const Foo = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_NK5Hyit5tec, "s_NK5Hyit5tec"));
+const i_gZqPatVoDqw = ()=>import("./test.tsx_s_gZqPatVoDqw");
+export const Foo = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_gZqPatVoDqw, "s_gZqPatVoDqw"));
 
 
 None
-============================= test.tsx_s_NK5Hyit5tec.tsx (ENTRY POINT)==
+============================= test.tsx_s_gZqPatVoDqw.tsx (ENTRY POINT)==
 
 import { qrl } from "@qwik.dev/core";
 const i_2 = ()=>import("./test.tsx");
 const i_1 = ()=>import("./test.tsx");
 const i_onClick = ()=>import("./test.tsx");
-export const s_NK5Hyit5tec = ()=>{
+export const s_gZqPatVoDqw = ()=>{
 	return <div>
 			<div on:click={/*#__PURE__*/ qrl(i_onClick, "Foo_component_div_div_onClick")} />
 			<div on:click={/*#__PURE__*/ qrl(i_1, "Foo_component_div_div_onClick_1")} />
@@ -43,11 +43,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "s_NK5Hyit5tec",
+  "name": "s_gZqPatVoDqw",
   "entry": null,
-  "displayName": "test_Foo_component",
-  "hash": "NK5Hyit5tec",
-  "canonicalFilename": "test.tsx_s_NK5Hyit5tec",
+  "displayName": "test.tsx_Foo_component",
+  "hash": "gZqPatVoDqw",
+  "canonicalFilename": "test.tsx_s_gZqPatVoDqw",
   "path": "",
   "extension": "tsx",
   "parent": null,

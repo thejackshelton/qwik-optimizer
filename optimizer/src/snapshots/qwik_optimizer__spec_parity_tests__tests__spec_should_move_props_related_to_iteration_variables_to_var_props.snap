@@ -34,18 +34,18 @@ export const Child = component$(() => {
 ============================= test.js ==
 
 import { componentQrl, qrl } from "@qwik.dev/core";
-const i_1dotO0YXFtY = ()=>import("./test.tsx_test_Child_component_1dotO0YXFtY");
+const i_80js9RUUsfM = ()=>import("./test.tsx_test.tsx_Child_component_80js9RUUsfM");
 const _hf0 = (p0, p1)=>p0.attributeInArray.counter;
 const _hf0_str = "p0.attributeInArray.counter";
-export const Child = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_1dotO0YXFtY, "test_Child_component_1dotO0YXFtY"));
+export const Child = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_80js9RUUsfM, "test.tsx_Child_component_80js9RUUsfM"));
 
 
 None
-============================= test.tsx_test_Child_component_1dotO0YXFtY.js (ENTRY POINT)==
+============================= test.tsx_test.tsx_Child_component_80js9RUUsfM.js (ENTRY POINT)==
 
 import { TestComponent } from "./testComponent";
 import { _fnSignal, _jsxSorted, useSignal } from "@qwik.dev/core";
-export const test_Child_component_1dotO0YXFtY = ()=>{
+export const test.tsx_Child_component_80js9RUUsfM = ()=>{
 	const propCounterWithNested = useSignal(()=>{
 		return { data: [{ attributeInArray: { counter: globalThis.propsCounter++ } }, { attributeInArray: { counter: globalThis.propsCounter } }] };
 	});
@@ -59,11 +59,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "test_Child_component_1dotO0YXFtY",
+  "name": "test.tsx_Child_component_80js9RUUsfM",
   "entry": null,
-  "displayName": "test_Child_component",
-  "hash": "1dotO0YXFtY",
-  "canonicalFilename": "test.tsx_test_Child_component_1dotO0YXFtY",
+  "displayName": "test.tsx_Child_component",
+  "hash": "80js9RUUsfM",
+  "canonicalFilename": "test.tsx_test.tsx_Child_component_80js9RUUsfM",
   "path": "",
   "extension": "js",
   "parent": null,

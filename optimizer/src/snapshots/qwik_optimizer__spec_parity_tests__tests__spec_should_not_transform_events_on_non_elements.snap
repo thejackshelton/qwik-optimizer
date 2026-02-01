@@ -22,61 +22,25 @@ export const Greeter = component$(() => {
 ============================= test.tsx ==
 
 import { componentQrl, qrl } from "@qwik.dev/core";
-const i_ypCtrRwcmFs = ()=>import("./test.tsx_test_Greeter_component_ypCtrRwcmFs");
-export const Greeter = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_ypCtrRwcmFs, "test_Greeter_component_ypCtrRwcmFs"));
+const i_l5Al0251s9w = ()=>import("./test.tsx_test.tsx_Greeter_component_l5Al0251s9w");
+export const Greeter = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_l5Al0251s9w, "test.tsx_Greeter_component_l5Al0251s9w"));
 
 
 None
-============================= test.tsx_test_Greeter_component_ypCtrRwcmFs.tsx (ENTRY POINT)==
+============================= test.tsx_test.tsx_Greeter_component_div_map_AnotherComponent_onClick_98y8vOI284I.tsx (ENTRY POINT)==
 
-import { AnotherComponent } from "./another-component";
-import { CustomComponent } from "./custom-component";
-import { qrl } from "@qwik.dev/core";
-const i_TMeOCKx0wo0 = ()=>import("./test.tsx_test_Greeter_component_div_map_AnotherComponent_onClick_TMeOCKx0wo0");
-const i_onClick = ()=>import("./test.tsx");
-export const test_Greeter_component_ypCtrRwcmFs = ()=>{
-	return <div>
-			<CustomComponent onClick$={/*#__PURE__*/ qrl(i_onClick, "Greeter_component_div_CustomComponent_onClick")} />
-			{array.map((item)=><AnotherComponent onClick$={/*#__PURE__*/ qrl(i_TMeOCKx0wo0, "test_Greeter_component_div_map_AnotherComponent_onClick_TMeOCKx0wo0")} />)}
-		</div>;
-};
+export const test.tsx_Greeter_component_div_map_AnotherComponent_onClick_98y8vOI284I = ()=>{};
 
 
 None
 /*
 {
   "origin": "test.tsx",
-  "name": "test_Greeter_component_ypCtrRwcmFs",
+  "name": "test.tsx_Greeter_component_div_map_AnotherComponent_onClick_98y8vOI284I",
   "entry": null,
-  "displayName": "test_Greeter_component",
-  "hash": "ypCtrRwcmFs",
-  "canonicalFilename": "test.tsx_test_Greeter_component_ypCtrRwcmFs",
-  "path": "",
-  "extension": "tsx",
-  "parent": null,
-  "ctxKind": "function",
-  "ctxName": "component$",
-  "captures": false,
-  "loc": [
-    193,
-    349
-  ]
-}
-*/
-============================= test.tsx_test_Greeter_component_div_map_AnotherComponent_onClick_TMeOCKx0wo0.tsx (ENTRY POINT)==
-
-export const test_Greeter_component_div_map_AnotherComponent_onClick_TMeOCKx0wo0 = ()=>{};
-
-
-None
-/*
-{
-  "origin": "test.tsx",
-  "name": "test_Greeter_component_div_map_AnotherComponent_onClick_TMeOCKx0wo0",
-  "entry": null,
-  "displayName": "test_Greeter_component_div_map_AnotherComponent_onClick",
-  "hash": "TMeOCKx0wo0",
-  "canonicalFilename": "test.tsx_test_Greeter_component_div_map_AnotherComponent_onClick_TMeOCKx0wo0",
+  "displayName": "test.tsx_Greeter_component_div_map_AnotherComponent_onClick",
+  "hash": "98y8vOI284I",
+  "canonicalFilename": "test.tsx_test.tsx_Greeter_component_div_map_AnotherComponent_onClick_98y8vOI284I",
   "path": "",
   "extension": "tsx",
   "parent": null,
@@ -86,6 +50,42 @@ None
   "loc": [
     0,
     0
+  ]
+}
+*/
+============================= test.tsx_test.tsx_Greeter_component_l5Al0251s9w.tsx (ENTRY POINT)==
+
+import { AnotherComponent } from "./another-component";
+import { CustomComponent } from "./custom-component";
+import { qrl } from "@qwik.dev/core";
+const i_98y8vOI284I = ()=>import("./test.tsx_test.tsx_Greeter_component_div_map_AnotherComponent_onClick_98y8vOI284I");
+const i_onClick = ()=>import("./test.tsx");
+export const test.tsx_Greeter_component_l5Al0251s9w = ()=>{
+	return <div>
+			<CustomComponent onClick$={/*#__PURE__*/ qrl(i_onClick, "Greeter_component_div_CustomComponent_onClick")} />
+			{array.map((item)=><AnotherComponent onClick$={/*#__PURE__*/ qrl(i_98y8vOI284I, "test.tsx_Greeter_component_div_map_AnotherComponent_onClick_98y8vOI284I")} />)}
+		</div>;
+};
+
+
+None
+/*
+{
+  "origin": "test.tsx",
+  "name": "test.tsx_Greeter_component_l5Al0251s9w",
+  "entry": null,
+  "displayName": "test.tsx_Greeter_component",
+  "hash": "l5Al0251s9w",
+  "canonicalFilename": "test.tsx_test.tsx_Greeter_component_l5Al0251s9w",
+  "path": "",
+  "extension": "tsx",
+  "parent": null,
+  "ctxKind": "function",
+  "ctxName": "component$",
+  "captures": false,
+  "loc": [
+    193,
+    349
   ]
 }
 */

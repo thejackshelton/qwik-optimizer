@@ -41,12 +41,12 @@ export const STYLES = ".red { color: red; }";
 ============================= test.tsx ==
 
 import { componentQrl, inlinedQrl, jsx, jsxs, qrl, useLexicalScope, useStylesQrl } from "@qwik.dev/core";
-const i_5oneJzcZfTU = ()=>import("./test.tsx_s_5oneJzcZfTU");
-const i_jQBSdVxi2GA = ()=>import("./test.tsx_s_jQBSdVxi2GA");
+const i_eh7w9rBhR90 = ()=>import("./test.tsx_s_eh7w9rBhR90");
+const i_HMw0Z8eLFig = ()=>import("./test.tsx_s_HMw0Z8eLFig");
 export const App = /*#__PURE__*/ componentQrl(inlinedQrl(()=>{
-	/*#__PURE__*/ useStylesQrl(/*#__PURE__*/ qrl(i_5oneJzcZfTU, "s_5oneJzcZfTU"));
-	/*#__PURE__*/ useStylesQrl(/*#__PURE__*/ qrl(i_jQBSdVxi2GA, "s_jQBSdVxi2GA"));
-	const store = /*#__PURE__*/ useStylesQrl(/*#__PURE__*/ qrl(i_jQBSdVxi2GA, "s_jQBSdVxi2GA"));
+	/*#__PURE__*/ useStylesQrl(/*#__PURE__*/ qrl(i_eh7w9rBhR90, "s_eh7w9rBhR90"));
+	/*#__PURE__*/ useStylesQrl(/*#__PURE__*/ qrl(i_HMw0Z8eLFig, "s_HMw0Z8eLFig"));
+	const store = /*#__PURE__*/ useStylesQrl(/*#__PURE__*/ qrl(i_HMw0Z8eLFig, "s_HMw0Z8eLFig"));
 	return /*#__PURE__*/ jsxs("div", { children: [/*#__PURE__*/ jsxs("p", { children: ["Count: ", store.count] }), /*#__PURE__*/ jsx("p", { children: /*#__PURE__*/ jsx("button", {
 		onClick$: inlinedQrl(()=>{
 			const [store] = useLexicalScope();
@@ -59,48 +59,21 @@ export const STYLES = ".red { color: red; }";
 
 
 None
-============================= test.tsx_s_5oneJzcZfTU.tsx (ENTRY POINT)==
+============================= test.tsx_s_HMw0Z8eLFig.tsx (ENTRY POINT)==
 
-import { inlinedQrl } from "@qwik.dev/core";
-export const s_5oneJzcZfTU = inlinedQrl(STYLES, "STYLES_odz7dfdfdM");
-
-
-None
-/*
-{
-  "origin": "test.tsx",
-  "name": "s_5oneJzcZfTU",
-  "entry": "entry_segments",
-  "displayName": "test_App_componentQrl_inlinedQrl_useStyles",
-  "hash": "5oneJzcZfTU",
-  "canonicalFilename": "test.tsx_s_5oneJzcZfTU",
-  "path": "",
-  "extension": "tsx",
-  "parent": null,
-  "ctxKind": "function",
-  "ctxName": "useStyles$",
-  "captures": false,
-  "loc": [
-    173,
-    212
-  ]
-}
-*/
-============================= test.tsx_s_jQBSdVxi2GA.tsx (ENTRY POINT)==
-
-const i_5oneJzcZfTU = ()=>import("./test.tsx_s_5oneJzcZfTU");
-export const s_jQBSdVxi2GA = useStylesQrl(i_5oneJzcZfTU, "s_5oneJzcZfTU");
+const i_eh7w9rBhR90 = ()=>import("./test.tsx_s_eh7w9rBhR90");
+export const s_HMw0Z8eLFig = useStylesQrl(i_eh7w9rBhR90, "s_eh7w9rBhR90");
 
 
 None
 /*
 {
   "origin": "test.tsx",
-  "name": "s_jQBSdVxi2GA",
+  "name": "s_HMw0Z8eLFig",
   "entry": "entry_segments",
-  "displayName": "test_App_componentQrl_inlinedQrl_useStyles_1",
-  "hash": "jQBSdVxi2GA",
-  "canonicalFilename": "test.tsx_s_jQBSdVxi2GA",
+  "displayName": "test.tsx_App_componentQrl_inlinedQrl_useStyles_1",
+  "hash": "HMw0Z8eLFig",
+  "canonicalFilename": "test.tsx_s_HMw0Z8eLFig",
   "path": "",
   "extension": "tsx",
   "parent": null,
@@ -110,6 +83,33 @@ None
   "loc": [
     227,
     265
+  ]
+}
+*/
+============================= test.tsx_s_eh7w9rBhR90.tsx (ENTRY POINT)==
+
+import { inlinedQrl } from "@qwik.dev/core";
+export const s_eh7w9rBhR90 = inlinedQrl(STYLES, "STYLES_odz7dfdfdM");
+
+
+None
+/*
+{
+  "origin": "test.tsx",
+  "name": "s_eh7w9rBhR90",
+  "entry": "entry_segments",
+  "displayName": "test.tsx_App_componentQrl_inlinedQrl_useStyles",
+  "hash": "eh7w9rBhR90",
+  "canonicalFilename": "test.tsx_s_eh7w9rBhR90",
+  "path": "",
+  "extension": "tsx",
+  "parent": null,
+  "ctxKind": "function",
+  "ctxName": "useStyles$",
+  "captures": false,
+  "loc": [
+    173,
+    212
   ]
 }
 */

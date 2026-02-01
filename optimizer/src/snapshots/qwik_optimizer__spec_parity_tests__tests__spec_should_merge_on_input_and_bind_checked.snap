@@ -22,16 +22,16 @@ export const FieldInput = component$(() => {
 ============================= test.js ==
 
 import { componentQrl, qrl } from "@qwik.dev/core";
-const i_TcrbhczYDyU = ()=>import("./test.tsx_test_FieldInput_component_TcrbhczYDyU");
-export const FieldInput = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_TcrbhczYDyU, "test_FieldInput_component_TcrbhczYDyU"));
+const i_O84bGdeej0g = ()=>import("./test.tsx_test.tsx_FieldInput_component_O84bGdeej0g");
+export const FieldInput = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_O84bGdeej0g, "test.tsx_FieldInput_component_O84bGdeej0g"));
 
 
 None
-============================= test.tsx_test_FieldInput_component_TcrbhczYDyU.js (ENTRY POINT)==
+============================= test.tsx_test.tsx_FieldInput_component_O84bGdeej0g.js (ENTRY POINT)==
 
 import { _jsxSorted, qrl, useSignal } from "@qwik.dev/core";
 const i_onInput = ()=>import("./test.tsx");
-export const test_FieldInput_component_TcrbhczYDyU = ()=>{
+export const test.tsx_FieldInput_component_O84bGdeej0g = ()=>{
 	const localValue = useSignal(false);
 	return /*#__PURE__*/ _jsxSorted("input", null, {
 		checked: localValue,
@@ -44,11 +44,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "test_FieldInput_component_TcrbhczYDyU",
+  "name": "test.tsx_FieldInput_component_O84bGdeej0g",
   "entry": null,
-  "displayName": "test_FieldInput_component",
-  "hash": "TcrbhczYDyU",
-  "canonicalFilename": "test.tsx_test_FieldInput_component_TcrbhczYDyU",
+  "displayName": "test.tsx_FieldInput_component",
+  "hash": "O84bGdeej0g",
+  "canonicalFilename": "test.tsx_test.tsx_FieldInput_component_O84bGdeej0g",
   "path": "",
   "extension": "js",
   "parent": null,

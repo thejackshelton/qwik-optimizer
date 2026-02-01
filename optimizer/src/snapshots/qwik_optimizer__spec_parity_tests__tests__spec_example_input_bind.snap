@@ -25,16 +25,16 @@ export const Greeter = component$(() => {
 ============================= test.js ==
 
 import { componentQrl, qrl } from "@qwik.dev/core";
-const i_ypCtrRwcmFs = ()=>import("./test.tsx_s_ypCtrRwcmFs");
-export const Greeter = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_ypCtrRwcmFs, "s_ypCtrRwcmFs"));
+const i_l5Al0251s9w = ()=>import("./test.tsx_s_l5Al0251s9w");
+export const Greeter = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_l5Al0251s9w, "s_l5Al0251s9w"));
 
 
 None
-============================= test.tsx_s_ypCtrRwcmFs.js (ENTRY POINT)==
+============================= test.tsx_s_l5Al0251s9w.js (ENTRY POINT)==
 
 import { _jsxSorted } from "@qwik.dev/core";
 import { Fragment as _Fragment } from "@qwik.dev/core/jsx-runtime";
-export const s_ypCtrRwcmFs = ()=>{
+export const s_l5Al0251s9w = ()=>{
 	const value = useSignal(0);
 	const checked = useSignal(false);
 	const stuff = useSignal();
@@ -58,11 +58,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "s_ypCtrRwcmFs",
+  "name": "s_l5Al0251s9w",
   "entry": "entry_segments",
-  "displayName": "test_Greeter_component",
-  "hash": "ypCtrRwcmFs",
-  "canonicalFilename": "test.tsx_s_ypCtrRwcmFs",
+  "displayName": "test.tsx_Greeter_component",
+  "hash": "l5Al0251s9w",
+  "canonicalFilename": "test.tsx_s_l5Al0251s9w",
   "path": "",
   "extension": "js",
   "parent": null,

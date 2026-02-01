@@ -44,21 +44,21 @@ export const Parent = component$(() => {
 ============================= components/component.js ==
 
 import { componentQrl, qrl } from "@qwik.dev/core";
-const i_czIQbteepiI = ()=>import("./component.tsx_component_Parent_component_useClientMount_czIQbteepiI");
-const i_pzGFMTS09oc = ()=>import("./component.tsx_component_Parent_component_useTask_pzGFMTS09oc");
-const i_B0DcWUHmOms = ()=>import("./component.tsx_component_Parent_component_B0DcWUHmOms");
-export const Parent = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_B0DcWUHmOms, "component_Parent_component_B0DcWUHmOms"));
+const i_OeLVnBFyNrs = ()=>import("./component.tsx_component.tsx_Parent_component_useClientMount_OeLVnBFyNrs");
+const i_dnei8y1e0fQ = ()=>import("./component.tsx_component.tsx_Parent_component_useTask_dnei8y1e0fQ");
+const i_3cuWnRwBx8M = ()=>import("./component.tsx_component.tsx_Parent_component_3cuWnRwBx8M");
+export const Parent = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_3cuWnRwBx8M, "component.tsx_Parent_component_3cuWnRwBx8M"));
 
 
 None
-============================= components/component.tsx_component_Parent_component_useClientMount_czIQbteepiI.js (ENTRY POINT)==
+============================= components/component.tsx_component.tsx_Parent_component_useClientMount_OeLVnBFyNrs.js (ENTRY POINT)==
 
 import { c } from "../../remove";
 import { b } from "../keep2";
 import { a } from "./keep";
 import mongo from "mongodb";
 import redis from "redis";
-export const component_Parent_component_useClientMount_czIQbteepiI = async ()=>{
+export const component.tsx_Parent_component_useClientMount_OeLVnBFyNrs = async ()=>{
 	const [state] = useLexicalScope();
 	state.text = await mongo.users();
 	redis.set(state.text, a, b, c);
@@ -69,11 +69,11 @@ None
 /*
 {
   "origin": "components/component.tsx",
-  "name": "component_Parent_component_useClientMount_czIQbteepiI",
+  "name": "component.tsx_Parent_component_useClientMount_OeLVnBFyNrs",
   "entry": "entry_segments",
-  "displayName": "component_Parent_component_useClientMount",
-  "hash": "czIQbteepiI",
-  "canonicalFilename": "component.tsx_component_Parent_component_useClientMount_czIQbteepiI",
+  "displayName": "component.tsx_Parent_component_useClientMount",
+  "hash": "OeLVnBFyNrs",
+  "canonicalFilename": "component.tsx_component.tsx_Parent_component_useClientMount_OeLVnBFyNrs",
   "path": "components",
   "extension": "js",
   "parent": "component",
@@ -86,20 +86,20 @@ None
   ]
 }
 */
-============================= components/component.tsx_component_Parent_component_B0DcWUHmOms.js (ENTRY POINT)==
+============================= components/component.tsx_component.tsx_Parent_component_3cuWnRwBx8M.js (ENTRY POINT)==
 
 import { _jsxSorted, qrl } from "@qwik.dev/core";
 const i_render = ()=>import("./component.tsx");
 const i_onClick = ()=>import("./component.tsx");
-const i_czIQbteepiI = ()=>import("./component.tsx_component_Parent_component_useClientMount_czIQbteepiI");
-const i_pzGFMTS09oc = ()=>import("./component.tsx_component_Parent_component_useTask_pzGFMTS09oc");
-export const component_Parent_component_B0DcWUHmOms = ()=>{
+const i_OeLVnBFyNrs = ()=>import("./component.tsx_component.tsx_Parent_component_useClientMount_OeLVnBFyNrs");
+const i_dnei8y1e0fQ = ()=>import("./component.tsx_component.tsx_Parent_component_useTask_dnei8y1e0fQ");
+export const component.tsx_Parent_component_3cuWnRwBx8M = ()=>{
 	const state = useStore({ text: "" });
-	/*#__PURE__*/ useClientMountQrl(/*#__PURE__*/ qrl(i_czIQbteepiI, "component_Parent_component_useClientMount_czIQbteepiI", [state]));
-	/*#__PURE__*/ useTaskQrl(/*#__PURE__*/ qrl(i_pzGFMTS09oc, "component_Parent_component_useTask_pzGFMTS09oc"));
+	/*#__PURE__*/ useClientMountQrl(/*#__PURE__*/ qrl(i_OeLVnBFyNrs, "component.tsx_Parent_component_useClientMount_OeLVnBFyNrs", [state]));
+	/*#__PURE__*/ useTaskQrl(/*#__PURE__*/ qrl(i_dnei8y1e0fQ, "component.tsx_Parent_component_useTask_dnei8y1e0fQ"));
 	return /*#__PURE__*/ _jsxSorted("div", {
-		shouldRemove$: /*#__PURE__*/ useTaskQrl(/*#__PURE__*/ qrl(i_pzGFMTS09oc, "component_Parent_component_useTask_pzGFMTS09oc")),
-		on:click: /*#__PURE__*/ useClientMountQrl(/*#__PURE__*/ qrl(i_czIQbteepiI, "component_Parent_component_useClientMount_czIQbteepiI", [state]))
+		shouldRemove$: /*#__PURE__*/ useTaskQrl(/*#__PURE__*/ qrl(i_dnei8y1e0fQ, "component.tsx_Parent_component_useTask_dnei8y1e0fQ")),
+		on:click: /*#__PURE__*/ useClientMountQrl(/*#__PURE__*/ qrl(i_OeLVnBFyNrs, "component.tsx_Parent_component_useClientMount_OeLVnBFyNrs", [state]))
 	}, null, [_jsxSorted(Div, {
 		onClick$: /*#__PURE__*/ qrl(i_onClick, "Parent_component_div_Div_onClick"),
 		render$: /*#__PURE__*/ qrl(i_render, "Parent_component_div_Div_render", [state])
@@ -111,11 +111,11 @@ None
 /*
 {
   "origin": "components/component.tsx",
-  "name": "component_Parent_component_B0DcWUHmOms",
+  "name": "component.tsx_Parent_component_3cuWnRwBx8M",
   "entry": "entry_segments",
-  "displayName": "component_Parent_component",
-  "hash": "B0DcWUHmOms",
-  "canonicalFilename": "component.tsx_component_Parent_component_B0DcWUHmOms",
+  "displayName": "component.tsx_Parent_component",
+  "hash": "3cuWnRwBx8M",
+  "canonicalFilename": "component.tsx_component.tsx_Parent_component_3cuWnRwBx8M",
   "path": "components",
   "extension": "js",
   "parent": null,
@@ -128,20 +128,20 @@ None
   ]
 }
 */
-============================= components/component.tsx_component_Parent_component_useTask_pzGFMTS09oc.js (ENTRY POINT)==
+============================= components/component.tsx_component.tsx_Parent_component_useTask_dnei8y1e0fQ.js (ENTRY POINT)==
 
-export const component_Parent_component_useTask_pzGFMTS09oc = ()=>{};
+export const component.tsx_Parent_component_useTask_dnei8y1e0fQ = ()=>{};
 
 
 None
 /*
 {
   "origin": "components/component.tsx",
-  "name": "component_Parent_component_useTask_pzGFMTS09oc",
+  "name": "component.tsx_Parent_component_useTask_dnei8y1e0fQ",
   "entry": "entry_segments",
-  "displayName": "component_Parent_component_useTask",
-  "hash": "pzGFMTS09oc",
-  "canonicalFilename": "component.tsx_component_Parent_component_useTask_pzGFMTS09oc",
+  "displayName": "component.tsx_Parent_component_useTask",
+  "hash": "dnei8y1e0fQ",
+  "canonicalFilename": "component.tsx_component.tsx_Parent_component_useTask_dnei8y1e0fQ",
   "path": "components",
   "extension": "js",
   "parent": "component",

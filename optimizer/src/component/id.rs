@@ -176,13 +176,13 @@ mod tests {
             &Target::Dev,
             &Option::None,
         );
-        // Now display_name includes file stem (app) before hashing
-        let (sort_order, hash0) = Id::calculate_hash("app.js", "app_a_b_c", &None);
+        // Now display_name includes full filename (app.js) before hashing (matches qwik-core)
+        let (sort_order, hash0) = Id::calculate_hash("app.js", "app.js_a_b_c", &None);
 
         let expected0 = Id {
-            display_name: "app_a_b_c".to_string(),
-            symbol_name: format!("app_a_b_c_{}", hash0),
-            local_file_name: format!("app.js_app_a_b_c_{}", hash0),
+            display_name: "app.js_a_b_c".to_string(),
+            symbol_name: format!("app.js_a_b_c_{}", hash0),
+            local_file_name: format!("app.js_app.js_a_b_c_{}", hash0),
             hash: hash0,
             sort_order,
             scope: None,
@@ -200,9 +200,9 @@ mod tests {
             &scope1,
         );
         // With leading digit, display_name starts with _1
-        let (sort_order, hash1) = Id::calculate_hash("app.js", "app__1_b_c", &scope1);
+        let (sort_order, hash1) = Id::calculate_hash("app.js", "app.js__1_b_c", &scope1);
         let expected1 = Id {
-            display_name: "app__1_b_c".to_string(),
+            display_name: "app.js__1_b_c".to_string(),
             symbol_name: format!("s_{}", hash1),
             local_file_name: format!("app.js_s_{}", hash1),
             hash: hash1,
@@ -285,12 +285,12 @@ mod tests {
             &None,
         );
 
-        // display_name now includes file stem (app) without extension
-        assert_eq!(id1.display_name, "app_a_b");
-        assert_eq!(id2.display_name, "app_a_b_1");
-        assert_eq!(id3.display_name, "app_a_b_c");
-        assert_eq!(id4.display_name, "app_a_b_c_1");
-        assert_eq!(id5.display_name, "app_a_b_1");
-        assert_eq!(id6.display_name, "app_a_b");
+        // display_name now includes full filename (app.js) matching qwik-core
+        assert_eq!(id1.display_name, "app.js_a_b");
+        assert_eq!(id2.display_name, "app.js_a_b_1");
+        assert_eq!(id3.display_name, "app.js_a_b_c");
+        assert_eq!(id4.display_name, "app.js_a_b_c_1");
+        assert_eq!(id5.display_name, "app.js_a_b_1");
+        assert_eq!(id6.display_name, "app.js_a_b");
     }
 }
