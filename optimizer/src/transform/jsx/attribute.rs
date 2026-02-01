@@ -15,6 +15,23 @@ use super::bind::{create_bind_handler, is_bind_directive, merge_event_handlers};
 use super::event::jsx_event_to_html_attribute;
 use super::{get_jsx_attribute_full_name, move_expression, _GET_VAR_PROPS};
 
+/// Creates a PropertyKey for JSX attributes.
+/// Uses StringLiteral for keys containing colons (q:p, on:click, etc.) to match qwik-core.
+/// Uses StaticIdentifier for standard keys (class, id, etc.).
+fn create_property_key<'a>(
+    builder: &oxc_ast::AstBuilder<'a>,
+    span: oxc_span::Span,
+    name: &str,
+) -> PropertyKey<'a> {
+    if name.contains(':') {
+        PropertyKey::StringLiteral(builder.alloc(
+            builder.string_literal(span, builder.atom(name), None)
+        ))
+    } else {
+        builder.property_key_static_identifier(span, builder.atom(name))
+    }
+}
+
 pub fn enter_jsx_attribute<'a>(
     gen: &mut TransformGenerator<'a>,
     node: &mut JSXAttribute<'a>,
