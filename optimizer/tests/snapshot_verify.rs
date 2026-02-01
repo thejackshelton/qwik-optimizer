@@ -481,6 +481,20 @@ struct ComparisonResult {
     exact_match: bool,
     semantic_match: bool,
     diff: Option<String>,
+    // Structural difference categories (file-level analysis)
+    hoisted_fn_file_mismatch: bool,
+    qrl_placement_mismatch: bool,
+    file_count_mismatch: bool,
+    structural_details: Option<StructuralDetails>,
+}
+
+/// Detailed structural differences for reporting
+#[derive(Debug)]
+struct StructuralDetails {
+    files_only_in_oxc: Vec<String>,
+    files_only_in_qwik: Vec<String>,
+    hoisted_fn_mismatches: Vec<(String, bool, bool)>, // (filename, oxc_has, qwik_has)
+    qrl_placement_mismatches: Vec<String>,            // filenames with QRL placement issues
 }
 
 #[test]
@@ -529,7 +543,51 @@ fn verify_snapshots_match_qwik_core() {
 
         let exact_match = oxc_basic == qwik_basic;
 
+        // File-level structural analysis
+        let oxc_sections = parse_snapshot_sections(&oxc_content);
+        let qwik_sections = parse_snapshot_sections(&qwik_content);
+        let file_comparison = compare_file_structures(&oxc_sections, &qwik_sections);
+
+        // Detect structural mismatches
+        let file_count_mismatch = !file_comparison.files_only_in_oxc.is_empty()
+            || !file_comparison.files_only_in_qwik.is_empty();
+
+        let mut hoisted_fn_file_mismatch = false;
+        let mut qrl_placement_mismatch = false;
+        let mut hoisted_fn_mismatches: Vec<(String, bool, bool)> = Vec::new();
+        let mut qrl_placement_mismatches: Vec<String> = Vec::new();
+
+        for (filename, content_diff) in &file_comparison.content_diffs {
+            if content_diff.has_hoisted_fn_mismatch() {
+                hoisted_fn_file_mismatch = true;
+                hoisted_fn_mismatches.push((
+                    filename.clone(),
+                    content_diff.oxc_has_hoisted_fns,
+                    content_diff.qwik_has_hoisted_fns,
+                ));
+            }
+            if content_diff.has_qrl_placement_mismatch() {
+                qrl_placement_mismatch = true;
+                qrl_placement_mismatches.push(filename.clone());
+            }
+        }
+
+        let structural_details = if hoisted_fn_file_mismatch
+            || qrl_placement_mismatch
+            || file_count_mismatch
+        {
+            Some(StructuralDetails {
+                files_only_in_oxc: file_comparison.files_only_in_oxc,
+                files_only_in_qwik: file_comparison.files_only_in_qwik,
+                hoisted_fn_mismatches,
+                qrl_placement_mismatches,
+            })
+        } else {
+            None
+        };
+
         // Apply semantic normalization for expected differences
+        // Only for snapshots without structural differences
         let oxc_semantic = normalize_expected_differences(&oxc_basic);
         let qwik_semantic = normalize_expected_differences(&qwik_basic);
 
@@ -552,6 +610,10 @@ fn verify_snapshots_match_qwik_core() {
             exact_match,
             semantic_match,
             diff,
+            hoisted_fn_file_mismatch,
+            qrl_placement_mismatch,
+            file_count_mismatch,
+            structural_details,
         });
     }
 
@@ -563,9 +625,23 @@ fn verify_snapshots_match_qwik_core() {
         .collect();
     let structural_diff: Vec<_> = results.iter().filter(|r| !r.semantic_match).collect();
 
+    // NEW: Categorize by file-level structural mismatches
+    let hoisted_fn_mismatches: Vec<_> = results
+        .iter()
+        .filter(|r| r.hoisted_fn_file_mismatch)
+        .collect();
+    let qrl_placement_mismatches: Vec<_> = results
+        .iter()
+        .filter(|r| r.qrl_placement_mismatch)
+        .collect();
+    let file_count_mismatches: Vec<_> = results
+        .iter()
+        .filter(|r| r.file_count_mismatch)
+        .collect();
+
     // Print detailed results
     println!("\n============================================================");
-    println!("SNAPSHOT VERIFICATION RESULTS - Phase 20 Final Report");
+    println!("SNAPSHOT VERIFICATION RESULTS - Phase 24 File-Level Analysis");
     println!("============================================================\n");
     println!("Total compared: {}", results.len());
     println!();
@@ -581,6 +657,68 @@ fn verify_snapshots_match_qwik_core() {
     );
     println!("  OXC-only (skipped):             {:>3}", oxc_only.len());
     println!();
+    println!("FILE-LEVEL STRUCTURAL ANALYSIS:");
+    println!(
+        "  Hoisted fn file mismatch:       {:>3}",
+        hoisted_fn_mismatches.len()
+    );
+    println!(
+        "  QRL placement mismatch:         {:>3}",
+        qrl_placement_mismatches.len()
+    );
+    println!(
+        "  File count mismatch:            {:>3}",
+        file_count_mismatches.len()
+    );
+    println!();
+
+    // Document STRUCTURAL MISMATCHES (hoisted fn, QRL placement, file count)
+    if !hoisted_fn_mismatches.is_empty() || !qrl_placement_mismatches.is_empty() {
+        println!("============================================================");
+        println!("STRUCTURAL MISMATCHES (file-level)");
+        println!("============================================================");
+        println!();
+        println!("These snapshots have structural differences in code organization:");
+        println!();
+
+        // Show hoisted function file mismatches
+        for result in &hoisted_fn_mismatches {
+            println!("STRUCTURAL MISMATCH: {}", result.test_name);
+            if let Some(details) = &result.structural_details {
+                if !details.hoisted_fn_mismatches.is_empty() {
+                    println!("  Hoisted functions (_hf0, _hf1, etc) placement:");
+                    for (filename, oxc_has, qwik_has) in &details.hoisted_fn_mismatches {
+                        let oxc_status = if *oxc_has { "YES" } else { "no" };
+                        let qwik_status = if *qwik_has { "YES" } else { "no" };
+                        println!("    {}: OXC={}, qwik-core={}", filename, oxc_status, qwik_status);
+                    }
+                }
+            }
+            println!();
+        }
+
+        // Show QRL placement mismatches
+        for result in &qrl_placement_mismatches {
+            // Skip if already shown above
+            if result.hoisted_fn_file_mismatch {
+                continue;
+            }
+            println!("STRUCTURAL MISMATCH: {}", result.test_name);
+            if let Some(details) = &result.structural_details {
+                if !details.qrl_placement_mismatches.is_empty() {
+                    println!("  QRL declarations:");
+                    println!("    OXC:       inline in JSX (on:click: qrl(...))");
+                    println!("    qwik-core: hoisted to const (const X = qrl(...))");
+                    println!("  Affected files: {:?}", details.qrl_placement_mismatches);
+                }
+            }
+            println!();
+        }
+
+        println!("These are REAL structural differences affecting code organization.");
+        println!("They may need to be addressed for exact parity.");
+        println!();
+    }
 
     // Document cosmetic differences
     if !cosmetic_only.is_empty() {
