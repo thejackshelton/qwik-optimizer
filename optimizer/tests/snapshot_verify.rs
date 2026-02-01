@@ -902,18 +902,22 @@ fn verify_snapshots_match_qwik_core() {
     println!("HOISTED FUNCTION PLACEMENT ({} snapshots)", hoisted_fn_placement.len());
     println!("  Functions (_hf0, _hf1, etc.) placed in different files:");
     println!();
-    for result in hoisted_fn_placement.iter().take(5) {
+    // Show all affected snapshots (list mode) followed by detailed breakdown
+    println!("  Affected snapshots:");
+    for result in hoisted_fn_placement.iter() {
+        println!("    - {}", result.test_name);
+    }
+    println!();
+    println!("  Sample file-level details:");
+    for result in hoisted_fn_placement.iter().take(3) {
         println!("  - {}", result.test_name);
         if let Some(details) = &result.structural_details {
             for (filename, oxc_has, qwik_has) in &details.hoisted_fn_mismatches {
-                let oxc_loc = if *oxc_has { "has _hf" } else { "no _hf" };
-                let qwik_loc = if *qwik_has { "has _hf" } else { "no _hf" };
-                println!("    {}: OXC {}, qwik-core {}", filename, oxc_loc, qwik_loc);
+                let oxc_loc = if *oxc_has { "has _hf in file" } else { "no _hf" };
+                let qwik_loc = if *qwik_has { "has _hf in file" } else { "no _hf" };
+                println!("    {}: OXC={}, qwik-core={}", filename, oxc_loc, qwik_loc);
             }
         }
-    }
-    if hoisted_fn_placement.len() > 5 {
-        println!("  ... and {} more", hoisted_fn_placement.len() - 5);
     }
     println!();
 
@@ -921,47 +925,48 @@ fn verify_snapshots_match_qwik_core() {
     println!("QRL DECLARATION STYLE ({} snapshots)", qrl_hoisting.len());
     println!("  QRLs declared differently (inline vs hoisted const):");
     println!();
-    for result in qrl_hoisting.iter().take(5) {
-        println!("  - {}", result.test_name);
-        println!("    OXC:       on:click: qrl(i_xxx, \"name\") (inline in JSX)");
-        println!("    qwik-core: const Foo_component_... = qrl(...) (hoisted)");
+    println!("  Affected snapshots:");
+    for result in qrl_hoisting.iter() {
+        println!("    - {}", result.test_name);
     }
-    if qrl_hoisting.len() > 5 {
-        println!("  ... and {} more", qrl_hoisting.len() - 5);
-    }
+    println!();
+    println!("  Difference pattern:");
+    println!("    OXC:       on:click: qrl(i_xxx, \"name\") (inline in JSX)");
+    println!("    qwik-core: const Foo_component_... = qrl(...) (hoisted)");
     println!();
 
     // Attribute Quoting
     println!("ATTRIBUTE QUOTING ({} snapshots)", attribute_quoting.len());
     println!("  JSX attributes quoted differently:");
     println!();
-    for result in attribute_quoting.iter().take(5) {
-        println!("  - {}", result.test_name);
-        println!("    OXC:       q:p: row");
-        println!("    qwik-core: \"q:p\": row");
-    }
-    if attribute_quoting.len() > 5 {
-        println!("  ... and {} more", attribute_quoting.len() - 5);
+    println!("  Affected snapshots:");
+    for result in attribute_quoting.iter() {
+        println!("    - {}", result.test_name);
     }
     println!();
+    println!("  Difference pattern:");
+    println!("    OXC:       q:p: row");
+    println!("    qwik-core: \"q:p\": row");
+    println!();
 
-    // Segment Count Differences
+    // Segment Count Differences (keep as summary, less verbose)
     println!("SEGMENT COUNT DIFFERENCES ({} snapshots)", segment_count.len());
     println!("  Different number of output files:");
     println!();
+    println!("  Sample differences (first 5):");
     for result in segment_count.iter().take(5) {
-        println!("  - {}", result.test_name);
+        println!("    - {}", result.test_name);
         if let Some(details) = &result.structural_details {
             if !details.files_only_in_oxc.is_empty() {
-                println!("    Extra in OXC: {:?}", details.files_only_in_oxc);
+                println!("      OXC-only: {}", details.files_only_in_oxc.len());
             }
             if !details.files_only_in_qwik.is_empty() {
-                println!("    Extra in qwik-core: {:?}", details.files_only_in_qwik);
+                println!("      qwik-core-only: {}", details.files_only_in_qwik.len());
             }
         }
     }
     if segment_count.len() > 5 {
-        println!("  ... and {} more", segment_count.len() - 5);
+        println!("  ... and {} more with segment count differences", segment_count.len() - 5);
     }
     println!();
 
