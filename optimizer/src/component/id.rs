@@ -187,10 +187,11 @@ mod tests {
             &Target::Dev,
             &Option::None,
         );
-        // display_name includes full filename (app.js) for hash calculation (matches qwik-core)
+        // Hash is calculated from display_name WITHOUT file prefix (matches qwik-core order)
+        // qwik-core hashes "a_b_c", then adds file prefix AFTER for output
         // symbol_name in dev mode uses component name only (without file prefix)
         // local_file_name is displayName_hash format
-        let (sort_order, hash0) = Id::calculate_hash("app.js", "app.js_a_b_c", &None);
+        let (sort_order, hash0) = Id::calculate_hash("app.js", "a_b_c", &None);
 
         let expected0 = Id {
             display_name: "app.js_a_b_c".to_string(),
@@ -212,8 +213,9 @@ mod tests {
             &Target::Prod,
             &scope1,
         );
-        // With leading digit, display_name starts with _1
-        let (sort_order, hash1) = Id::calculate_hash("app.js", "app.js__1_b_c", &scope1);
+        // With leading digit, display_name_without_file starts with _1 (before file prefix added)
+        // Hash is calculated from "_1_b_c" (display_name WITHOUT file prefix)
+        let (sort_order, hash1) = Id::calculate_hash("app.js", "_1_b_c", &scope1);
         let expected1 = Id {
             display_name: "app.js__1_b_c".to_string(),
             symbol_name: format!("s_{}", hash1),  // prod mode uses s_{hash}
