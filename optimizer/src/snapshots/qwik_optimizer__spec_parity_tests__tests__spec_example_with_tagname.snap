@@ -20,46 +20,17 @@ export const Foo = component$(() => {
 ============================= test.tsx ==
 
 import { componentQrl, qrl } from "@qwik.dev/core";
-const i_oqxj4pNYHWI = ()=>import("./test.tsx_Foo_component_1_oqxj4pNYHWI");
-const i_gZqPatVoDqw = ()=>import("./test.tsx_Foo_component_gZqPatVoDqw");
-export const Foo = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_gZqPatVoDqw, "Foo_component_gZqPatVoDqw"));
+const i_DvU6FitWglY = ()=>import("./test.tsx_Foo_component_1_DvU6FitWglY");
+const i_HTDRsvUbLiE = ()=>import("./test.tsx_Foo_component_HTDRsvUbLiE");
+export const Foo = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_HTDRsvUbLiE, "Foo_component_HTDRsvUbLiE"));
 
 
 None
-============================= test.tsx_Foo_component_1_oqxj4pNYHWI.tsx (ENTRY POINT)==
-
-export const Foo_component_1_oqxj4pNYHWI = ()=>{
-	return <div>
-			</div>;
-};
-
-
-None
-/*
-{
-  "origin": "test.tsx",
-  "name": "Foo_component_1_oqxj4pNYHWI",
-  "entry": null,
-  "displayName": "test.tsx_Foo_component_1",
-  "hash": "oqxj4pNYHWI",
-  "canonicalFilename": "test.tsx_Foo_component_1_oqxj4pNYHWI",
-  "path": "",
-  "extension": "tsx",
-  "parent": "component",
-  "ctxKind": "function",
-  "ctxName": "$",
-  "captures": false,
-  "loc": [
-    97,
-    141
-  ]
-}
-*/
-============================= test.tsx_Foo_component_gZqPatVoDqw.tsx (ENTRY POINT)==
+============================= test.tsx_Foo_component_HTDRsvUbLiE.tsx (ENTRY POINT)==
 
 import { qrl } from "@qwik.dev/core";
-export const Foo_component_gZqPatVoDqw = ()=>{
-	return /*#__PURE__*/ qrl(i_oqxj4pNYHWI, "Foo_component_1_oqxj4pNYHWI");
+export const Foo_component_HTDRsvUbLiE = ()=>{
+	return /*#__PURE__*/ qrl(i_DvU6FitWglY, "Foo_component_1_DvU6FitWglY");
 };
 
 
@@ -67,11 +38,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "Foo_component_gZqPatVoDqw",
+  "name": "Foo_component_HTDRsvUbLiE",
   "entry": null,
   "displayName": "test.tsx_Foo_component",
-  "hash": "gZqPatVoDqw",
-  "canonicalFilename": "test.tsx_Foo_component_gZqPatVoDqw",
+  "hash": "HTDRsvUbLiE",
+  "canonicalFilename": "test.tsx_Foo_component_HTDRsvUbLiE",
   "path": "",
   "extension": "tsx",
   "parent": null,
@@ -81,6 +52,35 @@ None
   "loc": [
     79,
     145
+  ]
+}
+*/
+============================= test.tsx_Foo_component_1_DvU6FitWglY.tsx (ENTRY POINT)==
+
+export const Foo_component_1_DvU6FitWglY = ()=>{
+	return <div>
+			</div>;
+};
+
+
+None
+/*
+{
+  "origin": "test.tsx",
+  "name": "Foo_component_1_DvU6FitWglY",
+  "entry": null,
+  "displayName": "test.tsx_Foo_component_1",
+  "hash": "DvU6FitWglY",
+  "canonicalFilename": "test.tsx_Foo_component_1_DvU6FitWglY",
+  "path": "",
+  "extension": "tsx",
+  "parent": "component",
+  "ctxKind": "function",
+  "ctxName": "$",
+  "captures": false,
+  "loc": [
+    97,
+    141
   ]
 }
 */

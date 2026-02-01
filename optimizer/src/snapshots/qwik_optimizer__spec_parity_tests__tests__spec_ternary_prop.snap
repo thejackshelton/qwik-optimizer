@@ -22,48 +22,19 @@ export const Cmp = component$(() => {
 ============================= test.js ==
 
 import { componentQrl, qrl } from "@qwik.dev/core";
-const i_0BVSChZGt0o = ()=>import("./test.tsx_Cmp_component_handleClick_1_0BVSChZGt0o");
-const i_qsBJpzBk9qc = ()=>import("./test.tsx_Cmp_component_qsBJpzBk9qc");
-export const Cmp = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_qsBJpzBk9qc, "Cmp_component_qsBJpzBk9qc"));
+const i_3XP0LRiVj8c = ()=>import("./test.tsx_Cmp_component_handleClick_1_3XP0LRiVj8c");
+const i_4ryKJTOKjWE = ()=>import("./test.tsx_Cmp_component_4ryKJTOKjWE");
+export const Cmp = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_4ryKJTOKjWE, "Cmp_component_4ryKJTOKjWE"));
 
 
 None
-============================= test.tsx_Cmp_component_handleClick_1_0BVSChZGt0o.js (ENTRY POINT)==
-
-export const Cmp_component_handleClick_1_0BVSChZGt0o = ()=>{
-	const [toggleSig] = useLexicalScope();
-	toggleSig.value = !toggleSig.value;
-};
-
-
-None
-/*
-{
-  "origin": "test.tsx",
-  "name": "Cmp_component_handleClick_1_0BVSChZGt0o",
-  "entry": null,
-  "displayName": "test.tsx_Cmp_component_handleClick_1",
-  "hash": "0BVSChZGt0o",
-  "canonicalFilename": "test.tsx_Cmp_component_handleClick_1_0BVSChZGt0o",
-  "path": "",
-  "extension": "js",
-  "parent": "handleClick",
-  "ctxKind": "function",
-  "ctxName": "$",
-  "captures": true,
-  "loc": [
-    159,
-    207
-  ]
-}
-*/
-============================= test.tsx_Cmp_component_qsBJpzBk9qc.js (ENTRY POINT)==
+============================= test.tsx_Cmp_component_4ryKJTOKjWE.js (ENTRY POINT)==
 
 import { _jsxSorted, qrl, useSignal } from "@qwik.dev/core";
-const i_0BVSChZGt0o = ()=>import("./test.tsx_Cmp_component_handleClick_1_0BVSChZGt0o");
-export const Cmp_component_qsBJpzBk9qc = ()=>{
+const i_3XP0LRiVj8c = ()=>import("./test.tsx_Cmp_component_handleClick_1_3XP0LRiVj8c");
+export const Cmp_component_4ryKJTOKjWE = ()=>{
 	const toggleSig = useSignal(false);
-	const handleClick$ = /*#__PURE__*/ qrl(i_0BVSChZGt0o, "Cmp_component_handleClick_1_0BVSChZGt0o", [toggleSig]);
+	const handleClick$ = /*#__PURE__*/ qrl(i_3XP0LRiVj8c, "Cmp_component_handleClick_1_3XP0LRiVj8c", [toggleSig]);
 	return /*#__PURE__*/ _jsxSorted("button", { data-open: toggleSig.value ? true : undefined }, { on:click: handleClick$ }, "Removing data-open re-renders", 3, null);
 };
 
@@ -72,11 +43,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "Cmp_component_qsBJpzBk9qc",
+  "name": "Cmp_component_4ryKJTOKjWE",
   "entry": null,
   "displayName": "test.tsx_Cmp_component",
-  "hash": "qsBJpzBk9qc",
-  "canonicalFilename": "test.tsx_Cmp_component_qsBJpzBk9qc",
+  "hash": "4ryKJTOKjWE",
+  "canonicalFilename": "test.tsx_Cmp_component_4ryKJTOKjWE",
   "path": "",
   "extension": "js",
   "parent": null,
@@ -86,6 +57,35 @@ None
   "loc": [
     89,
     353
+  ]
+}
+*/
+============================= test.tsx_Cmp_component_handleClick_1_3XP0LRiVj8c.js (ENTRY POINT)==
+
+export const Cmp_component_handleClick_1_3XP0LRiVj8c = ()=>{
+	const [toggleSig] = useLexicalScope();
+	toggleSig.value = !toggleSig.value;
+};
+
+
+None
+/*
+{
+  "origin": "test.tsx",
+  "name": "Cmp_component_handleClick_1_3XP0LRiVj8c",
+  "entry": null,
+  "displayName": "test.tsx_Cmp_component_handleClick_1",
+  "hash": "3XP0LRiVj8c",
+  "canonicalFilename": "test.tsx_Cmp_component_handleClick_1_3XP0LRiVj8c",
+  "path": "",
+  "extension": "js",
+  "parent": "handleClick",
+  "ctxKind": "function",
+  "ctxName": "$",
+  "captures": true,
+  "loc": [
+    159,
+    207
   ]
 }
 */

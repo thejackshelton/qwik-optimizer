@@ -18,56 +18,26 @@ export const Foo = component$(() => {
 ============================= test.tsx ==
 
 import { componentQrl, qrl } from "@qwik.dev/core";
-const i_JG9QnIkplMk = ()=>import("./test.tsx_Foo_component_useStyles_JG9QnIkplMk");
-const i_gZqPatVoDqw = ()=>import("./test.tsx_Foo_component_gZqPatVoDqw");
-export const Foo = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_gZqPatVoDqw, "Foo_component_gZqPatVoDqw"));
+const i_pV9TSCBIhw8 = ()=>import("./test.tsx_Foo_component_useStyles_pV9TSCBIhw8");
+const i_HTDRsvUbLiE = ()=>import("./test.tsx_Foo_component_HTDRsvUbLiE");
+export const Foo = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_HTDRsvUbLiE, "Foo_component_HTDRsvUbLiE"));
 
 
 None
-============================= test.tsx_Foo_component_gZqPatVoDqw.tsx (ENTRY POINT)==
+============================= test.tsx_Foo_component_useStyles_pV9TSCBIhw8.tsx (ENTRY POINT)==
 
-import { qrl, useStylesQrl } from "@qwik.dev/core";
-export const Foo_component_gZqPatVoDqw = ()=>{
-	/*#__PURE__*/ useStylesQrl(/*#__PURE__*/ qrl(i_JG9QnIkplMk, "Foo_component_useStyles_JG9QnIkplMk"));
-	return <div class="class" />;
-};
+export const Foo_component_useStyles_pV9TSCBIhw8 = ".class {}";
 
 
 None
 /*
 {
   "origin": "test.tsx",
-  "name": "Foo_component_gZqPatVoDqw",
-  "entry": null,
-  "displayName": "test.tsx_Foo_component",
-  "hash": "gZqPatVoDqw",
-  "canonicalFilename": "test.tsx_Foo_component_gZqPatVoDqw",
-  "path": "",
-  "extension": "tsx",
-  "parent": null,
-  "ctxKind": "function",
-  "ctxName": "component$",
-  "captures": false,
-  "loc": [
-    91,
-    163
-  ]
-}
-*/
-============================= test.tsx_Foo_component_useStyles_JG9QnIkplMk.tsx (ENTRY POINT)==
-
-export const Foo_component_useStyles_JG9QnIkplMk = ".class {}";
-
-
-None
-/*
-{
-  "origin": "test.tsx",
-  "name": "Foo_component_useStyles_JG9QnIkplMk",
+  "name": "Foo_component_useStyles_pV9TSCBIhw8",
   "entry": null,
   "displayName": "test.tsx_Foo_component_useStyles",
-  "hash": "JG9QnIkplMk",
-  "canonicalFilename": "test.tsx_Foo_component_useStyles_JG9QnIkplMk",
+  "hash": "pV9TSCBIhw8",
+  "canonicalFilename": "test.tsx_Foo_component_useStyles_pV9TSCBIhw8",
   "path": "",
   "extension": "tsx",
   "parent": "component",
@@ -77,6 +47,36 @@ None
   "loc": [
     111,
     122
+  ]
+}
+*/
+============================= test.tsx_Foo_component_HTDRsvUbLiE.tsx (ENTRY POINT)==
+
+import { qrl, useStylesQrl } from "@qwik.dev/core";
+export const Foo_component_HTDRsvUbLiE = ()=>{
+	/*#__PURE__*/ useStylesQrl(/*#__PURE__*/ qrl(i_pV9TSCBIhw8, "Foo_component_useStyles_pV9TSCBIhw8"));
+	return <div class="class" />;
+};
+
+
+None
+/*
+{
+  "origin": "test.tsx",
+  "name": "Foo_component_HTDRsvUbLiE",
+  "entry": null,
+  "displayName": "test.tsx_Foo_component",
+  "hash": "HTDRsvUbLiE",
+  "canonicalFilename": "test.tsx_Foo_component_HTDRsvUbLiE",
+  "path": "",
+  "extension": "tsx",
+  "parent": null,
+  "ctxKind": "function",
+  "ctxName": "component$",
+  "captures": false,
+  "loc": [
+    91,
+    163
   ]
 }
 */

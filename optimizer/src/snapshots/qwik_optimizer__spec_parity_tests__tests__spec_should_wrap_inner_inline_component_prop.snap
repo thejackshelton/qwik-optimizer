@@ -26,16 +26,16 @@ export default component$((props: { id: number }) => {
 ============================= test.js ==
 
 import { componentQrl, qrl } from "@qwik.dev/core";
-const i_3ghsHSPcTK0 = ()=>import("./test.tsx_test_component_3ghsHSPcTK0");
-export default /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_3ghsHSPcTK0, "test_component_3ghsHSPcTK0"));
+const i_LUXeXe0DQrg = ()=>import("./test.tsx_test_component_LUXeXe0DQrg");
+export default /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_LUXeXe0DQrg, "test_component_LUXeXe0DQrg"));
 
 
 None
-============================= test.tsx_test_component_3ghsHSPcTK0.js (ENTRY POINT)==
+============================= test.tsx_test_component_LUXeXe0DQrg.js (ENTRY POINT)==
 
 import { _jsxSorted, useStore } from "@qwik.dev/core";
 import { Fragment as _Fragment } from "@qwik.dev/core/jsx-runtime";
-export const test_component_3ghsHSPcTK0 = (props)=>{
+export const test_component_LUXeXe0DQrg = (props)=>{
 	const renders = useStore({ count: 0 }, { reactive: false });
 	renders.count++;
 	const rerenders = renders.count + 0;
@@ -48,11 +48,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "test_component_3ghsHSPcTK0",
+  "name": "test_component_LUXeXe0DQrg",
   "entry": null,
   "displayName": "test.tsx_test_component",
-  "hash": "3ghsHSPcTK0",
-  "canonicalFilename": "test.tsx_test_component_3ghsHSPcTK0",
+  "hash": "LUXeXe0DQrg",
+  "canonicalFilename": "test.tsx_test_component_LUXeXe0DQrg",
   "path": "",
   "extension": "js",
   "parent": null,

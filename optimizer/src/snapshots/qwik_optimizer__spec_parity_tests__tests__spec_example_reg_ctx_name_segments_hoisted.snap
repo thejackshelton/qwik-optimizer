@@ -19,28 +19,28 @@ const STYLES = '.class {}';
 ============================= test.js ==
 
 import { componentQrl, qrl } from "@qwik.dev/core";
-const i_PMhaPO6UZzY = ()=>import("./test.tsx_Works_component_useStyle_PMhaPO6UZzY");
-const i_p1CZ8B6duOg = ()=>import("./test.tsx_Works_component_div_onClick_server_p1CZ8B6duOg");
-const i_xJyUXaLUiKw = ()=>import("./test.tsx_Works_component_xJyUXaLUiKw");
-export const Works = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_xJyUXaLUiKw, "Works_component_xJyUXaLUiKw"));
+const i_i40UL9JyQpg = ()=>import("./test.tsx_Works_component_useStyle_i40UL9JyQpg");
+const i_OsNoEFc5SM4 = ()=>import("./test.tsx_Works_component_div_onClick_server_OsNoEFc5SM4");
+const i_t45qL4vNGv0 = ()=>import("./test.tsx_Works_component_t45qL4vNGv0");
+export const Works = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_t45qL4vNGv0, "Works_component_t45qL4vNGv0"));
 const STYLES = ".class {}";
 
 
 None
-============================= test.tsx_Works_component_useStyle_PMhaPO6UZzY.js (ENTRY POINT)==
+============================= test.tsx_Works_component_useStyle_i40UL9JyQpg.js (ENTRY POINT)==
 
-export const Works_component_useStyle_PMhaPO6UZzY = STYLES;
+export const Works_component_useStyle_i40UL9JyQpg = STYLES;
 
 
 None
 /*
 {
   "origin": "test.tsx",
-  "name": "Works_component_useStyle_PMhaPO6UZzY",
+  "name": "Works_component_useStyle_i40UL9JyQpg",
   "entry": "entry_segments",
   "displayName": "test.tsx_Works_component_useStyle",
-  "hash": "PMhaPO6UZzY",
-  "canonicalFilename": "test.tsx_Works_component_useStyle_PMhaPO6UZzY",
+  "hash": "i40UL9JyQpg",
+  "canonicalFilename": "test.tsx_Works_component_useStyle_i40UL9JyQpg",
   "path": "",
   "extension": "js",
   "parent": "component",
@@ -53,42 +53,9 @@ None
   ]
 }
 */
-============================= test.tsx_Works_component_xJyUXaLUiKw.js (ENTRY POINT)==
+============================= test.tsx_Works_component_div_onClick_server_OsNoEFc5SM4.js (ENTRY POINT)==
 
-import { _jsxSorted, qrl, serverQrl, useStyleQrl } from "@qwik.dev/core";
-const i_p1CZ8B6duOg = ()=>import("./test.tsx_Works_component_div_onClick_server_p1CZ8B6duOg");
-const i_PMhaPO6UZzY = ()=>import("./test.tsx_Works_component_useStyle_PMhaPO6UZzY");
-export const Works_component_xJyUXaLUiKw = (props)=>{
-	/*#__PURE__*/ useStyleQrl(/*#__PURE__*/ qrl(i_PMhaPO6UZzY, "Works_component_useStyle_PMhaPO6UZzY"));
-	const text = /*#__PURE__*/ useStyleQrl(/*#__PURE__*/ qrl(i_PMhaPO6UZzY, "Works_component_useStyle_PMhaPO6UZzY"));
-	return /*#__PURE__*/ _jsxSorted("div", { on:click: /*#__PURE__*/ serverQrl(/*#__PURE__*/ qrl(i_p1CZ8B6duOg, "Works_component_div_onClick_server_p1CZ8B6duOg", [text])) }, null, null, 3, null);
-};
-
-
-None
-/*
-{
-  "origin": "test.tsx",
-  "name": "Works_component_xJyUXaLUiKw",
-  "entry": "entry_segments",
-  "displayName": "test.tsx_Works_component",
-  "hash": "xJyUXaLUiKw",
-  "canonicalFilename": "test.tsx_Works_component_xJyUXaLUiKw",
-  "path": "",
-  "extension": "js",
-  "parent": null,
-  "ctxKind": "function",
-  "ctxName": "component$",
-  "captures": false,
-  "loc": [
-    101,
-    242
-  ]
-}
-*/
-============================= test.tsx_Works_component_div_onClick_server_p1CZ8B6duOg.js (ENTRY POINT)==
-
-export const Works_component_div_onClick_server_p1CZ8B6duOg = ()=>{
+export const Works_component_div_onClick_server_OsNoEFc5SM4 = ()=>{
 	const [text] = useLexicalScope();
 	return console.log("in server", text);
 };
@@ -98,11 +65,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "Works_component_div_onClick_server_p1CZ8B6duOg",
+  "name": "Works_component_div_onClick_server_OsNoEFc5SM4",
   "entry": "entry_segments",
   "displayName": "test.tsx_Works_component_div_onClick_server",
-  "hash": "p1CZ8B6duOg",
-  "canonicalFilename": "test.tsx_Works_component_div_onClick_server_p1CZ8B6duOg",
+  "hash": "OsNoEFc5SM4",
+  "canonicalFilename": "test.tsx_Works_component_div_onClick_server_OsNoEFc5SM4",
   "path": "",
   "extension": "js",
   "parent": "onClick",
@@ -112,6 +79,39 @@ None
   "loc": [
     191,
     227
+  ]
+}
+*/
+============================= test.tsx_Works_component_t45qL4vNGv0.js (ENTRY POINT)==
+
+import { _jsxSorted, qrl, serverQrl, useStyleQrl } from "@qwik.dev/core";
+const i_OsNoEFc5SM4 = ()=>import("./test.tsx_Works_component_div_onClick_server_OsNoEFc5SM4");
+const i_i40UL9JyQpg = ()=>import("./test.tsx_Works_component_useStyle_i40UL9JyQpg");
+export const Works_component_t45qL4vNGv0 = (props)=>{
+	/*#__PURE__*/ useStyleQrl(/*#__PURE__*/ qrl(i_i40UL9JyQpg, "Works_component_useStyle_i40UL9JyQpg"));
+	const text = /*#__PURE__*/ useStyleQrl(/*#__PURE__*/ qrl(i_i40UL9JyQpg, "Works_component_useStyle_i40UL9JyQpg"));
+	return /*#__PURE__*/ _jsxSorted("div", { on:click: /*#__PURE__*/ serverQrl(/*#__PURE__*/ qrl(i_OsNoEFc5SM4, "Works_component_div_onClick_server_OsNoEFc5SM4", [text])) }, null, null, 3, null);
+};
+
+
+None
+/*
+{
+  "origin": "test.tsx",
+  "name": "Works_component_t45qL4vNGv0",
+  "entry": "entry_segments",
+  "displayName": "test.tsx_Works_component",
+  "hash": "t45qL4vNGv0",
+  "canonicalFilename": "test.tsx_Works_component_t45qL4vNGv0",
+  "path": "",
+  "extension": "js",
+  "parent": null,
+  "ctxKind": "function",
+  "ctxName": "component$",
+  "captures": false,
+  "loc": [
+    101,
+    242
   ]
 }
 */

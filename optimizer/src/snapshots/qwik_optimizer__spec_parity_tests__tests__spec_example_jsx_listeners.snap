@@ -39,39 +39,43 @@ export const Foo = component$(() => {
 ============================= test.js ==
 
 import { componentQrl, qrl } from "@qwik.dev/core";
-const i_oqxj4pNYHWI = ()=>import("./test.tsx_Foo_component_1_oqxj4pNYHWI");
-const i_gZqPatVoDqw = ()=>import("./test.tsx_Foo_component_gZqPatVoDqw");
-export const Foo = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_gZqPatVoDqw, "Foo_component_gZqPatVoDqw"));
+const i_DvU6FitWglY = ()=>import("./test.tsx_Foo_component_1_DvU6FitWglY");
+const i_HTDRsvUbLiE = ()=>import("./test.tsx_Foo_component_HTDRsvUbLiE");
+export const Foo = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_HTDRsvUbLiE, "Foo_component_HTDRsvUbLiE"));
 
 
 None
-============================= test.tsx_Foo_component_handler_JuomhdFFOz0.js (ENTRY POINT)==
+============================= test.tsx_Foo_component_HTDRsvUbLiE.js (ENTRY POINT)==
 
-export const Foo_component_handler_JuomhdFFOz0 = ()=>console.log("reused");
+import { qrl } from "@qwik.dev/core";
+const i_H10xZtD0e7w = ()=>import("./test.tsx_Foo_component_handler_H10xZtD0e7w");
+export const Foo_component_HTDRsvUbLiE = ()=>{
+	return /*#__PURE__*/ qrl(i_DvU6FitWglY, "Foo_component_1_DvU6FitWglY");
+};
 
 
 None
 /*
 {
   "origin": "test.tsx",
-  "name": "Foo_component_handler_JuomhdFFOz0",
+  "name": "Foo_component_HTDRsvUbLiE",
   "entry": null,
-  "displayName": "test.tsx_Foo_component_handler",
-  "hash": "JuomhdFFOz0",
-  "canonicalFilename": "test.tsx_Foo_component_handler_JuomhdFFOz0",
+  "displayName": "test.tsx_Foo_component",
+  "hash": "HTDRsvUbLiE",
+  "canonicalFilename": "test.tsx_Foo_component_HTDRsvUbLiE",
   "path": "",
   "extension": "js",
-  "parent": "$1",
+  "parent": null,
   "ctxKind": "function",
-  "ctxName": "$",
+  "ctxName": "component$",
   "captures": false,
   "loc": [
-    126,
-    153
+    79,
+    843
   ]
 }
 */
-============================= test.tsx_Foo_component_1_oqxj4pNYHWI.js (ENTRY POINT)==
+============================= test.tsx_Foo_component_1_DvU6FitWglY.js (ENTRY POINT)==
 
 import { _jsxSorted, qrl } from "@qwik.dev/core";
 const i_custom = ()=>import("./test.tsx");
@@ -83,9 +87,9 @@ const i_on-cLick = ()=>import("./test.tsx");
 const i_1 = ()=>import("./test.tsx");
 const i_onDocumentScroll = ()=>import("./test.tsx");
 const i_onClick = ()=>import("./test.tsx");
-const i_JuomhdFFOz0 = ()=>import("./test.tsx_Foo_component_handler_JuomhdFFOz0");
-export const Foo_component_1_oqxj4pNYHWI = ()=>{
-	const handler = /*#__PURE__*/ qrl(i_JuomhdFFOz0, "Foo_component_handler_JuomhdFFOz0");
+const i_H10xZtD0e7w = ()=>import("./test.tsx_Foo_component_handler_H10xZtD0e7w");
+export const Foo_component_1_DvU6FitWglY = ()=>{
+	const handler = /*#__PURE__*/ qrl(i_H10xZtD0e7w, "Foo_component_handler_H10xZtD0e7w");
 	return /*#__PURE__*/ _jsxSorted("div", {
 		on:click: /*#__PURE__*/ qrl(i_onClick, "Foo_component_1_div_onClick"),
 		on:documentscroll: /*#__PURE__*/ qrl(i_onDocumentScroll, "Foo_component_1_div_onDocumentScroll"),
@@ -109,11 +113,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "Foo_component_1_oqxj4pNYHWI",
+  "name": "Foo_component_1_DvU6FitWglY",
   "entry": null,
   "displayName": "test.tsx_Foo_component_1",
-  "hash": "oqxj4pNYHWI",
-  "canonicalFilename": "test.tsx_Foo_component_1_oqxj4pNYHWI",
+  "hash": "DvU6FitWglY",
+  "canonicalFilename": "test.tsx_Foo_component_1_DvU6FitWglY",
   "path": "",
   "extension": "js",
   "parent": "component",
@@ -126,33 +130,29 @@ None
   ]
 }
 */
-============================= test.tsx_Foo_component_gZqPatVoDqw.js (ENTRY POINT)==
+============================= test.tsx_Foo_component_handler_H10xZtD0e7w.js (ENTRY POINT)==
 
-import { qrl } from "@qwik.dev/core";
-const i_JuomhdFFOz0 = ()=>import("./test.tsx_Foo_component_handler_JuomhdFFOz0");
-export const Foo_component_gZqPatVoDqw = ()=>{
-	return /*#__PURE__*/ qrl(i_oqxj4pNYHWI, "Foo_component_1_oqxj4pNYHWI");
-};
+export const Foo_component_handler_H10xZtD0e7w = ()=>console.log("reused");
 
 
 None
 /*
 {
   "origin": "test.tsx",
-  "name": "Foo_component_gZqPatVoDqw",
+  "name": "Foo_component_handler_H10xZtD0e7w",
   "entry": null,
-  "displayName": "test.tsx_Foo_component",
-  "hash": "gZqPatVoDqw",
-  "canonicalFilename": "test.tsx_Foo_component_gZqPatVoDqw",
+  "displayName": "test.tsx_Foo_component_handler",
+  "hash": "H10xZtD0e7w",
+  "canonicalFilename": "test.tsx_Foo_component_handler_H10xZtD0e7w",
   "path": "",
   "extension": "js",
-  "parent": null,
+  "parent": "$1",
   "ctxKind": "function",
-  "ctxName": "component$",
+  "ctxName": "$",
   "captures": false,
   "loc": [
-    79,
-    843
+    126,
+    153
   ]
 }
 */

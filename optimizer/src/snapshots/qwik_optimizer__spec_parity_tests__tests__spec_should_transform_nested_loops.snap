@@ -22,27 +22,27 @@ const Foo = component$(function() {
 ============================= test.js ==
 
 import { componentQrl, qrl } from "@qwik.dev/core";
-const i_gZqPatVoDqw = ()=>import("./test.tsx_Foo_component_gZqPatVoDqw");
+const i_HTDRsvUbLiE = ()=>import("./test.tsx_Foo_component_HTDRsvUbLiE");
 const _hf0 = (p0)=>p0.value.id;
 const _hf0_str = "p0.value.id";
-/*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_gZqPatVoDqw, "Foo_component_gZqPatVoDqw"));
+/*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_HTDRsvUbLiE, "Foo_component_HTDRsvUbLiE"));
 
 
 None
-============================= test.tsx_Foo_component_gZqPatVoDqw.js (ENTRY POINT)==
+============================= test.tsx_Foo_component_HTDRsvUbLiE.js (ENTRY POINT)==
 
 import { _fnSignal, _jsxSorted, qrl, useSignal } from "@qwik.dev/core";
-const i_chpE6lPsE9s = ()=>import("./test.tsx_Foo_component_div_map_div_map_p_onClick_chpE6lPsE9s");
-const i_zM4Cumgzius = ()=>import("./test.tsx_Foo_component_div_map_div_onClick_zM4Cumgzius");
-export const Foo_component_gZqPatVoDqw = function() {
+const i_5OQc040LebY = ()=>import("./test.tsx_Foo_component_div_map_div_map_p_onClick_5OQc040LebY");
+const i_mfLVIFxdDiU = ()=>import("./test.tsx_Foo_component_div_map_div_onClick_mfLVIFxdDiU");
+export const Foo_component_HTDRsvUbLiE = function() {
 	const data = useSignal([]);
 	const data2 = useSignal([]);
 	return /*#__PURE__*/ _jsxSorted("div", null, null, data.value.map((row)=>/*#__PURE__*/ _jsxSorted("div", {
 		q:p: row,
-		on:click: /*#__PURE__*/ qrl(i_zM4Cumgzius, "Foo_component_div_map_div_onClick_zM4Cumgzius")
+		on:click: /*#__PURE__*/ qrl(i_mfLVIFxdDiU, "Foo_component_div_map_div_onClick_mfLVIFxdDiU")
 	}, null, data2.value.map((item)=>/*#__PURE__*/ _jsxSorted("p", {
 		q:p: item,
-		on:click: /*#__PURE__*/ qrl(i_chpE6lPsE9s, "Foo_component_div_map_div_map_p_onClick_chpE6lPsE9s", [row])
+		on:click: /*#__PURE__*/ qrl(i_5OQc040LebY, "Foo_component_div_map_div_map_p_onClick_5OQc040LebY", [row])
 	}, null, [
 		row.value.id,
 		"-",
@@ -55,11 +55,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "Foo_component_gZqPatVoDqw",
+  "name": "Foo_component_HTDRsvUbLiE",
   "entry": null,
   "displayName": "test.tsx_Foo_component",
-  "hash": "gZqPatVoDqw",
-  "canonicalFilename": "test.tsx_Foo_component_gZqPatVoDqw",
+  "hash": "HTDRsvUbLiE",
+  "canonicalFilename": "test.tsx_Foo_component_HTDRsvUbLiE",
   "path": "",
   "extension": "js",
   "parent": null,
@@ -72,10 +72,36 @@ None
   ]
 }
 */
-============================= test.tsx_Foo_component_div_map_div_map_p_onClick_chpE6lPsE9s.js (ENTRY POINT)==
+============================= test.tsx_Foo_component_div_map_div_onClick_mfLVIFxdDiU.js (ENTRY POINT)==
+
+export const Foo_component_div_map_div_onClick_mfLVIFxdDiU = (_, _1, row)=>console.log(row.value.id);
+
+
+None
+/*
+{
+  "origin": "test.tsx",
+  "name": "Foo_component_div_map_div_onClick_mfLVIFxdDiU",
+  "entry": null,
+  "displayName": "test.tsx_Foo_component_div_map_div_onClick",
+  "hash": "mfLVIFxdDiU",
+  "canonicalFilename": "test.tsx_Foo_component_div_map_div_onClick_mfLVIFxdDiU",
+  "path": "",
+  "extension": "js",
+  "parent": null,
+  "ctxKind": "eventHandler",
+  "ctxName": "onClick$",
+  "captures": false,
+  "loc": [
+    0,
+    0
+  ]
+}
+*/
+============================= test.tsx_Foo_component_div_map_div_map_p_onClick_5OQc040LebY.js (ENTRY POINT)==
 
 import { useLexicalScope } from "@qwik.dev/core";
-export const Foo_component_div_map_div_map_p_onClick_chpE6lPsE9s = (_, _1, item)=>{
+export const Foo_component_div_map_div_map_p_onClick_5OQc040LebY = (_, _1, item)=>{
 	const [row] = useLexicalScope();
 	return console.log(row.value.id, item.value.id);
 };
@@ -85,43 +111,17 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "Foo_component_div_map_div_map_p_onClick_chpE6lPsE9s",
+  "name": "Foo_component_div_map_div_map_p_onClick_5OQc040LebY",
   "entry": null,
   "displayName": "test.tsx_Foo_component_div_map_div_map_p_onClick",
-  "hash": "chpE6lPsE9s",
-  "canonicalFilename": "test.tsx_Foo_component_div_map_div_map_p_onClick_chpE6lPsE9s",
+  "hash": "5OQc040LebY",
+  "canonicalFilename": "test.tsx_Foo_component_div_map_div_map_p_onClick_5OQc040LebY",
   "path": "",
   "extension": "js",
   "parent": null,
   "ctxKind": "eventHandler",
   "ctxName": "onClick$",
   "captures": true,
-  "loc": [
-    0,
-    0
-  ]
-}
-*/
-============================= test.tsx_Foo_component_div_map_div_onClick_zM4Cumgzius.js (ENTRY POINT)==
-
-export const Foo_component_div_map_div_onClick_zM4Cumgzius = (_, _1, row)=>console.log(row.value.id);
-
-
-None
-/*
-{
-  "origin": "test.tsx",
-  "name": "Foo_component_div_map_div_onClick_zM4Cumgzius",
-  "entry": null,
-  "displayName": "test.tsx_Foo_component_div_map_div_onClick",
-  "hash": "zM4Cumgzius",
-  "canonicalFilename": "test.tsx_Foo_component_div_map_div_onClick_zM4Cumgzius",
-  "path": "",
-  "extension": "js",
-  "parent": null,
-  "ctxKind": "eventHandler",
-  "ctxName": "onClick$",
-  "captures": false,
   "loc": [
     0,
     0

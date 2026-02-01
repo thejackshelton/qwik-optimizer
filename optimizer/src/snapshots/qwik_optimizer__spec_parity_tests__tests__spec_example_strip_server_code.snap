@@ -49,84 +49,20 @@ export const Parent = component$(() => {
 ============================= test.js ==
 
 import { componentQrl, qrl } from "@qwik.dev/core";
-const i_SX4UNdoumFY = ()=>import("./test.tsx_Parent_component_useTask_SX4UNdoumFY");
-const i_bMekv3wAtYg = ()=>import("./test.tsx_Parent_component_serverStuff_bMekv3wAtYg");
-const i_r7E4EA97DUg = ()=>import("./test.tsx_Parent_component_serverLoader_r7E4EA97DUg");
-const i_fNsRmJneFMo = ()=>import("./test.tsx_Parent_component_useTask_1_fNsRmJneFMo");
-const i_fxETLug1yE4 = ()=>import("./test.tsx_Parent_component_fxETLug1yE4");
-export const Parent = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_fxETLug1yE4, "s_fxETLug1yE4"));
+const i_gDH1EtUWqBU = ()=>import("./test.tsx_Parent_component_useTask_gDH1EtUWqBU");
+const i_r1qAHX7Opp0 = ()=>import("./test.tsx_Parent_component_serverStuff_r1qAHX7Opp0");
+const i_k1L0DiPQV1I = ()=>import("./test.tsx_Parent_component_serverLoader_k1L0DiPQV1I");
+const i_P8oRQhHsurk = ()=>import("./test.tsx_Parent_component_useTask_1_P8oRQhHsurk");
+const i_0TaiDayHrlo = ()=>import("./test.tsx_Parent_component_0TaiDayHrlo");
+export const Parent = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_0TaiDayHrlo, "s_0TaiDayHrlo"));
 
 
 None
-============================= test.tsx_Parent_component_serverLoader_r7E4EA97DUg.js (ENTRY POINT)==
-
-import { handler } from "serverless";
-export const s_r7E4EA97DUg = handler;
-
-
-None
-/*
-{
-  "origin": "test.tsx",
-  "name": "s_r7E4EA97DUg",
-  "entry": null,
-  "displayName": "test.tsx_Parent_component_serverLoader",
-  "hash": "r7E4EA97DUg",
-  "canonicalFilename": "test.tsx_Parent_component_serverLoader_r7E4EA97DUg",
-  "path": "",
-  "extension": "js",
-  "parent": "component",
-  "ctxKind": "function",
-  "ctxName": "serverLoader$",
-  "captures": false,
-  "loc": [
-    701,
-    708
-  ]
-}
-*/
-============================= test.tsx_Parent_component_fxETLug1yE4.js (ENTRY POINT)==
-
-import { _jsxSorted } from "@qwik.dev/core";
-const i_fNsRmJneFMo = ()=>import("./test.tsx_Parent_component_useTask_1_fNsRmJneFMo");
-const i_ozOFLdzu7J8 = ()=>import("./test.tsx_Parent_component_serverStuff_b_client_ozOFLdzu7J8");
-const i_4DT0Ao6Wy7Y = ()=>import("./test.tsx_Parent_component_serverStuff_a_4DT0Ao6Wy7Y");
-export const s_fxETLug1yE4 = ()=>{
-	const state = useStore({ text: "" });
-	/*#__PURE__*/ useTaskQrl(/*#__PURE__*/ qrl(i_SX4UNdoumFY, "s_SX4UNdoumFY", [state]));
-	/*#__PURE__*/ serverStuffQrl(/*#__PURE__*/ qrl(i_bMekv3wAtYg, "s_bMekv3wAtYg"));
-	/*#__PURE__*/ serverLoaderQrl(/*#__PURE__*/ qrl(i_r7E4EA97DUg, "s_r7E4EA97DUg"));
-	/*#__PURE__*/ useTaskQrl(/*#__PURE__*/ qrl(i_fNsRmJneFMo, "s_fNsRmJneFMo"));
-	return /*#__PURE__*/ _jsxSorted("div", { on:click: /*#__PURE__*/ useTaskQrl(/*#__PURE__*/ qrl(i_fNsRmJneFMo, "s_fNsRmJneFMo")) }, null, state.text, 1, null);
-};
-
-
-None
-/*
-{
-  "origin": "test.tsx",
-  "name": "s_fxETLug1yE4",
-  "entry": null,
-  "displayName": "test.tsx_Parent_component",
-  "hash": "fxETLug1yE4",
-  "canonicalFilename": "test.tsx_Parent_component_fxETLug1yE4",
-  "path": "",
-  "extension": "js",
-  "parent": null,
-  "ctxKind": "function",
-  "ctxName": "component$",
-  "captures": false,
-  "loc": [
-    277,
-    833
-  ]
-}
-*/
-============================= test.tsx_Parent_component_useTask_SX4UNdoumFY.js (ENTRY POINT)==
+============================= test.tsx_Parent_component_useTask_gDH1EtUWqBU.js (ENTRY POINT)==
 
 import mongo from "mongodb";
 import redis from "redis";
-export const s_SX4UNdoumFY = async ()=>{
+export const s_gDH1EtUWqBU = async ()=>{
 	const [state] = useLexicalScope();
 	if (!true) return;
 	state.text = await mongo.users();
@@ -138,11 +74,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "s_SX4UNdoumFY",
+  "name": "s_gDH1EtUWqBU",
   "entry": null,
   "displayName": "test.tsx_Parent_component_useTask",
-  "hash": "SX4UNdoumFY",
-  "canonicalFilename": "test.tsx_Parent_component_useTask_SX4UNdoumFY",
+  "hash": "gDH1EtUWqBU",
+  "canonicalFilename": "test.tsx_Parent_component_useTask_gDH1EtUWqBU",
   "path": "",
   "extension": "js",
   "parent": "component",
@@ -155,79 +91,20 @@ None
   ]
 }
 */
-============================= test.tsx_Parent_component_serverStuff_bMekv3wAtYg.js (ENTRY POINT)==
+============================= test.tsx_Parent_component_serverStuff_a_2ca3HLDC7yc.js (ENTRY POINT)==
 
-import { clientQrl, qrl } from "@qwik.dev/core";
-const i_ozOFLdzu7J8 = ()=>import("./test.tsx_Parent_component_serverStuff_b_client_ozOFLdzu7J8");
-const i_4DT0Ao6Wy7Y = ()=>import("./test.tsx_Parent_component_serverStuff_a_4DT0Ao6Wy7Y");
-export const s_bMekv3wAtYg = async ()=>{
-	const a = /*#__PURE__*/ qrl(i_4DT0Ao6Wy7Y, "s_4DT0Ao6Wy7Y");
-	const b = /*#__PURE__*/ clientQrl(/*#__PURE__*/ qrl(i_ozOFLdzu7J8, "s_ozOFLdzu7J8"));
-	return [a, b];
-};
+export const s_2ca3HLDC7yc = ()=>{};
 
 
 None
 /*
 {
   "origin": "test.tsx",
-  "name": "s_bMekv3wAtYg",
-  "entry": null,
-  "displayName": "test.tsx_Parent_component_serverStuff",
-  "hash": "bMekv3wAtYg",
-  "canonicalFilename": "test.tsx_Parent_component_serverStuff_bMekv3wAtYg",
-  "path": "",
-  "extension": "js",
-  "parent": "component",
-  "ctxKind": "function",
-  "ctxName": "serverStuff$",
-  "captures": false,
-  "loc": [
-    481,
-    683
-  ]
-}
-*/
-============================= test.tsx_Parent_component_serverStuff_b_client_ozOFLdzu7J8.js (ENTRY POINT)==
-
-export const s_ozOFLdzu7J8 = ()=>{};
-
-
-None
-/*
-{
-  "origin": "test.tsx",
-  "name": "s_ozOFLdzu7J8",
-  "entry": null,
-  "displayName": "test.tsx_Parent_component_serverStuff_b_client",
-  "hash": "ozOFLdzu7J8",
-  "canonicalFilename": "test.tsx_Parent_component_serverStuff_b_client_ozOFLdzu7J8",
-  "path": "",
-  "extension": "js",
-  "parent": "serverStuff",
-  "ctxKind": "function",
-  "ctxName": "client$",
-  "captures": false,
-  "loc": [
-    608,
-    662
-  ]
-}
-*/
-============================= test.tsx_Parent_component_serverStuff_a_4DT0Ao6Wy7Y.js (ENTRY POINT)==
-
-export const s_4DT0Ao6Wy7Y = ()=>{};
-
-
-None
-/*
-{
-  "origin": "test.tsx",
-  "name": "s_4DT0Ao6Wy7Y",
+  "name": "s_2ca3HLDC7yc",
   "entry": null,
   "displayName": "test.tsx_Parent_component_serverStuff_a",
-  "hash": "4DT0Ao6Wy7Y",
-  "canonicalFilename": "test.tsx_Parent_component_serverStuff_a_4DT0Ao6Wy7Y",
+  "hash": "2ca3HLDC7yc",
+  "canonicalFilename": "test.tsx_Parent_component_serverStuff_a_2ca3HLDC7yc",
   "path": "",
   "extension": "js",
   "parent": "serverStuff",
@@ -240,20 +117,143 @@ None
   ]
 }
 */
-============================= test.tsx_Parent_component_useTask_1_fNsRmJneFMo.js (ENTRY POINT)==
+============================= test.tsx_Parent_component_serverStuff_b_client_v9qawr2Inkk.js (ENTRY POINT)==
 
-export const s_fNsRmJneFMo = ()=>{};
+export const s_v9qawr2Inkk = ()=>{};
 
 
 None
 /*
 {
   "origin": "test.tsx",
-  "name": "s_fNsRmJneFMo",
+  "name": "s_v9qawr2Inkk",
+  "entry": null,
+  "displayName": "test.tsx_Parent_component_serverStuff_b_client",
+  "hash": "v9qawr2Inkk",
+  "canonicalFilename": "test.tsx_Parent_component_serverStuff_b_client_v9qawr2Inkk",
+  "path": "",
+  "extension": "js",
+  "parent": "serverStuff",
+  "ctxKind": "function",
+  "ctxName": "client$",
+  "captures": false,
+  "loc": [
+    608,
+    662
+  ]
+}
+*/
+============================= test.tsx_Parent_component_serverLoader_k1L0DiPQV1I.js (ENTRY POINT)==
+
+import { handler } from "serverless";
+export const s_k1L0DiPQV1I = handler;
+
+
+None
+/*
+{
+  "origin": "test.tsx",
+  "name": "s_k1L0DiPQV1I",
+  "entry": null,
+  "displayName": "test.tsx_Parent_component_serverLoader",
+  "hash": "k1L0DiPQV1I",
+  "canonicalFilename": "test.tsx_Parent_component_serverLoader_k1L0DiPQV1I",
+  "path": "",
+  "extension": "js",
+  "parent": "component",
+  "ctxKind": "function",
+  "ctxName": "serverLoader$",
+  "captures": false,
+  "loc": [
+    701,
+    708
+  ]
+}
+*/
+============================= test.tsx_Parent_component_0TaiDayHrlo.js (ENTRY POINT)==
+
+import { _jsxSorted } from "@qwik.dev/core";
+const i_P8oRQhHsurk = ()=>import("./test.tsx_Parent_component_useTask_1_P8oRQhHsurk");
+const i_v9qawr2Inkk = ()=>import("./test.tsx_Parent_component_serverStuff_b_client_v9qawr2Inkk");
+const i_2ca3HLDC7yc = ()=>import("./test.tsx_Parent_component_serverStuff_a_2ca3HLDC7yc");
+export const s_0TaiDayHrlo = ()=>{
+	const state = useStore({ text: "" });
+	/*#__PURE__*/ useTaskQrl(/*#__PURE__*/ qrl(i_gDH1EtUWqBU, "s_gDH1EtUWqBU", [state]));
+	/*#__PURE__*/ serverStuffQrl(/*#__PURE__*/ qrl(i_r1qAHX7Opp0, "s_r1qAHX7Opp0"));
+	/*#__PURE__*/ serverLoaderQrl(/*#__PURE__*/ qrl(i_k1L0DiPQV1I, "s_k1L0DiPQV1I"));
+	/*#__PURE__*/ useTaskQrl(/*#__PURE__*/ qrl(i_P8oRQhHsurk, "s_P8oRQhHsurk"));
+	return /*#__PURE__*/ _jsxSorted("div", { on:click: /*#__PURE__*/ useTaskQrl(/*#__PURE__*/ qrl(i_P8oRQhHsurk, "s_P8oRQhHsurk")) }, null, state.text, 1, null);
+};
+
+
+None
+/*
+{
+  "origin": "test.tsx",
+  "name": "s_0TaiDayHrlo",
+  "entry": null,
+  "displayName": "test.tsx_Parent_component",
+  "hash": "0TaiDayHrlo",
+  "canonicalFilename": "test.tsx_Parent_component_0TaiDayHrlo",
+  "path": "",
+  "extension": "js",
+  "parent": null,
+  "ctxKind": "function",
+  "ctxName": "component$",
+  "captures": false,
+  "loc": [
+    277,
+    833
+  ]
+}
+*/
+============================= test.tsx_Parent_component_serverStuff_r1qAHX7Opp0.js (ENTRY POINT)==
+
+import { clientQrl, qrl } from "@qwik.dev/core";
+const i_v9qawr2Inkk = ()=>import("./test.tsx_Parent_component_serverStuff_b_client_v9qawr2Inkk");
+const i_2ca3HLDC7yc = ()=>import("./test.tsx_Parent_component_serverStuff_a_2ca3HLDC7yc");
+export const s_r1qAHX7Opp0 = async ()=>{
+	const a = /*#__PURE__*/ qrl(i_2ca3HLDC7yc, "s_2ca3HLDC7yc");
+	const b = /*#__PURE__*/ clientQrl(/*#__PURE__*/ qrl(i_v9qawr2Inkk, "s_v9qawr2Inkk"));
+	return [a, b];
+};
+
+
+None
+/*
+{
+  "origin": "test.tsx",
+  "name": "s_r1qAHX7Opp0",
+  "entry": null,
+  "displayName": "test.tsx_Parent_component_serverStuff",
+  "hash": "r1qAHX7Opp0",
+  "canonicalFilename": "test.tsx_Parent_component_serverStuff_r1qAHX7Opp0",
+  "path": "",
+  "extension": "js",
+  "parent": "component",
+  "ctxKind": "function",
+  "ctxName": "serverStuff$",
+  "captures": false,
+  "loc": [
+    481,
+    683
+  ]
+}
+*/
+============================= test.tsx_Parent_component_useTask_1_P8oRQhHsurk.js (ENTRY POINT)==
+
+export const s_P8oRQhHsurk = ()=>{};
+
+
+None
+/*
+{
+  "origin": "test.tsx",
+  "name": "s_P8oRQhHsurk",
   "entry": null,
   "displayName": "test.tsx_Parent_component_useTask_1",
-  "hash": "fNsRmJneFMo",
-  "canonicalFilename": "test.tsx_Parent_component_useTask_1_fNsRmJneFMo",
+  "hash": "P8oRQhHsurk",
+  "canonicalFilename": "test.tsx_Parent_component_useTask_1_P8oRQhHsurk",
   "path": "",
   "extension": "js",
   "parent": "component",

@@ -18,48 +18,22 @@ export function App() {
 ============================= test.tsx ==
 
 import { componentQrl, qrl } from "@qwik.dev/core";
-const i_0kBzKda332Y = ()=>import("./test.tsx_App_Header_component_div_onClick_0kBzKda332Y");
-const i_qy3PjUYD8N4 = ()=>import("./test.tsx_App_Header_component_qy3PjUYD8N4");
+const i_aO7uI7Iw6oQ = ()=>import("./test.tsx_App_Header_component_div_onClick_aO7uI7Iw6oQ");
+const i_B9F3YeqcO1w = ()=>import("./test.tsx_App_Header_component_B9F3YeqcO1w");
 export function App() {
-	const Header = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_qy3PjUYD8N4, "App_Header_component_qy3PjUYD8N4"));
+	const Header = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_B9F3YeqcO1w, "App_Header_component_B9F3YeqcO1w"));
 	return Header;
 }
 
 
 None
-============================= test.tsx_App_Header_component_div_onClick_0kBzKda332Y.tsx (ENTRY POINT)==
-
-export const App_Header_component_div_onClick_0kBzKda332Y = (ctx)=>console.log(ctx);
-
-
-None
-/*
-{
-  "origin": "test.tsx",
-  "name": "App_Header_component_div_onClick_0kBzKda332Y",
-  "entry": null,
-  "displayName": "test.tsx_App_Header_component_div_onClick",
-  "hash": "0kBzKda332Y",
-  "canonicalFilename": "test.tsx_App_Header_component_div_onClick_0kBzKda332Y",
-  "path": "",
-  "extension": "tsx",
-  "parent": "component",
-  "ctxKind": "function",
-  "ctxName": "$",
-  "captures": false,
-  "loc": [
-    161,
-    186
-  ]
-}
-*/
-============================= test.tsx_App_Header_component_qy3PjUYD8N4.tsx (ENTRY POINT)==
+============================= test.tsx_App_Header_component_B9F3YeqcO1w.tsx (ENTRY POINT)==
 
 import { qrl } from "@qwik.dev/core";
-const i_0kBzKda332Y = ()=>import("./test.tsx_App_Header_component_div_onClick_0kBzKda332Y");
-export const App_Header_component_qy3PjUYD8N4 = ()=>{
+const i_aO7uI7Iw6oQ = ()=>import("./test.tsx_App_Header_component_div_onClick_aO7uI7Iw6oQ");
+export const App_Header_component_B9F3YeqcO1w = ()=>{
 	console.log("mount");
-	return <div onClick={/*#__PURE__*/ qrl(i_0kBzKda332Y, "App_Header_component_div_onClick_0kBzKda332Y")} />;
+	return <div onClick={/*#__PURE__*/ qrl(i_aO7uI7Iw6oQ, "App_Header_component_div_onClick_aO7uI7Iw6oQ")} />;
 };
 
 
@@ -67,11 +41,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "App_Header_component_qy3PjUYD8N4",
+  "name": "App_Header_component_B9F3YeqcO1w",
   "entry": null,
   "displayName": "test.tsx_App_Header_component",
-  "hash": "qy3PjUYD8N4",
-  "canonicalFilename": "test.tsx_App_Header_component_qy3PjUYD8N4",
+  "hash": "B9F3YeqcO1w",
+  "canonicalFilename": "test.tsx_App_Header_component_B9F3YeqcO1w",
   "path": "",
   "extension": "tsx",
   "parent": null,
@@ -81,6 +55,32 @@ None
   "loc": [
     99,
     198
+  ]
+}
+*/
+============================= test.tsx_App_Header_component_div_onClick_aO7uI7Iw6oQ.tsx (ENTRY POINT)==
+
+export const App_Header_component_div_onClick_aO7uI7Iw6oQ = (ctx)=>console.log(ctx);
+
+
+None
+/*
+{
+  "origin": "test.tsx",
+  "name": "App_Header_component_div_onClick_aO7uI7Iw6oQ",
+  "entry": null,
+  "displayName": "test.tsx_App_Header_component_div_onClick",
+  "hash": "aO7uI7Iw6oQ",
+  "canonicalFilename": "test.tsx_App_Header_component_div_onClick_aO7uI7Iw6oQ",
+  "path": "",
+  "extension": "tsx",
+  "parent": "component",
+  "ctxKind": "function",
+  "ctxName": "$",
+  "captures": false,
+  "loc": [
+    161,
+    186
   ]
 }
 */

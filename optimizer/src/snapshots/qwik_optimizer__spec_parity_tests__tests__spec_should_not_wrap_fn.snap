@@ -26,18 +26,18 @@ export const Cmp = component$(() => {
 ============================= test.js ==
 
 import { componentQrl, qrl } from "@qwik.dev/core";
-const i_qsBJpzBk9qc = ()=>import("./test.tsx_Cmp_component_qsBJpzBk9qc");
-export const Cmp = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_qsBJpzBk9qc, "Cmp_component_qsBJpzBk9qc"));
+const i_4ryKJTOKjWE = ()=>import("./test.tsx_Cmp_component_4ryKJTOKjWE");
+export const Cmp = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_4ryKJTOKjWE, "Cmp_component_4ryKJTOKjWE"));
 
 
 None
-============================= test.tsx_Cmp_component_qsBJpzBk9qc.js (ENTRY POINT)==
+============================= test.tsx_Cmp_component_4ryKJTOKjWE.js (ENTRY POINT)==
 
 import { A } from "./componentA";
 import { _jsxSorted, qrl, useSignal } from "@qwik.dev/core";
 import { Fragment as _Fragment } from "@qwik.dev/core/jsx-runtime";
 const i_onClick = ()=>import("./test.tsx");
-export const Cmp_component_qsBJpzBk9qc = ()=>{
+export const Cmp_component_4ryKJTOKjWE = ()=>{
 	const currentStep = useSignal("STEP_1");
 	const currentType = useSignal("PREVIOUS");
 	const getStep = (step, type)=>{
@@ -51,11 +51,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "Cmp_component_qsBJpzBk9qc",
+  "name": "Cmp_component_4ryKJTOKjWE",
   "entry": null,
   "displayName": "test.tsx_Cmp_component",
-  "hash": "qsBJpzBk9qc",
-  "canonicalFilename": "test.tsx_Cmp_component_qsBJpzBk9qc",
+  "hash": "4ryKJTOKjWE",
+  "canonicalFilename": "test.tsx_Cmp_component_4ryKJTOKjWE",
   "path": "",
   "extension": "js",
   "parent": null,

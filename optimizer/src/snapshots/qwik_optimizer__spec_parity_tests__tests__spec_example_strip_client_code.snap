@@ -44,62 +44,53 @@ export const Parent = component$(() => {
 ============================= components/component.js ==
 
 import { componentQrl, qrl } from "@qwik.dev/core";
-const i_OeLVnBFyNrs = ()=>import("./component.tsx_Parent_component_useClientMount_OeLVnBFyNrs");
-const i_dnei8y1e0fQ = ()=>import("./component.tsx_Parent_component_useTask_dnei8y1e0fQ");
-const i_3cuWnRwBx8M = ()=>import("./component.tsx_Parent_component_3cuWnRwBx8M");
-export const Parent = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_3cuWnRwBx8M, "Parent_component_3cuWnRwBx8M"));
+const i_Yn2kIDABoYw = ()=>import("./component.tsx_Parent_component_useClientMount_Yn2kIDABoYw");
+const i_ngmvcygWux8 = ()=>import("./component.tsx_Parent_component_useTask_ngmvcygWux8");
+const i_t6Wy3C0Q0XM = ()=>import("./component.tsx_Parent_component_t6Wy3C0Q0XM");
+export const Parent = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_t6Wy3C0Q0XM, "Parent_component_t6Wy3C0Q0XM"));
 
 
 None
-============================= component.tsx_Parent_component_useClientMount_OeLVnBFyNrs.js (ENTRY POINT)==
+============================= component.tsx_Parent_component_useTask_ngmvcygWux8.js (ENTRY POINT)==
 
-import { c } from "../../remove";
-import { b } from "../keep2";
-import { a } from "./keep";
-import mongo from "mongodb";
-import redis from "redis";
-export const Parent_component_useClientMount_OeLVnBFyNrs = async ()=>{
-	const [state] = useLexicalScope();
-	state.text = await mongo.users();
-	redis.set(state.text, a, b, c);
-};
+export const Parent_component_useTask_ngmvcygWux8 = ()=>{};
 
 
 None
 /*
 {
   "origin": "components/component.tsx",
-  "name": "Parent_component_useClientMount_OeLVnBFyNrs",
+  "name": "Parent_component_useTask_ngmvcygWux8",
   "entry": "entry_segments",
-  "displayName": "component.tsx_Parent_component_useClientMount",
-  "hash": "OeLVnBFyNrs",
-  "canonicalFilename": "component.tsx_Parent_component_useClientMount_OeLVnBFyNrs",
+  "displayName": "component.tsx_Parent_component_useTask",
+  "hash": "ngmvcygWux8",
+  "canonicalFilename": "component.tsx_Parent_component_useTask_ngmvcygWux8",
   "path": "components",
   "extension": "js",
   "parent": "component",
   "ctxKind": "function",
-  "ctxName": "useClientMount$",
-  "captures": true,
+  "ctxName": "useTask$",
+  "captures": false,
   "loc": [
-    386,
-    472
+    486,
+    506
   ]
 }
 */
-============================= component.tsx_Parent_component_3cuWnRwBx8M.js (ENTRY POINT)==
+============================= component.tsx_Parent_component_t6Wy3C0Q0XM.js (ENTRY POINT)==
 
 import { _jsxSorted, qrl } from "@qwik.dev/core";
 const i_render = ()=>import("./component.tsx");
 const i_onClick = ()=>import("./component.tsx");
-const i_OeLVnBFyNrs = ()=>import("./component.tsx_Parent_component_useClientMount_OeLVnBFyNrs");
-const i_dnei8y1e0fQ = ()=>import("./component.tsx_Parent_component_useTask_dnei8y1e0fQ");
-export const Parent_component_3cuWnRwBx8M = ()=>{
+const i_Yn2kIDABoYw = ()=>import("./component.tsx_Parent_component_useClientMount_Yn2kIDABoYw");
+const i_ngmvcygWux8 = ()=>import("./component.tsx_Parent_component_useTask_ngmvcygWux8");
+export const Parent_component_t6Wy3C0Q0XM = ()=>{
 	const state = useStore({ text: "" });
-	/*#__PURE__*/ useClientMountQrl(/*#__PURE__*/ qrl(i_OeLVnBFyNrs, "Parent_component_useClientMount_OeLVnBFyNrs", [state]));
-	/*#__PURE__*/ useTaskQrl(/*#__PURE__*/ qrl(i_dnei8y1e0fQ, "Parent_component_useTask_dnei8y1e0fQ"));
+	/*#__PURE__*/ useClientMountQrl(/*#__PURE__*/ qrl(i_Yn2kIDABoYw, "Parent_component_useClientMount_Yn2kIDABoYw", [state]));
+	/*#__PURE__*/ useTaskQrl(/*#__PURE__*/ qrl(i_ngmvcygWux8, "Parent_component_useTask_ngmvcygWux8"));
 	return /*#__PURE__*/ _jsxSorted("div", {
-		shouldRemove$: /*#__PURE__*/ useTaskQrl(/*#__PURE__*/ qrl(i_dnei8y1e0fQ, "Parent_component_useTask_dnei8y1e0fQ")),
-		on:click: /*#__PURE__*/ useClientMountQrl(/*#__PURE__*/ qrl(i_OeLVnBFyNrs, "Parent_component_useClientMount_OeLVnBFyNrs", [state]))
+		shouldRemove$: /*#__PURE__*/ useTaskQrl(/*#__PURE__*/ qrl(i_ngmvcygWux8, "Parent_component_useTask_ngmvcygWux8")),
+		on:click: /*#__PURE__*/ useClientMountQrl(/*#__PURE__*/ qrl(i_Yn2kIDABoYw, "Parent_component_useClientMount_Yn2kIDABoYw", [state]))
 	}, null, [_jsxSorted(Div, {
 		onClick$: /*#__PURE__*/ qrl(i_onClick, "Parent_component_div_Div_onClick"),
 		render$: /*#__PURE__*/ qrl(i_render, "Parent_component_div_Div_render", [state])
@@ -111,11 +102,11 @@ None
 /*
 {
   "origin": "components/component.tsx",
-  "name": "Parent_component_3cuWnRwBx8M",
+  "name": "Parent_component_t6Wy3C0Q0XM",
   "entry": "entry_segments",
   "displayName": "component.tsx_Parent_component",
-  "hash": "3cuWnRwBx8M",
-  "canonicalFilename": "component.tsx_Parent_component_3cuWnRwBx8M",
+  "hash": "t6Wy3C0Q0XM",
+  "canonicalFilename": "component.tsx_Parent_component_t6Wy3C0Q0XM",
   "path": "components",
   "extension": "js",
   "parent": null,
@@ -128,29 +119,38 @@ None
   ]
 }
 */
-============================= component.tsx_Parent_component_useTask_dnei8y1e0fQ.js (ENTRY POINT)==
+============================= component.tsx_Parent_component_useClientMount_Yn2kIDABoYw.js (ENTRY POINT)==
 
-export const Parent_component_useTask_dnei8y1e0fQ = ()=>{};
+import { c } from "../../remove";
+import { b } from "../keep2";
+import { a } from "./keep";
+import mongo from "mongodb";
+import redis from "redis";
+export const Parent_component_useClientMount_Yn2kIDABoYw = async ()=>{
+	const [state] = useLexicalScope();
+	state.text = await mongo.users();
+	redis.set(state.text, a, b, c);
+};
 
 
 None
 /*
 {
   "origin": "components/component.tsx",
-  "name": "Parent_component_useTask_dnei8y1e0fQ",
+  "name": "Parent_component_useClientMount_Yn2kIDABoYw",
   "entry": "entry_segments",
-  "displayName": "component.tsx_Parent_component_useTask",
-  "hash": "dnei8y1e0fQ",
-  "canonicalFilename": "component.tsx_Parent_component_useTask_dnei8y1e0fQ",
+  "displayName": "component.tsx_Parent_component_useClientMount",
+  "hash": "Yn2kIDABoYw",
+  "canonicalFilename": "component.tsx_Parent_component_useClientMount_Yn2kIDABoYw",
   "path": "components",
   "extension": "js",
   "parent": "component",
   "ctxKind": "function",
-  "ctxName": "useTask$",
-  "captures": false,
+  "ctxName": "useClientMount$",
+  "captures": true,
   "loc": [
-    486,
-    506
+    386,
+    472
   ]
 }
 */

@@ -31,25 +31,51 @@ export const App = component$(() => {
 ============================= test.js ==
 
 import { componentQrl, qrl } from "@qwik.dev/core";
-const i_CP3vcLXEWhs = ()=>import("./test.tsx_App_component_serverStuff_CP3vcLXEWhs");
-const i_2rYwSzpC0y0 = ()=>import("./test.tsx_App_component_serverStuff_1_2rYwSzpC0y0");
-const i_XumqEURaLxI = ()=>import("./test.tsx_App_component_XumqEURaLxI");
-export const App = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_XumqEURaLxI, "App_component_XumqEURaLxI"));
+const i_ebyHaP15ytQ = ()=>import("./test.tsx_App_component_serverStuff_ebyHaP15ytQ");
+const i_PQCqO0ANabY = ()=>import("./test.tsx_App_component_serverStuff_1_PQCqO0ANabY");
+const i_ckEPmXZlub0 = ()=>import("./test.tsx_App_component_ckEPmXZlub0");
+export const App = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_ckEPmXZlub0, "App_component_ckEPmXZlub0"));
 
 
 None
-============================= test.tsx_App_component_XumqEURaLxI.js (ENTRY POINT)==
+============================= test.tsx_App_component_serverStuff_1_PQCqO0ANabY.js (ENTRY POINT)==
+
+export const App_component_serverStuff_1_PQCqO0ANabY = async ()=>{};
+
+
+None
+/*
+{
+  "origin": "test.tsx",
+  "name": "App_component_serverStuff_1_PQCqO0ANabY",
+  "entry": null,
+  "displayName": "test.tsx_App_component_serverStuff_1",
+  "hash": "PQCqO0ANabY",
+  "canonicalFilename": "test.tsx_App_component_serverStuff_1_PQCqO0ANabY",
+  "path": "",
+  "extension": "js",
+  "parent": "component",
+  "ctxKind": "function",
+  "ctxName": "serverStuff$",
+  "captures": false,
+  "loc": [
+    249,
+    288
+  ]
+}
+*/
+============================= test.tsx_App_component_ckEPmXZlub0.js (ENTRY POINT)==
 
 import { _jsxSorted } from "@qwik.dev/core";
-const i_CP3vcLXEWhs = ()=>import("./test.tsx_App_component_serverStuff_CP3vcLXEWhs");
-const i_2rYwSzpC0y0 = ()=>import("./test.tsx_App_component_serverStuff_1_2rYwSzpC0y0");
-export const App_component_XumqEURaLxI = ()=>{
+const i_ebyHaP15ytQ = ()=>import("./test.tsx_App_component_serverStuff_ebyHaP15ytQ");
+const i_PQCqO0ANabY = ()=>import("./test.tsx_App_component_serverStuff_1_PQCqO0ANabY");
+export const App_component_ckEPmXZlub0 = ()=>{
 	const stuff = useStore();
-	/*#__PURE__*/ serverStuffQrl(/*#__PURE__*/ qrl(i_CP3vcLXEWhs, "App_component_serverStuff_CP3vcLXEWhs", [stuff]));
-	/*#__PURE__*/ serverStuffQrl(/*#__PURE__*/ qrl(i_2rYwSzpC0y0, "App_component_serverStuff_1_2rYwSzpC0y0"));
+	/*#__PURE__*/ serverStuffQrl(/*#__PURE__*/ qrl(i_ebyHaP15ytQ, "App_component_serverStuff_ebyHaP15ytQ", [stuff]));
+	/*#__PURE__*/ serverStuffQrl(/*#__PURE__*/ qrl(i_PQCqO0ANabY, "App_component_serverStuff_1_PQCqO0ANabY"));
 	return _jsxSorted(Cmp, null, null, /*#__PURE__*/ _jsxSorted("p", {
-		shouldRemove$: /*#__PURE__*/ serverStuffQrl(/*#__PURE__*/ qrl(i_2rYwSzpC0y0, "App_component_serverStuff_1_2rYwSzpC0y0")),
-		on:click: /*#__PURE__*/ serverStuffQrl(/*#__PURE__*/ qrl(i_CP3vcLXEWhs, "App_component_serverStuff_CP3vcLXEWhs", [stuff]))
+		shouldRemove$: /*#__PURE__*/ serverStuffQrl(/*#__PURE__*/ qrl(i_PQCqO0ANabY, "App_component_serverStuff_1_PQCqO0ANabY")),
+		on:click: /*#__PURE__*/ serverStuffQrl(/*#__PURE__*/ qrl(i_ebyHaP15ytQ, "App_component_serverStuff_ebyHaP15ytQ", [stuff]))
 	}, { class: "stuff" }, "Hello Qwik", 3, null), 3, null);
 };
 
@@ -58,11 +84,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "App_component_XumqEURaLxI",
+  "name": "App_component_ckEPmXZlub0",
   "entry": null,
   "displayName": "test.tsx_App_component",
-  "hash": "XumqEURaLxI",
-  "canonicalFilename": "test.tsx_App_component_XumqEURaLxI",
+  "hash": "ckEPmXZlub0",
+  "canonicalFilename": "test.tsx_App_component_ckEPmXZlub0",
   "path": "",
   "extension": "js",
   "parent": null,
@@ -75,9 +101,9 @@ None
   ]
 }
 */
-============================= test.tsx_App_component_serverStuff_CP3vcLXEWhs.js (ENTRY POINT)==
+============================= test.tsx_App_component_serverStuff_ebyHaP15ytQ.js (ENTRY POINT)==
 
-export const App_component_serverStuff_CP3vcLXEWhs = async ()=>{
+export const App_component_serverStuff_ebyHaP15ytQ = async ()=>{
 	const [stuff] = useLexicalScope();
 	console.log(stuff.count);
 };
@@ -87,11 +113,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "App_component_serverStuff_CP3vcLXEWhs",
+  "name": "App_component_serverStuff_ebyHaP15ytQ",
   "entry": null,
   "displayName": "test.tsx_App_component_serverStuff",
-  "hash": "CP3vcLXEWhs",
-  "canonicalFilename": "test.tsx_App_component_serverStuff_CP3vcLXEWhs",
+  "hash": "ebyHaP15ytQ",
+  "canonicalFilename": "test.tsx_App_component_serverStuff_ebyHaP15ytQ",
   "path": "",
   "extension": "js",
   "parent": "component",
@@ -101,32 +127,6 @@ None
   "loc": [
     152,
     233
-  ]
-}
-*/
-============================= test.tsx_App_component_serverStuff_1_2rYwSzpC0y0.js (ENTRY POINT)==
-
-export const App_component_serverStuff_1_2rYwSzpC0y0 = async ()=>{};
-
-
-None
-/*
-{
-  "origin": "test.tsx",
-  "name": "App_component_serverStuff_1_2rYwSzpC0y0",
-  "entry": null,
-  "displayName": "test.tsx_App_component_serverStuff_1",
-  "hash": "2rYwSzpC0y0",
-  "canonicalFilename": "test.tsx_App_component_serverStuff_1_2rYwSzpC0y0",
-  "path": "",
-  "extension": "js",
-  "parent": "component",
-  "ctxKind": "function",
-  "ctxName": "serverStuff$",
-  "captures": false,
-  "loc": [
-    249,
-    288
   ]
 }
 */

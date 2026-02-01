@@ -19,48 +19,15 @@ export const Works = component$((props) => {
 ============================= test.js ==
 
 import { componentQrl, qrl } from "@qwik.dev/core";
-const i_p1CZ8B6duOg = ()=>import("./test.tsx_Works_component_div_onClick_server_p1CZ8B6duOg");
-const i_xJyUXaLUiKw = ()=>import("./test.tsx_Works_component_xJyUXaLUiKw");
-export const Works = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_xJyUXaLUiKw, "Works_component_xJyUXaLUiKw"));
+const i_OsNoEFc5SM4 = ()=>import("./test.tsx_Works_component_div_onClick_server_OsNoEFc5SM4");
+const i_t45qL4vNGv0 = ()=>import("./test.tsx_Works_component_t45qL4vNGv0");
+export const Works = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_t45qL4vNGv0, "Works_component_t45qL4vNGv0"));
 
 
 None
-============================= test.tsx_Works_component_xJyUXaLUiKw.js (ENTRY POINT)==
+============================= test.tsx_Works_component_div_onClick_server_OsNoEFc5SM4.js (ENTRY POINT)==
 
-import { _jsxSorted, qrl, serverQrl } from "@qwik.dev/core";
-import { Fragment as _Fragment } from "@qwik.dev/core/jsx-runtime";
-const i_1 = ()=>import("./test.tsx");
-const i_p1CZ8B6duOg = ()=>import("./test.tsx_Works_component_div_onClick_server_p1CZ8B6duOg");
-export const Works_component_xJyUXaLUiKw = (props)=>{
-	const text = "hola";
-	return /*#__PURE__*/ _jsxSorted(_Fragment, null, null, [/*#__PURE__*/ _jsxSorted("div", { on:click: /*#__PURE__*/ serverQrl(/*#__PURE__*/ qrl(i_p1CZ8B6duOg, "Works_component_div_onClick_server_p1CZ8B6duOg", [text])) }, null, null, 3, null), /*#__PURE__*/ _jsxSorted("div", { on:click: /*#__PURE__*/ qrl(i_1, "Works_component_div_onClick_1") }, null, null, 3, null)], 3, null);
-};
-
-
-None
-/*
-{
-  "origin": "test.tsx",
-  "name": "Works_component_xJyUXaLUiKw",
-  "entry": "entry_segments",
-  "displayName": "test.tsx_Works_component",
-  "hash": "xJyUXaLUiKw",
-  "canonicalFilename": "test.tsx_Works_component_xJyUXaLUiKw",
-  "path": "",
-  "extension": "js",
-  "parent": null,
-  "ctxKind": "function",
-  "ctxName": "component$",
-  "captures": false,
-  "loc": [
-    118,
-    287
-  ]
-}
-*/
-============================= test.tsx_Works_component_div_onClick_server_p1CZ8B6duOg.js (ENTRY POINT)==
-
-export const Works_component_div_onClick_server_p1CZ8B6duOg = ()=>{
+export const Works_component_div_onClick_server_OsNoEFc5SM4 = ()=>{
 	const [text] = useLexicalScope();
 	return console.log("in server", text);
 };
@@ -70,11 +37,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "Works_component_div_onClick_server_p1CZ8B6duOg",
+  "name": "Works_component_div_onClick_server_OsNoEFc5SM4",
   "entry": "entry_segments",
   "displayName": "test.tsx_Works_component_div_onClick_server",
-  "hash": "p1CZ8B6duOg",
-  "canonicalFilename": "test.tsx_Works_component_div_onClick_server_p1CZ8B6duOg",
+  "hash": "OsNoEFc5SM4",
+  "canonicalFilename": "test.tsx_Works_component_div_onClick_server_OsNoEFc5SM4",
   "path": "",
   "extension": "js",
   "parent": "onClick",
@@ -84,6 +51,39 @@ None
   "loc": [
     193,
     229
+  ]
+}
+*/
+============================= test.tsx_Works_component_t45qL4vNGv0.js (ENTRY POINT)==
+
+import { _jsxSorted, qrl, serverQrl } from "@qwik.dev/core";
+import { Fragment as _Fragment } from "@qwik.dev/core/jsx-runtime";
+const i_1 = ()=>import("./test.tsx");
+const i_OsNoEFc5SM4 = ()=>import("./test.tsx_Works_component_div_onClick_server_OsNoEFc5SM4");
+export const Works_component_t45qL4vNGv0 = (props)=>{
+	const text = "hola";
+	return /*#__PURE__*/ _jsxSorted(_Fragment, null, null, [/*#__PURE__*/ _jsxSorted("div", { on:click: /*#__PURE__*/ serverQrl(/*#__PURE__*/ qrl(i_OsNoEFc5SM4, "Works_component_div_onClick_server_OsNoEFc5SM4", [text])) }, null, null, 3, null), /*#__PURE__*/ _jsxSorted("div", { on:click: /*#__PURE__*/ qrl(i_1, "Works_component_div_onClick_1") }, null, null, 3, null)], 3, null);
+};
+
+
+None
+/*
+{
+  "origin": "test.tsx",
+  "name": "Works_component_t45qL4vNGv0",
+  "entry": "entry_segments",
+  "displayName": "test.tsx_Works_component",
+  "hash": "t45qL4vNGv0",
+  "canonicalFilename": "test.tsx_Works_component_t45qL4vNGv0",
+  "path": "",
+  "extension": "js",
+  "parent": null,
+  "ctxKind": "function",
+  "ctxName": "component$",
+  "captures": false,
+  "loc": [
+    118,
+    287
   ]
 }
 */

@@ -24,16 +24,16 @@ export const Greeter = component$(() => {
 ============================= test.js ==
 
 import { componentQrl, qrl } from "@qwik.dev/core";
-const i_nw40sjkUatU = ()=>import("./test.tsx_Greeter_component_useTask_nw40sjkUatU");
-const i_l5Al0251s9w = ()=>import("./test.tsx_Greeter_component_l5Al0251s9w");
-export const Greeter = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_l5Al0251s9w, "Greeter_component_l5Al0251s9w"));
+const i_ibjq2Rfokxw = ()=>import("./test.tsx_Greeter_component_useTask_ibjq2Rfokxw");
+const i_n7HuG2hhU0Q = ()=>import("./test.tsx_Greeter_component_n7HuG2hhU0Q");
+export const Greeter = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_n7HuG2hhU0Q, "Greeter_component_n7HuG2hhU0Q"));
 
 
 None
-============================= test.tsx_Greeter_component_useTask_nw40sjkUatU.js (ENTRY POINT)==
+============================= test.tsx_Greeter_component_useTask_ibjq2Rfokxw.js (ENTRY POINT)==
 
 import mongo from "mongodb";
-export const Greeter_component_useTask_nw40sjkUatU = async ()=>{
+export const Greeter_component_useTask_ibjq2Rfokxw = async ()=>{
 	await mongo.users();
 };
 
@@ -42,11 +42,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "Greeter_component_useTask_nw40sjkUatU",
+  "name": "Greeter_component_useTask_ibjq2Rfokxw",
   "entry": null,
   "displayName": "test.tsx_Greeter_component_useTask",
-  "hash": "nw40sjkUatU",
-  "canonicalFilename": "test.tsx_Greeter_component_useTask_nw40sjkUatU",
+  "hash": "ibjq2Rfokxw",
+  "canonicalFilename": "test.tsx_Greeter_component_useTask_ibjq2Rfokxw",
   "path": "",
   "extension": "js",
   "parent": "component",
@@ -59,16 +59,16 @@ None
   ]
 }
 */
-============================= test.tsx_Greeter_component_l5Al0251s9w.js (ENTRY POINT)==
+============================= test.tsx_Greeter_component_n7HuG2hhU0Q.js (ENTRY POINT)==
 
 import { _jsxSorted, qrl } from "@qwik.dev/core";
 const i_2 = ()=>import("./test.tsx");
 const i_1 = ()=>import("./test.tsx");
-const i_nw40sjkUatU = ()=>import("./test.tsx_Greeter_component_useTask_nw40sjkUatU");
-export const Greeter_component_l5Al0251s9w = ()=>{
-	/*#__PURE__*/ useTaskQrl(/*#__PURE__*/ qrl(i_nw40sjkUatU, "Greeter_component_useTask_nw40sjkUatU"));
+const i_ibjq2Rfokxw = ()=>import("./test.tsx_Greeter_component_useTask_ibjq2Rfokxw");
+export const Greeter_component_n7HuG2hhU0Q = ()=>{
+	/*#__PURE__*/ useTaskQrl(/*#__PURE__*/ qrl(i_ibjq2Rfokxw, "Greeter_component_useTask_ibjq2Rfokxw"));
 	return /*#__PURE__*/ _jsxSorted("div", null, null, [
-		/*#__PURE__*/ _jsxSorted("div", { on:click: /*#__PURE__*/ useTaskQrl(/*#__PURE__*/ qrl(i_nw40sjkUatU, "Greeter_component_useTask_nw40sjkUatU")) }, null, null, 3, null),
+		/*#__PURE__*/ _jsxSorted("div", { on:click: /*#__PURE__*/ useTaskQrl(/*#__PURE__*/ qrl(i_ibjq2Rfokxw, "Greeter_component_useTask_ibjq2Rfokxw")) }, null, null, 3, null),
 		/*#__PURE__*/ _jsxSorted("div", { on:click: /*#__PURE__*/ qrl(i_1, "Greeter_component_div_div_onClick_1") }, null, null, 3, null),
 		/*#__PURE__*/ _jsxSorted("div", { on:click: /*#__PURE__*/ qrl(i_2, "Greeter_component_div_div_onClick_2") }, null, null, 3, null)
 	], 3, null);
@@ -79,11 +79,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "Greeter_component_l5Al0251s9w",
+  "name": "Greeter_component_n7HuG2hhU0Q",
   "entry": null,
   "displayName": "test.tsx_Greeter_component",
-  "hash": "l5Al0251s9w",
-  "canonicalFilename": "test.tsx_Greeter_component_l5Al0251s9w",
+  "hash": "n7HuG2hhU0Q",
+  "canonicalFilename": "test.tsx_Greeter_component_n7HuG2hhU0Q",
   "path": "",
   "extension": "js",
   "parent": null,

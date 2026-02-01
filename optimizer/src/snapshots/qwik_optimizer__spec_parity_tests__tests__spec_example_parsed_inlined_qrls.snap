@@ -41,12 +41,12 @@ export const STYLES = ".red { color: red; }";
 ============================= test.tsx ==
 
 import { componentQrl, inlinedQrl, jsx, jsxs, qrl, useLexicalScope, useStylesQrl } from "@qwik.dev/core";
-const i_eh7w9rBhR90 = ()=>import("./test.tsx_App_componentQrl_inlinedQrl_useStyles_eh7w9rBhR90");
-const i_HMw0Z8eLFig = ()=>import("./test.tsx_App_componentQrl_inlinedQrl_useStyles_1_HMw0Z8eLFig");
+const i_p5SexbIOPVI = ()=>import("./test.tsx_App_componentQrl_inlinedQrl_useStyles_p5SexbIOPVI");
+const i_tWtGBKzgu0o = ()=>import("./test.tsx_App_componentQrl_inlinedQrl_useStyles_1_tWtGBKzgu0o");
 export const App = /*#__PURE__*/ componentQrl(inlinedQrl(()=>{
-	/*#__PURE__*/ useStylesQrl(/*#__PURE__*/ qrl(i_eh7w9rBhR90, "s_eh7w9rBhR90"));
-	/*#__PURE__*/ useStylesQrl(/*#__PURE__*/ qrl(i_HMw0Z8eLFig, "s_HMw0Z8eLFig"));
-	const store = /*#__PURE__*/ useStylesQrl(/*#__PURE__*/ qrl(i_HMw0Z8eLFig, "s_HMw0Z8eLFig"));
+	/*#__PURE__*/ useStylesQrl(/*#__PURE__*/ qrl(i_p5SexbIOPVI, "s_p5SexbIOPVI"));
+	/*#__PURE__*/ useStylesQrl(/*#__PURE__*/ qrl(i_tWtGBKzgu0o, "s_tWtGBKzgu0o"));
+	const store = /*#__PURE__*/ useStylesQrl(/*#__PURE__*/ qrl(i_tWtGBKzgu0o, "s_tWtGBKzgu0o"));
 	return /*#__PURE__*/ jsxs("div", { children: [/*#__PURE__*/ jsxs("p", { children: ["Count: ", store.count] }), /*#__PURE__*/ jsx("p", { children: /*#__PURE__*/ jsx("button", {
 		onClick$: inlinedQrl(()=>{
 			const [store] = useLexicalScope();
@@ -59,21 +59,21 @@ export const STYLES = ".red { color: red; }";
 
 
 None
-============================= test.tsx_App_componentQrl_inlinedQrl_useStyles_1_HMw0Z8eLFig.tsx (ENTRY POINT)==
+============================= test.tsx_App_componentQrl_inlinedQrl_useStyles_1_tWtGBKzgu0o.tsx (ENTRY POINT)==
 
-const i_eh7w9rBhR90 = ()=>import("./test.tsx_App_componentQrl_inlinedQrl_useStyles_eh7w9rBhR90");
-export const s_HMw0Z8eLFig = useStylesQrl(i_eh7w9rBhR90, "s_eh7w9rBhR90");
+const i_p5SexbIOPVI = ()=>import("./test.tsx_App_componentQrl_inlinedQrl_useStyles_p5SexbIOPVI");
+export const s_tWtGBKzgu0o = useStylesQrl(i_p5SexbIOPVI, "s_p5SexbIOPVI");
 
 
 None
 /*
 {
   "origin": "test.tsx",
-  "name": "s_HMw0Z8eLFig",
+  "name": "s_tWtGBKzgu0o",
   "entry": "entry_segments",
   "displayName": "test.tsx_App_componentQrl_inlinedQrl_useStyles_1",
-  "hash": "HMw0Z8eLFig",
-  "canonicalFilename": "test.tsx_App_componentQrl_inlinedQrl_useStyles_1_HMw0Z8eLFig",
+  "hash": "tWtGBKzgu0o",
+  "canonicalFilename": "test.tsx_App_componentQrl_inlinedQrl_useStyles_1_tWtGBKzgu0o",
   "path": "",
   "extension": "tsx",
   "parent": null,
@@ -86,21 +86,21 @@ None
   ]
 }
 */
-============================= test.tsx_App_componentQrl_inlinedQrl_useStyles_eh7w9rBhR90.tsx (ENTRY POINT)==
+============================= test.tsx_App_componentQrl_inlinedQrl_useStyles_p5SexbIOPVI.tsx (ENTRY POINT)==
 
 import { inlinedQrl } from "@qwik.dev/core";
-export const s_eh7w9rBhR90 = inlinedQrl(STYLES, "STYLES_odz7dfdfdM");
+export const s_p5SexbIOPVI = inlinedQrl(STYLES, "STYLES_odz7dfdfdM");
 
 
 None
 /*
 {
   "origin": "test.tsx",
-  "name": "s_eh7w9rBhR90",
+  "name": "s_p5SexbIOPVI",
   "entry": "entry_segments",
   "displayName": "test.tsx_App_componentQrl_inlinedQrl_useStyles",
-  "hash": "eh7w9rBhR90",
-  "canonicalFilename": "test.tsx_App_componentQrl_inlinedQrl_useStyles_eh7w9rBhR90",
+  "hash": "p5SexbIOPVI",
+  "canonicalFilename": "test.tsx_App_componentQrl_inlinedQrl_useStyles_p5SexbIOPVI",
   "path": "",
   "extension": "tsx",
   "parent": null,

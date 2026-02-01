@@ -17,15 +17,15 @@ return 'hi'
 ============================= test.js ==
 
 import { componentQrl, qrl } from "@qwik.dev/core";
-const i_F6JQKR8P1Ko = ()=>import("./test.tsx_test_component_useTask_F6JQKR8P1Ko");
-const i_3ghsHSPcTK0 = ()=>import("./test.tsx_test_component_3ghsHSPcTK0");
-export default /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_3ghsHSPcTK0, "test_component_3ghsHSPcTK0"));
+const i_jewzFYh3XmQ = ()=>import("./test.tsx_test_component_useTask_jewzFYh3XmQ");
+const i_LUXeXe0DQrg = ()=>import("./test.tsx_test_component_LUXeXe0DQrg");
+export default /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_LUXeXe0DQrg, "test_component_LUXeXe0DQrg"));
 
 
 None
-============================= test.tsx_test_component_useTask_F6JQKR8P1Ko.js (ENTRY POINT)==
+============================= test.tsx_test_component_useTask_jewzFYh3XmQ.js (ENTRY POINT)==
 
-export const test_component_useTask_F6JQKR8P1Ko = ()=>{
+export const test_component_useTask_jewzFYh3XmQ = ()=>{
 	props.checked;
 };
 
@@ -34,11 +34,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "test_component_useTask_F6JQKR8P1Ko",
+  "name": "test_component_useTask_jewzFYh3XmQ",
   "entry": null,
   "displayName": "test.tsx_test_component_useTask",
-  "hash": "F6JQKR8P1Ko",
-  "canonicalFilename": "test.tsx_test_component_useTask_F6JQKR8P1Ko",
+  "hash": "jewzFYh3XmQ",
+  "canonicalFilename": "test.tsx_test_component_useTask_jewzFYh3XmQ",
   "path": "",
   "extension": "js",
   "parent": "component",
@@ -51,11 +51,11 @@ None
   ]
 }
 */
-============================= test.tsx_test_component_3ghsHSPcTK0.js (ENTRY POINT)==
+============================= test.tsx_test_component_LUXeXe0DQrg.js (ENTRY POINT)==
 
 import { qrl, useTaskQrl } from "@qwik.dev/core";
-export const test_component_3ghsHSPcTK0 = ({ ...props })=>{
-	/*#__PURE__*/ useTaskQrl(/*#__PURE__*/ qrl(i_F6JQKR8P1Ko, "test_component_useTask_F6JQKR8P1Ko"));
+export const test_component_LUXeXe0DQrg = ({ ...props })=>{
+	/*#__PURE__*/ useTaskQrl(/*#__PURE__*/ qrl(i_jewzFYh3XmQ, "test_component_useTask_jewzFYh3XmQ"));
 	return "hi";
 };
 
@@ -64,11 +64,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "test_component_3ghsHSPcTK0",
+  "name": "test_component_LUXeXe0DQrg",
   "entry": null,
   "displayName": "test.tsx_test_component",
-  "hash": "3ghsHSPcTK0",
-  "canonicalFilename": "test.tsx_test_component_3ghsHSPcTK0",
+  "hash": "LUXeXe0DQrg",
+  "canonicalFilename": "test.tsx_test_component_LUXeXe0DQrg",
   "path": "",
   "extension": "js",
   "parent": null,

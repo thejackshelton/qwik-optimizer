@@ -17,9 +17,9 @@ export const \$promoteToRoot$ = (ref: SeenRef) => {
 ============================= test.js ==
 
 import { getObjectPathQrl, qrl } from "@qwik.dev/core";
-const i_zwxFSbq6iKY = ()=>import("./test.tsx_promoteToRoot_path_getObjectPath_zwxFSbq6iKY");
+const i_ytJZPsFrXms = ()=>import("./test.tsx_promoteToRoot_path_getObjectPath_ytJZPsFrXms");
 export const promoteToRoot$ = (ref)=>{
-	const path = /*#__PURE__*/ getObjectPathQrl(/*#__PURE__*/ qrl(i_zwxFSbq6iKY, "promoteToRoot_path_getObjectPath_zwxFSbq6iKY", [ref]));
+	const path = /*#__PURE__*/ getObjectPathQrl(/*#__PURE__*/ qrl(i_ytJZPsFrXms, "promoteToRoot_path_getObjectPath_ytJZPsFrXms", [ref]));
 	// should stay before the push
 	const idx = roots.length;
 	roots.push(new BackRef(path));
@@ -30,20 +30,20 @@ export const promoteToRoot$ = (ref)=>{
 
 
 None
-============================= test.tsx_promoteToRoot_path_getObjectPath_zwxFSbq6iKY.js (ENTRY POINT)==
+============================= test.tsx_promoteToRoot_path_getObjectPath_ytJZPsFrXms.js (ENTRY POINT)==
 
-export const promoteToRoot_path_getObjectPath_zwxFSbq6iKY = ref;
+export const promoteToRoot_path_getObjectPath_ytJZPsFrXms = ref;
 
 
 None
 /*
 {
   "origin": "test.tsx",
-  "name": "promoteToRoot_path_getObjectPath_zwxFSbq6iKY",
+  "name": "promoteToRoot_path_getObjectPath_ytJZPsFrXms",
   "entry": null,
   "displayName": "test.tsx_promoteToRoot_path_getObjectPath",
-  "hash": "zwxFSbq6iKY",
-  "canonicalFilename": "test.tsx_promoteToRoot_path_getObjectPath_zwxFSbq6iKY",
+  "hash": "ytJZPsFrXms",
+  "canonicalFilename": "test.tsx_promoteToRoot_path_getObjectPath_ytJZPsFrXms",
   "path": "",
   "extension": "js",
   "parent": "promoteToRoot",

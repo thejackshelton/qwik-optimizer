@@ -23,19 +23,19 @@ export const App = component$(({count, rest: [I2, {I3, v1: [I4], I5=v2, ...I6}, 
 ============================= test.js ==
 
 import { componentQrl, qrl } from "@qwik.dev/core";
-const i_zT40dUYPQNs = ()=>import("./test.tsx_App_component_1_zT40dUYPQNs");
-const i_XumqEURaLxI = ()=>import("./test.tsx_App_component_XumqEURaLxI");
-export const App = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_XumqEURaLxI, "App_component_XumqEURaLxI"));
+const i_w0t0o3QMovU = ()=>import("./test.tsx_App_component_1_w0t0o3QMovU");
+const i_ckEPmXZlub0 = ()=>import("./test.tsx_App_component_ckEPmXZlub0");
+export const App = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_ckEPmXZlub0, "App_component_ckEPmXZlub0"));
 
 
 None
-============================= test.tsx_App_component_XumqEURaLxI.js (ENTRY POINT)==
+============================= test.tsx_App_component_ckEPmXZlub0.js (ENTRY POINT)==
 
 import { qrl, useStore } from "@qwik.dev/core";
-export const App_component_XumqEURaLxI = ({ count, rest: [I2, { I3, v1: [I4], I5 = v2, ...I6 }, I7 = v3, ...I8] })=>{
+export const App_component_ckEPmXZlub0 = ({ count, rest: [I2, { I3, v1: [I4], I5 = v2, ...I6 }, I7 = v3, ...I8] })=>{
 	const state = useStore({ count: 0 });
 	const { rest: [C2, { C3, v1: [C4], C5 = v2, ...C6 }, C7 = v3, ...C8] } = foo();
-	return /*#__PURE__*/ qrl(i_zT40dUYPQNs, "App_component_1_zT40dUYPQNs", [state]);
+	return /*#__PURE__*/ qrl(i_w0t0o3QMovU, "App_component_1_w0t0o3QMovU", [state]);
 };
 
 
@@ -43,11 +43,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "App_component_XumqEURaLxI",
+  "name": "App_component_ckEPmXZlub0",
   "entry": null,
   "displayName": "test.tsx_App_component",
-  "hash": "XumqEURaLxI",
-  "canonicalFilename": "test.tsx_App_component_XumqEURaLxI",
+  "hash": "ckEPmXZlub0",
+  "canonicalFilename": "test.tsx_App_component_ckEPmXZlub0",
   "path": "",
   "extension": "js",
   "parent": null,
@@ -60,11 +60,11 @@ None
   ]
 }
 */
-============================= test.tsx_App_component_1_zT40dUYPQNs.js (ENTRY POINT)==
+============================= test.tsx_App_component_1_w0t0o3QMovU.js (ENTRY POINT)==
 
 import { _jsxSorted, qrl } from "@qwik.dev/core";
 const i_onClick = ()=>import("./test.tsx");
-export const App_component_1_zT40dUYPQNs = ()=>{
+export const App_component_1_w0t0o3QMovU = ()=>{
 	const [state] = useLexicalScope();
 	return /*#__PURE__*/ _jsxSorted("div", { on:click: /*#__PURE__*/ qrl(i_onClick, "App_component_1_div_onClick", [state]) }, null, [
 		I2,
@@ -92,11 +92,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "App_component_1_zT40dUYPQNs",
+  "name": "App_component_1_w0t0o3QMovU",
   "entry": null,
   "displayName": "test.tsx_App_component_1",
-  "hash": "zT40dUYPQNs",
-  "canonicalFilename": "test.tsx_App_component_1_zT40dUYPQNs",
+  "hash": "w0t0o3QMovU",
+  "canonicalFilename": "test.tsx_App_component_1_w0t0o3QMovU",
   "path": "",
   "extension": "js",
   "parent": "component",

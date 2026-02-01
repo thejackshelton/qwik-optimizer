@@ -32,9 +32,9 @@ export const ButtonArrow = ({text, color}) => {
 ============================= test.tsx ==
 
 import { componentQrl, qrl } from "@qwik.dev/core";
-const i_gZqPatVoDqw = ()=>import("./test.tsx_Foo_component_gZqPatVoDqw");
+const i_HTDRsvUbLiE = ()=>import("./test.tsx_Foo_component_HTDRsvUbLiE");
 const i_onClick = ()=>import("./test.tsx");
-export const Foo = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_gZqPatVoDqw, "Foo_component_gZqPatVoDqw"));
+export const Foo = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_HTDRsvUbLiE, "Foo_component_HTDRsvUbLiE"));
 export function Button({ text, color }) {
 	return <button on:color={color} on:click={/*#__PURE__*/ qrl(i_onClick, "Button_button_onClick")}>{text}</button>;
 }
@@ -44,9 +44,9 @@ export const ButtonArrow = ({ text, color })=>{
 
 
 None
-============================= test.tsx_Foo_component_gZqPatVoDqw.tsx (ENTRY POINT)==
+============================= test.tsx_Foo_component_HTDRsvUbLiE.tsx (ENTRY POINT)==
 
-export const Foo_component_gZqPatVoDqw = (props)=>{
+export const Foo_component_HTDRsvUbLiE = (props)=>{
 	return <div>
 			<Button {...props} />
 			<ButtonArrow {...props} />
@@ -58,11 +58,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "Foo_component_gZqPatVoDqw",
+  "name": "Foo_component_HTDRsvUbLiE",
   "entry": null,
   "displayName": "test.tsx_Foo_component",
-  "hash": "gZqPatVoDqw",
-  "canonicalFilename": "test.tsx_Foo_component_gZqPatVoDqw",
+  "hash": "HTDRsvUbLiE",
+  "canonicalFilename": "test.tsx_Foo_component_HTDRsvUbLiE",
   "path": "",
   "extension": "tsx",
   "parent": null,

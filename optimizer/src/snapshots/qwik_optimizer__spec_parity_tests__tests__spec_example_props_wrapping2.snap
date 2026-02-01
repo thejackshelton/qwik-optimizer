@@ -22,15 +22,15 @@ export const Works = component$((props: { fromProps: number }) => {
 ============================= test.js ==
 
 import { componentQrl, qrl } from "@qwik.dev/core";
-const i_xJyUXaLUiKw = ()=>import("./test.tsx_Works_component_xJyUXaLUiKw");
-export const Works = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_xJyUXaLUiKw, "Works_component_xJyUXaLUiKw"));
+const i_t45qL4vNGv0 = ()=>import("./test.tsx_Works_component_t45qL4vNGv0");
+export const Works = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_t45qL4vNGv0, "Works_component_t45qL4vNGv0"));
 
 
 None
-============================= test.tsx_Works_component_xJyUXaLUiKw.js (ENTRY POINT)==
+============================= test.tsx_Works_component_t45qL4vNGv0.js (ENTRY POINT)==
 
 import { _jsxSorted, useSignal } from "@qwik.dev/core";
-export const Works_component_xJyUXaLUiKw = (props)=>{
+export const Works_component_t45qL4vNGv0 = (props)=>{
 	let fromLocal = useSignal(0);
 	return /*#__PURE__*/ _jsxSorted("div", {
 		computed: fromLocal + props.fromProps,
@@ -49,11 +49,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "Works_component_xJyUXaLUiKw",
+  "name": "Works_component_t45qL4vNGv0",
   "entry": "entry_segments",
   "displayName": "test.tsx_Works_component",
-  "hash": "xJyUXaLUiKw",
-  "canonicalFilename": "test.tsx_Works_component_xJyUXaLUiKw",
+  "hash": "t45qL4vNGv0",
+  "canonicalFilename": "test.tsx_Works_component_t45qL4vNGv0",
   "path": "",
   "extension": "js",
   "parent": null,
