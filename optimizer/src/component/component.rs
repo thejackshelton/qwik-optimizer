@@ -8,6 +8,7 @@ use oxc_ast::ast::*;
 use oxc_ast::*;
 use oxc_codegen::{Codegen, CodegenOptions};
 use oxc_minifier::*;
+use oxc_parser;
 use oxc_span::{SourceType, SPAN};
 use serde::Serialize;
 
@@ -61,6 +62,34 @@ impl QrlComponent {
         segment_data: Option<SegmentData>,
         entry: Option<String>,
     ) -> QrlComponent {
+        Self::new_with_hoisted(
+            options,
+            source_info,
+            id,
+            exported_expression,
+            imports,
+            hoisted_imports,
+            Vec::new(), // No hoisted functions
+            qrl_type,
+            segment_data,
+            entry,
+        )
+    }
+
+    /// Creates a new QrlComponent with both hoisted imports and hoisted functions.
+    #[allow(clippy::too_many_arguments)]
+    pub(crate) fn new_with_hoisted(
+        options: &TransformOptions,
+        source_info: &SourceInfo,
+        id: Id,
+        exported_expression: Expression<'_>,
+        imports: Vec<Import>,
+        hoisted_imports: Vec<(String, String)>,
+        hoisted_fns: Vec<(String, String, String)>,
+        qrl_type: QrlType,
+        segment_data: Option<SegmentData>,
+        entry: Option<String>,
+    ) -> QrlComponent {
         let language = source_info.language.clone();
 
         let scoped_idents: Vec<CollectorId> = segment_data
@@ -106,6 +135,7 @@ impl QrlComponent {
             exported_expression,
             all_imports,
             hoisted_imports,
+            hoisted_fns,
             &source_type,
             source_info,
             &scoped_idents,
@@ -160,6 +190,7 @@ impl QrlComponent {
         exported_expression: Expression<'_>,
         imports: Vec<Import>,
         hoisted_imports: Vec<(String, String)>,
+        hoisted_fns: Vec<(String, String, String)>,
         source_type: &SourceType,
         _source_info: &SourceInfo,
         scoped_idents: &[CollectorId],
@@ -257,6 +288,51 @@ impl QrlComponent {
                 false,
             )));
             body.push(hoisted_stmt);
+        }
+
+        // Generate hoisted function declarations for _fnSignal
+        // Format: const _hf0 = (p0)=>...; const _hf0_str = "...";
+        for (hf_name, hf_code, hf_str) in hoisted_fns.iter() {
+            // Parse the serialized function code back to an Expression
+            let hf_allocator = Allocator::default();
+            let parsed = oxc_parser::Parser::new(&hf_allocator, hf_code, SourceType::default())
+                .parse_expression();
+            if let Ok(hf_expr) = parsed {
+                let hf_expr_cloned = hf_expr.clone_in(allocator);
+
+                // const _hf0 = (p0)=>...;
+                let hf_stmt = Statement::VariableDeclaration(ast_builder.alloc(ast_builder.variable_declaration(
+                    SPAN,
+                    VariableDeclarationKind::Const,
+                    ast_builder.vec1(ast_builder.variable_declarator(
+                        SPAN,
+                        VariableDeclarationKind::Const,
+                        ast_builder.binding_pattern_binding_identifier(SPAN, ast_builder.atom(hf_name)),
+                        None::<OxcBox<'_, TSTypeAnnotation<'_>>>,
+                        Some(hf_expr_cloned),
+                        false,
+                    )),
+                    false,
+                )));
+                body.push(hf_stmt);
+
+                // const _hf0_str = "...";
+                let hf_str_name = format!("{}_str", hf_name);
+                let hf_str_stmt = Statement::VariableDeclaration(ast_builder.alloc(ast_builder.variable_declaration(
+                    SPAN,
+                    VariableDeclarationKind::Const,
+                    ast_builder.vec1(ast_builder.variable_declarator(
+                        SPAN,
+                        VariableDeclarationKind::Const,
+                        ast_builder.binding_pattern_binding_identifier(SPAN, ast_builder.atom(&hf_str_name)),
+                        None::<OxcBox<'_, TSTypeAnnotation<'_>>>,
+                        Some(ast_builder.expression_string_literal(SPAN, ast_builder.atom(hf_str), None)),
+                        false,
+                    )),
+                    false,
+                )));
+                body.push(hf_str_stmt);
+            }
         }
 
         body.push(export);
@@ -391,6 +467,51 @@ impl QrlComponent {
         let id = Id::new(source_info, segments, &options.target, scope);
 
         QrlComponent::new_with_hoisted_imports(options, source_info, id, expr, imports, hoisted_imports, qrl_type, segment_data, entry)
+    }
+
+    /// Creates a QrlComponent from a call expression argument with hoisted functions.
+    #[allow(clippy::too_many_arguments)]
+    pub(crate) fn from_call_expression_argument_with_hoisted_fns(
+        arg: &Argument,
+        imports: Vec<Import>,
+        hoisted_imports: Vec<(String, String)>,
+        hoisted_fns: Vec<(String, String, String)>,
+        segments: &Vec<Segment>,
+        scope: &Option<String>,
+        options: &TransformOptions,
+        source_info: &SourceInfo,
+        segment_data: Option<SegmentData>,
+        entry: Option<String>,
+        allocator: &Allocator,
+    ) -> QrlComponent {
+        let init = arg.clone_in(allocator).into_expression();
+        Self::from_expression_with_hoisted_fns(init, imports, hoisted_imports, hoisted_fns, segments, scope, options, source_info, segment_data, entry)
+    }
+
+    /// Creates a QrlComponent from an expression with hoisted functions.
+    #[allow(clippy::too_many_arguments)]
+    pub(crate) fn from_expression_with_hoisted_fns(
+        expr: Expression<'_>,
+        imports: Vec<Import>,
+        hoisted_imports: Vec<(String, String)>,
+        hoisted_fns: Vec<(String, String, String)>,
+        segments: &Vec<Segment>,
+        scope: &Option<String>,
+        options: &TransformOptions,
+        source_info: &SourceInfo,
+        segment_data: Option<SegmentData>,
+        entry: Option<String>,
+    ) -> QrlComponent {
+        let qrl_type: QrlType = segments
+            .last()
+            .iter()
+            .flat_map(|segment| segment.qrl_type())
+            .last()
+            .unwrap();
+
+        let id = Id::new(source_info, segments, &options.target, scope);
+
+        QrlComponent::new_with_hoisted(options, source_info, id, expr, imports, hoisted_imports, hoisted_fns, qrl_type, segment_data, entry)
     }
 
     pub fn has_captures(&self) -> bool {
