@@ -24,17 +24,17 @@ return (
 ============================= test.js ==
 
 import { componentQrl, qrl } from "@qwik.dev/core";
-const i_G7jVUwdBFEM = ()=>import("./test.tsx_test.tsx_component_G7jVUwdBFEM");
-export default /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_G7jVUwdBFEM, "test.tsx_component_G7jVUwdBFEM"));
+const i_G7jVUwdBFEM = ()=>import("./test.tsx_component_G7jVUwdBFEM");
+export default /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_G7jVUwdBFEM, "component_G7jVUwdBFEM"));
 
 
 None
-============================= test.tsx_test.tsx_component_G7jVUwdBFEM.js (ENTRY POINT)==
+============================= test.tsx_component_G7jVUwdBFEM.js (ENTRY POINT)==
 
 import { _jsxSorted, qrl, useStore } from "@qwik.dev/core";
 import { Fragment as _Fragment } from "@qwik.dev/core/jsx-runtime";
 const i_onClick = ()=>import("./test.tsx");
-export const test.tsx_component_G7jVUwdBFEM = ()=>{
+export const component_G7jVUwdBFEM = ()=>{
 	const store = useStore([{ value: 0 }]);
 	return /*#__PURE__*/ _jsxSorted(_Fragment, null, null, [
 		/*#__PURE__*/ _jsxSorted("button", { on:click: /*#__PURE__*/ qrl(i_onClick, "component_button_onClick", [store]) }, null, "+1", 3, null),
@@ -50,11 +50,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "test.tsx_component_G7jVUwdBFEM",
+  "name": "component_G7jVUwdBFEM",
   "entry": null,
   "displayName": "test.tsx_component",
   "hash": "G7jVUwdBFEM",
-  "canonicalFilename": "test.tsx_test.tsx_component_G7jVUwdBFEM",
+  "canonicalFilename": "test.tsx_component_G7jVUwdBFEM",
   "path": "",
   "extension": "js",
   "parent": null,

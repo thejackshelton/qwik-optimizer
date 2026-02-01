@@ -16,16 +16,16 @@ export default component$(() => {
 ============================= src/components/mongo/404.tsx ==
 
 import { componentQrl, qrl } from "@qwik.dev/core";
-const i_Anrr6JEmGnU = ()=>import("./404.tsx_404.tsx_component_Anrr6JEmGnU");
-export default /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_Anrr6JEmGnU, "404.tsx_component_Anrr6JEmGnU"));
+const i_Anrr6JEmGnU = ()=>import("./404.tsx_component_Anrr6JEmGnU");
+export default /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_Anrr6JEmGnU, "component_Anrr6JEmGnU"));
 
 
 None
-============================= src/components/mongo/404.tsx_404.tsx_component_Anrr6JEmGnU.tsx (ENTRY POINT)==
+============================= 404.tsx_component_Anrr6JEmGnU.tsx (ENTRY POINT)==
 
 import { qrl } from "@qwik.dev/core";
 const i_onClick = ()=>import("./404.tsx");
-export const 404.tsx_component_Anrr6JEmGnU = ()=>{
+export const component_Anrr6JEmGnU = ()=>{
 	return <div on:click={/*#__PURE__*/ qrl(i_onClick, "component_div_onClick")}>
 		</div>;
 };
@@ -35,11 +35,11 @@ None
 /*
 {
   "origin": "src/components/mongo/404.tsx",
-  "name": "404.tsx_component_Anrr6JEmGnU",
+  "name": "component_Anrr6JEmGnU",
   "entry": null,
   "displayName": "404.tsx_component",
   "hash": "Anrr6JEmGnU",
-  "canonicalFilename": "404.tsx_404.tsx_component_Anrr6JEmGnU",
+  "canonicalFilename": "404.tsx_component_Anrr6JEmGnU",
   "path": "src/components/mongo",
   "extension": "tsx",
   "parent": null,

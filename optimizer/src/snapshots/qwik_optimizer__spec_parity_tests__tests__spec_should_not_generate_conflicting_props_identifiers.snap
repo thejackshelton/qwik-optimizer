@@ -19,19 +19,19 @@ return 'hi'
 ============================= test.js ==
 
 import { componentQrl, qrl } from "@qwik.dev/core";
-const i_QryzEgKN0dU = ()=>import("./test.tsx_test.tsx_component_useComputed_QryzEgKN0dU");
-const i_JTJcH3nK8No = ()=>import("./test.tsx_test.tsx_component_useTask_JTJcH3nK8No");
-const i_G7jVUwdBFEM = ()=>import("./test.tsx_test.tsx_component_G7jVUwdBFEM");
-export default /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_G7jVUwdBFEM, "test.tsx_component_G7jVUwdBFEM"));
+const i_QryzEgKN0dU = ()=>import("./test.tsx_component_useComputed_QryzEgKN0dU");
+const i_JTJcH3nK8No = ()=>import("./test.tsx_component_useTask_JTJcH3nK8No");
+const i_G7jVUwdBFEM = ()=>import("./test.tsx_component_G7jVUwdBFEM");
+export default /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_G7jVUwdBFEM, "component_G7jVUwdBFEM"));
 
 
 None
-============================= test.tsx_test.tsx_component_G7jVUwdBFEM.js (ENTRY POINT)==
+============================= test.tsx_component_G7jVUwdBFEM.js (ENTRY POINT)==
 
 import { qrl, useComputedQrl, useTaskQrl } from "@qwik.dev/core";
-export const test.tsx_component_G7jVUwdBFEM = ({ color, ...props })=>{
-	/*#__PURE__*/ useComputedQrl(/*#__PURE__*/ qrl(i_QryzEgKN0dU, "test.tsx_component_useComputed_QryzEgKN0dU"));
-	/*#__PURE__*/ useTaskQrl(/*#__PURE__*/ qrl(i_JTJcH3nK8No, "test.tsx_component_useTask_JTJcH3nK8No"));
+export const component_G7jVUwdBFEM = ({ color, ...props })=>{
+	/*#__PURE__*/ useComputedQrl(/*#__PURE__*/ qrl(i_QryzEgKN0dU, "component_useComputed_QryzEgKN0dU"));
+	/*#__PURE__*/ useTaskQrl(/*#__PURE__*/ qrl(i_JTJcH3nK8No, "component_useTask_JTJcH3nK8No"));
 	return "hi";
 };
 
@@ -40,11 +40,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "test.tsx_component_G7jVUwdBFEM",
+  "name": "component_G7jVUwdBFEM",
   "entry": "entry_segments",
   "displayName": "test.tsx_component",
   "hash": "G7jVUwdBFEM",
-  "canonicalFilename": "test.tsx_test.tsx_component_G7jVUwdBFEM",
+  "canonicalFilename": "test.tsx_component_G7jVUwdBFEM",
   "path": "",
   "extension": "js",
   "parent": null,
@@ -57,20 +57,20 @@ None
   ]
 }
 */
-============================= test.tsx_test.tsx_component_useComputed_QryzEgKN0dU.js (ENTRY POINT)==
+============================= test.tsx_component_useComputed_QryzEgKN0dU.js (ENTRY POINT)==
 
-export const test.tsx_component_useComputed_QryzEgKN0dU = ()=>color;
+export const component_useComputed_QryzEgKN0dU = ()=>color;
 
 
 None
 /*
 {
   "origin": "test.tsx",
-  "name": "test.tsx_component_useComputed_QryzEgKN0dU",
+  "name": "component_useComputed_QryzEgKN0dU",
   "entry": "entry_segments",
   "displayName": "test.tsx_component_useComputed",
   "hash": "QryzEgKN0dU",
-  "canonicalFilename": "test.tsx_test.tsx_component_useComputed_QryzEgKN0dU",
+  "canonicalFilename": "test.tsx_component_useComputed_QryzEgKN0dU",
   "path": "",
   "extension": "js",
   "parent": "component",
@@ -83,9 +83,9 @@ None
   ]
 }
 */
-============================= test.tsx_test.tsx_component_useTask_JTJcH3nK8No.js (ENTRY POINT)==
+============================= test.tsx_component_useTask_JTJcH3nK8No.js (ENTRY POINT)==
 
-export const test.tsx_component_useTask_JTJcH3nK8No = ()=>{
+export const component_useTask_JTJcH3nK8No = ()=>{
 	props.checked;
 };
 
@@ -94,11 +94,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "test.tsx_component_useTask_JTJcH3nK8No",
+  "name": "component_useTask_JTJcH3nK8No",
   "entry": "entry_segments",
   "displayName": "test.tsx_component_useTask",
   "hash": "JTJcH3nK8No",
-  "canonicalFilename": "test.tsx_test.tsx_component_useTask_JTJcH3nK8No",
+  "canonicalFilename": "test.tsx_component_useTask_JTJcH3nK8No",
   "path": "",
   "extension": "js",
   "parent": "component",

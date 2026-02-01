@@ -31,8 +31,8 @@ export const Footer = component$();
 ============================= project/test.tsx ==
 
 import { componentQrl, qrl } from "@qwik.dev/core";
-const i_QCqWdSZbTyo = ()=>import("./test.tsx_test.tsx_Header_component_1_QCqWdSZbTyo");
-const i_Xd7zePmM6xs = ()=>import("./test.tsx_test.tsx_Header_component_Xd7zePmM6xs");
+const i_QCqWdSZbTyo = ()=>import("./test.tsx_Header_component_1_QCqWdSZbTyo");
+const i_Xd7zePmM6xs = ()=>import("./test.tsx_Header_component_Xd7zePmM6xs");
 export const [a, { b, v1: [c], d = v2, ...e }, f = v3, ...g] = obj;
 const exp1 = 1;
 const internal = 2;
@@ -40,17 +40,17 @@ export { exp1, internal as expr2 };
 export function foo() {}
 export class bar {}
 export default function DefaultFn() {}
-export const Header = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_Xd7zePmM6xs, "test.tsx_Header_component_Xd7zePmM6xs", [exp1, internal]));
-export const Footer = /*#__PURE__*/ qrl(i_QCqWdSZbTyo, "test.tsx_Header_component_1_QCqWdSZbTyo", [exp1, internal]);
+export const Header = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_Xd7zePmM6xs, "Header_component_Xd7zePmM6xs", [exp1, internal]));
+export const Footer = /*#__PURE__*/ qrl(i_QCqWdSZbTyo, "Header_component_1_QCqWdSZbTyo", [exp1, internal]);
 
 
 None
-============================= project/test.tsx_test.tsx_Header_component_Xd7zePmM6xs.tsx (ENTRY POINT)==
+============================= test.tsx_Header_component_Xd7zePmM6xs.tsx (ENTRY POINT)==
 
 import { qrl } from "@qwik.dev/core";
-export const test.tsx_Header_component_Xd7zePmM6xs = ()=>{
+export const Header_component_Xd7zePmM6xs = ()=>{
 	const [exp1, internal] = useLexicalScope();
-	return /*#__PURE__*/ qrl(i_QCqWdSZbTyo, "test.tsx_Header_component_1_QCqWdSZbTyo", [exp1, internal]);
+	return /*#__PURE__*/ qrl(i_QCqWdSZbTyo, "Header_component_1_QCqWdSZbTyo", [exp1, internal]);
 };
 
 
@@ -58,11 +58,11 @@ None
 /*
 {
   "origin": "project/test.tsx",
-  "name": "test.tsx_Header_component_Xd7zePmM6xs",
+  "name": "Header_component_Xd7zePmM6xs",
   "entry": null,
   "displayName": "test.tsx_Header_component",
   "hash": "Xd7zePmM6xs",
-  "canonicalFilename": "test.tsx_test.tsx_Header_component_Xd7zePmM6xs",
+  "canonicalFilename": "test.tsx_Header_component_Xd7zePmM6xs",
   "path": "project",
   "extension": "tsx",
   "parent": null,
@@ -75,10 +75,10 @@ None
   ]
 }
 */
-============================= project/test.tsx_test.tsx_Header_component_1_QCqWdSZbTyo.tsx (ENTRY POINT)==
+============================= test.tsx_Header_component_1_QCqWdSZbTyo.tsx (ENTRY POINT)==
 
 import { bar, foo, default as DefaultFn } from "./test";
-export const test.tsx_Header_component_1_QCqWdSZbTyo = ()=>{
+export const Header_component_1_QCqWdSZbTyo = ()=>{
 	const [exp1, internal] = useLexicalScope();
 	return <Footer>
 			<div>{a}{b}{c}{d}{e}{f}{exp1}{internal}{foo}{bar}{DefaultFn}</div>
@@ -91,11 +91,11 @@ None
 /*
 {
   "origin": "project/test.tsx",
-  "name": "test.tsx_Header_component_1_QCqWdSZbTyo",
+  "name": "Header_component_1_QCqWdSZbTyo",
   "entry": null,
   "displayName": "test.tsx_Header_component_1",
   "hash": "QCqWdSZbTyo",
-  "canonicalFilename": "test.tsx_test.tsx_Header_component_1_QCqWdSZbTyo",
+  "canonicalFilename": "test.tsx_Header_component_1_QCqWdSZbTyo",
   "path": "project",
   "extension": "tsx",
   "parent": "component",

@@ -120,18 +120,26 @@ impl Id {
 
         // Include full filename (with extension) in display_name before hashing (matches qwik-core)
         // qwik-core uses: display_name = format!("{}_{}", &self.options.path_data.file_name, display_name);
-        let display_name = format!("{}_{}", source_info.file_name, display_name);
+        // display_name_without_file is used for symbol_name in dev mode (e.g., "renderHeader")
+        // display_name is used for hash calculation and canonical filename (e.g., "test.tsx_renderHeader")
+        let display_name_without_file = display_name;
+        let display_name = format!("{}_{}", source_info.file_name, display_name_without_file);
 
         let (sort_order, hash) =
             Self::calculate_hash(normalized_local_file_name, &display_name, scope);
 
+        // In dev mode, symbol_name is component_hash (without file prefix) - matches qwik-core
+        // qwik-core: s_n = if dev { symbol_name.clone() } else { format!("s_{}", hash) }
+        // where symbol_name is already component_hash format
         let symbol_name = match target {
-            Target::Dev | Target::Test => format!("{}_{}", display_name, hash),
+            Target::Dev | Target::Test => format!("{}_{}", display_name_without_file, hash),
             Target::Lib | Target::Prod => format!("s_{}", hash),
         };
 
-        // Use normalized path (without ./ prefix) for local_file_name
-        let local_file_name = format!("{}_{}", normalized_local_file_name, symbol_name);
+        // canonical_filename/local_file_name = file_displayName_hash (matches qwik-core)
+        // qwik-core: get_canonical_filename(display_name, symbol_name) = format!("{}_{}", display_name, hash)
+        // where display_name already includes file prefix, so result is file_component_hash
+        let local_file_name = format!("{}_{}", display_name, hash);
         Id {
             display_name,
             symbol_name,
@@ -176,13 +184,15 @@ mod tests {
             &Target::Dev,
             &Option::None,
         );
-        // Now display_name includes full filename (app.js) before hashing (matches qwik-core)
+        // display_name includes full filename (app.js) for hash calculation (matches qwik-core)
+        // symbol_name in dev mode uses component name only (without file prefix)
+        // local_file_name is displayName_hash format
         let (sort_order, hash0) = Id::calculate_hash("app.js", "app.js_a_b_c", &None);
 
         let expected0 = Id {
             display_name: "app.js_a_b_c".to_string(),
-            symbol_name: format!("app.js_a_b_c_{}", hash0),
-            local_file_name: format!("app.js_app.js_a_b_c_{}", hash0),
+            symbol_name: format!("a_b_c_{}", hash0),  // component + hash (no file prefix in dev)
+            local_file_name: format!("app.js_a_b_c_{}", hash0),  // displayName + hash
             hash: hash0,
             sort_order,
             scope: None,
@@ -203,8 +213,8 @@ mod tests {
         let (sort_order, hash1) = Id::calculate_hash("app.js", "app.js__1_b_c", &scope1);
         let expected1 = Id {
             display_name: "app.js__1_b_c".to_string(),
-            symbol_name: format!("s_{}", hash1),
-            local_file_name: format!("app.js_s_{}", hash1),
+            symbol_name: format!("s_{}", hash1),  // prod mode uses s_{hash}
+            local_file_name: format!("app.js__1_b_c_{}", hash1),  // displayName + hash
             hash: hash1,
             sort_order,
             scope: Some("scope".to_string()),

@@ -103,11 +103,11 @@ export const AppStatic = component$((props: Stuff) => {
 
 import { _jsxSorted, componentQrl, qrl } from "@qwik.dev/core";
 import { Fragment as _Fragment } from "@qwik.dev/core/jsx-runtime";
-const i_I5e2e0ta73k = ()=>import("./test.tsx_test.tsx_AppDynamic1_component_I5e2e0ta73k");
-const i_X09iYdJZSKQ = ()=>import("./test.tsx_test.tsx_AppDynamic2_component_X09iYdJZSKQ");
-const i_kWUfyeXIwW0 = ()=>import("./test.tsx_test.tsx_AppDynamic3_component_kWUfyeXIwW0");
-const i_Jxd0KswLE0A = ()=>import("./test.tsx_test.tsx_AppDynamic4_component_Jxd0KswLE0A");
-const i_b9UsPZEUhQ4 = ()=>import("./test.tsx_test.tsx_AppStatic_component_b9UsPZEUhQ4");
+const i_I5e2e0ta73k = ()=>import("./test.tsx_AppDynamic1_component_I5e2e0ta73k");
+const i_X09iYdJZSKQ = ()=>import("./test.tsx_AppDynamic2_component_X09iYdJZSKQ");
+const i_kWUfyeXIwW0 = ()=>import("./test.tsx_AppDynamic3_component_kWUfyeXIwW0");
+const i_Jxd0KswLE0A = ()=>import("./test.tsx_AppDynamic4_component_Jxd0KswLE0A");
+const i_b9UsPZEUhQ4 = ()=>import("./test.tsx_AppStatic_component_b9UsPZEUhQ4");
 export function Fn1(props) {
 	return /*#__PURE__*/ _jsxSorted(_Fragment, null, null, /*#__PURE__*/ _jsxSorted("div", null, null, prop < 2 ? /*#__PURE__*/ _jsxSorted("p", null, null, "1", 3, null) : _jsxSorted(Stuff, null, null, "2", 3, null), 1, null), 3, null);
 }
@@ -127,20 +127,20 @@ export function Fn4(props) {
 	return _jsxSorted(Stuff, null, null, null, 3, null);
 }
 export const Arrow = (props)=>/*#__PURE__*/ _jsxSorted("div", null, null, prop < 2 ? /*#__PURE__*/ _jsxSorted("p", null, null, "1", 3, null) : _jsxSorted(Stuff, null, null, "2", 3, null), 1, null);
-export const AppDynamic1 = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_I5e2e0ta73k, "test.tsx_AppDynamic1_component_I5e2e0ta73k"));
-export const AppDynamic2 = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_X09iYdJZSKQ, "test.tsx_AppDynamic2_component_X09iYdJZSKQ"));
-export const AppDynamic3 = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_kWUfyeXIwW0, "test.tsx_AppDynamic3_component_kWUfyeXIwW0"));
-export const AppDynamic4 = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_Jxd0KswLE0A, "test.tsx_AppDynamic4_component_Jxd0KswLE0A"));
-export const AppStatic = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_b9UsPZEUhQ4, "test.tsx_AppStatic_component_b9UsPZEUhQ4"));
+export const AppDynamic1 = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_I5e2e0ta73k, "AppDynamic1_component_I5e2e0ta73k"));
+export const AppDynamic2 = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_X09iYdJZSKQ, "AppDynamic2_component_X09iYdJZSKQ"));
+export const AppDynamic3 = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_kWUfyeXIwW0, "AppDynamic3_component_kWUfyeXIwW0"));
+export const AppDynamic4 = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_Jxd0KswLE0A, "AppDynamic4_component_Jxd0KswLE0A"));
+export const AppStatic = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_b9UsPZEUhQ4, "AppStatic_component_b9UsPZEUhQ4"));
 
 
 None
-============================= test.tsx_test.tsx_AppStatic_component_b9UsPZEUhQ4.js (ENTRY POINT)==
+============================= test.tsx_AppStatic_component_b9UsPZEUhQ4.js (ENTRY POINT)==
 
 import Image from "./image.jpg?jsx";
 import { Fragment, Slot, _jsxSorted } from "@qwik.dev/core";
 import { Fragment as _Fragment } from "@qwik.dev/core/jsx-runtime";
-export const test.tsx_AppStatic_component_b9UsPZEUhQ4 = (props)=>{
+export const AppStatic_component_b9UsPZEUhQ4 = (props)=>{
 	return /*#__PURE__*/ _jsxSorted(_Fragment, null, null, [
 		/*#__PURE__*/ _jsxSorted("div", null, null, ["Static", f ? 1 : 3], 1, null),
 		/*#__PURE__*/ _jsxSorted("div", null, null, prop < 2 ? /*#__PURE__*/ _jsxSorted("p", null, null, "1", 3, null) : /*#__PURE__*/ _jsxSorted("p", null, null, "2", 3, null), 1, null),
@@ -161,11 +161,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "test.tsx_AppStatic_component_b9UsPZEUhQ4",
+  "name": "AppStatic_component_b9UsPZEUhQ4",
   "entry": "entry_segments",
   "displayName": "test.tsx_AppStatic_component",
   "hash": "b9UsPZEUhQ4",
-  "canonicalFilename": "test.tsx_test.tsx_AppStatic_component_b9UsPZEUhQ4",
+  "canonicalFilename": "test.tsx_AppStatic_component_b9UsPZEUhQ4",
   "path": "",
   "extension": "js",
   "parent": null,
@@ -178,10 +178,10 @@ None
   ]
 }
 */
-============================= test.tsx_test.tsx_AppDynamic4_component_Jxd0KswLE0A.js (ENTRY POINT)==
+============================= test.tsx_AppDynamic4_component_Jxd0KswLE0A.js (ENTRY POINT)==
 
 import { _jsxSorted } from "@qwik.dev/core";
-export const test.tsx_AppDynamic4_component_Jxd0KswLE0A = (props)=>{
+export const AppDynamic4_component_Jxd0KswLE0A = (props)=>{
 	if (prop.value) {
 		return /*#__PURE__*/ _jsxSorted("div", null, null, null, 3, null);
 	}
@@ -193,11 +193,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "test.tsx_AppDynamic4_component_Jxd0KswLE0A",
+  "name": "AppDynamic4_component_Jxd0KswLE0A",
   "entry": "entry_segments",
   "displayName": "test.tsx_AppDynamic4_component",
   "hash": "Jxd0KswLE0A",
-  "canonicalFilename": "test.tsx_test.tsx_AppDynamic4_component_Jxd0KswLE0A",
+  "canonicalFilename": "test.tsx_AppDynamic4_component_Jxd0KswLE0A",
   "path": "",
   "extension": "js",
   "parent": null,
@@ -210,10 +210,10 @@ None
   ]
 }
 */
-============================= test.tsx_test.tsx_AppDynamic3_component_kWUfyeXIwW0.js (ENTRY POINT)==
+============================= test.tsx_AppDynamic3_component_kWUfyeXIwW0.js (ENTRY POINT)==
 
 import { _jsxSorted } from "@qwik.dev/core";
-export const test.tsx_AppDynamic3_component_kWUfyeXIwW0 = (props)=>{
+export const AppDynamic3_component_kWUfyeXIwW0 = (props)=>{
 	if (prop.value) {
 		return _jsxSorted(Stuff, null, null, null, 3, null);
 	}
@@ -225,11 +225,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "test.tsx_AppDynamic3_component_kWUfyeXIwW0",
+  "name": "AppDynamic3_component_kWUfyeXIwW0",
   "entry": "entry_segments",
   "displayName": "test.tsx_AppDynamic3_component",
   "hash": "kWUfyeXIwW0",
-  "canonicalFilename": "test.tsx_test.tsx_AppDynamic3_component_kWUfyeXIwW0",
+  "canonicalFilename": "test.tsx_AppDynamic3_component_kWUfyeXIwW0",
   "path": "",
   "extension": "js",
   "parent": null,
@@ -242,11 +242,11 @@ None
   ]
 }
 */
-============================= test.tsx_test.tsx_AppDynamic1_component_I5e2e0ta73k.js (ENTRY POINT)==
+============================= test.tsx_AppDynamic1_component_I5e2e0ta73k.js (ENTRY POINT)==
 
 import { _jsxSorted } from "@qwik.dev/core";
 import { Fragment as _Fragment } from "@qwik.dev/core/jsx-runtime";
-export const test.tsx_AppDynamic1_component_I5e2e0ta73k = (props)=>{
+export const AppDynamic1_component_I5e2e0ta73k = (props)=>{
 	return /*#__PURE__*/ _jsxSorted(_Fragment, null, null, /*#__PURE__*/ _jsxSorted("div", null, null, prop < 2 ? /*#__PURE__*/ _jsxSorted("p", null, null, "1", 3, null) : _jsxSorted(Stuff, null, null, "2", 3, null), 1, null), 3, null);
 };
 
@@ -255,11 +255,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "test.tsx_AppDynamic1_component_I5e2e0ta73k",
+  "name": "AppDynamic1_component_I5e2e0ta73k",
   "entry": "entry_segments",
   "displayName": "test.tsx_AppDynamic1_component",
   "hash": "I5e2e0ta73k",
-  "canonicalFilename": "test.tsx_test.tsx_AppDynamic1_component_I5e2e0ta73k",
+  "canonicalFilename": "test.tsx_AppDynamic1_component_I5e2e0ta73k",
   "path": "",
   "extension": "js",
   "parent": null,
@@ -272,10 +272,10 @@ None
   ]
 }
 */
-============================= test.tsx_test.tsx_AppDynamic2_component_X09iYdJZSKQ.js (ENTRY POINT)==
+============================= test.tsx_AppDynamic2_component_X09iYdJZSKQ.js (ENTRY POINT)==
 
 import { _jsxSorted } from "@qwik.dev/core";
-export const test.tsx_AppDynamic2_component_X09iYdJZSKQ = (props)=>{
+export const AppDynamic2_component_X09iYdJZSKQ = (props)=>{
 	return /*#__PURE__*/ _jsxSorted("div", null, null, [prop.value && _jsxSorted(Stuff, null, null, null, 3, null), /*#__PURE__*/ _jsxSorted("div", null, null, null, 3, null)], 1, null);
 };
 
@@ -284,11 +284,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "test.tsx_AppDynamic2_component_X09iYdJZSKQ",
+  "name": "AppDynamic2_component_X09iYdJZSKQ",
   "entry": "entry_segments",
   "displayName": "test.tsx_AppDynamic2_component",
   "hash": "X09iYdJZSKQ",
-  "canonicalFilename": "test.tsx_test.tsx_AppDynamic2_component_X09iYdJZSKQ",
+  "canonicalFilename": "test.tsx_AppDynamic2_component_X09iYdJZSKQ",
   "path": "",
   "extension": "js",
   "parent": null,

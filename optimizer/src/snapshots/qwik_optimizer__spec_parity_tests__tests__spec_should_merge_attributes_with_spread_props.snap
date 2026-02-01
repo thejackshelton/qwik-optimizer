@@ -13,15 +13,15 @@ export default component$((props) => {
 ============================= test.js ==
 
 import { componentQrl, qrl } from "@qwik.dev/core";
-const i_G7jVUwdBFEM = ()=>import("./test.tsx_test.tsx_component_G7jVUwdBFEM");
-export default /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_G7jVUwdBFEM, "test.tsx_component_G7jVUwdBFEM"));
+const i_G7jVUwdBFEM = ()=>import("./test.tsx_component_G7jVUwdBFEM");
+export default /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_G7jVUwdBFEM, "component_G7jVUwdBFEM"));
 
 
 None
-============================= test.tsx_test.tsx_component_G7jVUwdBFEM.js (ENTRY POINT)==
+============================= test.tsx_component_G7jVUwdBFEM.js (ENTRY POINT)==
 
 import { _getConstProps, _getVarProps, _jsxSplit } from "@qwik.dev/core";
-export const test.tsx_component_G7jVUwdBFEM = (props)=>{
+export const component_G7jVUwdBFEM = (props)=>{
 	return /*#__PURE__*/ _jsxSplit("div", {
 		..._getVarProps(props),
 		class: [props.class, "component"]
@@ -33,11 +33,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "test.tsx_component_G7jVUwdBFEM",
+  "name": "component_G7jVUwdBFEM",
   "entry": null,
   "displayName": "test.tsx_component",
   "hash": "G7jVUwdBFEM",
-  "canonicalFilename": "test.tsx_test.tsx_component_G7jVUwdBFEM",
+  "canonicalFilename": "test.tsx_component_G7jVUwdBFEM",
   "path": "",
   "extension": "js",
   "parent": null,

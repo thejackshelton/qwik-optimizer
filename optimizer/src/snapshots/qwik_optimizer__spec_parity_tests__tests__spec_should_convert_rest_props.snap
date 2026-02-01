@@ -17,17 +17,17 @@ return 'hi'
 ============================= test.js ==
 
 import { componentQrl, qrl } from "@qwik.dev/core";
-const i_JTJcH3nK8No = ()=>import("./test.tsx_test.tsx_component_useTask_JTJcH3nK8No");
-const i_G7jVUwdBFEM = ()=>import("./test.tsx_test.tsx_component_G7jVUwdBFEM");
-export default /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_G7jVUwdBFEM, "test.tsx_component_G7jVUwdBFEM"));
+const i_JTJcH3nK8No = ()=>import("./test.tsx_component_useTask_JTJcH3nK8No");
+const i_G7jVUwdBFEM = ()=>import("./test.tsx_component_G7jVUwdBFEM");
+export default /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_G7jVUwdBFEM, "component_G7jVUwdBFEM"));
 
 
 None
-============================= test.tsx_test.tsx_component_G7jVUwdBFEM.js (ENTRY POINT)==
+============================= test.tsx_component_G7jVUwdBFEM.js (ENTRY POINT)==
 
 import { qrl, useTaskQrl } from "@qwik.dev/core";
-export const test.tsx_component_G7jVUwdBFEM = ({ ...props })=>{
-	/*#__PURE__*/ useTaskQrl(/*#__PURE__*/ qrl(i_JTJcH3nK8No, "test.tsx_component_useTask_JTJcH3nK8No"));
+export const component_G7jVUwdBFEM = ({ ...props })=>{
+	/*#__PURE__*/ useTaskQrl(/*#__PURE__*/ qrl(i_JTJcH3nK8No, "component_useTask_JTJcH3nK8No"));
 	return "hi";
 };
 
@@ -36,11 +36,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "test.tsx_component_G7jVUwdBFEM",
+  "name": "component_G7jVUwdBFEM",
   "entry": null,
   "displayName": "test.tsx_component",
   "hash": "G7jVUwdBFEM",
-  "canonicalFilename": "test.tsx_test.tsx_component_G7jVUwdBFEM",
+  "canonicalFilename": "test.tsx_component_G7jVUwdBFEM",
   "path": "",
   "extension": "js",
   "parent": null,
@@ -53,9 +53,9 @@ None
   ]
 }
 */
-============================= test.tsx_test.tsx_component_useTask_JTJcH3nK8No.js (ENTRY POINT)==
+============================= test.tsx_component_useTask_JTJcH3nK8No.js (ENTRY POINT)==
 
-export const test.tsx_component_useTask_JTJcH3nK8No = ()=>{
+export const component_useTask_JTJcH3nK8No = ()=>{
 	props.checked;
 };
 
@@ -64,11 +64,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "test.tsx_component_useTask_JTJcH3nK8No",
+  "name": "component_useTask_JTJcH3nK8No",
   "entry": null,
   "displayName": "test.tsx_component_useTask",
   "hash": "JTJcH3nK8No",
-  "canonicalFilename": "test.tsx_test.tsx_component_useTask_JTJcH3nK8No",
+  "canonicalFilename": "test.tsx_component_useTask_JTJcH3nK8No",
   "path": "",
   "extension": "js",
   "parent": "component",

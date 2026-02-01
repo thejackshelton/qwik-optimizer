@@ -48,21 +48,21 @@ export const Foo = component$((props) => {
 
 import { _getConstProps, _getVarProps, _jsxSorted, _jsxSplit, componentQrl, qrl } from "@qwik.dev/core";
 import { Fragment as _Fragment } from "@qwik.dev/core/jsx-runtime";
-const i_oqxj4pNYHWI = ()=>import("./test.tsx_test.tsx_Foo_component_1_oqxj4pNYHWI");
-const i_gZqPatVoDqw = ()=>import("./test.tsx_test.tsx_Foo_component_gZqPatVoDqw");
+const i_oqxj4pNYHWI = ()=>import("./test.tsx_Foo_component_1_oqxj4pNYHWI");
+const i_gZqPatVoDqw = ()=>import("./test.tsx_Foo_component_gZqPatVoDqw");
 export const Lightweight = (props)=>{
 	return /*#__PURE__*/ _jsxSorted("div", null, null, /*#__PURE__*/ _jsxSorted(_Fragment, null, null, [/*#__PURE__*/ _jsxSorted("div", null, null, null, 3, null), /*#__PURE__*/ _jsxSplit("button", { ..._getVarProps(props) }, _getConstProps(props), null, 0, null)], 3, null), 3, null);
 };
-export const Foo = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_gZqPatVoDqw, "test.tsx_Foo_component_gZqPatVoDqw"));
+export const Foo = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_gZqPatVoDqw, "Foo_component_gZqPatVoDqw"));
 
 
 None
-============================= test.tsx_test.tsx_Foo_component_1_oqxj4pNYHWI.js (ENTRY POINT)==
+============================= test.tsx_Foo_component_1_oqxj4pNYHWI.js (ENTRY POINT)==
 
 import { Lightweight } from "./test";
 import { _getConstProps, _getVarProps, _jsxSorted, _jsxSplit } from "@qwik.dev/core";
 import { Fragment as _Fragment } from "@qwik.dev/core/jsx-runtime";
-export const test.tsx_Foo_component_1_oqxj4pNYHWI = ()=>{
+export const Foo_component_1_oqxj4pNYHWI = ()=>{
 	const [props] = useLexicalScope();
 	return /*#__PURE__*/ _jsxSorted("div", null, null, [
 		/*#__PURE__*/ _jsxSorted(_Fragment, null, null, [
@@ -85,11 +85,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "test.tsx_Foo_component_1_oqxj4pNYHWI",
+  "name": "Foo_component_1_oqxj4pNYHWI",
   "entry": null,
   "displayName": "test.tsx_Foo_component_1",
   "hash": "oqxj4pNYHWI",
-  "canonicalFilename": "test.tsx_test.tsx_Foo_component_1_oqxj4pNYHWI",
+  "canonicalFilename": "test.tsx_Foo_component_1_oqxj4pNYHWI",
   "path": "",
   "extension": "js",
   "parent": "component",
@@ -102,11 +102,11 @@ None
   ]
 }
 */
-============================= test.tsx_test.tsx_Foo_component_gZqPatVoDqw.js (ENTRY POINT)==
+============================= test.tsx_Foo_component_gZqPatVoDqw.js (ENTRY POINT)==
 
 import { qrl } from "@qwik.dev/core";
-export const test.tsx_Foo_component_gZqPatVoDqw = (props)=>{
-	return /*#__PURE__*/ qrl(i_oqxj4pNYHWI, "test.tsx_Foo_component_1_oqxj4pNYHWI", [props]);
+export const Foo_component_gZqPatVoDqw = (props)=>{
+	return /*#__PURE__*/ qrl(i_oqxj4pNYHWI, "Foo_component_1_oqxj4pNYHWI", [props]);
 };
 
 
@@ -114,11 +114,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "test.tsx_Foo_component_gZqPatVoDqw",
+  "name": "Foo_component_gZqPatVoDqw",
   "entry": null,
   "displayName": "test.tsx_Foo_component",
   "hash": "gZqPatVoDqw",
-  "canonicalFilename": "test.tsx_test.tsx_Foo_component_gZqPatVoDqw",
+  "canonicalFilename": "test.tsx_Foo_component_gZqPatVoDqw",
   "path": "",
   "extension": "js",
   "parent": null,

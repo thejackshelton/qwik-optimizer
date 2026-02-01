@@ -20,18 +20,18 @@ return <Hola>
 ============================= test.js ==
 
 import { _getConstProps, _getVarProps, _jsxSplit, componentQrl, qrl } from "@qwik.dev/core";
-const i_G7jVUwdBFEM = ()=>import("./test.tsx_test.tsx_component_G7jVUwdBFEM");
+const i_G7jVUwdBFEM = ()=>import("./test.tsx_component_G7jVUwdBFEM");
 function Hola(props) {
 	return /*#__PURE__*/ _jsxSplit("div", { ..._getVarProps(props) }, _getConstProps(props), null, 0, null);
 }
-export default /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_G7jVUwdBFEM, "test.tsx_component_G7jVUwdBFEM"));
+export default /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_G7jVUwdBFEM, "component_G7jVUwdBFEM"));
 
 
 None
-============================= test.tsx_test.tsx_component_G7jVUwdBFEM.js (ENTRY POINT)==
+============================= test.tsx_component_G7jVUwdBFEM.js (ENTRY POINT)==
 
 import { _jsxSorted } from "@qwik.dev/core";
-export const test.tsx_component_G7jVUwdBFEM = ()=>{
+export const component_G7jVUwdBFEM = ()=>{
 	return _jsxSorted(Hola, null, null, [/*#__PURE__*/ _jsxSorted("div", null, null, "1", 3, null), /*#__PURE__*/ _jsxSorted("div", null, null, "2", 3, null)], 3, null);
 };
 
@@ -40,11 +40,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "test.tsx_component_G7jVUwdBFEM",
+  "name": "component_G7jVUwdBFEM",
   "entry": null,
   "displayName": "test.tsx_component",
   "hash": "G7jVUwdBFEM",
-  "canonicalFilename": "test.tsx_test.tsx_component_G7jVUwdBFEM",
+  "canonicalFilename": "test.tsx_component_G7jVUwdBFEM",
   "path": "",
   "extension": "js",
   "parent": null,

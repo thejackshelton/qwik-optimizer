@@ -54,23 +54,23 @@ export default component$(() => {
 ============================= test.js ==
 
 import { componentQrl, qrl } from "@qwik.dev/core";
-const i_bdBx80StzIk = ()=>import("./test.tsx_test.tsx_Input_component_useTask_bdBx80StzIk");
-const i_BdCmNVLMFOM = ()=>import("./test.tsx_test.tsx_Input_component_BdCmNVLMFOM");
-const i_G7jVUwdBFEM = ()=>import("./test.tsx_test.tsx_component_G7jVUwdBFEM");
-export const Input = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_BdCmNVLMFOM, "test.tsx_Input_component_BdCmNVLMFOM"));
-export default /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_G7jVUwdBFEM, "test.tsx_component_G7jVUwdBFEM"));
+const i_bdBx80StzIk = ()=>import("./test.tsx_Input_component_useTask_bdBx80StzIk");
+const i_BdCmNVLMFOM = ()=>import("./test.tsx_Input_component_BdCmNVLMFOM");
+const i_G7jVUwdBFEM = ()=>import("./test.tsx_component_G7jVUwdBFEM");
+export const Input = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_BdCmNVLMFOM, "Input_component_BdCmNVLMFOM"));
+export default /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_G7jVUwdBFEM, "component_G7jVUwdBFEM"));
 
 
 None
-============================= test.tsx_test.tsx_component_G7jVUwdBFEM.js (ENTRY POINT)==
+============================= test.tsx_component_G7jVUwdBFEM.js (ENTRY POINT)==
 
 import { useForm, useForm2 } from "./some-file.ts";
 import { Input } from "./test";
 import { _jsxSorted, qrl, useStore } from "@qwik.dev/core";
 const i_onClick = ()=>import("./test.tsx");
-const i_bdBx80StzIk = ()=>import("./test.tsx_test.tsx_Input_component_useTask_bdBx80StzIk");
-export const test.tsx_component_G7jVUwdBFEM = ()=>{
-	/*#__PURE__*/ useTaskQrl(/*#__PURE__*/ qrl(i_bdBx80StzIk, "test.tsx_Input_component_useTask_bdBx80StzIk", [props]));
+const i_bdBx80StzIk = ()=>import("./test.tsx_Input_component_useTask_bdBx80StzIk");
+export const component_G7jVUwdBFEM = ()=>{
+	/*#__PURE__*/ useTaskQrl(/*#__PURE__*/ qrl(i_bdBx80StzIk, "Input_component_useTask_bdBx80StzIk", [props]));
 	const [[store2]] = [[useStore({ errors: {} })]];
 	const { store3, math4 } = {
 		store3: useStore({ errors: {} }),
@@ -97,11 +97,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "test.tsx_component_G7jVUwdBFEM",
+  "name": "component_G7jVUwdBFEM",
   "entry": null,
   "displayName": "test.tsx_component",
   "hash": "G7jVUwdBFEM",
-  "canonicalFilename": "test.tsx_test.tsx_component_G7jVUwdBFEM",
+  "canonicalFilename": "test.tsx_component_G7jVUwdBFEM",
   "path": "",
   "extension": "js",
   "parent": null,
@@ -114,9 +114,9 @@ None
   ]
 }
 */
-============================= test.tsx_test.tsx_Input_component_useTask_bdBx80StzIk.js (ENTRY POINT)==
+============================= test.tsx_Input_component_useTask_bdBx80StzIk.js (ENTRY POINT)==
 
-export const test.tsx_Input_component_useTask_bdBx80StzIk = ({ track })=>{
+export const Input_component_useTask_bdBx80StzIk = ({ track })=>{
 	const [props] = useLexicalScope();
 	track(()=>props.error);
 	track(()=>props.error2);
@@ -128,11 +128,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "test.tsx_Input_component_useTask_bdBx80StzIk",
+  "name": "Input_component_useTask_bdBx80StzIk",
   "entry": null,
   "displayName": "test.tsx_Input_component_useTask",
   "hash": "bdBx80StzIk",
-  "canonicalFilename": "test.tsx_test.tsx_Input_component_useTask_bdBx80StzIk",
+  "canonicalFilename": "test.tsx_Input_component_useTask_bdBx80StzIk",
   "path": "",
   "extension": "js",
   "parent": "component",
@@ -145,12 +145,12 @@ None
   ]
 }
 */
-============================= test.tsx_test.tsx_Input_component_BdCmNVLMFOM.js (ENTRY POINT)==
+============================= test.tsx_Input_component_BdCmNVLMFOM.js (ENTRY POINT)==
 
 import { _jsxSorted, qrl, useTaskQrl } from "@qwik.dev/core";
 import { Fragment as _Fragment } from "@qwik.dev/core/jsx-runtime";
-export const test.tsx_Input_component_BdCmNVLMFOM = (props)=>{
-	/*#__PURE__*/ useTaskQrl(/*#__PURE__*/ qrl(i_bdBx80StzIk, "test.tsx_Input_component_useTask_bdBx80StzIk", [props]));
+export const Input_component_BdCmNVLMFOM = (props)=>{
+	/*#__PURE__*/ useTaskQrl(/*#__PURE__*/ qrl(i_bdBx80StzIk, "Input_component_useTask_bdBx80StzIk", [props]));
 	return /*#__PURE__*/ _jsxSorted(_Fragment, null, null, null, 3, null);
 };
 
@@ -159,11 +159,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "test.tsx_Input_component_BdCmNVLMFOM",
+  "name": "Input_component_BdCmNVLMFOM",
   "entry": null,
   "displayName": "test.tsx_Input_component",
   "hash": "BdCmNVLMFOM",
-  "canonicalFilename": "test.tsx_test.tsx_Input_component_BdCmNVLMFOM",
+  "canonicalFilename": "test.tsx_Input_component_BdCmNVLMFOM",
   "path": "",
   "extension": "js",
   "parent": null,

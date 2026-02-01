@@ -30,15 +30,15 @@ export const FieldInput = component$(() => {
 ============================= test.js ==
 
 import { componentQrl, qrl } from "@qwik.dev/core";
-const i_GIFLU8BTj7k = ()=>import("./test.tsx_test.tsx_FieldInput_component_input_onInput_1_GIFLU8BTj7k");
-const i_O84bGdeej0g = ()=>import("./test.tsx_test.tsx_FieldInput_component_O84bGdeej0g");
-export const FieldInput = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_O84bGdeej0g, "test.tsx_FieldInput_component_O84bGdeej0g"));
+const i_GIFLU8BTj7k = ()=>import("./test.tsx_FieldInput_component_input_onInput_1_GIFLU8BTj7k");
+const i_O84bGdeej0g = ()=>import("./test.tsx_FieldInput_component_O84bGdeej0g");
+export const FieldInput = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_O84bGdeej0g, "FieldInput_component_O84bGdeej0g"));
 
 
 None
-============================= test.tsx_test.tsx_FieldInput_component_input_onInput_1_GIFLU8BTj7k.js (ENTRY POINT)==
+============================= test.tsx_FieldInput_component_input_onInput_1_GIFLU8BTj7k.js (ENTRY POINT)==
 
-export const test.tsx_FieldInput_component_input_onInput_1_GIFLU8BTj7k = (ev, el)=>{
+export const FieldInput_component_input_onInput_1_GIFLU8BTj7k = (ev, el)=>{
 	const [input] = useLexicalScope();
 	input.value = el.value;
 };
@@ -48,11 +48,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "test.tsx_FieldInput_component_input_onInput_1_GIFLU8BTj7k",
+  "name": "FieldInput_component_input_onInput_1_GIFLU8BTj7k",
   "entry": null,
   "displayName": "test.tsx_FieldInput_component_input_onInput_1",
   "hash": "GIFLU8BTj7k",
-  "canonicalFilename": "test.tsx_test.tsx_FieldInput_component_input_onInput_1_GIFLU8BTj7k",
+  "canonicalFilename": "test.tsx_FieldInput_component_input_onInput_1_GIFLU8BTj7k",
   "path": "",
   "extension": "js",
   "parent": "onInput",
@@ -65,16 +65,16 @@ None
   ]
 }
 */
-============================= test.tsx_test.tsx_FieldInput_component_O84bGdeej0g.js (ENTRY POINT)==
+============================= test.tsx_FieldInput_component_O84bGdeej0g.js (ENTRY POINT)==
 
 import { _jsxSorted, qrl, useSignal } from "@qwik.dev/core";
 const i_onFocus = ()=>import("./test.tsx");
-const i_GIFLU8BTj7k = ()=>import("./test.tsx_test.tsx_FieldInput_component_input_onInput_1_GIFLU8BTj7k");
-export const test.tsx_FieldInput_component_O84bGdeej0g = ()=>{
+const i_GIFLU8BTj7k = ()=>import("./test.tsx_FieldInput_component_input_onInput_1_GIFLU8BTj7k");
+export const FieldInput_component_O84bGdeej0g = ()=>{
 	const enabled = useSignal(false);
 	const input = useSignal("");
 	return /*#__PURE__*/ _jsxSorted("input", {
-		on:input: /*#__PURE__*/ qrl(i_GIFLU8BTj7k, "test.tsx_FieldInput_component_input_onInput_1_GIFLU8BTj7k", [input]),
+		on:input: /*#__PURE__*/ qrl(i_GIFLU8BTj7k, "FieldInput_component_input_onInput_1_GIFLU8BTj7k", [input]),
 		on:focus: /*#__PURE__*/ qrl(i_onFocus, "FieldInput_component_input_onFocus", [enabled])
 	}, { id: "input" }, null, 3, null);
 };
@@ -84,11 +84,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "test.tsx_FieldInput_component_O84bGdeej0g",
+  "name": "FieldInput_component_O84bGdeej0g",
   "entry": null,
   "displayName": "test.tsx_FieldInput_component",
   "hash": "O84bGdeej0g",
-  "canonicalFilename": "test.tsx_test.tsx_FieldInput_component_O84bGdeej0g",
+  "canonicalFilename": "test.tsx_FieldInput_component_O84bGdeej0g",
   "path": "",
   "extension": "js",
   "parent": null,

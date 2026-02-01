@@ -49,16 +49,16 @@ export const Parent = component$(() => {
 ============================= test.js ==
 
 import { componentQrl, qrl } from "@qwik.dev/core";
-const i_SX4UNdoumFY = ()=>import("./test.tsx_s_SX4UNdoumFY");
-const i_bMekv3wAtYg = ()=>import("./test.tsx_s_bMekv3wAtYg");
-const i_r7E4EA97DUg = ()=>import("./test.tsx_s_r7E4EA97DUg");
-const i_fNsRmJneFMo = ()=>import("./test.tsx_s_fNsRmJneFMo");
-const i_fxETLug1yE4 = ()=>import("./test.tsx_s_fxETLug1yE4");
+const i_SX4UNdoumFY = ()=>import("./test.tsx_Parent_component_useTask_SX4UNdoumFY");
+const i_bMekv3wAtYg = ()=>import("./test.tsx_Parent_component_serverStuff_bMekv3wAtYg");
+const i_r7E4EA97DUg = ()=>import("./test.tsx_Parent_component_serverLoader_r7E4EA97DUg");
+const i_fNsRmJneFMo = ()=>import("./test.tsx_Parent_component_useTask_1_fNsRmJneFMo");
+const i_fxETLug1yE4 = ()=>import("./test.tsx_Parent_component_fxETLug1yE4");
 export const Parent = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_fxETLug1yE4, "s_fxETLug1yE4"));
 
 
 None
-============================= test.tsx_s_r7E4EA97DUg.js (ENTRY POINT)==
+============================= test.tsx_Parent_component_serverLoader_r7E4EA97DUg.js (ENTRY POINT)==
 
 import { handler } from "serverless";
 export const s_r7E4EA97DUg = handler;
@@ -72,7 +72,7 @@ None
   "entry": null,
   "displayName": "test.tsx_Parent_component_serverLoader",
   "hash": "r7E4EA97DUg",
-  "canonicalFilename": "test.tsx_s_r7E4EA97DUg",
+  "canonicalFilename": "test.tsx_Parent_component_serverLoader_r7E4EA97DUg",
   "path": "",
   "extension": "js",
   "parent": "component",
@@ -85,12 +85,12 @@ None
   ]
 }
 */
-============================= test.tsx_s_fxETLug1yE4.js (ENTRY POINT)==
+============================= test.tsx_Parent_component_fxETLug1yE4.js (ENTRY POINT)==
 
 import { _jsxSorted } from "@qwik.dev/core";
-const i_fNsRmJneFMo = ()=>import("./test.tsx_s_fNsRmJneFMo");
-const i_ozOFLdzu7J8 = ()=>import("./test.tsx_s_ozOFLdzu7J8");
-const i_4DT0Ao6Wy7Y = ()=>import("./test.tsx_s_4DT0Ao6Wy7Y");
+const i_fNsRmJneFMo = ()=>import("./test.tsx_Parent_component_useTask_1_fNsRmJneFMo");
+const i_ozOFLdzu7J8 = ()=>import("./test.tsx_Parent_component_serverStuff_b_client_ozOFLdzu7J8");
+const i_4DT0Ao6Wy7Y = ()=>import("./test.tsx_Parent_component_serverStuff_a_4DT0Ao6Wy7Y");
 export const s_fxETLug1yE4 = ()=>{
 	const state = useStore({ text: "" });
 	/*#__PURE__*/ useTaskQrl(/*#__PURE__*/ qrl(i_SX4UNdoumFY, "s_SX4UNdoumFY", [state]));
@@ -109,7 +109,7 @@ None
   "entry": null,
   "displayName": "test.tsx_Parent_component",
   "hash": "fxETLug1yE4",
-  "canonicalFilename": "test.tsx_s_fxETLug1yE4",
+  "canonicalFilename": "test.tsx_Parent_component_fxETLug1yE4",
   "path": "",
   "extension": "js",
   "parent": null,
@@ -122,7 +122,7 @@ None
   ]
 }
 */
-============================= test.tsx_s_SX4UNdoumFY.js (ENTRY POINT)==
+============================= test.tsx_Parent_component_useTask_SX4UNdoumFY.js (ENTRY POINT)==
 
 import mongo from "mongodb";
 import redis from "redis";
@@ -142,7 +142,7 @@ None
   "entry": null,
   "displayName": "test.tsx_Parent_component_useTask",
   "hash": "SX4UNdoumFY",
-  "canonicalFilename": "test.tsx_s_SX4UNdoumFY",
+  "canonicalFilename": "test.tsx_Parent_component_useTask_SX4UNdoumFY",
   "path": "",
   "extension": "js",
   "parent": "component",
@@ -155,11 +155,11 @@ None
   ]
 }
 */
-============================= test.tsx_s_bMekv3wAtYg.js (ENTRY POINT)==
+============================= test.tsx_Parent_component_serverStuff_bMekv3wAtYg.js (ENTRY POINT)==
 
 import { clientQrl, qrl } from "@qwik.dev/core";
-const i_ozOFLdzu7J8 = ()=>import("./test.tsx_s_ozOFLdzu7J8");
-const i_4DT0Ao6Wy7Y = ()=>import("./test.tsx_s_4DT0Ao6Wy7Y");
+const i_ozOFLdzu7J8 = ()=>import("./test.tsx_Parent_component_serverStuff_b_client_ozOFLdzu7J8");
+const i_4DT0Ao6Wy7Y = ()=>import("./test.tsx_Parent_component_serverStuff_a_4DT0Ao6Wy7Y");
 export const s_bMekv3wAtYg = async ()=>{
 	const a = /*#__PURE__*/ qrl(i_4DT0Ao6Wy7Y, "s_4DT0Ao6Wy7Y");
 	const b = /*#__PURE__*/ clientQrl(/*#__PURE__*/ qrl(i_ozOFLdzu7J8, "s_ozOFLdzu7J8"));
@@ -175,7 +175,7 @@ None
   "entry": null,
   "displayName": "test.tsx_Parent_component_serverStuff",
   "hash": "bMekv3wAtYg",
-  "canonicalFilename": "test.tsx_s_bMekv3wAtYg",
+  "canonicalFilename": "test.tsx_Parent_component_serverStuff_bMekv3wAtYg",
   "path": "",
   "extension": "js",
   "parent": "component",
@@ -188,7 +188,7 @@ None
   ]
 }
 */
-============================= test.tsx_s_ozOFLdzu7J8.js (ENTRY POINT)==
+============================= test.tsx_Parent_component_serverStuff_b_client_ozOFLdzu7J8.js (ENTRY POINT)==
 
 export const s_ozOFLdzu7J8 = ()=>{};
 
@@ -201,7 +201,7 @@ None
   "entry": null,
   "displayName": "test.tsx_Parent_component_serverStuff_b_client",
   "hash": "ozOFLdzu7J8",
-  "canonicalFilename": "test.tsx_s_ozOFLdzu7J8",
+  "canonicalFilename": "test.tsx_Parent_component_serverStuff_b_client_ozOFLdzu7J8",
   "path": "",
   "extension": "js",
   "parent": "serverStuff",
@@ -214,7 +214,7 @@ None
   ]
 }
 */
-============================= test.tsx_s_4DT0Ao6Wy7Y.js (ENTRY POINT)==
+============================= test.tsx_Parent_component_serverStuff_a_4DT0Ao6Wy7Y.js (ENTRY POINT)==
 
 export const s_4DT0Ao6Wy7Y = ()=>{};
 
@@ -227,7 +227,7 @@ None
   "entry": null,
   "displayName": "test.tsx_Parent_component_serverStuff_a",
   "hash": "4DT0Ao6Wy7Y",
-  "canonicalFilename": "test.tsx_s_4DT0Ao6Wy7Y",
+  "canonicalFilename": "test.tsx_Parent_component_serverStuff_a_4DT0Ao6Wy7Y",
   "path": "",
   "extension": "js",
   "parent": "serverStuff",
@@ -240,7 +240,7 @@ None
   ]
 }
 */
-============================= test.tsx_s_fNsRmJneFMo.js (ENTRY POINT)==
+============================= test.tsx_Parent_component_useTask_1_fNsRmJneFMo.js (ENTRY POINT)==
 
 export const s_fNsRmJneFMo = ()=>{};
 
@@ -253,7 +253,7 @@ None
   "entry": null,
   "displayName": "test.tsx_Parent_component_useTask_1",
   "hash": "fNsRmJneFMo",
-  "canonicalFilename": "test.tsx_s_fNsRmJneFMo",
+  "canonicalFilename": "test.tsx_Parent_component_useTask_1_fNsRmJneFMo",
   "path": "",
   "extension": "js",
   "parent": "component",

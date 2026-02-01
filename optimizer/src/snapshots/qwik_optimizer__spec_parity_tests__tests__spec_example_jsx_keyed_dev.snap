@@ -21,16 +21,16 @@ export const App = component$((props: Stuff) => {
 ============================= project/index.js ==
 
 import { componentQrl, qrl } from "@qwik.dev/core";
-const i_jseokqHOzbs = ()=>import("./index.tsx_index.tsx_App_component_jseokqHOzbs");
-export const App = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_jseokqHOzbs, "index.tsx_App_component_jseokqHOzbs"));
+const i_jseokqHOzbs = ()=>import("./index.tsx_App_component_jseokqHOzbs");
+export const App = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_jseokqHOzbs, "App_component_jseokqHOzbs"));
 
 
 None
-============================= project/index.tsx_index.tsx_App_component_jseokqHOzbs.js (ENTRY POINT)==
+============================= index.tsx_App_component_jseokqHOzbs.js (ENTRY POINT)==
 
 import { _jsxSorted } from "@qwik.dev/core";
 import { Fragment as _Fragment } from "@qwik.dev/core/jsx-runtime";
-export const index.tsx_App_component_jseokqHOzbs = (props)=>{
+export const App_component_jseokqHOzbs = (props)=>{
 	return /*#__PURE__*/ _jsxSorted(_Fragment, null, null, [
 		_jsxSorted(Cmp, null, null, null, 3, "stuff"),
 		_jsxSorted(Cmp, null, null, null, 3, null),
@@ -45,11 +45,11 @@ None
 /*
 {
   "origin": "project/index.tsx",
-  "name": "index.tsx_App_component_jseokqHOzbs",
+  "name": "App_component_jseokqHOzbs",
   "entry": null,
   "displayName": "index.tsx_App_component",
   "hash": "jseokqHOzbs",
-  "canonicalFilename": "index.tsx_index.tsx_App_component_jseokqHOzbs",
+  "canonicalFilename": "index.tsx_App_component_jseokqHOzbs",
   "path": "project",
   "extension": "js",
   "parent": null,

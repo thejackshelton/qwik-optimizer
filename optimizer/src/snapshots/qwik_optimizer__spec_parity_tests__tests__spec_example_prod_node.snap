@@ -19,12 +19,12 @@ export const Foo = component$(() => {
 ============================= test.tsx ==
 
 import { componentQrl, qrl } from "@qwik.dev/core";
-const i_gZqPatVoDqw = ()=>import("./test.tsx_s_gZqPatVoDqw");
+const i_gZqPatVoDqw = ()=>import("./test.tsx_Foo_component_gZqPatVoDqw");
 export const Foo = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_gZqPatVoDqw, "s_gZqPatVoDqw"));
 
 
 None
-============================= test.tsx_s_gZqPatVoDqw.tsx (ENTRY POINT)==
+============================= test.tsx_Foo_component_gZqPatVoDqw.tsx (ENTRY POINT)==
 
 import { qrl } from "@qwik.dev/core";
 const i_2 = ()=>import("./test.tsx");
@@ -47,7 +47,7 @@ None
   "entry": null,
   "displayName": "test.tsx_Foo_component",
   "hash": "gZqPatVoDqw",
-  "canonicalFilename": "test.tsx_s_gZqPatVoDqw",
+  "canonicalFilename": "test.tsx_Foo_component_gZqPatVoDqw",
   "path": "",
   "extension": "tsx",
   "parent": null,

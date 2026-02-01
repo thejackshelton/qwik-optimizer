@@ -17,20 +17,20 @@ export const Header = component$(() => {
 ============================= test.tsx ==
 
 import { componentQrl, qrl } from "@qwik.dev/core";
-const i_NeyHGN2dO7k = ()=>import("./test.tsx_test.tsx_Header_component_div_onClick_NeyHGN2dO7k");
-const i_Qw9nV3mG0KQ = ()=>import("./test.tsx_test.tsx_Header_component_Qw9nV3mG0KQ");
-export const Header = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_Qw9nV3mG0KQ, "test.tsx_Header_component_Qw9nV3mG0KQ"));
+const i_NeyHGN2dO7k = ()=>import("./test.tsx_Header_component_div_onClick_NeyHGN2dO7k");
+const i_Qw9nV3mG0KQ = ()=>import("./test.tsx_Header_component_Qw9nV3mG0KQ");
+export const Header = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_Qw9nV3mG0KQ, "Header_component_Qw9nV3mG0KQ"));
 
 
 None
-============================= test.tsx_test.tsx_Header_component_Qw9nV3mG0KQ.tsx (ENTRY POINT)==
+============================= test.tsx_Header_component_Qw9nV3mG0KQ.tsx (ENTRY POINT)==
 
 import { qrl } from "@qwik.dev/core";
-const i_NeyHGN2dO7k = ()=>import("./test.tsx_test.tsx_Header_component_div_onClick_NeyHGN2dO7k");
-export const test.tsx_Header_component_Qw9nV3mG0KQ = ()=>{
+const i_NeyHGN2dO7k = ()=>import("./test.tsx_Header_component_div_onClick_NeyHGN2dO7k");
+export const Header_component_Qw9nV3mG0KQ = ()=>{
 	return <>
 			<div onClick={(ctx)=>console.log("1")} />
-			<div onClick={/*#__PURE__*/ qrl(i_NeyHGN2dO7k, "test.tsx_Header_component_div_onClick_NeyHGN2dO7k")} />
+			<div onClick={/*#__PURE__*/ qrl(i_NeyHGN2dO7k, "Header_component_div_onClick_NeyHGN2dO7k")} />
 		</>;
 };
 
@@ -39,11 +39,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "test.tsx_Header_component_Qw9nV3mG0KQ",
+  "name": "Header_component_Qw9nV3mG0KQ",
   "entry": null,
   "displayName": "test.tsx_Header_component",
   "hash": "Qw9nV3mG0KQ",
-  "canonicalFilename": "test.tsx_test.tsx_Header_component_Qw9nV3mG0KQ",
+  "canonicalFilename": "test.tsx_Header_component_Qw9nV3mG0KQ",
   "path": "",
   "extension": "tsx",
   "parent": null,
@@ -56,20 +56,20 @@ None
   ]
 }
 */
-============================= test.tsx_test.tsx_Header_component_div_onClick_NeyHGN2dO7k.tsx (ENTRY POINT)==
+============================= test.tsx_Header_component_div_onClick_NeyHGN2dO7k.tsx (ENTRY POINT)==
 
-export const test.tsx_Header_component_div_onClick_NeyHGN2dO7k = (ctx)=>console.log("2");
+export const Header_component_div_onClick_NeyHGN2dO7k = (ctx)=>console.log("2");
 
 
 None
 /*
 {
   "origin": "test.tsx",
-  "name": "test.tsx_Header_component_div_onClick_NeyHGN2dO7k",
+  "name": "Header_component_div_onClick_NeyHGN2dO7k",
   "entry": null,
   "displayName": "test.tsx_Header_component_div_onClick",
   "hash": "NeyHGN2dO7k",
-  "canonicalFilename": "test.tsx_test.tsx_Header_component_div_onClick_NeyHGN2dO7k",
+  "canonicalFilename": "test.tsx_Header_component_div_onClick_NeyHGN2dO7k",
   "path": "",
   "extension": "tsx",
   "parent": "component",

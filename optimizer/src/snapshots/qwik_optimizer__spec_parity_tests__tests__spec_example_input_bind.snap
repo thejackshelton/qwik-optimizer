@@ -25,12 +25,12 @@ export const Greeter = component$(() => {
 ============================= test.js ==
 
 import { componentQrl, qrl } from "@qwik.dev/core";
-const i_l5Al0251s9w = ()=>import("./test.tsx_s_l5Al0251s9w");
+const i_l5Al0251s9w = ()=>import("./test.tsx_Greeter_component_l5Al0251s9w");
 export const Greeter = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_l5Al0251s9w, "s_l5Al0251s9w"));
 
 
 None
-============================= test.tsx_s_l5Al0251s9w.js (ENTRY POINT)==
+============================= test.tsx_Greeter_component_l5Al0251s9w.js (ENTRY POINT)==
 
 import { _jsxSorted } from "@qwik.dev/core";
 import { Fragment as _Fragment } from "@qwik.dev/core/jsx-runtime";
@@ -62,7 +62,7 @@ None
   "entry": "entry_segments",
   "displayName": "test.tsx_Greeter_component",
   "hash": "l5Al0251s9w",
-  "canonicalFilename": "test.tsx_s_l5Al0251s9w",
+  "canonicalFilename": "test.tsx_Greeter_component_l5Al0251s9w",
   "path": "",
   "extension": "js",
   "parent": null,

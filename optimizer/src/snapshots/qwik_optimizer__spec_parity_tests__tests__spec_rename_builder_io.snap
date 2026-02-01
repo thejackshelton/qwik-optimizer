@@ -29,22 +29,22 @@ export const App = component$(() => {
 
 import { componentQrl, qrl, qwikifyQrl } from "@qwik.dev/core";
 import { qwikifyQrl } from "@qwik.dev/react";
-const i_WtIyP0H0lSk = ()=>import("./test.tsx_test.tsx_Foo_qwikify_WtIyP0H0lSk");
-const i_MSAJNhrvHtQ = ()=>import("./test.tsx_test.tsx_Bar_MSAJNhrvHtQ");
-const i_XumqEURaLxI = ()=>import("./test.tsx_test.tsx_App_component_XumqEURaLxI");
-export const Foo = /*#__PURE__*/ qwikifyQrl(/*#__PURE__*/ qrl(i_WtIyP0H0lSk, "test.tsx_Foo_qwikify_WtIyP0H0lSk"));
-export const Bar = /*#__PURE__*/ qrl(i_MSAJNhrvHtQ, "test.tsx_Bar_MSAJNhrvHtQ");
-export const App = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_XumqEURaLxI, "test.tsx_App_component_XumqEURaLxI"));
+const i_WtIyP0H0lSk = ()=>import("./test.tsx_Foo_qwikify_WtIyP0H0lSk");
+const i_MSAJNhrvHtQ = ()=>import("./test.tsx_Bar_MSAJNhrvHtQ");
+const i_XumqEURaLxI = ()=>import("./test.tsx_App_component_XumqEURaLxI");
+export const Foo = /*#__PURE__*/ qwikifyQrl(/*#__PURE__*/ qrl(i_WtIyP0H0lSk, "Foo_qwikify_WtIyP0H0lSk"));
+export const Bar = /*#__PURE__*/ qrl(i_MSAJNhrvHtQ, "Bar_MSAJNhrvHtQ");
+export const App = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_XumqEURaLxI, "App_component_XumqEURaLxI"));
 
 
 None
-============================= test.tsx_test.tsx_App_component_XumqEURaLxI.js (ENTRY POINT)==
+============================= test.tsx_App_component_XumqEURaLxI.js (ENTRY POINT)==
 
 import sdk from "@builder.io/sdk";
 import { isDev } from "@qwik.dev/core/build";
 import { stuff } from "@qwik.dev/router";
 import { moreStuff } from "@qwik.dev/router/more/here";
-export const test.tsx_App_component_XumqEURaLxI = ()=>{
+export const App_component_XumqEURaLxI = ()=>{
 	sdk.hello();
 	if (isDev) {
 		stuff();
@@ -59,11 +59,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "test.tsx_App_component_XumqEURaLxI",
+  "name": "App_component_XumqEURaLxI",
   "entry": null,
   "displayName": "test.tsx_App_component",
   "hash": "XumqEURaLxI",
-  "canonicalFilename": "test.tsx_test.tsx_App_component_XumqEURaLxI",
+  "canonicalFilename": "test.tsx_App_component_XumqEURaLxI",
   "path": "",
   "extension": "js",
   "parent": null,
@@ -76,20 +76,20 @@ None
   ]
 }
 */
-============================= test.tsx_test.tsx_Foo_qwikify_WtIyP0H0lSk.js (ENTRY POINT)==
+============================= test.tsx_Foo_qwikify_WtIyP0H0lSk.js (ENTRY POINT)==
 
-export const test.tsx_Foo_qwikify_WtIyP0H0lSk = MyReactComponent;
+export const Foo_qwikify_WtIyP0H0lSk = MyReactComponent;
 
 
 None
 /*
 {
   "origin": "test.tsx",
-  "name": "test.tsx_Foo_qwikify_WtIyP0H0lSk",
+  "name": "Foo_qwikify_WtIyP0H0lSk",
   "entry": null,
   "displayName": "test.tsx_Foo_qwikify",
   "hash": "WtIyP0H0lSk",
-  "canonicalFilename": "test.tsx_test.tsx_Foo_qwikify_WtIyP0H0lSk",
+  "canonicalFilename": "test.tsx_Foo_qwikify_WtIyP0H0lSk",
   "path": "",
   "extension": "js",
   "parent": null,
@@ -102,20 +102,20 @@ None
   ]
 }
 */
-============================= test.tsx_test.tsx_Bar_MSAJNhrvHtQ.js (ENTRY POINT)==
+============================= test.tsx_Bar_MSAJNhrvHtQ.js (ENTRY POINT)==
 
-export const test.tsx_Bar_MSAJNhrvHtQ = "a thing";
+export const Bar_MSAJNhrvHtQ = "a thing";
 
 
 None
 /*
 {
   "origin": "test.tsx",
-  "name": "test.tsx_Bar_MSAJNhrvHtQ",
+  "name": "Bar_MSAJNhrvHtQ",
   "entry": null,
   "displayName": "test.tsx_Bar",
   "hash": "MSAJNhrvHtQ",
-  "canonicalFilename": "test.tsx_test.tsx_Bar_MSAJNhrvHtQ",
+  "canonicalFilename": "test.tsx_Bar_MSAJNhrvHtQ",
   "path": "",
   "extension": "js",
   "parent": null,

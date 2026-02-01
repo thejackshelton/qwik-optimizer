@@ -29,17 +29,17 @@ export const Child = component$(() => {
 ============================= test.tsx ==
 
 import { componentQrl, qrl } from "@qwik.dev/core";
-const i_j0TLFXIKSrI = ()=>import("./test.tsx_test.tsx_Child_component_useStyles_j0TLFXIKSrI");
-const i_zqMxaBj0SWU = ()=>import("./test.tsx_test.tsx_Child_component_useBrowserVisibleTask_zqMxaBj0SWU");
-const i_80js9RUUsfM = ()=>import("./test.tsx_test.tsx_Child_component_80js9RUUsfM");
-export const Child = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_80js9RUUsfM, "test.tsx_Child_component_80js9RUUsfM"));
+const i_j0TLFXIKSrI = ()=>import("./test.tsx_Child_component_useStyles_j0TLFXIKSrI");
+const i_zqMxaBj0SWU = ()=>import("./test.tsx_Child_component_useBrowserVisibleTask_zqMxaBj0SWU");
+const i_80js9RUUsfM = ()=>import("./test.tsx_Child_component_80js9RUUsfM");
+export const Child = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_80js9RUUsfM, "Child_component_80js9RUUsfM"));
 
 
 None
-============================= test.tsx_test.tsx_Child_component_useBrowserVisibleTask_zqMxaBj0SWU.tsx (ENTRY POINT)==
+============================= test.tsx_Child_component_useBrowserVisibleTask_zqMxaBj0SWU.tsx (ENTRY POINT)==
 
 import { thing } from "./sibling";
-export const test.tsx_Child_component_useBrowserVisibleTask_zqMxaBj0SWU = ()=>{
+export const Child_component_useBrowserVisibleTask_zqMxaBj0SWU = ()=>{
 	const [state] = useLexicalScope();
 	state.count = thing.doStuff() + import("./sibling");
 };
@@ -49,11 +49,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "test.tsx_Child_component_useBrowserVisibleTask_zqMxaBj0SWU",
+  "name": "Child_component_useBrowserVisibleTask_zqMxaBj0SWU",
   "entry": "entry_segments",
   "displayName": "test.tsx_Child_component_useBrowserVisibleTask",
   "hash": "zqMxaBj0SWU",
-  "canonicalFilename": "test.tsx_test.tsx_Child_component_useBrowserVisibleTask_zqMxaBj0SWU",
+  "canonicalFilename": "test.tsx_Child_component_useBrowserVisibleTask_zqMxaBj0SWU",
   "path": "",
   "extension": "tsx",
   "parent": "component",
@@ -66,20 +66,20 @@ None
   ]
 }
 */
-============================= test.tsx_test.tsx_Child_component_useStyles_j0TLFXIKSrI.tsx (ENTRY POINT)==
+============================= test.tsx_Child_component_useStyles_j0TLFXIKSrI.tsx (ENTRY POINT)==
 
-export const test.tsx_Child_component_useStyles_j0TLFXIKSrI = "somestring";
+export const Child_component_useStyles_j0TLFXIKSrI = "somestring";
 
 
 None
 /*
 {
   "origin": "test.tsx",
-  "name": "test.tsx_Child_component_useStyles_j0TLFXIKSrI",
+  "name": "Child_component_useStyles_j0TLFXIKSrI",
   "entry": "entry_segments",
   "displayName": "test.tsx_Child_component_useStyles",
   "hash": "j0TLFXIKSrI",
-  "canonicalFilename": "test.tsx_test.tsx_Child_component_useStyles_j0TLFXIKSrI",
+  "canonicalFilename": "test.tsx_Child_component_useStyles_j0TLFXIKSrI",
   "path": "",
   "extension": "tsx",
   "parent": "component",
@@ -92,15 +92,15 @@ None
   ]
 }
 */
-============================= test.tsx_test.tsx_Child_component_80js9RUUsfM.tsx (ENTRY POINT)==
+============================= test.tsx_Child_component_80js9RUUsfM.tsx (ENTRY POINT)==
 
-const i_zqMxaBj0SWU = ()=>import("./test.tsx_test.tsx_Child_component_useBrowserVisibleTask_zqMxaBj0SWU");
-const i_j0TLFXIKSrI = ()=>import("./test.tsx_test.tsx_Child_component_useStyles_j0TLFXIKSrI");
-export const test.tsx_Child_component_80js9RUUsfM = ()=>{
-	/*#__PURE__*/ useStylesQrl(/*#__PURE__*/ qrl(i_j0TLFXIKSrI, "test.tsx_Child_component_useStyles_j0TLFXIKSrI"));
-	const state = /*#__PURE__*/ useStylesQrl(/*#__PURE__*/ qrl(i_j0TLFXIKSrI, "test.tsx_Child_component_useStyles_j0TLFXIKSrI"));
-	/*#__PURE__*/ useBrowserVisibleTaskQrl(/*#__PURE__*/ qrl(i_zqMxaBj0SWU, "test.tsx_Child_component_useBrowserVisibleTask_zqMxaBj0SWU", [state]));
-	return <div on:click={/*#__PURE__*/ useBrowserVisibleTaskQrl(/*#__PURE__*/ qrl(i_zqMxaBj0SWU, "test.tsx_Child_component_useBrowserVisibleTask_zqMxaBj0SWU", [state]))}>
+const i_zqMxaBj0SWU = ()=>import("./test.tsx_Child_component_useBrowserVisibleTask_zqMxaBj0SWU");
+const i_j0TLFXIKSrI = ()=>import("./test.tsx_Child_component_useStyles_j0TLFXIKSrI");
+export const Child_component_80js9RUUsfM = ()=>{
+	/*#__PURE__*/ useStylesQrl(/*#__PURE__*/ qrl(i_j0TLFXIKSrI, "Child_component_useStyles_j0TLFXIKSrI"));
+	const state = /*#__PURE__*/ useStylesQrl(/*#__PURE__*/ qrl(i_j0TLFXIKSrI, "Child_component_useStyles_j0TLFXIKSrI"));
+	/*#__PURE__*/ useBrowserVisibleTaskQrl(/*#__PURE__*/ qrl(i_zqMxaBj0SWU, "Child_component_useBrowserVisibleTask_zqMxaBj0SWU", [state]));
+	return <div on:click={/*#__PURE__*/ useBrowserVisibleTaskQrl(/*#__PURE__*/ qrl(i_zqMxaBj0SWU, "Child_component_useBrowserVisibleTask_zqMxaBj0SWU", [state]))}>
 		</div>;
 };
 
@@ -109,11 +109,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "test.tsx_Child_component_80js9RUUsfM",
+  "name": "Child_component_80js9RUUsfM",
   "entry": "entry_segments",
   "displayName": "test.tsx_Child_component",
   "hash": "80js9RUUsfM",
-  "canonicalFilename": "test.tsx_test.tsx_Child_component_80js9RUUsfM",
+  "canonicalFilename": "test.tsx_Child_component_80js9RUUsfM",
   "path": "",
   "extension": "tsx",
   "parent": null,

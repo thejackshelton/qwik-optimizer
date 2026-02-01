@@ -47,19 +47,19 @@ export const { onRequest, logout, getSession, signup } = auth$({
 
 import { authQrl, serverAuthQrl } from "@auth/qwik";
 import { authQrl, qrl, serverAuthQrl } from "@qwik.dev/core";
-const i_vPbyaRdcMu4 = ()=>import("./test.tsx_test.tsx_serverAuth_vPbyaRdcMu4");
-const i_US9XKovuOyI = ()=>import("./test.tsx_test.tsx_auth_US9XKovuOyI");
-export const { onRequest, logout, getSession, signup } = /*#__PURE__*/ serverAuthQrl(/*#__PURE__*/ qrl(i_vPbyaRdcMu4, "test.tsx_serverAuth_vPbyaRdcMu4"));
-export const { onRequest, logout, getSession, signup } = /*#__PURE__*/ authQrl(/*#__PURE__*/ qrl(i_US9XKovuOyI, "test.tsx_auth_US9XKovuOyI"));
+const i_vPbyaRdcMu4 = ()=>import("./test.tsx_serverAuth_vPbyaRdcMu4");
+const i_US9XKovuOyI = ()=>import("./test.tsx_auth_US9XKovuOyI");
+export const { onRequest, logout, getSession, signup } = /*#__PURE__*/ serverAuthQrl(/*#__PURE__*/ qrl(i_vPbyaRdcMu4, "serverAuth_vPbyaRdcMu4"));
+export const { onRequest, logout, getSession, signup } = /*#__PURE__*/ authQrl(/*#__PURE__*/ qrl(i_US9XKovuOyI, "auth_US9XKovuOyI"));
 
 
 None
-============================= test.tsx_test.tsx_auth_US9XKovuOyI.js (ENTRY POINT)==
+============================= test.tsx_auth_US9XKovuOyI.js (ENTRY POINT)==
 
 import GitHub from "@auth/core/providers/github";
 import Facebook from "next-auth/providers/facebook";
 import Google from "next-auth/providers/google";
-export const test.tsx_auth_US9XKovuOyI = { providers: [
+export const auth_US9XKovuOyI = { providers: [
 	GitHub({
 		clientId: process.env.GITHUB_ID,
 		clientSecret: process.env.GITHUB_SECRET
@@ -79,11 +79,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "test.tsx_auth_US9XKovuOyI",
+  "name": "auth_US9XKovuOyI",
   "entry": null,
   "displayName": "test.tsx_auth",
   "hash": "US9XKovuOyI",
-  "canonicalFilename": "test.tsx_test.tsx_auth_US9XKovuOyI",
+  "canonicalFilename": "test.tsx_auth_US9XKovuOyI",
   "path": "",
   "extension": "js",
   "parent": null,
@@ -96,12 +96,12 @@ None
   ]
 }
 */
-============================= test.tsx_test.tsx_serverAuth_vPbyaRdcMu4.js (ENTRY POINT)==
+============================= test.tsx_serverAuth_vPbyaRdcMu4.js (ENTRY POINT)==
 
 import GitHub from "@auth/core/providers/github";
 import Facebook from "next-auth/providers/facebook";
 import Google from "next-auth/providers/google";
-export const test.tsx_serverAuth_vPbyaRdcMu4 = { providers: [
+export const serverAuth_vPbyaRdcMu4 = { providers: [
 	GitHub({
 		clientId: process.env.GITHUB_ID,
 		clientSecret: process.env.GITHUB_SECRET
@@ -121,11 +121,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "test.tsx_serverAuth_vPbyaRdcMu4",
+  "name": "serverAuth_vPbyaRdcMu4",
   "entry": null,
   "displayName": "test.tsx_serverAuth",
   "hash": "vPbyaRdcMu4",
-  "canonicalFilename": "test.tsx_test.tsx_serverAuth_vPbyaRdcMu4",
+  "canonicalFilename": "test.tsx_serverAuth_vPbyaRdcMu4",
   "path": "",
   "extension": "js",
   "parent": null,

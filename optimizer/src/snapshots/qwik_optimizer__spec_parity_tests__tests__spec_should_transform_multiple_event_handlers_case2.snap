@@ -19,25 +19,25 @@ const Foo = component$(function() {
 ============================= test.js ==
 
 import { componentQrl, qrl } from "@qwik.dev/core";
-const i_gZqPatVoDqw = ()=>import("./test.tsx_test.tsx_Foo_component_gZqPatVoDqw");
-/*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_gZqPatVoDqw, "test.tsx_Foo_component_gZqPatVoDqw"));
+const i_gZqPatVoDqw = ()=>import("./test.tsx_Foo_component_gZqPatVoDqw");
+/*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_gZqPatVoDqw, "Foo_component_gZqPatVoDqw"));
 
 
 None
-============================= test.tsx_test.tsx_Foo_component_div_map_div_onMouseOver_Q0uudMQZHCA.js (ENTRY POINT)==
+============================= test.tsx_Foo_component_div_map_div_onMouseOver_Q0uudMQZHCA.js (ENTRY POINT)==
 
-export const test.tsx_Foo_component_div_map_div_onMouseOver_Q0uudMQZHCA = (_, _1, row)=>console.log("over" + row.value.id);
+export const Foo_component_div_map_div_onMouseOver_Q0uudMQZHCA = (_, _1, row)=>console.log("over" + row.value.id);
 
 
 None
 /*
 {
   "origin": "test.tsx",
-  "name": "test.tsx_Foo_component_div_map_div_onMouseOver_Q0uudMQZHCA",
+  "name": "Foo_component_div_map_div_onMouseOver_Q0uudMQZHCA",
   "entry": null,
   "displayName": "test.tsx_Foo_component_div_map_div_onMouseOver",
   "hash": "Q0uudMQZHCA",
-  "canonicalFilename": "test.tsx_test.tsx_Foo_component_div_map_div_onMouseOver_Q0uudMQZHCA",
+  "canonicalFilename": "test.tsx_Foo_component_div_map_div_onMouseOver_Q0uudMQZHCA",
   "path": "",
   "extension": "js",
   "parent": null,
@@ -50,21 +50,21 @@ None
   ]
 }
 */
-============================= test.tsx_test.tsx_Foo_component_gZqPatVoDqw.js (ENTRY POINT)==
+============================= test.tsx_Foo_component_gZqPatVoDqw.js (ENTRY POINT)==
 
 import { _jsxSorted, qrl, useSignal } from "@qwik.dev/core";
-const i_y9dqu3LYito = ()=>import("./test.tsx_test.tsx_Foo_component_div_map_div_p_onClick_y9dqu3LYito");
-const i_Q0uudMQZHCA = ()=>import("./test.tsx_test.tsx_Foo_component_div_map_div_onMouseOver_Q0uudMQZHCA");
-const i_zM4Cumgzius = ()=>import("./test.tsx_test.tsx_Foo_component_div_map_div_onClick_zM4Cumgzius");
-export const test.tsx_Foo_component_gZqPatVoDqw = function() {
+const i_y9dqu3LYito = ()=>import("./test.tsx_Foo_component_div_map_div_p_onClick_y9dqu3LYito");
+const i_Q0uudMQZHCA = ()=>import("./test.tsx_Foo_component_div_map_div_onMouseOver_Q0uudMQZHCA");
+const i_zM4Cumgzius = ()=>import("./test.tsx_Foo_component_div_map_div_onClick_zM4Cumgzius");
+export const Foo_component_gZqPatVoDqw = function() {
 	const data = useSignal([]);
 	return /*#__PURE__*/ _jsxSorted("div", null, null, data.value.map((row, idx)=>/*#__PURE__*/ _jsxSorted("div", {
 		q:ps: [idx, row],
-		on:click: /*#__PURE__*/ qrl(i_zM4Cumgzius, "test.tsx_Foo_component_div_map_div_onClick_zM4Cumgzius"),
-		on:mouseover: /*#__PURE__*/ qrl(i_Q0uudMQZHCA, "test.tsx_Foo_component_div_map_div_onMouseOver_Q0uudMQZHCA")
+		on:click: /*#__PURE__*/ qrl(i_zM4Cumgzius, "Foo_component_div_map_div_onClick_zM4Cumgzius"),
+		on:mouseover: /*#__PURE__*/ qrl(i_Q0uudMQZHCA, "Foo_component_div_map_div_onMouseOver_Q0uudMQZHCA")
 	}, null, /*#__PURE__*/ _jsxSorted("p", {
 		q:p: row,
-		on:click: /*#__PURE__*/ qrl(i_y9dqu3LYito, "test.tsx_Foo_component_div_map_div_p_onClick_y9dqu3LYito")
+		on:click: /*#__PURE__*/ qrl(i_y9dqu3LYito, "Foo_component_div_map_div_p_onClick_y9dqu3LYito")
 	}, null, item.value.id, 1, null), 3, null)), 1, null);
 };
 
@@ -73,11 +73,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "test.tsx_Foo_component_gZqPatVoDqw",
+  "name": "Foo_component_gZqPatVoDqw",
   "entry": null,
   "displayName": "test.tsx_Foo_component",
   "hash": "gZqPatVoDqw",
-  "canonicalFilename": "test.tsx_test.tsx_Foo_component_gZqPatVoDqw",
+  "canonicalFilename": "test.tsx_Foo_component_gZqPatVoDqw",
   "path": "",
   "extension": "js",
   "parent": null,
@@ -90,20 +90,20 @@ None
   ]
 }
 */
-============================= test.tsx_test.tsx_Foo_component_div_map_div_p_onClick_y9dqu3LYito.js (ENTRY POINT)==
+============================= test.tsx_Foo_component_div_map_div_p_onClick_y9dqu3LYito.js (ENTRY POINT)==
 
-export const test.tsx_Foo_component_div_map_div_p_onClick_y9dqu3LYito = (_, _1, row)=>console.log("inner" + row.value.id);
+export const Foo_component_div_map_div_p_onClick_y9dqu3LYito = (_, _1, row)=>console.log("inner" + row.value.id);
 
 
 None
 /*
 {
   "origin": "test.tsx",
-  "name": "test.tsx_Foo_component_div_map_div_p_onClick_y9dqu3LYito",
+  "name": "Foo_component_div_map_div_p_onClick_y9dqu3LYito",
   "entry": null,
   "displayName": "test.tsx_Foo_component_div_map_div_p_onClick",
   "hash": "y9dqu3LYito",
-  "canonicalFilename": "test.tsx_test.tsx_Foo_component_div_map_div_p_onClick_y9dqu3LYito",
+  "canonicalFilename": "test.tsx_Foo_component_div_map_div_p_onClick_y9dqu3LYito",
   "path": "",
   "extension": "js",
   "parent": null,
@@ -116,20 +116,20 @@ None
   ]
 }
 */
-============================= test.tsx_test.tsx_Foo_component_div_map_div_onClick_zM4Cumgzius.js (ENTRY POINT)==
+============================= test.tsx_Foo_component_div_map_div_onClick_zM4Cumgzius.js (ENTRY POINT)==
 
-export const test.tsx_Foo_component_div_map_div_onClick_zM4Cumgzius = (_, _1, idx, row)=>console.log(row.value.id, idx);
+export const Foo_component_div_map_div_onClick_zM4Cumgzius = (_, _1, idx, row)=>console.log(row.value.id, idx);
 
 
 None
 /*
 {
   "origin": "test.tsx",
-  "name": "test.tsx_Foo_component_div_map_div_onClick_zM4Cumgzius",
+  "name": "Foo_component_div_map_div_onClick_zM4Cumgzius",
   "entry": null,
   "displayName": "test.tsx_Foo_component_div_map_div_onClick",
   "hash": "zM4Cumgzius",
-  "canonicalFilename": "test.tsx_test.tsx_Foo_component_div_map_div_onClick_zM4Cumgzius",
+  "canonicalFilename": "test.tsx_Foo_component_div_map_div_onClick_zM4Cumgzius",
   "path": "",
   "extension": "js",
   "parent": null,

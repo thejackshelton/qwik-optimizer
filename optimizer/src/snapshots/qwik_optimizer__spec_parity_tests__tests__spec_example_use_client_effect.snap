@@ -31,15 +31,15 @@ export const Child = component$(() => {
 ============================= test.js ==
 
 import { componentQrl, qrl } from "@qwik.dev/core";
-const i_zqMxaBj0SWU = ()=>import("./test.tsx_test.tsx_Child_component_useBrowserVisibleTask_zqMxaBj0SWU");
-const i_80js9RUUsfM = ()=>import("./test.tsx_test.tsx_Child_component_80js9RUUsfM");
-export const Child = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_80js9RUUsfM, "test.tsx_Child_component_80js9RUUsfM"));
+const i_zqMxaBj0SWU = ()=>import("./test.tsx_Child_component_useBrowserVisibleTask_zqMxaBj0SWU");
+const i_80js9RUUsfM = ()=>import("./test.tsx_Child_component_80js9RUUsfM");
+export const Child = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_80js9RUUsfM, "Child_component_80js9RUUsfM"));
 
 
 None
-============================= test.tsx_test.tsx_Child_component_useBrowserVisibleTask_zqMxaBj0SWU.js (ENTRY POINT)==
+============================= test.tsx_Child_component_useBrowserVisibleTask_zqMxaBj0SWU.js (ENTRY POINT)==
 
-export const test.tsx_Child_component_useBrowserVisibleTask_zqMxaBj0SWU = ()=>{
+export const Child_component_useBrowserVisibleTask_zqMxaBj0SWU = ()=>{
 	const [state] = useLexicalScope();
 	const timer = setInterval(()=>{
 		state.count++;
@@ -54,11 +54,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "test.tsx_Child_component_useBrowserVisibleTask_zqMxaBj0SWU",
+  "name": "Child_component_useBrowserVisibleTask_zqMxaBj0SWU",
   "entry": null,
   "displayName": "test.tsx_Child_component_useBrowserVisibleTask",
   "hash": "zqMxaBj0SWU",
-  "canonicalFilename": "test.tsx_test.tsx_Child_component_useBrowserVisibleTask_zqMxaBj0SWU",
+  "canonicalFilename": "test.tsx_Child_component_useBrowserVisibleTask_zqMxaBj0SWU",
   "path": "",
   "extension": "js",
   "parent": "component",
@@ -71,12 +71,12 @@ None
   ]
 }
 */
-============================= test.tsx_test.tsx_Child_component_80js9RUUsfM.js (ENTRY POINT)==
+============================= test.tsx_Child_component_80js9RUUsfM.js (ENTRY POINT)==
 
 import { _jsxSorted, qrl, useBrowserVisibleTaskQrl, useStore } from "@qwik.dev/core";
-export const test.tsx_Child_component_80js9RUUsfM = ()=>{
+export const Child_component_80js9RUUsfM = ()=>{
 	const state = useStore({ count: 0 });
-	/*#__PURE__*/ useBrowserVisibleTaskQrl(/*#__PURE__*/ qrl(i_zqMxaBj0SWU, "test.tsx_Child_component_useBrowserVisibleTask_zqMxaBj0SWU", [state]));
+	/*#__PURE__*/ useBrowserVisibleTaskQrl(/*#__PURE__*/ qrl(i_zqMxaBj0SWU, "Child_component_useBrowserVisibleTask_zqMxaBj0SWU", [state]));
 	return /*#__PURE__*/ _jsxSorted("div", null, null, state.count, 1, null);
 };
 
@@ -85,11 +85,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "test.tsx_Child_component_80js9RUUsfM",
+  "name": "Child_component_80js9RUUsfM",
   "entry": null,
   "displayName": "test.tsx_Child_component",
   "hash": "80js9RUUsfM",
-  "canonicalFilename": "test.tsx_test.tsx_Child_component_80js9RUUsfM",
+  "canonicalFilename": "test.tsx_Child_component_80js9RUUsfM",
   "path": "",
   "extension": "js",
   "parent": null,

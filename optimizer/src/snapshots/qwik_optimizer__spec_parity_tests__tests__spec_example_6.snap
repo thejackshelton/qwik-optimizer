@@ -10,25 +10,25 @@ export const sym1 = $((ctx) => console.log("1"));
 ============================= test.tsx ==
 
 import { qrl } from "@qwik.dev/core";
-const i_YcWWmS5BN0c = ()=>import("./test.tsx_test.tsx_sym1_YcWWmS5BN0c");
-export const sym1 = /*#__PURE__*/ qrl(i_YcWWmS5BN0c, "test.tsx_sym1_YcWWmS5BN0c");
+const i_YcWWmS5BN0c = ()=>import("./test.tsx_sym1_YcWWmS5BN0c");
+export const sym1 = /*#__PURE__*/ qrl(i_YcWWmS5BN0c, "sym1_YcWWmS5BN0c");
 
 
 None
-============================= test.tsx_test.tsx_sym1_YcWWmS5BN0c.tsx (ENTRY POINT)==
+============================= test.tsx_sym1_YcWWmS5BN0c.tsx (ENTRY POINT)==
 
-export const test.tsx_sym1_YcWWmS5BN0c = (ctx)=>console.log("1");
+export const sym1_YcWWmS5BN0c = (ctx)=>console.log("1");
 
 
 None
 /*
 {
   "origin": "test.tsx",
-  "name": "test.tsx_sym1_YcWWmS5BN0c",
+  "name": "sym1_YcWWmS5BN0c",
   "entry": null,
   "displayName": "test.tsx_sym1",
   "hash": "YcWWmS5BN0c",
-  "canonicalFilename": "test.tsx_test.tsx_sym1_YcWWmS5BN0c",
+  "canonicalFilename": "test.tsx_sym1_YcWWmS5BN0c",
   "path": "",
   "extension": "tsx",
   "parent": null,

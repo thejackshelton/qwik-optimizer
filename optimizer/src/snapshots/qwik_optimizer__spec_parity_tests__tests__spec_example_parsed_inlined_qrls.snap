@@ -41,8 +41,8 @@ export const STYLES = ".red { color: red; }";
 ============================= test.tsx ==
 
 import { componentQrl, inlinedQrl, jsx, jsxs, qrl, useLexicalScope, useStylesQrl } from "@qwik.dev/core";
-const i_eh7w9rBhR90 = ()=>import("./test.tsx_s_eh7w9rBhR90");
-const i_HMw0Z8eLFig = ()=>import("./test.tsx_s_HMw0Z8eLFig");
+const i_eh7w9rBhR90 = ()=>import("./test.tsx_App_componentQrl_inlinedQrl_useStyles_eh7w9rBhR90");
+const i_HMw0Z8eLFig = ()=>import("./test.tsx_App_componentQrl_inlinedQrl_useStyles_1_HMw0Z8eLFig");
 export const App = /*#__PURE__*/ componentQrl(inlinedQrl(()=>{
 	/*#__PURE__*/ useStylesQrl(/*#__PURE__*/ qrl(i_eh7w9rBhR90, "s_eh7w9rBhR90"));
 	/*#__PURE__*/ useStylesQrl(/*#__PURE__*/ qrl(i_HMw0Z8eLFig, "s_HMw0Z8eLFig"));
@@ -59,9 +59,9 @@ export const STYLES = ".red { color: red; }";
 
 
 None
-============================= test.tsx_s_HMw0Z8eLFig.tsx (ENTRY POINT)==
+============================= test.tsx_App_componentQrl_inlinedQrl_useStyles_1_HMw0Z8eLFig.tsx (ENTRY POINT)==
 
-const i_eh7w9rBhR90 = ()=>import("./test.tsx_s_eh7w9rBhR90");
+const i_eh7w9rBhR90 = ()=>import("./test.tsx_App_componentQrl_inlinedQrl_useStyles_eh7w9rBhR90");
 export const s_HMw0Z8eLFig = useStylesQrl(i_eh7w9rBhR90, "s_eh7w9rBhR90");
 
 
@@ -73,7 +73,7 @@ None
   "entry": "entry_segments",
   "displayName": "test.tsx_App_componentQrl_inlinedQrl_useStyles_1",
   "hash": "HMw0Z8eLFig",
-  "canonicalFilename": "test.tsx_s_HMw0Z8eLFig",
+  "canonicalFilename": "test.tsx_App_componentQrl_inlinedQrl_useStyles_1_HMw0Z8eLFig",
   "path": "",
   "extension": "tsx",
   "parent": null,
@@ -86,7 +86,7 @@ None
   ]
 }
 */
-============================= test.tsx_s_eh7w9rBhR90.tsx (ENTRY POINT)==
+============================= test.tsx_App_componentQrl_inlinedQrl_useStyles_eh7w9rBhR90.tsx (ENTRY POINT)==
 
 import { inlinedQrl } from "@qwik.dev/core";
 export const s_eh7w9rBhR90 = inlinedQrl(STYLES, "STYLES_odz7dfdfdM");
@@ -100,7 +100,7 @@ None
   "entry": "entry_segments",
   "displayName": "test.tsx_App_componentQrl_inlinedQrl_useStyles",
   "hash": "eh7w9rBhR90",
-  "canonicalFilename": "test.tsx_s_eh7w9rBhR90",
+  "canonicalFilename": "test.tsx_App_componentQrl_inlinedQrl_useStyles_eh7w9rBhR90",
   "path": "",
   "extension": "tsx",
   "parent": null,

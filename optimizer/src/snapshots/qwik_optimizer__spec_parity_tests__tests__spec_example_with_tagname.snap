@@ -20,15 +20,15 @@ export const Foo = component$(() => {
 ============================= test.tsx ==
 
 import { componentQrl, qrl } from "@qwik.dev/core";
-const i_oqxj4pNYHWI = ()=>import("./test.tsx_test.tsx_Foo_component_1_oqxj4pNYHWI");
-const i_gZqPatVoDqw = ()=>import("./test.tsx_test.tsx_Foo_component_gZqPatVoDqw");
-export const Foo = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_gZqPatVoDqw, "test.tsx_Foo_component_gZqPatVoDqw"));
+const i_oqxj4pNYHWI = ()=>import("./test.tsx_Foo_component_1_oqxj4pNYHWI");
+const i_gZqPatVoDqw = ()=>import("./test.tsx_Foo_component_gZqPatVoDqw");
+export const Foo = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_gZqPatVoDqw, "Foo_component_gZqPatVoDqw"));
 
 
 None
-============================= test.tsx_test.tsx_Foo_component_1_oqxj4pNYHWI.tsx (ENTRY POINT)==
+============================= test.tsx_Foo_component_1_oqxj4pNYHWI.tsx (ENTRY POINT)==
 
-export const test.tsx_Foo_component_1_oqxj4pNYHWI = ()=>{
+export const Foo_component_1_oqxj4pNYHWI = ()=>{
 	return <div>
 			</div>;
 };
@@ -38,11 +38,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "test.tsx_Foo_component_1_oqxj4pNYHWI",
+  "name": "Foo_component_1_oqxj4pNYHWI",
   "entry": null,
   "displayName": "test.tsx_Foo_component_1",
   "hash": "oqxj4pNYHWI",
-  "canonicalFilename": "test.tsx_test.tsx_Foo_component_1_oqxj4pNYHWI",
+  "canonicalFilename": "test.tsx_Foo_component_1_oqxj4pNYHWI",
   "path": "",
   "extension": "tsx",
   "parent": "component",
@@ -55,11 +55,11 @@ None
   ]
 }
 */
-============================= test.tsx_test.tsx_Foo_component_gZqPatVoDqw.tsx (ENTRY POINT)==
+============================= test.tsx_Foo_component_gZqPatVoDqw.tsx (ENTRY POINT)==
 
 import { qrl } from "@qwik.dev/core";
-export const test.tsx_Foo_component_gZqPatVoDqw = ()=>{
-	return /*#__PURE__*/ qrl(i_oqxj4pNYHWI, "test.tsx_Foo_component_1_oqxj4pNYHWI");
+export const Foo_component_gZqPatVoDqw = ()=>{
+	return /*#__PURE__*/ qrl(i_oqxj4pNYHWI, "Foo_component_1_oqxj4pNYHWI");
 };
 
 
@@ -67,11 +67,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "test.tsx_Foo_component_gZqPatVoDqw",
+  "name": "Foo_component_gZqPatVoDqw",
   "entry": null,
   "displayName": "test.tsx_Foo_component",
   "hash": "gZqPatVoDqw",
-  "canonicalFilename": "test.tsx_test.tsx_Foo_component_gZqPatVoDqw",
+  "canonicalFilename": "test.tsx_Foo_component_gZqPatVoDqw",
   "path": "",
   "extension": "tsx",
   "parent": null,
