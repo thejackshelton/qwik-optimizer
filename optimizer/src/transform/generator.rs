@@ -773,8 +773,62 @@ impl<'a> Traverse<'a, ()> for TransformGenerator<'a> {
             }
         }
 
-        // Note: hoisted_fns are now emitted in segment files via component_hoisted_fns stack
+        // When inline strategy is used, emit hoisted functions in main file
+        // For segment strategy, they are emitted in segment files via component_hoisted_fns stack
         // See component.rs for segment-level emission
+        if self.is_inline() {
+            // Collect all hoisted functions from the component_hoisted_fns stack
+            let all_hoisted_fns: Vec<(String, String, String)> = self.component_hoisted_fns
+                .iter_mut()
+                .flat_map(|v| std::mem::take(v))
+                .collect();
+
+            // Emit hoisted functions in reverse order (so they appear in correct order when inserted at position 0)
+            // Actually, we need to collect them and insert after imports, not at position 0
+            // Store them for later insertion after imports
+            for (hf_name, hf_code, hf_str) in all_hoisted_fns.into_iter().rev() {
+                // Parse the serialized function code back to an Expression
+                let hf_allocator = Allocator::default();
+                let parsed = oxc_parser::Parser::new(&hf_allocator, &hf_code, oxc_span::SourceType::default())
+                    .parse_expression();
+                if let Ok(hf_expr) = parsed {
+                    let hf_expr_cloned = hf_expr.clone_in(ctx.ast.allocator);
+
+                    // const _hfN_str = "...";
+                    let hf_str_name = format!("{}_str", hf_name);
+                    let hf_str_stmt = Statement::VariableDeclaration(ctx.ast.alloc(ctx.ast.variable_declaration(
+                        SPAN,
+                        VariableDeclarationKind::Const,
+                        ctx.ast.vec1(ctx.ast.variable_declarator(
+                            SPAN,
+                            VariableDeclarationKind::Const,
+                            ctx.ast.binding_pattern_binding_identifier(SPAN, ctx.ast.atom(&hf_str_name)),
+                            NONE,
+                            Some(ctx.ast.expression_string_literal(SPAN, ctx.ast.atom(&hf_str), None)),
+                            false,
+                        )),
+                        false,
+                    )));
+                    node.body.insert(0, hf_str_stmt);
+
+                    // const _hfN = (p0)=>...;
+                    let hf_stmt = Statement::VariableDeclaration(ctx.ast.alloc(ctx.ast.variable_declaration(
+                        SPAN,
+                        VariableDeclarationKind::Const,
+                        ctx.ast.vec1(ctx.ast.variable_declarator(
+                            SPAN,
+                            VariableDeclarationKind::Const,
+                            ctx.ast.binding_pattern_binding_identifier(SPAN, ctx.ast.atom(&hf_name)),
+                            NONE,
+                            Some(hf_expr_cloned),
+                            false,
+                        )),
+                        false,
+                    )));
+                    node.body.insert(0, hf_stmt);
+                }
+            }
+        }
 
         // Emit hoisted import functions at module level
         // Format: const i_{name} = () => import("./file.js");
