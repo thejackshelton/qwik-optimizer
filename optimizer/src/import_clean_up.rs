@@ -151,7 +151,9 @@ mod tests {
     }
 
     #[test]
-    fn test_merge_imports() {
+    fn test_separate_imports() {
+        // Test that imports from the same source are kept separate (not merged)
+        // This matches qwik-core output format
         let allocator = Allocator::new();
         let source = r#"
             import { a as A } from '@qwik.dev/core';
@@ -168,11 +170,14 @@ mod tests {
         let codegen = Codegen::default();
         let raw = codegen.build(&program).code;
         let lines: Vec<&str> = raw.lines().collect();
-        assert_eq!(program.body.len(), 3);
-        assert_eq!(lines.len(), 3);
-        assert_eq!(lines[0], r#"import { b, a as A } from "@qwik.dev/core";"#);
-        assert_eq!(lines[1], r#"import { c } from "@qwik.dev/router";"#);
-        assert_eq!(lines[2], r#"A.foo(b, c);"#);
+        // Now we have 4 body items: 3 separate imports + 1 expression statement
+        assert_eq!(program.body.len(), 4);
+        assert_eq!(lines.len(), 4);
+        // Imports are emitted in original order (insertion order preserved)
+        assert_eq!(lines[0], r#"import { a as A } from "@qwik.dev/core";"#);
+        assert_eq!(lines[1], r#"import { b } from "@qwik.dev/core";"#);
+        assert_eq!(lines[2], r#"import { c } from "@qwik.dev/router";"#);
+        assert_eq!(lines[3], r#"A.foo(b, c);"#);
     }
 
     #[test]
