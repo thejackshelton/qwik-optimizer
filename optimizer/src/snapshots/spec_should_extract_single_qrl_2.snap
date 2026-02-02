@@ -41,17 +41,16 @@ import { qrl } from "@qwik.dev/core";
 import { useSignal } from "@qwik.dev/core";
 import { useStore } from "@qwik.dev/core";
 import { qrl } from "@qwik.dev/core";
-const i_MKOvE0RDw7w = ()=>import("./test.tsx_Parent_component_div_map_button_onClick_MKOvE0RDw7w");
-const i_38pgNOXzh6g = ()=>import("./test.tsx_Parent_component_div_button_onClick_38pgNOXzh6g");
+const i_idS41XFQi6Q = ()=>import("./test.tsx_Parent_component_div_button_on_click_idS41XFQi6Q");
 export const Parent_component_0TaiDayHrlo = ()=>{
 	const cart = useStore([]);
 	const results = useSignal(["foo", "bar"]);
-	const Parent_component_div_map_button_onClick_MKOvE0RDw7w = /*#__PURE__*/ qrl(i_MKOvE0RDw7w, "Parent_component_div_map_button_onClick_MKOvE0RDw7w", [cart]);
+	const Parent_component_div_button_on_click_idS41XFQi6Q = /*#__PURE__*/ qrl(i_idS41XFQi6Q, "Parent_component_div_button_on_click_idS41XFQi6Q", [cart]);
 	return /*#__PURE__*/ _jsxSorted("div", null, null, [
-		/*#__PURE__*/ _jsxSorted("button", { "on:click": /*#__PURE__*/ qrl(i_38pgNOXzh6g, "Parent_component_div_button_onClick_38pgNOXzh6g", [results]) }, { id: "first" }, null, 3, null),
+		/*#__PURE__*/ _jsxSorted("button", { "on:click": /*#__PURE__*/ qrl(i_idS41XFQi6Q, "Parent_component_div_button_on_click_idS41XFQi6Q", [results]) }, { id: "first" }, null, 3, null),
 		results.value.map((item, key)=>/*#__PURE__*/ _jsxSorted("button", {
 			id: "second-" + key,
-			"on:click": Parent_component_div_map_button_onClick_MKOvE0RDw7w,
+			"on:click": Parent_component_div_button_on_click_idS41XFQi6Q,
 			"q:p": item
 		}, null, item, 1, null)),
 		/*#__PURE__*/ _jsxSorted("ul", null, null, cart.map((item)=>/*#__PURE__*/ _jsxSorted("li", null, null, /*#__PURE__*/ _jsxSorted("span", null, null, item, 1, null), 3, null)), 1, null)
@@ -80,10 +79,10 @@ None
   ]
 }
 */
-============================= test.tsx_Parent_component_div_button_onClick_38pgNOXzh6g.js (ENTRY POINT)==
+============================= test.tsx_Parent_component_div_button_on_click_idS41XFQi6Q.js (ENTRY POINT)==
 
 import { useLexicalScope } from "@qwik.dev/core";
-export const Parent_component_div_button_onClick_38pgNOXzh6g = ()=>{
+export const Parent_component_div_button_on_click_idS41XFQi6Q = ()=>{
 	const [results] = useLexicalScope();
 	return results.value = ["item1", "item2"];
 };
@@ -93,11 +92,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "Parent_component_div_button_onClick_38pgNOXzh6g",
+  "name": "Parent_component_div_button_on_click_idS41XFQi6Q",
   "entry": null,
-  "displayName": "test.tsx_Parent_component_div_button_onClick",
-  "hash": "38pgNOXzh6g",
-  "canonicalFilename": "test.tsx_Parent_component_div_button_onClick_38pgNOXzh6g",
+  "displayName": "test.tsx_Parent_component_div_button_on_click",
+  "hash": "idS41XFQi6Q",
+  "canonicalFilename": "test.tsx_Parent_component_div_button_on_click_idS41XFQi6Q",
   "path": "",
   "extension": "js",
   "parent": null,
@@ -110,10 +109,10 @@ None
   ]
 }
 */
-============================= test.tsx_Parent_component_div_map_button_onClick_MKOvE0RDw7w.js (ENTRY POINT)==
+============================= test.tsx_Parent_component_div_button_on_click_idS41XFQi6Q.js (ENTRY POINT)==
 
 import { useLexicalScope } from "@qwik.dev/core";
-export const Parent_component_div_map_button_onClick_MKOvE0RDw7w = (_, _1, item)=>{
+export const Parent_component_div_button_on_click_idS41XFQi6Q = (_, _1, item)=>{
 	const [cart] = useLexicalScope();
 	cart.push(item);
 };
@@ -123,11 +122,11 @@ None
 /*
 {
   "origin": "test.tsx",
-  "name": "Parent_component_div_map_button_onClick_MKOvE0RDw7w",
+  "name": "Parent_component_div_button_on_click_idS41XFQi6Q",
   "entry": null,
-  "displayName": "test.tsx_Parent_component_div_map_button_onClick",
-  "hash": "MKOvE0RDw7w",
-  "canonicalFilename": "test.tsx_Parent_component_div_map_button_onClick_MKOvE0RDw7w",
+  "displayName": "test.tsx_Parent_component_div_button_on_click",
+  "hash": "idS41XFQi6Q",
+  "canonicalFilename": "test.tsx_Parent_component_div_button_on_click_idS41XFQi6Q",
   "path": "",
   "extension": "js",
   "parent": null,

@@ -21,7 +21,7 @@ import { componentQrl } from "@qwik.dev/core";
 import { _jsxSorted } from "@qwik.dev/core";
 import { componentQrl } from "@qwik.dev/core";
 export const App = /*#__PURE__*/ componentQrl(/*#__PURE__*/ inlinedQrl(()=>{
-	return _jsxSorted(Cmp, null, null, /*#__PURE__*/ _jsxSorted("p", { "on:click": /*#__PURE__*/ inlinedQrl(()=>console.log("warn"), "App_component_Cmp_p_onClick_vuXzfUTkpto") }, { class: "stuff" }, "Hello Qwik", 3, null), 3, null);
+	return _jsxSorted(Cmp, null, null, /*#__PURE__*/ _jsxSorted("p", { "on:click": /*#__PURE__*/ inlinedQrl(()=>console.log("warn"), "App_component_Cmp_p_on_click_9VylW0qB00s") }, { class: "stuff" }, "Hello Qwik", 3, null), 3, null);
 }, "App_component_ckEPmXZlub0"));
 
 

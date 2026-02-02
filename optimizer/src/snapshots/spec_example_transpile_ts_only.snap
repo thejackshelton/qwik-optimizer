@@ -21,7 +21,7 @@ import { componentQrl } from "@qwik.dev/core";
 import { componentQrl } from "@qwik.dev/core";
 export const App = /*#__PURE__*/ componentQrl(/*#__PURE__*/ inlinedQrl((props)=>{
 	return <Cmp>
-			<p class="stuff" on:click={/*#__PURE__*/ inlinedQrl(()=>console.log("warn"), "App_component_Cmp_p_onClick_vuXzfUTkpto")}>Hello Qwik</p>
+			<p class="stuff" on:click={/*#__PURE__*/ inlinedQrl(()=>console.log("warn"), "App_component_Cmp_p_on_click_9VylW0qB00s")}>Hello Qwik</p>
 		</Cmp>;
 }, "App_component_ckEPmXZlub0"));
 

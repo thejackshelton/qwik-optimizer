@@ -25,6 +25,38 @@ pub fn compute_scoped_idents(all_idents: &[Id], all_decl: &[IdPlusType]) -> (Vec
     (output, is_const)
 }
 
+/// Converts camelCase event names to snake_case to match qwik-core convention.
+/// Examples:
+///   onClick -> on_click
+///   onMouseOver -> on_mouse_over
+///   onInput -> on_input
+fn convert_event_name_to_snake_case(name: &str) -> String {
+    // Check if this is an event name (starts with "on" followed by uppercase)
+    if name.len() > 2 && name.starts_with("on") {
+        let rest = &name[2..];
+        if rest.chars().next().map(|c| c.is_ascii_uppercase()).unwrap_or(false) {
+            // Convert camelCase to snake_case
+            let mut result = String::from("on");
+            for c in rest.chars() {
+                if c.is_ascii_uppercase() {
+                    result.push('_');
+                    result.push(c.to_ascii_lowercase());
+                } else {
+                    result.push(c);
+                }
+            }
+            return result;
+        }
+    }
+    name.to_string()
+}
+
+/// Segments to skip when building display name.
+/// These are array iteration methods that qwik-core doesn't include in segment paths.
+fn should_skip_segment(name: &str) -> bool {
+    matches!(name, "map" | "filter" | "forEach" | "reduce" | "flatMap" | "find" | "findIndex" | "some" | "every")
+}
+
 pub(crate) fn build_display_name(segment_stack: &[crate::segment::Segment]) -> String {
     use crate::segment::Segment;
 
@@ -32,9 +64,15 @@ pub(crate) fn build_display_name(segment_stack: &[crate::segment::Segment]) -> S
 
     for segment in segment_stack {
         let segment_str: String = match segment {
-            Segment::Named(name) => name.clone(),
-            Segment::NamedQrl(name, 0) => name.clone(),
-            Segment::NamedQrl(name, index) => format!("{}_{}", name, index),
+            Segment::Named(name) => {
+                // Skip array iteration method names to match qwik-core
+                if should_skip_segment(name) {
+                    continue;
+                }
+                name.clone()
+            },
+            Segment::NamedQrl(name, 0) => convert_event_name_to_snake_case(name),
+            Segment::NamedQrl(name, index) => format!("{}_{}", convert_event_name_to_snake_case(name), index),
             Segment::IndexQrl(0) => continue,
             Segment::IndexQrl(index) => index.to_string(),
         };
@@ -180,7 +218,31 @@ mod tests {
             Segment::Named("Foo".to_string()),
             Segment::NamedQrl("onClick".to_string(), 0),
         ];
-        assert_eq!(build_display_name(&stack), "Foo_onClick");
+        // Event names are converted to snake_case (onClick -> on_click)
+        assert_eq!(build_display_name(&stack), "Foo_on_click");
+    }
+
+    #[test]
+    fn test_build_display_name_skips_map() {
+        use crate::segment::Segment;
+        let stack = vec![
+            Segment::Named("Foo".to_string()),
+            Segment::Named("div".to_string()),
+            Segment::Named("map".to_string()),
+            Segment::Named("tr".to_string()),
+            Segment::NamedQrl("onClick".to_string(), 0),
+        ];
+        // "map" is skipped, event names converted to snake_case
+        assert_eq!(build_display_name(&stack), "Foo_div_tr_on_click");
+    }
+
+    #[test]
+    fn test_convert_event_name() {
+        assert_eq!(convert_event_name_to_snake_case("onClick"), "on_click");
+        assert_eq!(convert_event_name_to_snake_case("onMouseOver"), "on_mouse_over");
+        assert_eq!(convert_event_name_to_snake_case("onInput"), "on_input");
+        assert_eq!(convert_event_name_to_snake_case("component"), "component");
+        assert_eq!(convert_event_name_to_snake_case("on"), "on");
     }
 
     #[test]

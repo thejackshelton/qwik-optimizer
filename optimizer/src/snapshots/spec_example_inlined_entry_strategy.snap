@@ -49,7 +49,7 @@ export const Child = /*#__PURE__*/ componentQrl(/*#__PURE__*/ inlinedQrl(()=>{
 		const [state] = useLexicalScope();
 		state.count = thing.doStuff() + import("./sibling");
 	}, "Child_component_useBrowserVisibleTask_0IGFPOyJmQA", [state]));
-	return <div on:click={/*#__PURE__*/ inlinedQrl(()=>console.log(mongodb), "Child_component_div_onClick_elliVSnAiOQ")}>
+	return <div on:click={/*#__PURE__*/ inlinedQrl(()=>console.log(mongodb), "Child_component_div_on_click_MMpkjn7JKOk")}>
 		</div>;
 }, "Child_component_9GyF01GDKqw"));
 

@@ -24,6 +24,34 @@ export const FieldInput = component$(
   }
 );
 
+============================= test.tsx_FieldInput_component_input_on_click_2sr386GIAzQ.js (ENTRY POINT)==
+
+export const FieldInput_component_input_on_click_2sr386GIAzQ = ()=>{
+	console.log("clicked");
+};
+
+
+None
+/*
+{
+  "origin": "test.tsx",
+  "name": "FieldInput_component_input_on_click_2sr386GIAzQ",
+  "entry": null,
+  "displayName": "test.tsx_FieldInput_component_input_on_click",
+  "hash": "2sr386GIAzQ",
+  "canonicalFilename": "test.tsx_FieldInput_component_input_on_click_2sr386GIAzQ",
+  "path": "",
+  "extension": "js",
+  "parent": null,
+  "ctxKind": "eventHandler",
+  "ctxName": "onClick$",
+  "captures": false,
+  "loc": [
+    0,
+    0
+  ]
+}
+*/
 ============================= test.tsx_FieldInput_component_V4XAtJSTRKg.js (ENTRY POINT)==
 
 import { _getConstProps } from "@qwik.dev/core";
@@ -31,13 +59,13 @@ import { _getVarProps } from "@qwik.dev/core";
 import { _jsxSplit } from "@qwik.dev/core";
 import { destructureBindings } from "./destructure-bindings";
 import { qrl } from "@qwik.dev/core";
-const i_ZU6atl1InN8 = ()=>import("./test.tsx_FieldInput_component_input_onClick_ZU6atl1InN8");
+const i_2sr386GIAzQ = ()=>import("./test.tsx_FieldInput_component_input_on_click_2sr386GIAzQ");
 export const FieldInput_component_V4XAtJSTRKg = (props)=>{
 	const initialValues = { value: undefined };
 	const rest = destructureBindings(props, initialValues);
 	return /*#__PURE__*/ _jsxSplit("input", {
 		..._getVarProps(rest),
-		"on:click": /*#__PURE__*/ qrl(i_ZU6atl1InN8, "FieldInput_component_input_onClick_ZU6atl1InN8")
+		"on:click": /*#__PURE__*/ qrl(i_2sr386GIAzQ, "FieldInput_component_input_on_click_2sr386GIAzQ")
 	}, _getConstProps(rest), null, 0, null);
 };
 
@@ -60,34 +88,6 @@ None
   "loc": [
     162,
     453
-  ]
-}
-*/
-============================= test.tsx_FieldInput_component_input_onClick_ZU6atl1InN8.js (ENTRY POINT)==
-
-export const FieldInput_component_input_onClick_ZU6atl1InN8 = ()=>{
-	console.log("clicked");
-};
-
-
-None
-/*
-{
-  "origin": "test.tsx",
-  "name": "FieldInput_component_input_onClick_ZU6atl1InN8",
-  "entry": null,
-  "displayName": "test.tsx_FieldInput_component_input_onClick",
-  "hash": "ZU6atl1InN8",
-  "canonicalFilename": "test.tsx_FieldInput_component_input_onClick_ZU6atl1InN8",
-  "path": "",
-  "extension": "js",
-  "parent": null,
-  "ctxKind": "eventHandler",
-  "ctxName": "onClick$",
-  "captures": false,
-  "loc": [
-    0,
-    0
   ]
 }
 */

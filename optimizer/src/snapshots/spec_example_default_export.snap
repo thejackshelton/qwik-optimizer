@@ -14,21 +14,21 @@ export default component$(() => {
 	);
 });
 
-============================= [[...slug]].tsx__slug_component_div_onClick_GTltJzWrvB8.js (ENTRY POINT)==
+============================= [[...slug]].tsx__slug_component_div_on_click_Tf6NEm0CXcM.js (ENTRY POINT)==
 
 import { sibling } from "./sibling";
-export const _slug_component_div_onClick_GTltJzWrvB8 = ()=>console.log(mongodb, sibling);
+export const _slug_component_div_on_click_Tf6NEm0CXcM = ()=>console.log(mongodb, sibling);
 
 
 None
 /*
 {
   "origin": "src/routes/_repl/[id]/[[...slug]].tsx",
-  "name": "_slug_component_div_onClick_GTltJzWrvB8",
+  "name": "_slug_component_div_on_click_Tf6NEm0CXcM",
   "entry": null,
-  "displayName": "[[...slug]].tsx__slug_component_div_onClick",
-  "hash": "GTltJzWrvB8",
-  "canonicalFilename": "[[...slug]].tsx__slug_component_div_onClick_GTltJzWrvB8",
+  "displayName": "[[...slug]].tsx__slug_component_div_on_click",
+  "hash": "Tf6NEm0CXcM",
+  "canonicalFilename": "[[...slug]].tsx__slug_component_div_on_click_Tf6NEm0CXcM",
   "path": "src/routes/_repl/[id]",
   "extension": "js",
   "parent": null,
@@ -45,9 +45,9 @@ None
 
 import { _jsxSorted } from "@qwik.dev/core";
 import { qrl } from "@qwik.dev/core";
-const i_GTltJzWrvB8 = ()=>import("./[[...slug]].tsx__slug_component_div_onClick_GTltJzWrvB8");
+const i_Tf6NEm0CXcM = ()=>import("./[[...slug]].tsx__slug_component_div_on_click_Tf6NEm0CXcM");
 export const _slug_component_pK900rcyxdM = ()=>{
-	return /*#__PURE__*/ _jsxSorted("div", { "on:click": /*#__PURE__*/ qrl(i_GTltJzWrvB8, "_slug_component_div_onClick_GTltJzWrvB8") }, null, null, 3, null);
+	return /*#__PURE__*/ _jsxSorted("div", { "on:click": /*#__PURE__*/ qrl(i_Tf6NEm0CXcM, "_slug_component_div_on_click_Tf6NEm0CXcM") }, null, null, 3, null);
 };
 
 

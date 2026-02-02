@@ -53,6 +53,37 @@ impl Id {
         )
     }
 
+    /// Segments to skip when building display name.
+    /// These are array iteration methods that qwik-core doesn't include in segment paths.
+    fn should_skip_segment(name: &str) -> bool {
+        matches!(name, "map" | "filter" | "forEach" | "reduce" | "flatMap" | "find" | "findIndex" | "some" | "every")
+    }
+
+    /// Converts camelCase event names to snake_case to match qwik-core convention.
+    /// Examples:
+    ///   onClick -> on_click
+    ///   onMouseOver -> on_mouse_over
+    fn convert_event_name_to_snake_case(name: &str) -> String {
+        // Check if this is an event name (starts with "on" followed by uppercase)
+        if name.len() > 2 && name.starts_with("on") {
+            let rest = &name[2..];
+            if rest.chars().next().map(|c| c.is_ascii_uppercase()).unwrap_or(false) {
+                // Convert camelCase to snake_case
+                let mut result = String::from("on");
+                for c in rest.chars() {
+                    if c.is_ascii_uppercase() {
+                        result.push('_');
+                        result.push(c.to_ascii_lowercase());
+                    } else {
+                        result.push(c);
+                    }
+                }
+                return result;
+            }
+        }
+        name.to_string()
+    }
+
     fn update_display_name(display_name: &mut String, name_segment: String) {
         if display_name.is_empty()
             && name_segment
@@ -85,25 +116,39 @@ impl Id {
             for s in head {
                 match s {
                     Segment::Named(name) => {
-                        Self::update_display_name(&mut display_name, name.into())
+                        // Skip array iteration method names to match qwik-core
+                        if !Self::should_skip_segment(name) {
+                            Self::update_display_name(&mut display_name, name.into())
+                        }
                     }
                     Segment::NamedQrl(name, 0) => {
-                        Self::update_display_name(&mut display_name, name.into())
+                        // Convert event names to snake_case to match qwik-core
+                        Self::update_display_name(&mut display_name, Self::convert_event_name_to_snake_case(name))
                     }
                     Segment::NamedQrl(name, index) => {
-                        Self::update_display_name(&mut display_name, format!("{name}_{index}"))
+                        // Convert event names to snake_case to match qwik-core
+                        let converted_name = Self::convert_event_name_to_snake_case(name);
+                        Self::update_display_name(&mut display_name, format!("{converted_name}_{index}"))
                     }
                     Segment::IndexQrl(_) => {}
                 }
             }
 
             match tail {
-                Segment::Named(name) => Self::update_display_name(&mut display_name, name.into()),
+                Segment::Named(name) => {
+                    // Skip array iteration method names to match qwik-core
+                    if !Self::should_skip_segment(name) {
+                        Self::update_display_name(&mut display_name, name.into())
+                    }
+                }
                 Segment::NamedQrl(name, 0) => {
-                    Self::update_display_name(&mut display_name, name.into())
+                    // Convert event names to snake_case to match qwik-core
+                    Self::update_display_name(&mut display_name, Self::convert_event_name_to_snake_case(name))
                 }
                 Segment::NamedQrl(name, index) => {
-                    Self::update_display_name(&mut display_name, format!("{name}_{index}"))
+                    // Convert event names to snake_case to match qwik-core
+                    let converted_name = Self::convert_event_name_to_snake_case(name);
+                    Self::update_display_name(&mut display_name, format!("{converted_name}_{index}"))
                 }
                 Segment::IndexQrl(0) => {}
                 Segment::IndexQrl(index) => {

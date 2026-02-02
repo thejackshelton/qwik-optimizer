@@ -14,13 +14,39 @@ export const App = component$((props) => {
 	);
 });
 
+============================= test.tsx_App_component_Cmp_p_on_click_9VylW0qB00s.tsx (ENTRY POINT)==
+
+export const App_component_Cmp_p_on_click_9VylW0qB00s = ()=>console.log("warn");
+
+
+None
+/*
+{
+  "origin": "test.tsx",
+  "name": "App_component_Cmp_p_on_click_9VylW0qB00s",
+  "entry": null,
+  "displayName": "test.tsx_App_component_Cmp_p_on_click",
+  "hash": "9VylW0qB00s",
+  "canonicalFilename": "test.tsx_App_component_Cmp_p_on_click_9VylW0qB00s",
+  "path": "",
+  "extension": "tsx",
+  "parent": null,
+  "ctxKind": "eventHandler",
+  "ctxName": "onClick$",
+  "captures": false,
+  "loc": [
+    0,
+    0
+  ]
+}
+*/
 ============================= test.tsx_App_component_ckEPmXZlub0.tsx (ENTRY POINT)==
 
 import { _jsxSorted } from "@qwik.dev/core";
 import { qrl } from "@qwik.dev/core";
-const i_vuXzfUTkpto = ()=>import("./test.tsx_App_component_Cmp_p_onClick_vuXzfUTkpto");
+const i_9VylW0qB00s = ()=>import("./test.tsx_App_component_Cmp_p_on_click_9VylW0qB00s");
 export const App_component_ckEPmXZlub0 = (props)=>{
-	return _jsxSorted(Cmp, null, null, /*#__PURE__*/ _jsxSorted("p", { "on:click": /*#__PURE__*/ qrl(i_vuXzfUTkpto, "App_component_Cmp_p_onClick_vuXzfUTkpto") }, { class: "stuff" }, "Hello Qwik", 3, null), 3, null);
+	return _jsxSorted(Cmp, null, null, /*#__PURE__*/ _jsxSorted("p", { "on:click": /*#__PURE__*/ qrl(i_9VylW0qB00s, "App_component_Cmp_p_on_click_9VylW0qB00s") }, { class: "stuff" }, "Hello Qwik", 3, null), 3, null);
 };
 
 
@@ -42,32 +68,6 @@ None
   "loc": [
     86,
     203
-  ]
-}
-*/
-============================= test.tsx_App_component_Cmp_p_onClick_vuXzfUTkpto.tsx (ENTRY POINT)==
-
-export const App_component_Cmp_p_onClick_vuXzfUTkpto = ()=>console.log("warn");
-
-
-None
-/*
-{
-  "origin": "test.tsx",
-  "name": "App_component_Cmp_p_onClick_vuXzfUTkpto",
-  "entry": null,
-  "displayName": "test.tsx_App_component_Cmp_p_onClick",
-  "hash": "vuXzfUTkpto",
-  "canonicalFilename": "test.tsx_App_component_Cmp_p_onClick_vuXzfUTkpto",
-  "path": "",
-  "extension": "tsx",
-  "parent": null,
-  "ctxKind": "eventHandler",
-  "ctxName": "onClick$",
-  "captures": false,
-  "loc": [
-    0,
-    0
   ]
 }
 */

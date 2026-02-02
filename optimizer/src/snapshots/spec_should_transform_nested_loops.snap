@@ -19,26 +19,82 @@ const Foo = component$(function() {
   </div>;
 })
 
+============================= test.tsx_Foo_component_div_div_p_on_click_FWFSo0km4Aw.js (ENTRY POINT)==
+
+import { useLexicalScope } from "@qwik.dev/core";
+export const Foo_component_div_div_p_on_click_FWFSo0km4Aw = (_, _1, item)=>{
+	const [row] = useLexicalScope();
+	return console.log(row.value.id, item.value.id);
+};
+
+
+None
+/*
+{
+  "origin": "test.tsx",
+  "name": "Foo_component_div_div_p_on_click_FWFSo0km4Aw",
+  "entry": null,
+  "displayName": "test.tsx_Foo_component_div_div_p_on_click",
+  "hash": "FWFSo0km4Aw",
+  "canonicalFilename": "test.tsx_Foo_component_div_div_p_on_click_FWFSo0km4Aw",
+  "path": "",
+  "extension": "js",
+  "parent": null,
+  "ctxKind": "eventHandler",
+  "ctxName": "onClick$",
+  "captures": true,
+  "loc": [
+    0,
+    0
+  ]
+}
+*/
+============================= test.tsx_Foo_component_div_div_on_click_1u04rzUKERk.js (ENTRY POINT)==
+
+export const Foo_component_div_div_on_click_1u04rzUKERk = (_, _1, row)=>console.log(row.value.id);
+
+
+None
+/*
+{
+  "origin": "test.tsx",
+  "name": "Foo_component_div_div_on_click_1u04rzUKERk",
+  "entry": null,
+  "displayName": "test.tsx_Foo_component_div_div_on_click",
+  "hash": "1u04rzUKERk",
+  "canonicalFilename": "test.tsx_Foo_component_div_div_on_click_1u04rzUKERk",
+  "path": "",
+  "extension": "js",
+  "parent": null,
+  "ctxKind": "eventHandler",
+  "ctxName": "onClick$",
+  "captures": false,
+  "loc": [
+    0,
+    0
+  ]
+}
+*/
 ============================= test.tsx_Foo_component_HTDRsvUbLiE.js (ENTRY POINT)==
 
 import { _fnSignal } from "@qwik.dev/core";
 import { _jsxSorted } from "@qwik.dev/core";
 import { useSignal } from "@qwik.dev/core";
 import { qrl } from "@qwik.dev/core";
-const i_5OQc040LebY = ()=>import("./test.tsx_Foo_component_div_map_div_map_p_onClick_5OQc040LebY");
-const i_mfLVIFxdDiU = ()=>import("./test.tsx_Foo_component_div_map_div_onClick_mfLVIFxdDiU");
+const i_FWFSo0km4Aw = ()=>import("./test.tsx_Foo_component_div_div_p_on_click_FWFSo0km4Aw");
+const i_1u04rzUKERk = ()=>import("./test.tsx_Foo_component_div_div_on_click_1u04rzUKERk");
 const _hf0 = (p0)=>p0.value.id;
 const _hf0_str = "p0.value.id";
 export const Foo_component_HTDRsvUbLiE = function() {
 	const data = useSignal([]);
 	const data2 = useSignal([]);
-	const Foo_component_div_map_div_onClick_mfLVIFxdDiU = /*#__PURE__*/ qrl(i_mfLVIFxdDiU, "Foo_component_div_map_div_onClick_mfLVIFxdDiU");
-	const Foo_component_div_map_div_map_p_onClick_5OQc040LebY = /*#__PURE__*/ qrl(i_5OQc040LebY, "Foo_component_div_map_div_map_p_onClick_5OQc040LebY", [row]);
+	const Foo_component_div_div_on_click_1u04rzUKERk = /*#__PURE__*/ qrl(i_1u04rzUKERk, "Foo_component_div_div_on_click_1u04rzUKERk");
+	const Foo_component_div_div_p_on_click_FWFSo0km4Aw = /*#__PURE__*/ qrl(i_FWFSo0km4Aw, "Foo_component_div_div_p_on_click_FWFSo0km4Aw", [row]);
 	return /*#__PURE__*/ _jsxSorted("div", null, null, data.value.map((row)=>/*#__PURE__*/ _jsxSorted("div", {
-		"on:click": Foo_component_div_map_div_onClick_mfLVIFxdDiU,
+		"on:click": Foo_component_div_div_on_click_1u04rzUKERk,
 		"q:p": row
 	}, null, data2.value.map((item)=>/*#__PURE__*/ _jsxSorted("p", {
-		"on:click": Foo_component_div_map_div_map_p_onClick_5OQc040LebY,
+		"on:click": Foo_component_div_div_p_on_click_FWFSo0km4Aw,
 		"q:p": item
 	}, null, [
 		row.value.id,
@@ -66,62 +122,6 @@ None
   "loc": [
     87,
     445
-  ]
-}
-*/
-============================= test.tsx_Foo_component_div_map_div_onClick_mfLVIFxdDiU.js (ENTRY POINT)==
-
-export const Foo_component_div_map_div_onClick_mfLVIFxdDiU = (_, _1, row)=>console.log(row.value.id);
-
-
-None
-/*
-{
-  "origin": "test.tsx",
-  "name": "Foo_component_div_map_div_onClick_mfLVIFxdDiU",
-  "entry": null,
-  "displayName": "test.tsx_Foo_component_div_map_div_onClick",
-  "hash": "mfLVIFxdDiU",
-  "canonicalFilename": "test.tsx_Foo_component_div_map_div_onClick_mfLVIFxdDiU",
-  "path": "",
-  "extension": "js",
-  "parent": null,
-  "ctxKind": "eventHandler",
-  "ctxName": "onClick$",
-  "captures": false,
-  "loc": [
-    0,
-    0
-  ]
-}
-*/
-============================= test.tsx_Foo_component_div_map_div_map_p_onClick_5OQc040LebY.js (ENTRY POINT)==
-
-import { useLexicalScope } from "@qwik.dev/core";
-export const Foo_component_div_map_div_map_p_onClick_5OQc040LebY = (_, _1, item)=>{
-	const [row] = useLexicalScope();
-	return console.log(row.value.id, item.value.id);
-};
-
-
-None
-/*
-{
-  "origin": "test.tsx",
-  "name": "Foo_component_div_map_div_map_p_onClick_5OQc040LebY",
-  "entry": null,
-  "displayName": "test.tsx_Foo_component_div_map_div_map_p_onClick",
-  "hash": "5OQc040LebY",
-  "canonicalFilename": "test.tsx_Foo_component_div_map_div_map_p_onClick_5OQc040LebY",
-  "path": "",
-  "extension": "js",
-  "parent": null,
-  "ctxKind": "eventHandler",
-  "ctxName": "onClick$",
-  "captures": true,
-  "loc": [
-    0,
-    0
   ]
 }
 */

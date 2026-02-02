@@ -26,7 +26,7 @@ export const Works = /*#__PURE__*/ componentQrl(/*#__PURE__*/ inlinedQrl((props)
 	return /*#__PURE__*/ _jsxSorted("div", { "on:click": /*#__PURE__*/ serverQrl(/*#__PURE__*/ inlinedQrl(()=>{
 		const [text] = useLexicalScope();
 		return console.log("in server", text);
-	}, "Works_component_div_onClick_server_OsNoEFc5SM4", [text])) }, null, null, 3, null);
+	}, "Works_component_div_on_click_server_I0KQOua02KE", [text])) }, null, null, 3, null);
 }, "Works_component_t45qL4vNGv0"));
 
 

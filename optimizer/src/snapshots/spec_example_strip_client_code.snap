@@ -84,9 +84,9 @@ export const Parent = /*#__PURE__*/ componentQrl(/*#__PURE__*/ inlinedQrl(()=>{
 		"on:click": /*#__PURE__*/ inlinedQrl(()=>{
 			const [state] = useLexicalScope();
 			return console.log("parent", state, threejs);
-		}, "Parent_component_div_onClick_0PioS4FByUg", [state])
+		}, "Parent_component_div_on_click_qNr5MFLFX9Y", [state])
 	}, null, [_jsxSorted(Div, {
-		onClick$: /*#__PURE__*/ inlinedQrl(()=>console.log("keep"), "Parent_component_div_Div_onClick_kgowuto5dR0"),
+		onClick$: /*#__PURE__*/ inlinedQrl(()=>console.log("keep"), "Parent_component_div_Div_on_click_v0R8Xo2OyCo"),
 		render$: /*#__PURE__*/ inlinedQrl(()=>{
 			const [state] = useLexicalScope();
 			return state.text;

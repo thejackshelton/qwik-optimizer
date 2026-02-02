@@ -28,25 +28,25 @@ const ManyEventsComponent = component$(() => {
 	);
 });
 
-============================= test.tsx_ManyEventsComponent_component_div_button_onFocus_DCSta2nEohA.js (ENTRY POINT)==
+============================= test.tsx_ManyEventsComponent_component_div_button_on_click_1_hyur9k7tWAQ.js (ENTRY POINT)==
 
-export const ManyEventsComponent_component_div_button_onFocus_DCSta2nEohA = ()=>{};
+export const ManyEventsComponent_component_div_button_on_click_1_hyur9k7tWAQ = ()=>{};
 
 
 None
 /*
 {
   "origin": "test.tsx",
-  "name": "ManyEventsComponent_component_div_button_onFocus_DCSta2nEohA",
+  "name": "ManyEventsComponent_component_div_button_on_click_1_hyur9k7tWAQ",
   "entry": null,
-  "displayName": "test.tsx_ManyEventsComponent_component_div_button_onFocus",
-  "hash": "DCSta2nEohA",
-  "canonicalFilename": "test.tsx_ManyEventsComponent_component_div_button_onFocus_DCSta2nEohA",
+  "displayName": "test.tsx_ManyEventsComponent_component_div_button_on_click_1",
+  "hash": "hyur9k7tWAQ",
+  "canonicalFilename": "test.tsx_ManyEventsComponent_component_div_button_on_click_1_hyur9k7tWAQ",
   "path": "",
   "extension": "js",
   "parent": null,
-  "ctxKind": "function",
-  "ctxName": "document:onFocus$",
+  "ctxKind": "eventHandler",
+  "ctxName": "onClick$",
   "captures": false,
   "loc": [
     0,
@@ -54,25 +54,25 @@ None
   ]
 }
 */
-============================= test.tsx_ManyEventsComponent_component_div_button_onBlur_XtiiglYpgGE.js (ENTRY POINT)==
+============================= test.tsx_ManyEventsComponent_component_div_button_on_click_CA5nym40iWI.js (ENTRY POINT)==
 
-export const ManyEventsComponent_component_div_button_onBlur_XtiiglYpgGE = ()=>{};
+export const ManyEventsComponent_component_div_button_on_click_CA5nym40iWI = ()=>{};
 
 
 None
 /*
 {
   "origin": "test.tsx",
-  "name": "ManyEventsComponent_component_div_button_onBlur_XtiiglYpgGE",
+  "name": "ManyEventsComponent_component_div_button_on_click_CA5nym40iWI",
   "entry": null,
-  "displayName": "test.tsx_ManyEventsComponent_component_div_button_onBlur",
-  "hash": "XtiiglYpgGE",
-  "canonicalFilename": "test.tsx_ManyEventsComponent_component_div_button_onBlur_XtiiglYpgGE",
+  "displayName": "test.tsx_ManyEventsComponent_component_div_button_on_click",
+  "hash": "CA5nym40iWI",
+  "canonicalFilename": "test.tsx_ManyEventsComponent_component_div_button_on_click_CA5nym40iWI",
   "path": "",
   "extension": "js",
   "parent": null,
   "ctxKind": "eventHandler",
-  "ctxName": "onBlur$",
+  "ctxName": "onClick$",
   "captures": false,
   "loc": [
     0,
@@ -110,23 +110,23 @@ None
 
 import { _jsxSorted } from "@qwik.dev/core";
 import { qrl } from "@qwik.dev/core";
-const i_QpMrieJG0Hg = ()=>import("./test.tsx_ManyEventsComponent_component_div_button_onClick_2_QpMrieJG0Hg");
-const i_DCSta2nEohA = ()=>import("./test.tsx_ManyEventsComponent_component_div_button_onFocus_DCSta2nEohA");
+const i_YvOdIHUxyec = ()=>import("./test.tsx_ManyEventsComponent_component_div_button_on_click_2_YvOdIHUxyec");
+const i_lDRe1poy0ZE = ()=>import("./test.tsx_ManyEventsComponent_component_div_button_on_focus_lDRe1poy0ZE");
 const i_6leHa5aTNXQ = ()=>import("./test.tsx_ManyEventsComponent_component_div_button_on_anotherCustom_6leHa5aTNXQ");
-const i_XtiiglYpgGE = ()=>import("./test.tsx_ManyEventsComponent_component_div_button_onBlur_XtiiglYpgGE");
-const i_dfRCr0g1G4s = ()=>import("./test.tsx_ManyEventsComponent_component_div_button_onClick_1_dfRCr0g1G4s");
-const i_ILklEGAlW6o = ()=>import("./test.tsx_ManyEventsComponent_component_div_button_onDblClick_ILklEGAlW6o");
-const i_4yU1qCz0l9I = ()=>import("./test.tsx_ManyEventsComponent_component_div_button_onClick_4yU1qCz0l9I");
+const i_ZXch3Eg0VPI = ()=>import("./test.tsx_ManyEventsComponent_component_div_button_on_blur_ZXch3Eg0VPI");
+const i_hyur9k7tWAQ = ()=>import("./test.tsx_ManyEventsComponent_component_div_button_on_click_1_hyur9k7tWAQ");
+const i_l0eJUuALR5Y = ()=>import("./test.tsx_ManyEventsComponent_component_div_button_on_dbl_click_l0eJUuALR5Y");
+const i_CA5nym40iWI = ()=>import("./test.tsx_ManyEventsComponent_component_div_button_on_click_CA5nym40iWI");
 export const ManyEventsComponent_component_ndbrzxiyG3g = ()=>{
 	return /*#__PURE__*/ _jsxSorted("div", null, null, [/*#__PURE__*/ _jsxSorted("button", {
-		"on:click": /*#__PURE__*/ qrl(i_4yU1qCz0l9I, "ManyEventsComponent_component_div_button_onClick_4yU1qCz0l9I"),
-		"on:dblclick": /*#__PURE__*/ qrl(i_ILklEGAlW6o, "ManyEventsComponent_component_div_button_onDblClick_ILklEGAlW6o")
+		"on:click": /*#__PURE__*/ qrl(i_CA5nym40iWI, "ManyEventsComponent_component_div_button_on_click_CA5nym40iWI"),
+		"on:dblclick": /*#__PURE__*/ qrl(i_l0eJUuALR5Y, "ManyEventsComponent_component_div_button_on_dbl_click_l0eJUuALR5Y")
 	}, null, "click", 3, null), /*#__PURE__*/ _jsxSorted("button", {
-		"on-document:focus": /*#__PURE__*/ qrl(i_DCSta2nEohA, "ManyEventsComponent_component_div_button_onFocus_DCSta2nEohA"),
-		"on-window:click": /*#__PURE__*/ qrl(i_QpMrieJG0Hg, "ManyEventsComponent_component_div_button_onClick_2_QpMrieJG0Hg"),
+		"on-document:focus": /*#__PURE__*/ qrl(i_lDRe1poy0ZE, "ManyEventsComponent_component_div_button_on_focus_lDRe1poy0ZE"),
+		"on-window:click": /*#__PURE__*/ qrl(i_YvOdIHUxyec, "ManyEventsComponent_component_div_button_on_click_2_YvOdIHUxyec"),
 		"on:another-custom": /*#__PURE__*/ qrl(i_6leHa5aTNXQ, "ManyEventsComponent_component_div_button_on_anotherCustom_6leHa5aTNXQ"),
-		"on:blur": /*#__PURE__*/ qrl(i_XtiiglYpgGE, "ManyEventsComponent_component_div_button_onBlur_XtiiglYpgGE"),
-		"on:click": /*#__PURE__*/ qrl(i_dfRCr0g1G4s, "ManyEventsComponent_component_div_button_onClick_1_dfRCr0g1G4s")
+		"on:blur": /*#__PURE__*/ qrl(i_ZXch3Eg0VPI, "ManyEventsComponent_component_div_button_on_blur_ZXch3Eg0VPI"),
+		"on:click": /*#__PURE__*/ qrl(i_hyur9k7tWAQ, "ManyEventsComponent_component_div_button_on_click_1_hyur9k7tWAQ")
 	}, null, "click", 3, null)], 3, null);
 };
 
@@ -152,25 +152,25 @@ None
   ]
 }
 */
-============================= test.tsx_ManyEventsComponent_component_div_button_onClick_2_QpMrieJG0Hg.js (ENTRY POINT)==
+============================= test.tsx_ManyEventsComponent_component_div_button_on_focus_lDRe1poy0ZE.js (ENTRY POINT)==
 
-export const ManyEventsComponent_component_div_button_onClick_2_QpMrieJG0Hg = ()=>{};
+export const ManyEventsComponent_component_div_button_on_focus_lDRe1poy0ZE = ()=>{};
 
 
 None
 /*
 {
   "origin": "test.tsx",
-  "name": "ManyEventsComponent_component_div_button_onClick_2_QpMrieJG0Hg",
+  "name": "ManyEventsComponent_component_div_button_on_focus_lDRe1poy0ZE",
   "entry": null,
-  "displayName": "test.tsx_ManyEventsComponent_component_div_button_onClick_2",
-  "hash": "QpMrieJG0Hg",
-  "canonicalFilename": "test.tsx_ManyEventsComponent_component_div_button_onClick_2_QpMrieJG0Hg",
+  "displayName": "test.tsx_ManyEventsComponent_component_div_button_on_focus",
+  "hash": "lDRe1poy0ZE",
+  "canonicalFilename": "test.tsx_ManyEventsComponent_component_div_button_on_focus_lDRe1poy0ZE",
   "path": "",
   "extension": "js",
   "parent": null,
   "ctxKind": "function",
-  "ctxName": "window:onClick$",
+  "ctxName": "document:onFocus$",
   "captures": false,
   "loc": [
     0,
@@ -178,46 +178,20 @@ None
   ]
 }
 */
-============================= test.tsx_ManyEventsComponent_component_div_button_onClick_1_dfRCr0g1G4s.js (ENTRY POINT)==
+============================= test.tsx_ManyEventsComponent_component_div_button_on_dbl_click_l0eJUuALR5Y.js (ENTRY POINT)==
 
-export const ManyEventsComponent_component_div_button_onClick_1_dfRCr0g1G4s = ()=>{};
-
-
-None
-/*
-{
-  "origin": "test.tsx",
-  "name": "ManyEventsComponent_component_div_button_onClick_1_dfRCr0g1G4s",
-  "entry": null,
-  "displayName": "test.tsx_ManyEventsComponent_component_div_button_onClick_1",
-  "hash": "dfRCr0g1G4s",
-  "canonicalFilename": "test.tsx_ManyEventsComponent_component_div_button_onClick_1_dfRCr0g1G4s",
-  "path": "",
-  "extension": "js",
-  "parent": null,
-  "ctxKind": "eventHandler",
-  "ctxName": "onClick$",
-  "captures": false,
-  "loc": [
-    0,
-    0
-  ]
-}
-*/
-============================= test.tsx_ManyEventsComponent_component_div_button_onDblClick_ILklEGAlW6o.js (ENTRY POINT)==
-
-export const ManyEventsComponent_component_div_button_onDblClick_ILklEGAlW6o = ()=>{};
+export const ManyEventsComponent_component_div_button_on_dbl_click_l0eJUuALR5Y = ()=>{};
 
 
 None
 /*
 {
   "origin": "test.tsx",
-  "name": "ManyEventsComponent_component_div_button_onDblClick_ILklEGAlW6o",
+  "name": "ManyEventsComponent_component_div_button_on_dbl_click_l0eJUuALR5Y",
   "entry": null,
-  "displayName": "test.tsx_ManyEventsComponent_component_div_button_onDblClick",
-  "hash": "ILklEGAlW6o",
-  "canonicalFilename": "test.tsx_ManyEventsComponent_component_div_button_onDblClick_ILklEGAlW6o",
+  "displayName": "test.tsx_ManyEventsComponent_component_div_button_on_dbl_click",
+  "hash": "l0eJUuALR5Y",
+  "canonicalFilename": "test.tsx_ManyEventsComponent_component_div_button_on_dbl_click_l0eJUuALR5Y",
   "path": "",
   "extension": "js",
   "parent": null,
@@ -230,25 +204,51 @@ None
   ]
 }
 */
-============================= test.tsx_ManyEventsComponent_component_div_button_onClick_4yU1qCz0l9I.js (ENTRY POINT)==
+============================= test.tsx_ManyEventsComponent_component_div_button_on_click_2_YvOdIHUxyec.js (ENTRY POINT)==
 
-export const ManyEventsComponent_component_div_button_onClick_4yU1qCz0l9I = ()=>{};
+export const ManyEventsComponent_component_div_button_on_click_2_YvOdIHUxyec = ()=>{};
 
 
 None
 /*
 {
   "origin": "test.tsx",
-  "name": "ManyEventsComponent_component_div_button_onClick_4yU1qCz0l9I",
+  "name": "ManyEventsComponent_component_div_button_on_click_2_YvOdIHUxyec",
   "entry": null,
-  "displayName": "test.tsx_ManyEventsComponent_component_div_button_onClick",
-  "hash": "4yU1qCz0l9I",
-  "canonicalFilename": "test.tsx_ManyEventsComponent_component_div_button_onClick_4yU1qCz0l9I",
+  "displayName": "test.tsx_ManyEventsComponent_component_div_button_on_click_2",
+  "hash": "YvOdIHUxyec",
+  "canonicalFilename": "test.tsx_ManyEventsComponent_component_div_button_on_click_2_YvOdIHUxyec",
+  "path": "",
+  "extension": "js",
+  "parent": null,
+  "ctxKind": "function",
+  "ctxName": "window:onClick$",
+  "captures": false,
+  "loc": [
+    0,
+    0
+  ]
+}
+*/
+============================= test.tsx_ManyEventsComponent_component_div_button_on_blur_ZXch3Eg0VPI.js (ENTRY POINT)==
+
+export const ManyEventsComponent_component_div_button_on_blur_ZXch3Eg0VPI = ()=>{};
+
+
+None
+/*
+{
+  "origin": "test.tsx",
+  "name": "ManyEventsComponent_component_div_button_on_blur_ZXch3Eg0VPI",
+  "entry": null,
+  "displayName": "test.tsx_ManyEventsComponent_component_div_button_on_blur",
+  "hash": "ZXch3Eg0VPI",
+  "canonicalFilename": "test.tsx_ManyEventsComponent_component_div_button_on_blur_ZXch3Eg0VPI",
   "path": "",
   "extension": "js",
   "parent": null,
   "ctxKind": "eventHandler",
-  "ctxName": "onClick$",
+  "ctxName": "onBlur$",
   "captures": false,
   "loc": [
     0,

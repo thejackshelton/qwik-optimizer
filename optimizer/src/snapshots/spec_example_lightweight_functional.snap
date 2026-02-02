@@ -60,20 +60,20 @@ None
   ]
 }
 */
-============================= test.tsx_ButtonArrow_button_onClick_9npo43fIGik.tsx (ENTRY POINT)==
+============================= test.tsx_ButtonArrow_button_on_click_kIAVgrXedGE.tsx (ENTRY POINT)==
 
-export const ButtonArrow_button_onClick_9npo43fIGik = ()=>console.log(text, color);
+export const ButtonArrow_button_on_click_kIAVgrXedGE = ()=>console.log(text, color);
 
 
 None
 /*
 {
   "origin": "test.tsx",
-  "name": "ButtonArrow_button_onClick_9npo43fIGik",
+  "name": "ButtonArrow_button_on_click_kIAVgrXedGE",
   "entry": null,
-  "displayName": "test.tsx_ButtonArrow_button_onClick",
-  "hash": "9npo43fIGik",
-  "canonicalFilename": "test.tsx_ButtonArrow_button_onClick_9npo43fIGik",
+  "displayName": "test.tsx_ButtonArrow_button_on_click",
+  "hash": "kIAVgrXedGE",
+  "canonicalFilename": "test.tsx_ButtonArrow_button_on_click_kIAVgrXedGE",
   "path": "",
   "extension": "tsx",
   "parent": null,
@@ -86,20 +86,20 @@ None
   ]
 }
 */
-============================= test.tsx_Button_button_onClick_NsM0JYV00Jw.tsx (ENTRY POINT)==
+============================= test.tsx_Button_button_on_click_VeaaIGYQbcg.tsx (ENTRY POINT)==
 
-export const Button_button_onClick_NsM0JYV00Jw = ()=>console.log(text, color);
+export const Button_button_on_click_VeaaIGYQbcg = ()=>console.log(text, color);
 
 
 None
 /*
 {
   "origin": "test.tsx",
-  "name": "Button_button_onClick_NsM0JYV00Jw",
+  "name": "Button_button_on_click_VeaaIGYQbcg",
   "entry": null,
-  "displayName": "test.tsx_Button_button_onClick",
-  "hash": "NsM0JYV00Jw",
-  "canonicalFilename": "test.tsx_Button_button_onClick_NsM0JYV00Jw",
+  "displayName": "test.tsx_Button_button_on_click",
+  "hash": "VeaaIGYQbcg",
+  "canonicalFilename": "test.tsx_Button_button_on_click_VeaaIGYQbcg",
   "path": "",
   "extension": "tsx",
   "parent": null,
@@ -119,14 +119,14 @@ import { componentQrl } from "@qwik.dev/core";
 import { qrl } from "@qwik.dev/core";
 import { componentQrl } from "@qwik.dev/core";
 const i_HTDRsvUbLiE = ()=>import("./test.tsx_Foo_component_HTDRsvUbLiE");
-const i_NsM0JYV00Jw = ()=>import("./test.tsx_Button_button_onClick_NsM0JYV00Jw");
-const i_9npo43fIGik = ()=>import("./test.tsx_ButtonArrow_button_onClick_9npo43fIGik");
+const i_VeaaIGYQbcg = ()=>import("./test.tsx_Button_button_on_click_VeaaIGYQbcg");
+const i_kIAVgrXedGE = ()=>import("./test.tsx_ButtonArrow_button_on_click_kIAVgrXedGE");
 export const Foo = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_HTDRsvUbLiE, "Foo_component_HTDRsvUbLiE"));
 export function Button({ text, color }) {
-	return <button on:color={color} on:click={/*#__PURE__*/ qrl(i_NsM0JYV00Jw, "Button_button_onClick_NsM0JYV00Jw")}>{text}</button>;
+	return <button on:color={color} on:click={/*#__PURE__*/ qrl(i_VeaaIGYQbcg, "Button_button_on_click_VeaaIGYQbcg")}>{text}</button>;
 }
 export const ButtonArrow = ({ text, color })=>{
-	return <button on:color={color} on:click={/*#__PURE__*/ qrl(i_9npo43fIGik, "ButtonArrow_button_onClick_9npo43fIGik")}>{text}</button>;
+	return <button on:color={color} on:click={/*#__PURE__*/ qrl(i_kIAVgrXedGE, "ButtonArrow_button_on_click_kIAVgrXedGE")}>{text}</button>;
 };
 
 

@@ -19,7 +19,7 @@ import { inlinedQrl } from "@qwik.dev/core";
 import { componentQrl } from "@qwik.dev/core";
 import { componentQrl } from "@qwik.dev/core";
 export default /*#__PURE__*/ componentQrl(/*#__PURE__*/ inlinedQrl(()=>{
-	return <div on:click={/*#__PURE__*/ inlinedQrl(()=>console.log(mongodb), "mongo_component_div_onClick_2EK0wZbP8qw")}>
+	return <div on:click={/*#__PURE__*/ inlinedQrl(()=>console.log(mongodb), "mongo_component_div_on_click_O41XkfEPk50")}>
 		</div>;
 }, "mongo_component_ouWLj4jA2oI"));
 

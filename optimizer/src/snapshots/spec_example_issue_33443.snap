@@ -38,7 +38,7 @@ export const Issue3742 = /*#__PURE__*/ componentQrl(/*#__PURE__*/ inlinedQrl((_r
 	return /*#__PURE__*/ _jsxSorted("div", { title: _fnSignal(_hf0, [_rawProps, counter], _hf0_str) }, null, ["Issue3742", /*#__PURE__*/ _jsxSorted("button", { "on:click": /*#__PURE__*/ inlinedQrl(()=>{
 		const [counter] = useLexicalScope();
 		return counter.value++;
-	}, "Issue3742_component_div_button_onClick_a504K2BCEXg", [counter]) }, null, "Increment", 3, null)], 3, null);
+	}, "Issue3742_component_div_button_on_click_BquD15kWx0k", [counter]) }, null, "Increment", 3, null)], 3, null);
 }, "Issue3742_component_svSy0PlWTAw"));
 
 

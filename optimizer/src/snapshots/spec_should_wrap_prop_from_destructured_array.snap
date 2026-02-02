@@ -51,6 +51,34 @@ export default component$(() => {
 	);
 });
 
+============================= test.tsx_test_component_div_button_on_click_4abkecKXGAE.js (ENTRY POINT)==
+
+export const test_component_div_button_on_click_4abkecKXGAE = ()=>{
+	store.errors.test = store.errors.test ? undefined : "ERROR TEST";
+};
+
+
+None
+/*
+{
+  "origin": "test.tsx",
+  "name": "test_component_div_button_on_click_4abkecKXGAE",
+  "entry": null,
+  "displayName": "test.tsx_test_component_div_button_on_click",
+  "hash": "4abkecKXGAE",
+  "canonicalFilename": "test.tsx_test_component_div_button_on_click_4abkecKXGAE",
+  "path": "",
+  "extension": "js",
+  "parent": null,
+  "ctxKind": "eventHandler",
+  "ctxName": "onClick$",
+  "captures": false,
+  "loc": [
+    0,
+    0
+  ]
+}
+*/
 ============================= test.tsx_test_component_LUXeXe0DQrg.js (ENTRY POINT)==
 
 import { Input } from "./test";
@@ -59,7 +87,7 @@ import { qrl } from "@qwik.dev/core";
 import { useForm } from "./some-file.ts";
 import { useForm2 } from "./some-file.ts";
 import { useStore } from "@qwik.dev/core";
-const i_TfpwI5Xb2NU = ()=>import("./test.tsx_test_component_div_button_onClick_TfpwI5Xb2NU");
+const i_4abkecKXGAE = ()=>import("./test.tsx_test_component_div_button_on_click_4abkecKXGAE");
 const i_Sbgs9Wtfkt0 = ()=>import("./test.tsx_Input_component_useTask_Sbgs9Wtfkt0");
 export const test_component_LUXeXe0DQrg = ()=>{
 	/*#__PURE__*/ useTaskQrl(/*#__PURE__*/ qrl(i_Sbgs9Wtfkt0, "Input_component_useTask_Sbgs9Wtfkt0", [props]));
@@ -72,7 +100,7 @@ export const test_component_LUXeXe0DQrg = ()=>{
 	const { math3 } = { math3: Math.random() };
 	const [store4] = useForm();
 	const { store5 } = useForm2();
-	return /*#__PURE__*/ _jsxSorted("div", null, null, [/*#__PURE__*/ _jsxSorted("button", { "on:click": /*#__PURE__*/ qrl(i_TfpwI5Xb2NU, "test_component_div_button_onClick_TfpwI5Xb2NU") }, null, "click", 3, null), _jsxSorted(Input, {
+	return /*#__PURE__*/ _jsxSorted("div", null, null, [/*#__PURE__*/ _jsxSorted("button", { "on:click": /*#__PURE__*/ qrl(i_4abkecKXGAE, "test_component_div_button_on_click_4abkecKXGAE") }, null, "click", 3, null), _jsxSorted(Input, {
 		error: store.errors.test,
 		error2: store2.errors.test,
 		error3: store3.errors.test,
@@ -103,34 +131,6 @@ None
   "loc": [
     400,
     1139
-  ]
-}
-*/
-============================= test.tsx_test_component_div_button_onClick_TfpwI5Xb2NU.js (ENTRY POINT)==
-
-export const test_component_div_button_onClick_TfpwI5Xb2NU = ()=>{
-	store.errors.test = store.errors.test ? undefined : "ERROR TEST";
-};
-
-
-None
-/*
-{
-  "origin": "test.tsx",
-  "name": "test_component_div_button_onClick_TfpwI5Xb2NU",
-  "entry": null,
-  "displayName": "test.tsx_test_component_div_button_onClick",
-  "hash": "TfpwI5Xb2NU",
-  "canonicalFilename": "test.tsx_test_component_div_button_onClick_TfpwI5Xb2NU",
-  "path": "",
-  "extension": "js",
-  "parent": null,
-  "ctxKind": "eventHandler",
-  "ctxName": "onClick$",
-  "captures": false,
-  "loc": [
-    0,
-    0
   ]
 }
 */

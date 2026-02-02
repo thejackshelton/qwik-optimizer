@@ -17,25 +17,25 @@ export default component$((props) => {
 	/>);
 });
 
-============================= test.tsx_test_component_p_onHi_MzKNRhr770k.js (ENTRY POINT)==
+============================= test.tsx_test_component_p_on_const_i552ahxj0Ag.js (ENTRY POINT)==
 
-export const test_component_p_onHi_MzKNRhr770k = ()=>"hi";
+export const test_component_p_on_const_i552ahxj0Ag = ()=>"const";
 
 
 None
 /*
 {
   "origin": "test.tsx",
-  "name": "test_component_p_onHi_MzKNRhr770k",
+  "name": "test_component_p_on_const_i552ahxj0Ag",
   "entry": null,
-  "displayName": "test.tsx_test_component_p_onHi",
-  "hash": "MzKNRhr770k",
-  "canonicalFilename": "test.tsx_test_component_p_onHi_MzKNRhr770k",
+  "displayName": "test.tsx_test_component_p_on_const",
+  "hash": "i552ahxj0Ag",
+  "canonicalFilename": "test.tsx_test_component_p_on_const_i552ahxj0Ag",
   "path": "",
   "extension": "js",
   "parent": null,
   "ctxKind": "eventHandler",
-  "ctxName": "onHi$",
+  "ctxName": "onConst$",
   "captures": false,
   "loc": [
     0,
@@ -43,25 +43,25 @@ None
   ]
 }
 */
-============================= test.tsx_test_component_p_onConst_WVa6OMq4yIM.js (ENTRY POINT)==
+============================= test.tsx_test_component_p_on_hi_UJAnjrKiyXk.js (ENTRY POINT)==
 
-export const test_component_p_onConst_WVa6OMq4yIM = ()=>"const";
+export const test_component_p_on_hi_UJAnjrKiyXk = ()=>"hi";
 
 
 None
 /*
 {
   "origin": "test.tsx",
-  "name": "test_component_p_onConst_WVa6OMq4yIM",
+  "name": "test_component_p_on_hi_UJAnjrKiyXk",
   "entry": null,
-  "displayName": "test.tsx_test_component_p_onConst",
-  "hash": "WVa6OMq4yIM",
-  "canonicalFilename": "test.tsx_test_component_p_onConst_WVa6OMq4yIM",
+  "displayName": "test.tsx_test_component_p_on_hi",
+  "hash": "UJAnjrKiyXk",
+  "canonicalFilename": "test.tsx_test_component_p_on_hi_UJAnjrKiyXk",
   "path": "",
   "extension": "js",
   "parent": null,
   "ctxKind": "eventHandler",
-  "ctxName": "onConst$",
+  "ctxName": "onHi$",
   "captures": false,
   "loc": [
     0,
@@ -76,20 +76,20 @@ import { _getConstProps } from "@qwik.dev/core";
 import { _getVarProps } from "@qwik.dev/core";
 import { _jsxSplit } from "@qwik.dev/core";
 import { qrl } from "@qwik.dev/core";
-const i_WVa6OMq4yIM = ()=>import("./test.tsx_test_component_p_onConst_WVa6OMq4yIM");
-const i_MzKNRhr770k = ()=>import("./test.tsx_test_component_p_onHi_MzKNRhr770k");
+const i_i552ahxj0Ag = ()=>import("./test.tsx_test_component_p_on_const_i552ahxj0Ag");
+const i_UJAnjrKiyXk = ()=>import("./test.tsx_test_component_p_on_hi_UJAnjrKiyXk");
 const _hf0 = (p0)=>p0.helloHandler$;
 const _hf0_str = "p0.helloHandler$";
 const _hf1 = (p0)=>p0.onVarHandler$;
 const _hf1_str = "p0.onVarHandler$";
 export const test_component_LUXeXe0DQrg = (props)=>{
 	return /*#__PURE__*/ _jsxSplit("p", {
-		"on:hi": /*#__PURE__*/ qrl(i_MzKNRhr770k, "test_component_p_onHi_MzKNRhr770k"),
+		"on:hi": /*#__PURE__*/ qrl(i_UJAnjrKiyXk, "test_component_p_on_hi_UJAnjrKiyXk"),
 		..._getVarProps(props.foo),
 		"on:hello": _fnSignal(_hf0, [props], _hf0_str),
 		..._getVarProps(props.rest),
 		"on:var": _fnSignal(_hf1, [props], _hf1_str),
-		"on:const": /*#__PURE__*/ qrl(i_WVa6OMq4yIM, "test_component_p_onConst_WVa6OMq4yIM"),
+		"on:const": /*#__PURE__*/ qrl(i_i552ahxj0Ag, "test_component_p_on_const_i552ahxj0Ag"),
 		asd: "1"
 	}, _getConstProps(props.rest), null, 0, null);
 };

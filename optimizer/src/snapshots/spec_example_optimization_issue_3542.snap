@@ -31,7 +31,7 @@ export const AtomStatus = /*#__PURE__*/ componentQrl(/*#__PURE__*/ inlinedQrl((_
 	} else if (JSON.stringify(atom.atom) == JSON.stringify(atom.real)) {
 		status = "WTFED";
 	}
-	return <span title={atom.ID} on:click={/*#__PURE__*/ inlinedQrl((ev)=>atomStatusClick(ctx, ev, [atom]), "AtomStatus_component_span_onClick_Owf5fKaOlF0")} class={[
+	return <span title={atom.ID} on:click={/*#__PURE__*/ inlinedQrl((ev)=>atomStatusClick(ctx, ev, [atom]), "AtomStatus_component_span_on_click_5d93rv80bw0")} class={[
 		"atom",
 		status,
 		ctx.store[atom.ID] ? "selected" : null
