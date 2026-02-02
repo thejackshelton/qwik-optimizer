@@ -26,18 +26,21 @@ const i_HTDRsvUbLiE = ()=>import("./test.tsx_Foo_component_HTDRsvUbLiE");
 None
 ============================= test.tsx_Foo_component_HTDRsvUbLiE.js (ENTRY POINT)==
 
-import { _jsxSorted, useSignal } from "@qwik.dev/core";
+import { _jsxSorted, qrl, useSignal } from "@qwik.dev/core";
 const i_QcT2tClxN5w = ()=>import("./test.tsx_Foo_component_div_map_div_p_onClick_QcT2tClxN5w");
 const i_ixif7o07rP0 = ()=>import("./test.tsx_Foo_component_div_map_div_onMouseOver_ixif7o07rP0");
 const i_mfLVIFxdDiU = ()=>import("./test.tsx_Foo_component_div_map_div_onClick_mfLVIFxdDiU");
 export const Foo_component_HTDRsvUbLiE = function() {
 	const data = useSignal([]);
+	const Foo_component_div_map_div_onClick_mfLVIFxdDiU = /*#__PURE__*/ qrl(i_mfLVIFxdDiU, "Foo_component_div_map_div_onClick_mfLVIFxdDiU");
+	const Foo_component_div_map_div_onMouseOver_ixif7o07rP0 = /*#__PURE__*/ qrl(i_ixif7o07rP0, "Foo_component_div_map_div_onMouseOver_ixif7o07rP0");
+	const Foo_component_div_map_div_p_onClick_QcT2tClxN5w = /*#__PURE__*/ qrl(i_QcT2tClxN5w, "Foo_component_div_map_div_p_onClick_QcT2tClxN5w");
 	return /*#__PURE__*/ _jsxSorted("div", null, null, data.value.map((row)=>/*#__PURE__*/ _jsxSorted("div", {
-		"on:click": /*#__PURE__*/ qrl(i_mfLVIFxdDiU, "Foo_component_div_map_div_onClick_mfLVIFxdDiU"),
-		"on:mouseover": /*#__PURE__*/ qrl(i_ixif7o07rP0, "Foo_component_div_map_div_onMouseOver_ixif7o07rP0"),
+		"on:click": Foo_component_div_map_div_onClick_mfLVIFxdDiU,
+		"on:mouseover": Foo_component_div_map_div_onMouseOver_ixif7o07rP0,
 		"q:p": row
 	}, null, /*#__PURE__*/ _jsxSorted("p", {
-		"on:click": /*#__PURE__*/ qrl(i_QcT2tClxN5w, "Foo_component_div_map_div_p_onClick_QcT2tClxN5w"),
+		"on:click": Foo_component_div_map_div_p_onClick_QcT2tClxN5w,
 		"q:p": row
 	}, null, item.value.id, 1, null), 3, null)), 1, null);
 };

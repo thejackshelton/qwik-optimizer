@@ -142,14 +142,15 @@ None
 */
 ============================= test.tsx_App_component_ckEPmXZlub0.js (ENTRY POINT)==
 
-import { _jsxSorted, useSignal, useStore } from "@qwik.dev/core";
+import { _jsxSorted, qrl, useSignal, useStore } from "@qwik.dev/core";
 const i_K5Zt4qx8Rig = ()=>import("./test.tsx_App_component_div_map_button_onClick_K5Zt4qx8Rig");
 export const App_component_ckEPmXZlub0 = ()=>{
 	const cart = useStore([]);
 	const results = useSignal(["foo"]);
+	const App_component_div_map_button_onClick_K5Zt4qx8Rig = /*#__PURE__*/ qrl(i_K5Zt4qx8Rig, "App_component_div_map_button_onClick_K5Zt4qx8Rig", [cart]);
 	return /*#__PURE__*/ _jsxSorted("div", null, null, [
 		results.value.map((item)=>/*#__PURE__*/ _jsxSorted("button", {
-			"on:click": /*#__PURE__*/ qrl(i_K5Zt4qx8Rig, "App_component_div_map_button_onClick_K5Zt4qx8Rig", [cart]),
+			"on:click": App_component_div_map_button_onClick_K5Zt4qx8Rig,
 			"q:p": item
 		}, { id: "second" }, item, 1, null)),
 		loopArrowFn(results.value),

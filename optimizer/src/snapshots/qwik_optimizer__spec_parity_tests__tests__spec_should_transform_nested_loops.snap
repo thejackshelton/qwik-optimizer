@@ -29,7 +29,7 @@ const i_HTDRsvUbLiE = ()=>import("./test.tsx_Foo_component_HTDRsvUbLiE");
 None
 ============================= test.tsx_Foo_component_HTDRsvUbLiE.js (ENTRY POINT)==
 
-import { _fnSignal, _jsxSorted, useSignal } from "@qwik.dev/core";
+import { _fnSignal, _jsxSorted, qrl, useSignal } from "@qwik.dev/core";
 const i_5OQc040LebY = ()=>import("./test.tsx_Foo_component_div_map_div_map_p_onClick_5OQc040LebY");
 const i_mfLVIFxdDiU = ()=>import("./test.tsx_Foo_component_div_map_div_onClick_mfLVIFxdDiU");
 const _hf0 = (p0)=>p0.value.id;
@@ -37,11 +37,13 @@ const _hf0_str = "p0.value.id";
 export const Foo_component_HTDRsvUbLiE = function() {
 	const data = useSignal([]);
 	const data2 = useSignal([]);
+	const Foo_component_div_map_div_onClick_mfLVIFxdDiU = /*#__PURE__*/ qrl(i_mfLVIFxdDiU, "Foo_component_div_map_div_onClick_mfLVIFxdDiU");
+	const Foo_component_div_map_div_map_p_onClick_5OQc040LebY = /*#__PURE__*/ qrl(i_5OQc040LebY, "Foo_component_div_map_div_map_p_onClick_5OQc040LebY", [row]);
 	return /*#__PURE__*/ _jsxSorted("div", null, null, data.value.map((row)=>/*#__PURE__*/ _jsxSorted("div", {
-		"on:click": /*#__PURE__*/ qrl(i_mfLVIFxdDiU, "Foo_component_div_map_div_onClick_mfLVIFxdDiU"),
+		"on:click": Foo_component_div_map_div_onClick_mfLVIFxdDiU,
 		"q:p": row
 	}, null, data2.value.map((item)=>/*#__PURE__*/ _jsxSorted("p", {
-		"on:click": /*#__PURE__*/ qrl(i_5OQc040LebY, "Foo_component_div_map_div_map_p_onClick_5OQc040LebY", [row]),
+		"on:click": Foo_component_div_map_div_map_p_onClick_5OQc040LebY,
 		"q:p": item
 	}, null, [
 		row.value.id,

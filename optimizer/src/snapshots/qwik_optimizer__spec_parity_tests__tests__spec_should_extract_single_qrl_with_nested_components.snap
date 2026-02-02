@@ -57,15 +57,16 @@ None
 */
 ============================= test.tsx_Foo_component_Inner_component_AuJ9mTBx5YA.js (ENTRY POINT)==
 
-import { _fnSignal, _jsxSorted } from "@qwik.dev/core";
+import { _fnSignal, _jsxSorted, qrl } from "@qwik.dev/core";
 const i_htbkkW8S4e0 = ()=>import("./test.tsx_Foo_component_Inner_component_div_map_p_onClick_htbkkW8S4e0");
 const _hf0 = (p0)=>p0.value.id;
 const _hf0_str = "p0.value.id";
 export const Foo_component_Inner_component_AuJ9mTBx5YA = (props)=>{
 	const [data] = useLexicalScope();
 	const data = props.data;
+	const Foo_component_Inner_component_div_map_p_onClick_htbkkW8S4e0 = /*#__PURE__*/ qrl(i_htbkkW8S4e0, "Foo_component_Inner_component_div_map_p_onClick_htbkkW8S4e0");
 	return /*#__PURE__*/ _jsxSorted("div", null, null, data.value.map((item)=>/*#__PURE__*/ _jsxSorted("p", {
-		"on:click": /*#__PURE__*/ qrl(i_htbkkW8S4e0, "Foo_component_Inner_component_div_map_p_onClick_htbkkW8S4e0"),
+		"on:click": Foo_component_Inner_component_div_map_p_onClick_htbkkW8S4e0,
 		"q:p": item
 	}, null, _fnSignal(_hf0, [item], _hf0_str), 1, null)), 1, null);
 };
