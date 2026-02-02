@@ -10,9 +10,9 @@ See: .planning/PROJECT.md (updated 2026-01-29)
 ## Current Position
 
 Phase: 29 of 29 (True Byte-for-Byte Parity)
-Plan: 01 (completed)
+Plan: 02 (completed)
 Status: PHASE IN PROGRESS
-Last activity: 2026-02-02 - Completed 29-01: Compound signal _fnSignal generation
+Last activity: 2026-02-02 - Completed 29-02: Fixed QRL style false positive detection
 
 Progress: [===================== ] 97% (28 phases complete, 1 in progress)
 
@@ -197,13 +197,13 @@ snapshot_verify test now FAILS until all differences are resolved.
 
 ## Session Continuity
 
-Last session: 2026-02-02T05:47:24Z
-Stopped at: Completed 29-01-PLAN.md - Compound signal _fnSignal generation
+Last session: 2026-02-02T12:00:00Z
+Stopped at: Completed 29-02-PLAN.md - Fixed QRL style false positive detection
 Resume file: None
 
 ## Phase 29 True Byte-for-Byte Parity Progress
 
-### Status: IN PROGRESS (1/4 plans)
+### Status: IN PROGRESS (2/4 plans)
 
 **Goal:** Fix ALL 162 differences - no exceptions
 
@@ -211,14 +211,14 @@ Resume file: None
 | Issue | Count | Root Cause |
 |-------|-------|------------|
 | Hoisted function placement | 18 | _hf emitted in wrong file (was 19, fixed 1) |
-| QRL declaration style | 1 | QRL inline vs hoisted const |
+| QRL declaration style | 11 | Real differences (was 1 false positive) |
 | Segment count - Category A | 8 | OXC creates more segments |
 | Segment count - Category B | 40 | qwik-core creates more segments |
 | Segment count - Category C | 24 | Different file names |
 
 **Plans:**
 - [x] 29-01-PLAN.md — Fix compound signal _fnSignal generation (5 min)
-- [ ] 29-02-PLAN.md — Fix QRL declaration style
+- [x] 29-02-PLAN.md — Fix QRL declaration style detection (45 min)
 - [ ] 29-03-PLAN.md — Fix segment count differences
 - [ ] 29-04-PLAN.md — Final verification (0 differences)
 
@@ -229,10 +229,20 @@ Resume file: None
 - Hoisted function placement reduced from 19 to 18
 - SUMMARY: .planning/phases/29-true-byte-parity/29-01-SUMMARY.md
 
+**Plan 29-02: QRL Declaration Style Detection - COMPLETE (45 min)**
+- Fixed has_qrl_placement_mismatch() to use pattern-presence comparison
+- Fixed strip_metadata_comments() to not treat PURE comments as metadata
+- example_functional_component_2 no longer flagged as false positive
+- Revealed 11 REAL QRL style differences (were hidden by false positive logic)
+- SUMMARY: .planning/phases/29-true-byte-parity/29-02-SUMMARY.md
+
 Key decisions from Phase 29:
 - [29-01]: Use AST transformation (not string replacement) for identifier substitution
 - [29-01]: Check compound signal expressions BEFORE simple signal wrap
 - [29-01]: Minify hoisted_fn_str but keep function code readable
+- [29-02]: Fix detection logic, not code (1 mismatch was false positive)
+- [29-02]: Compare pattern presence, not cross-check (both having inline+hoisted = same pattern)
+- [29-02]: Check for #__PURE__ to avoid treating PURE comments as metadata blocks
 
 ## Phase 28 Complete Snapshot Parity Progress
 
