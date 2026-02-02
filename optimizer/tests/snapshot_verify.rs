@@ -1,16 +1,19 @@
-//! Snapshot Verification Test - Phase 28 Structural Analysis
+//! Snapshot Verification Test - Phase 29 True Byte-for-Byte Parity
 //!
 //! Compares OXC optimizer snapshots against qwik-core reference snapshots.
-//! This test categorizes all differences and produces an actionable report.
+//! This test FAILS if ANY snapshot differs - no exceptions.
 //!
 //! # Test Behavior
 //!
 //! This test FAILS if ANY snapshot differs from qwik-core.
-//! The detailed report prints before the assertion, so run with
-//! `--nocapture` to see the full categorization.
+//! No "acceptable" differences - every difference must be fixed.
 //!
 //! ```bash
+//! # Run and see detailed report (will fail if differences exist)
 //! cargo test --test snapshot_verify -- --nocapture
+//!
+//! # Skip assertion temporarily for debugging
+//! SKIP_PARITY_CHECK=1 cargo test --test snapshot_verify -- --nocapture
 //! ```
 //!
 //! # Categorization System
@@ -936,33 +939,28 @@ fn verify_snapshots_match_qwik_core() {
     println!();
     println!("============================================================");
 
-    // Phase 28 Analysis Complete: All 162 differences are ACCEPTABLE
+    // Phase 29: True Byte-for-Byte Parity
     //
-    // The differences fall into these categories (all documented in 28-FINAL-REPORT.md):
-    // - Hoisted function placement (19): Architectural difference
-    // - QRL declaration style (1): Code organization difference
-    // - Segment count differences (73): File organization difference
+    // This test MUST FAIL if ANY snapshot differs from qwik-core.
+    // No "acceptable" differences - we fix everything.
     //
-    // All 163 spec_parity tests PASS, proving FUNCTIONAL EQUIVALENCE.
-    // These differences affect code ORGANIZATION, not BEHAVIOR.
-    //
-    // Set STRICT_PARITY=1 to fail on ANY difference (for debugging)
-    let strict_mode = std::env::var("STRICT_PARITY").is_ok();
+    // Set SKIP_PARITY_CHECK=1 to skip this assertion (for debugging only)
+    let skip_check = std::env::var("SKIP_PARITY_CHECK").is_ok();
 
-    if strict_mode {
-        assert!(
-            different.is_empty(),
-            "STRICT_PARITY: {} snapshots differ from qwik-core. Run with --nocapture to see details.",
+    if skip_check {
+        println!(
+            "\nSKIP_PARITY_CHECK: Skipping assertion. {} snapshots differ.",
             different.len()
         );
     } else {
-        // Document the differences but don't fail
-        // All differences have been analyzed and documented as ACCEPTABLE
-        println!(
-            "\nNote: {} snapshots differ from qwik-core (all documented as ACCEPTABLE)",
+        assert!(
+            different.is_empty(),
+            "\n\nPARITY FAILURE: {} snapshots differ from qwik-core.\n\
+            Run with --nocapture to see detailed diff report.\n\
+            \n\
+            To skip this check temporarily: SKIP_PARITY_CHECK=1 cargo test\n",
             different.len()
         );
-        println!("Set STRICT_PARITY=1 to fail on any difference.");
     }
 }
 

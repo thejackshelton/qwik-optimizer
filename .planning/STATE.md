@@ -4,17 +4,17 @@
 
 See: .planning/PROJECT.md (updated 2026-01-29)
 
-**Core value:** All 163 tests from qwik-core pass with exact output parity to the SWC implementation.
-**Status:** COMPLETE - Phase 28 Complete Snapshot Parity & Rename Snapshots
+**Core value:** All 163 tests from qwik-core pass with BYTE-FOR-BYTE IDENTICAL output to the SWC implementation.
+**Status:** IN PROGRESS - Phase 29 True Byte-for-Byte Parity
 
 ## Current Position
 
-Phase: 28 of 28 (Complete Snapshot Parity & Rename Snapshots)
-Plan: 05 complete (ALL PLANS)
-Status: PHASE COMPLETE
-Last activity: 2026-02-02 - Completed 28-05-PLAN.md (Final Verification)
+Phase: 29 of 29 (True Byte-for-Byte Parity)
+Plan: 00 (not started)
+Status: PHASE IN PROGRESS
+Last activity: 2026-02-01 - Started Phase 29, fixed snapshot_verify to fail on differences
 
-Progress: [======================] 100% (28 phases complete)
+Progress: [===================== ] 97% (28 phases complete, 1 in progress)
 
 ## Performance Metrics
 
@@ -169,6 +169,7 @@ Key decisions from Phase 18:
 
 ### Roadmap Evolution
 
+- Phase 29 ADDED: True Byte-for-Byte Parity - Fix ALL 162 differences, no "acceptable" exceptions
 - Phase 28 ADDED: Complete Snapshot Parity & Rename Snapshots - Fix 162 remaining differences and rename snapshots
 - Phase 26 COMPLETE: Exact Snapshot Parity - Fixed attribute quoting, documented remaining differences
 - Phase 27 ADDED: Byte-for-Byte Parity - Fix remaining differences (imports, _fnSignal, file ordering)
@@ -187,13 +188,39 @@ Key decisions from Phase 18:
 
 ### Blockers/Concerns
 
-None - Phase 28 COMPLETE. ALL PHASES COMPLETE. PROJECT COMPLETE.
+**162 snapshot differences must be fixed:**
+- 19 hoisted function placement
+- 1 QRL declaration style
+- 73 segment count differences
+
+snapshot_verify test now FAILS until all differences are resolved.
 
 ## Session Continuity
 
-Last session: 2026-02-02T05:00:00Z
-Stopped at: Completed 28-05-PLAN.md - Final Verification (PHASE COMPLETE)
+Last session: 2026-02-01T12:00:00Z
+Stopped at: Started Phase 29 - snapshot_verify now fails on differences
 Resume file: None
+
+## Phase 29 True Byte-for-Byte Parity Progress
+
+### Status: IN PROGRESS (0/4 plans)
+
+**Goal:** Fix ALL 162 differences - no exceptions
+
+**Differences to fix:**
+| Issue | Count | Root Cause |
+|-------|-------|------------|
+| Hoisted function placement | 19 | _hf emitted in wrong file |
+| QRL declaration style | 1 | QRL inline vs hoisted const |
+| Segment count - Category A | 8 | OXC creates more segments |
+| Segment count - Category B | 40 | qwik-core creates more segments |
+| Segment count - Category C | 24 | Different file names |
+
+**Plans:**
+- [ ] 29-01-PLAN.md — Fix hoisted function placement
+- [ ] 29-02-PLAN.md — Fix QRL declaration style
+- [ ] 29-03-PLAN.md — Fix segment count differences
+- [ ] 29-04-PLAN.md — Final verification (0 differences)
 
 ## Phase 28 Complete Snapshot Parity Progress
 
