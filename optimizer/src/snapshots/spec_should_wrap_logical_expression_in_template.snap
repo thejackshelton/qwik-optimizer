@@ -18,12 +18,15 @@ export default component$(() => {
 
 ============================= test.tsx_test_component_LUXeXe0DQrg.js (ENTRY POINT)==
 
+import { _fnSignal } from "@qwik.dev/core";
 import { _jsxSorted } from "@qwik.dev/core";
 import { useSignal } from "@qwik.dev/core";
+const _hf0 = (p0, p1)=>(p0 || p1).value;
+const _hf0_str = "(p0||p1).value";
 export const test_component_LUXeXe0DQrg = ()=>{
 	const count = useSignal(0);
 	const count2 = useSignal(0);
-	return /*#__PURE__*/ _jsxSorted("div", null, null, _wrapProp(count || count2), 1, null);
+	return /*#__PURE__*/ _jsxSorted("div", null, null, _fnSignal(_hf0, [count, count2], _hf0_str), 1, null);
 };
 
 
