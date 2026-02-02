@@ -30,6 +30,7 @@ export const Lightweight = (props) => {
 
 ============================= test.tsx_App_component_useMemo_6Sc9KVki3Y0.js (ENTRY POINT)==
 
+import { useLexicalScope } from "@qwik.dev/core";
 export const App_component_useMemo_6Sc9KVki3Y0 = ()=>{
 	const [state] = useLexicalScope();
 	console.log(state.count);
@@ -122,6 +123,7 @@ None
 ============================= test.tsx_App_component_1_w0t0o3QMovU.js (ENTRY POINT)==
 
 import { _jsxSorted } from "@qwik.dev/core";
+import { useLexicalScope } from "@qwik.dev/core";
 export const App_component_1_w0t0o3QMovU = ()=>{
 	const [state] = useLexicalScope();
 	return /*#__PURE__*/ _jsxSorted("div", null, null, state.count, 1, null);

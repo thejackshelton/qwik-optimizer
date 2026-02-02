@@ -27,6 +27,7 @@ export default App;
 ============================= test.tsx_Root_component_royhjYaCbYE.js (ENTRY POINT)==
 
 import { _jsxSorted } from "@qwik.dev/core";
+import { useLexicalScope } from "@qwik.dev/core";
 export const Root_component_royhjYaCbYE = (props)=>{
 	const [App] = useLexicalScope();
 	return _jsxSorted(App, null, null, null, 3, null);

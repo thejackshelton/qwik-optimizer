@@ -28,27 +28,105 @@ const ManyEventsComponent = component$(() => {
 	);
 });
 
+============================= test.tsx_ManyEventsComponent_component_div_button_onFocus_DCSta2nEohA.js (ENTRY POINT)==
+
+export const ManyEventsComponent_component_div_button_onFocus_DCSta2nEohA = ()=>{};
+
+
+None
+/*
+{
+  "origin": "test.tsx",
+  "name": "ManyEventsComponent_component_div_button_onFocus_DCSta2nEohA",
+  "entry": null,
+  "displayName": "test.tsx_ManyEventsComponent_component_div_button_onFocus",
+  "hash": "DCSta2nEohA",
+  "canonicalFilename": "test.tsx_ManyEventsComponent_component_div_button_onFocus_DCSta2nEohA",
+  "path": "",
+  "extension": "js",
+  "parent": null,
+  "ctxKind": "function",
+  "ctxName": "document:onFocus$",
+  "captures": false,
+  "loc": [
+    0,
+    0
+  ]
+}
+*/
+============================= test.tsx_ManyEventsComponent_component_div_button_onBlur_XtiiglYpgGE.js (ENTRY POINT)==
+
+export const ManyEventsComponent_component_div_button_onBlur_XtiiglYpgGE = ()=>{};
+
+
+None
+/*
+{
+  "origin": "test.tsx",
+  "name": "ManyEventsComponent_component_div_button_onBlur_XtiiglYpgGE",
+  "entry": null,
+  "displayName": "test.tsx_ManyEventsComponent_component_div_button_onBlur",
+  "hash": "XtiiglYpgGE",
+  "canonicalFilename": "test.tsx_ManyEventsComponent_component_div_button_onBlur_XtiiglYpgGE",
+  "path": "",
+  "extension": "js",
+  "parent": null,
+  "ctxKind": "eventHandler",
+  "ctxName": "onBlur$",
+  "captures": false,
+  "loc": [
+    0,
+    0
+  ]
+}
+*/
+============================= test.tsx_ManyEventsComponent_component_div_button_on_anotherCustom_6leHa5aTNXQ.js (ENTRY POINT)==
+
+export const ManyEventsComponent_component_div_button_on_anotherCustom_6leHa5aTNXQ = ()=>{};
+
+
+None
+/*
+{
+  "origin": "test.tsx",
+  "name": "ManyEventsComponent_component_div_button_on_anotherCustom_6leHa5aTNXQ",
+  "entry": null,
+  "displayName": "test.tsx_ManyEventsComponent_component_div_button_on_anotherCustom",
+  "hash": "6leHa5aTNXQ",
+  "canonicalFilename": "test.tsx_ManyEventsComponent_component_div_button_on_anotherCustom_6leHa5aTNXQ",
+  "path": "",
+  "extension": "js",
+  "parent": null,
+  "ctxKind": "function",
+  "ctxName": "on-anotherCustom$",
+  "captures": false,
+  "loc": [
+    0,
+    0
+  ]
+}
+*/
 ============================= test.tsx_ManyEventsComponent_component_ndbrzxiyG3g.js (ENTRY POINT)==
 
 import { _jsxSorted } from "@qwik.dev/core";
 import { qrl } from "@qwik.dev/core";
-const i_2 = ()=>import("./test.tsx");
-const i_onFocus = ()=>import("./test.tsx");
-const i_on-anotherCustom = ()=>import("./test.tsx");
-const i_onBlur = ()=>import("./test.tsx");
-const i_1 = ()=>import("./test.tsx");
-const i_onDblClick = ()=>import("./test.tsx");
-const i_onClick = ()=>import("./test.tsx");
+const i_QpMrieJG0Hg = ()=>import("./test.tsx_ManyEventsComponent_component_div_button_onClick_2_QpMrieJG0Hg");
+const i_DCSta2nEohA = ()=>import("./test.tsx_ManyEventsComponent_component_div_button_onFocus_DCSta2nEohA");
+const i_6leHa5aTNXQ = ()=>import("./test.tsx_ManyEventsComponent_component_div_button_on_anotherCustom_6leHa5aTNXQ");
+const i_XtiiglYpgGE = ()=>import("./test.tsx_ManyEventsComponent_component_div_button_onBlur_XtiiglYpgGE");
+const i_dfRCr0g1G4s = ()=>import("./test.tsx_ManyEventsComponent_component_div_button_onClick_1_dfRCr0g1G4s");
+const i_ILklEGAlW6o = ()=>import("./test.tsx_ManyEventsComponent_component_div_button_onDblClick_ILklEGAlW6o");
+const i_4yU1qCz0l9I = ()=>import("./test.tsx_ManyEventsComponent_component_div_button_onClick_4yU1qCz0l9I");
 export const ManyEventsComponent_component_ndbrzxiyG3g = ()=>{
 	return /*#__PURE__*/ _jsxSorted("div", null, null, [/*#__PURE__*/ _jsxSorted("button", {
-		"on:click": /*#__PURE__*/ qrl(i_onClick, "ManyEventsComponent_component_div_button_onClick"),
-		"on:dblclick": /*#__PURE__*/ qrl(i_onDblClick, "ManyEventsComponent_component_div_button_onDblClick")
+		"on:click": /*#__PURE__*/ qrl(i_4yU1qCz0l9I, "ManyEventsComponent_component_div_button_onClick_4yU1qCz0l9I"),
+		"on:dblclick": /*#__PURE__*/ qrl(i_ILklEGAlW6o, "ManyEventsComponent_component_div_button_onDblClick_ILklEGAlW6o")
 	}, null, "click", 3, null), /*#__PURE__*/ _jsxSorted("button", {
-		"on-document:focus": /*#__PURE__*/ qrl(i_onFocus, "ManyEventsComponent_component_div_button_onFocus"),
-		"on-window:click": /*#__PURE__*/ qrl(i_2, "ManyEventsComponent_component_div_button_onClick_2"),
-		"on:another-custom": /*#__PURE__*/ qrl(i_on-anotherCustom, "ManyEventsComponent_component_div_button_on-anotherCustom"),
-		"on:blur": /*#__PURE__*/ qrl(i_onBlur, "ManyEventsComponent_component_div_button_onBlur"),
-		"on:click": /*#__PURE__*/ qrl(i_1, "ManyEventsComponent_component_div_button_onClick_1")
+		"on-document:focus": /*#__PURE__*/ qrl(i_DCSta2nEohA, "ManyEventsComponent_component_div_button_onFocus_DCSta2nEohA"),
+		"on-window:click": /*#__PURE__*/ qrl(i_QpMrieJG0Hg, "ManyEventsComponent_component_div_button_onClick_2_QpMrieJG0Hg"),
+		"on:another-custom": /*#__PURE__*/ qrl(i_6leHa5aTNXQ, "ManyEventsComponent_component_div_button_on_anotherCustom_6leHa5aTNXQ"),
+		"on:blur": /*#__PURE__*/ qrl(i_XtiiglYpgGE, "ManyEventsComponent_component_div_button_onBlur_XtiiglYpgGE"),
+		"on:click": /*#__PURE__*/ qrl(i_dfRCr0g1G4s, "ManyEventsComponent_component_div_button_onClick_1_dfRCr0g1G4s")
 	}, null, "click", 3, null)], 3, null);
 };
 
@@ -71,6 +149,110 @@ None
   "loc": [
     85,
     398
+  ]
+}
+*/
+============================= test.tsx_ManyEventsComponent_component_div_button_onClick_2_QpMrieJG0Hg.js (ENTRY POINT)==
+
+export const ManyEventsComponent_component_div_button_onClick_2_QpMrieJG0Hg = ()=>{};
+
+
+None
+/*
+{
+  "origin": "test.tsx",
+  "name": "ManyEventsComponent_component_div_button_onClick_2_QpMrieJG0Hg",
+  "entry": null,
+  "displayName": "test.tsx_ManyEventsComponent_component_div_button_onClick_2",
+  "hash": "QpMrieJG0Hg",
+  "canonicalFilename": "test.tsx_ManyEventsComponent_component_div_button_onClick_2_QpMrieJG0Hg",
+  "path": "",
+  "extension": "js",
+  "parent": null,
+  "ctxKind": "function",
+  "ctxName": "window:onClick$",
+  "captures": false,
+  "loc": [
+    0,
+    0
+  ]
+}
+*/
+============================= test.tsx_ManyEventsComponent_component_div_button_onClick_1_dfRCr0g1G4s.js (ENTRY POINT)==
+
+export const ManyEventsComponent_component_div_button_onClick_1_dfRCr0g1G4s = ()=>{};
+
+
+None
+/*
+{
+  "origin": "test.tsx",
+  "name": "ManyEventsComponent_component_div_button_onClick_1_dfRCr0g1G4s",
+  "entry": null,
+  "displayName": "test.tsx_ManyEventsComponent_component_div_button_onClick_1",
+  "hash": "dfRCr0g1G4s",
+  "canonicalFilename": "test.tsx_ManyEventsComponent_component_div_button_onClick_1_dfRCr0g1G4s",
+  "path": "",
+  "extension": "js",
+  "parent": null,
+  "ctxKind": "eventHandler",
+  "ctxName": "onClick$",
+  "captures": false,
+  "loc": [
+    0,
+    0
+  ]
+}
+*/
+============================= test.tsx_ManyEventsComponent_component_div_button_onDblClick_ILklEGAlW6o.js (ENTRY POINT)==
+
+export const ManyEventsComponent_component_div_button_onDblClick_ILklEGAlW6o = ()=>{};
+
+
+None
+/*
+{
+  "origin": "test.tsx",
+  "name": "ManyEventsComponent_component_div_button_onDblClick_ILklEGAlW6o",
+  "entry": null,
+  "displayName": "test.tsx_ManyEventsComponent_component_div_button_onDblClick",
+  "hash": "ILklEGAlW6o",
+  "canonicalFilename": "test.tsx_ManyEventsComponent_component_div_button_onDblClick_ILklEGAlW6o",
+  "path": "",
+  "extension": "js",
+  "parent": null,
+  "ctxKind": "eventHandler",
+  "ctxName": "onDblClick$",
+  "captures": false,
+  "loc": [
+    0,
+    0
+  ]
+}
+*/
+============================= test.tsx_ManyEventsComponent_component_div_button_onClick_4yU1qCz0l9I.js (ENTRY POINT)==
+
+export const ManyEventsComponent_component_div_button_onClick_4yU1qCz0l9I = ()=>{};
+
+
+None
+/*
+{
+  "origin": "test.tsx",
+  "name": "ManyEventsComponent_component_div_button_onClick_4yU1qCz0l9I",
+  "entry": null,
+  "displayName": "test.tsx_ManyEventsComponent_component_div_button_onClick",
+  "hash": "4yU1qCz0l9I",
+  "canonicalFilename": "test.tsx_ManyEventsComponent_component_div_button_onClick_4yU1qCz0l9I",
+  "path": "",
+  "extension": "js",
+  "parent": null,
+  "ctxKind": "eventHandler",
+  "ctxName": "onClick$",
+  "captures": false,
+  "loc": [
+    0,
+    0
   ]
 }
 */

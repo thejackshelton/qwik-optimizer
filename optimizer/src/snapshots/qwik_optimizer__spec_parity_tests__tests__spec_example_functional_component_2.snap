@@ -64,6 +64,36 @@ None
   ]
 }
 */
+============================= test.tsx_App_component_div_onClick_1CGetmFZx0g.js (ENTRY POINT)==
+
+import { useLexicalScope } from "@qwik.dev/core";
+export const App_component_div_onClick_1CGetmFZx0g = ()=>{
+	const [count2, state] = useLexicalScope();
+	return state.count += count2;
+};
+
+
+None
+/*
+{
+  "origin": "test.tsx",
+  "name": "App_component_div_onClick_1CGetmFZx0g",
+  "entry": null,
+  "displayName": "test.tsx_App_component_div_onClick",
+  "hash": "1CGetmFZx0g",
+  "canonicalFilename": "test.tsx_App_component_div_onClick_1CGetmFZx0g",
+  "path": "",
+  "extension": "js",
+  "parent": null,
+  "ctxKind": "eventHandler",
+  "ctxName": "onClick$",
+  "captures": true,
+  "loc": [
+    0,
+    0
+  ]
+}
+*/
 ============================= test.tsx_App_component_ckEPmXZlub0.js (ENTRY POINT)==
 
 import { _fnSignal } from "@qwik.dev/core";
@@ -73,7 +103,7 @@ import { useCounter } from "./test";
 import { useStore } from "@qwik.dev/core";
 import { qrl } from "@qwik.dev/core";
 const i_K5Zt4qx8Rig = ()=>import("./test.tsx_App_component_div_map_button_onClick_K5Zt4qx8Rig");
-const i_onClick = ()=>import("./test.tsx");
+const i_1CGetmFZx0g = ()=>import("./test.tsx_App_component_div_onClick_1CGetmFZx0g");
 const _hf0 = (p0)=>p0.name;
 const _hf0_str = "p0.name";
 export const App_component_ckEPmXZlub0 = (props)=>{
@@ -87,7 +117,7 @@ export const App_component_ckEPmXZlub0 = (props)=>{
 		state,
 		thing
 	]);
-	return /*#__PURE__*/ _jsxSorted("div", { "on:click": /*#__PURE__*/ qrl(i_onClick, "App_component_div_onClick", [count2, state]) }, null, [/*#__PURE__*/ _jsxSorted("span", null, null, state.count, 1, null), buttons.map((btn)=>/*#__PURE__*/ _jsxSorted("button", {
+	return /*#__PURE__*/ _jsxSorted("div", { "on:click": /*#__PURE__*/ qrl(i_1CGetmFZx0g, "App_component_div_onClick_1CGetmFZx0g", [count2, state]) }, null, [/*#__PURE__*/ _jsxSorted("span", null, null, state.count, 1, null), buttons.map((btn)=>/*#__PURE__*/ _jsxSorted("button", {
 		"on:click": App_component_div_map_button_onClick_K5Zt4qx8Rig,
 		"q:p": btn
 	}, null, _fnSignal(_hf0, [btn], _hf0_str), 1, null))], 1, null);

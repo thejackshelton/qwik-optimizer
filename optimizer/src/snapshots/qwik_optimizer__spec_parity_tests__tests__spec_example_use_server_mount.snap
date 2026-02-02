@@ -47,6 +47,7 @@ export const Child = component$(() => {
 
 import mongo from "mongodb";
 import redis from "redis";
+import { useLexicalScope } from "@qwik.dev/core";
 export const Parent_component_useTask_gDH1EtUWqBU = async ()=>{
 	const [state] = useLexicalScope();
 	state.text = await mongo.users();
@@ -78,6 +79,7 @@ None
 ============================= test.tsx_Child_component_useTask_Oh4n7ZeqJkU.js (ENTRY POINT)==
 
 import mongo from "mongodb";
+import { useLexicalScope } from "@qwik.dev/core";
 export const Child_component_useTask_Oh4n7ZeqJkU = async ()=>{
 	const [state] = useLexicalScope();
 	state.text = await mongo.users();

@@ -22,7 +22,7 @@ export const Foo = component$(({foo}) => {
 
 import { useMountQrl } from "@qwik.dev/core";
 import { qrl } from "@qwik.dev/core";
-export const Foo_component_HTDRsvUbLiE = ({ foo })=>{
+export const Foo_component_HTDRsvUbLiE = (_rawProps)=>{
 	/*#__PURE__*/ useMountQrl(/*#__PURE__*/ qrl(i_aaEQlcpxVis, "Foo_component_useMount_aaEQlcpxVis"));
 	return <div />;
 };

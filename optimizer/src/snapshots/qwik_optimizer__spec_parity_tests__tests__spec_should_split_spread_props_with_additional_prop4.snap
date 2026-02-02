@@ -10,17 +10,47 @@ export default component$((props: any) => {
 	return <button {...props} onClick$={() => props.onClick$()}></button>;
 });
 
+============================= test.tsx_test_component_button_onClick_DGk9xLyRokA.js (ENTRY POINT)==
+
+import { useLexicalScope } from "@qwik.dev/core";
+export const test_component_button_onClick_DGk9xLyRokA = ()=>{
+	const [props] = useLexicalScope();
+	return props.onClick$();
+};
+
+
+None
+/*
+{
+  "origin": "test.tsx",
+  "name": "test_component_button_onClick_DGk9xLyRokA",
+  "entry": null,
+  "displayName": "test.tsx_test_component_button_onClick",
+  "hash": "DGk9xLyRokA",
+  "canonicalFilename": "test.tsx_test_component_button_onClick_DGk9xLyRokA",
+  "path": "",
+  "extension": "js",
+  "parent": null,
+  "ctxKind": "eventHandler",
+  "ctxName": "onClick$",
+  "captures": true,
+  "loc": [
+    0,
+    0
+  ]
+}
+*/
 ============================= test.tsx_test_component_LUXeXe0DQrg.js (ENTRY POINT)==
 
 import { _getConstProps } from "@qwik.dev/core";
 import { _getVarProps } from "@qwik.dev/core";
 import { _jsxSplit } from "@qwik.dev/core";
 import { qrl } from "@qwik.dev/core";
-const i_onClick = ()=>import("./test.tsx");
+const i_DGk9xLyRokA = ()=>import("./test.tsx_test_component_button_onClick_DGk9xLyRokA");
 export const test_component_LUXeXe0DQrg = (props)=>{
 	return /*#__PURE__*/ _jsxSplit("button", {
 		..._getVarProps(props),
-		"on:click": /*#__PURE__*/ qrl(i_onClick, "test_component_button_onClick", [props])
+		"on:click": /*#__PURE__*/ qrl(i_DGk9xLyRokA, "test_component_button_onClick_DGk9xLyRokA", [props])
 	}, _getConstProps(props), null, 0, null);
 };
 

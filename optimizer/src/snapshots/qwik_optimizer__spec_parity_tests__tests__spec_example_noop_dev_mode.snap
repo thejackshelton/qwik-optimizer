@@ -93,6 +93,7 @@ None
 */
 ============================= test.tsx_App_component_serverStuff_ebyHaP15ytQ.js (ENTRY POINT)==
 
+import { useLexicalScope } from "@qwik.dev/core";
 export const App_component_serverStuff_ebyHaP15ytQ = async ()=>{
 	const [stuff] = useLexicalScope();
 	console.log(stuff.count);

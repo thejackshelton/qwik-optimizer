@@ -42,13 +42,13 @@ import { useSignal } from "@qwik.dev/core";
 import { useStore } from "@qwik.dev/core";
 import { qrl } from "@qwik.dev/core";
 const i_MKOvE0RDw7w = ()=>import("./test.tsx_Parent_component_div_map_button_onClick_MKOvE0RDw7w");
-const i_onClick = ()=>import("./test.tsx");
+const i_38pgNOXzh6g = ()=>import("./test.tsx_Parent_component_div_button_onClick_38pgNOXzh6g");
 export const Parent_component_0TaiDayHrlo = ()=>{
 	const cart = useStore([]);
 	const results = useSignal(["foo", "bar"]);
 	const Parent_component_div_map_button_onClick_MKOvE0RDw7w = /*#__PURE__*/ qrl(i_MKOvE0RDw7w, "Parent_component_div_map_button_onClick_MKOvE0RDw7w", [cart]);
 	return /*#__PURE__*/ _jsxSorted("div", null, null, [
-		/*#__PURE__*/ _jsxSorted("button", { "on:click": /*#__PURE__*/ qrl(i_onClick, "Parent_component_div_button_onClick", [results]) }, { id: "first" }, null, 3, null),
+		/*#__PURE__*/ _jsxSorted("button", { "on:click": /*#__PURE__*/ qrl(i_38pgNOXzh6g, "Parent_component_div_button_onClick_38pgNOXzh6g", [results]) }, { id: "first" }, null, 3, null),
 		results.value.map((item, key)=>/*#__PURE__*/ _jsxSorted("button", {
 			id: "second-" + key,
 			"on:click": Parent_component_div_map_button_onClick_MKOvE0RDw7w,
@@ -77,6 +77,36 @@ None
   "loc": [
     92,
     603
+  ]
+}
+*/
+============================= test.tsx_Parent_component_div_button_onClick_38pgNOXzh6g.js (ENTRY POINT)==
+
+import { useLexicalScope } from "@qwik.dev/core";
+export const Parent_component_div_button_onClick_38pgNOXzh6g = ()=>{
+	const [results] = useLexicalScope();
+	return results.value = ["item1", "item2"];
+};
+
+
+None
+/*
+{
+  "origin": "test.tsx",
+  "name": "Parent_component_div_button_onClick_38pgNOXzh6g",
+  "entry": null,
+  "displayName": "test.tsx_Parent_component_div_button_onClick",
+  "hash": "38pgNOXzh6g",
+  "canonicalFilename": "test.tsx_Parent_component_div_button_onClick_38pgNOXzh6g",
+  "path": "",
+  "extension": "js",
+  "parent": null,
+  "ctxKind": "eventHandler",
+  "ctxName": "onClick$",
+  "captures": true,
+  "loc": [
+    0,
+    0
   ]
 }
 */

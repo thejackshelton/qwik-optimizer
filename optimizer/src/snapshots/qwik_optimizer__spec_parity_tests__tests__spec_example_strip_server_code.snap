@@ -50,6 +50,7 @@ export const Parent = component$(() => {
 
 import mongo from "mongodb";
 import redis from "redis";
+import { useLexicalScope } from "@qwik.dev/core";
 export const s_gDH1EtUWqBU = async ()=>{
 	const [state] = useLexicalScope();
 	if (!true) return;

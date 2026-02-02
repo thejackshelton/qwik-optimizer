@@ -31,6 +31,7 @@ export const Footer = component$();
 ============================= test.tsx_Header_component_UVBJuFYfvDo.tsx (ENTRY POINT)==
 
 import { qrl } from "@qwik.dev/core";
+import { useLexicalScope } from "@qwik.dev/core";
 export const Header_component_UVBJuFYfvDo = ()=>{
 	const [exp1, internal] = useLexicalScope();
 	return /*#__PURE__*/ qrl(i_uWM1kg0IGO0, "Header_component_1_uWM1kg0IGO0", [exp1, internal]);
@@ -63,6 +64,7 @@ None
 import { default as DefaultFn } from "./test";
 import { bar } from "./test";
 import { foo } from "./test";
+import { useLexicalScope } from "@qwik.dev/core";
 export const Header_component_1_uWM1kg0IGO0 = ()=>{
 	const [exp1, internal] = useLexicalScope();
 	return <Footer>

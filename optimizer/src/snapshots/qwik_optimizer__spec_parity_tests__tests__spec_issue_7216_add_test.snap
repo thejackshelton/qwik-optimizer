@@ -17,6 +17,58 @@ export default component$((props) => {
 	/>);
 });
 
+============================= test.tsx_test_component_p_onHi_MzKNRhr770k.js (ENTRY POINT)==
+
+export const test_component_p_onHi_MzKNRhr770k = ()=>"hi";
+
+
+None
+/*
+{
+  "origin": "test.tsx",
+  "name": "test_component_p_onHi_MzKNRhr770k",
+  "entry": null,
+  "displayName": "test.tsx_test_component_p_onHi",
+  "hash": "MzKNRhr770k",
+  "canonicalFilename": "test.tsx_test_component_p_onHi_MzKNRhr770k",
+  "path": "",
+  "extension": "js",
+  "parent": null,
+  "ctxKind": "eventHandler",
+  "ctxName": "onHi$",
+  "captures": false,
+  "loc": [
+    0,
+    0
+  ]
+}
+*/
+============================= test.tsx_test_component_p_onConst_WVa6OMq4yIM.js (ENTRY POINT)==
+
+export const test_component_p_onConst_WVa6OMq4yIM = ()=>"const";
+
+
+None
+/*
+{
+  "origin": "test.tsx",
+  "name": "test_component_p_onConst_WVa6OMq4yIM",
+  "entry": null,
+  "displayName": "test.tsx_test_component_p_onConst",
+  "hash": "WVa6OMq4yIM",
+  "canonicalFilename": "test.tsx_test_component_p_onConst_WVa6OMq4yIM",
+  "path": "",
+  "extension": "js",
+  "parent": null,
+  "ctxKind": "eventHandler",
+  "ctxName": "onConst$",
+  "captures": false,
+  "loc": [
+    0,
+    0
+  ]
+}
+*/
 ============================= test.tsx_test_component_LUXeXe0DQrg.js (ENTRY POINT)==
 
 import { _fnSignal } from "@qwik.dev/core";
@@ -24,20 +76,20 @@ import { _getConstProps } from "@qwik.dev/core";
 import { _getVarProps } from "@qwik.dev/core";
 import { _jsxSplit } from "@qwik.dev/core";
 import { qrl } from "@qwik.dev/core";
-const i_onConst = ()=>import("./test.tsx");
-const i_onHi = ()=>import("./test.tsx");
+const i_WVa6OMq4yIM = ()=>import("./test.tsx_test_component_p_onConst_WVa6OMq4yIM");
+const i_MzKNRhr770k = ()=>import("./test.tsx_test_component_p_onHi_MzKNRhr770k");
 const _hf0 = (p0)=>p0.helloHandler$;
 const _hf0_str = "p0.helloHandler$";
 const _hf1 = (p0)=>p0.onVarHandler$;
 const _hf1_str = "p0.onVarHandler$";
 export const test_component_LUXeXe0DQrg = (props)=>{
 	return /*#__PURE__*/ _jsxSplit("p", {
-		"on:hi": /*#__PURE__*/ qrl(i_onHi, "test_component_p_onHi"),
+		"on:hi": /*#__PURE__*/ qrl(i_MzKNRhr770k, "test_component_p_onHi_MzKNRhr770k"),
 		..._getVarProps(props.foo),
 		"on:hello": _fnSignal(_hf0, [props], _hf0_str),
 		..._getVarProps(props.rest),
 		"on:var": _fnSignal(_hf1, [props], _hf1_str),
-		"on:const": /*#__PURE__*/ qrl(i_onConst, "test_component_p_onConst"),
+		"on:const": /*#__PURE__*/ qrl(i_WVa6OMq4yIM, "test_component_p_onConst_WVa6OMq4yIM"),
 		asd: "1"
 	}, _getConstProps(props.rest), null, 0, null);
 };

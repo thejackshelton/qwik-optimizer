@@ -51,15 +51,15 @@ import { useTaskQrl } from "@qwik.dev/core";
 import { componentQrl } from "@qwik.dev/core";
 import { _wrapProp } from "@qwik.dev/core";
 import { inlinedQrl } from "@qwik.dev/core";
+import { _restProps } from "@qwik.dev/core";
 import { _jsxSplit } from "@qwik.dev/core";
 import { _jsxSorted } from "@qwik.dev/core";
 import { _getVarProps } from "@qwik.dev/core";
 import { _getConstProps } from "@qwik.dev/core";
-import { CONST } from "const";
 import { componentQrl } from "@qwik.dev/core";
 import { useTaskQrl } from "@qwik.dev/core";
-import { CONST } from "const";
-export const Works = /*#__PURE__*/ componentQrl(/*#__PURE__*/ inlinedQrl(({ count, some = 1 + 2, hello = CONST, stuff: hey, stuffDefault: hey2 = 123, ...rest })=>{
+export const Works = /*#__PURE__*/ componentQrl(/*#__PURE__*/ inlinedQrl((_rawProps)=>{
+	const rest = _restProps(_rawProps, ["count", "stuff"]);
 	console.log(hey, some);
 	/*#__PURE__*/ useTaskQrl(/*#__PURE__*/ inlinedQrl(({ track })=>{
 		track(()=>count);
@@ -73,7 +73,7 @@ export const Works = /*#__PURE__*/ componentQrl(/*#__PURE__*/ inlinedQrl(({ coun
 		override: true
 	}, _getConstProps(rest), _wrapProp(_rawProps, "count"), 0, null);
 }, "Works_component_t45qL4vNGv0"));
-export const NoWorks2 = /*#__PURE__*/ componentQrl(/*#__PURE__*/ inlinedQrl(({ count, stuff: { hey } })=>{
+export const NoWorks2 = /*#__PURE__*/ componentQrl(/*#__PURE__*/ inlinedQrl((_rawProps)=>{
 	console.log(hey);
 	/*#__PURE__*/ useTaskQrl(/*#__PURE__*/ inlinedQrl(({ track })=>{
 		track(()=>count);
@@ -81,7 +81,7 @@ export const NoWorks2 = /*#__PURE__*/ componentQrl(/*#__PURE__*/ inlinedQrl(({ c
 	}, "NoWorks2_component_useTask_lXiqwbxxjq0"));
 	return /*#__PURE__*/ _jsxSorted("div", { class: _wrapProp(_rawProps, "count") }, null, _wrapProp(_rawProps, "count"), 1, null);
 }, "NoWorks2_component_JPD9t2HyEKg"));
-export const NoWorks3 = /*#__PURE__*/ componentQrl(/*#__PURE__*/ inlinedQrl(({ count, stuff = hola() })=>{
+export const NoWorks3 = /*#__PURE__*/ componentQrl(/*#__PURE__*/ inlinedQrl((_rawProps)=>{
 	console.log(stuff);
 	/*#__PURE__*/ useTaskQrl(/*#__PURE__*/ inlinedQrl(({ track })=>{
 		track(()=>count);

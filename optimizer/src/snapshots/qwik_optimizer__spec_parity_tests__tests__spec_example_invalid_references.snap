@@ -24,7 +24,8 @@ export const App = component$(({count}) => {
 ============================= test.tsx_App_component_ckEPmXZlub0.js (ENTRY POINT)==
 
 import { qrl } from "@qwik.dev/core";
-export const App_component_ckEPmXZlub0 = ({ count })=>{
+import { useLexicalScope } from "@qwik.dev/core";
+export const App_component_ckEPmXZlub0 = (_rawProps)=>{
 	const [I1] = useLexicalScope();
 	console.log(I1, I2, I3, I4, I5, I6, I7, I8, I9);
 	console.log(itsok, v1, v2, v3, obj);

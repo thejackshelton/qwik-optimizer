@@ -19,6 +19,32 @@ export const Greeter = component$(() => {
 	)
 });
 
+============================= test.tsx_Greeter_component_div_CustomComponent_onClick_6xTF8kMcS9w.tsx (ENTRY POINT)==
+
+export const Greeter_component_div_CustomComponent_onClick_6xTF8kMcS9w = ()=>{};
+
+
+None
+/*
+{
+  "origin": "test.tsx",
+  "name": "Greeter_component_div_CustomComponent_onClick_6xTF8kMcS9w",
+  "entry": null,
+  "displayName": "test.tsx_Greeter_component_div_CustomComponent_onClick",
+  "hash": "6xTF8kMcS9w",
+  "canonicalFilename": "test.tsx_Greeter_component_div_CustomComponent_onClick_6xTF8kMcS9w",
+  "path": "",
+  "extension": "tsx",
+  "parent": null,
+  "ctxKind": "eventHandler",
+  "ctxName": "onClick$",
+  "captures": false,
+  "loc": [
+    0,
+    0
+  ]
+}
+*/
 ============================= test.tsx_Greeter_component_div_map_AnotherComponent_onClick_V6k9qQ2eg0s.tsx (ENTRY POINT)==
 
 export const Greeter_component_div_map_AnotherComponent_onClick_V6k9qQ2eg0s = ()=>{};
@@ -52,11 +78,11 @@ import { CustomComponent } from "./custom-component";
 import { qrl } from "@qwik.dev/core";
 import { qrl } from "@qwik.dev/core";
 const i_V6k9qQ2eg0s = ()=>import("./test.tsx_Greeter_component_div_map_AnotherComponent_onClick_V6k9qQ2eg0s");
-const i_onClick = ()=>import("./test.tsx");
+const i_6xTF8kMcS9w = ()=>import("./test.tsx_Greeter_component_div_CustomComponent_onClick_6xTF8kMcS9w");
 export const Greeter_component_n7HuG2hhU0Q = ()=>{
 	const Greeter_component_div_map_AnotherComponent_onClick_V6k9qQ2eg0s = /*#__PURE__*/ qrl(i_V6k9qQ2eg0s, "Greeter_component_div_map_AnotherComponent_onClick_V6k9qQ2eg0s");
 	return <div>
-			<CustomComponent onClick$={/*#__PURE__*/ qrl(i_onClick, "Greeter_component_div_CustomComponent_onClick")} />
+			<CustomComponent onClick$={/*#__PURE__*/ qrl(i_6xTF8kMcS9w, "Greeter_component_div_CustomComponent_onClick_6xTF8kMcS9w")} />
 			{array.map((item)=><AnotherComponent onClick$={Greeter_component_div_map_AnotherComponent_onClick_V6k9qQ2eg0s} />)}
 		</div>;
 };

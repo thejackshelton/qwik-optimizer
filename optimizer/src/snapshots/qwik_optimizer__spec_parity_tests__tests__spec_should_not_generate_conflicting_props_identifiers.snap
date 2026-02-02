@@ -22,10 +22,12 @@ import { useTaskQrl } from "@qwik.dev/core";
 import { useComputedQrl } from "@qwik.dev/core";
 import { inlinedQrl } from "@qwik.dev/core";
 import { componentQrl } from "@qwik.dev/core";
+import { _restProps } from "@qwik.dev/core";
 import { componentQrl } from "@qwik.dev/core";
 import { useComputedQrl } from "@qwik.dev/core";
 import { useTaskQrl } from "@qwik.dev/core";
-export default /*#__PURE__*/ componentQrl(/*#__PURE__*/ inlinedQrl(({ color, ...props })=>{
+export default /*#__PURE__*/ componentQrl(/*#__PURE__*/ inlinedQrl((_rawProps)=>{
+	const props = _restProps(_rawProps, ["color"]);
 	/*#__PURE__*/ useComputedQrl(/*#__PURE__*/ inlinedQrl(()=>color, "test_component_useComputed_PYU291PvidQ"));
 	/*#__PURE__*/ useTaskQrl(/*#__PURE__*/ inlinedQrl(()=>{
 		props.checked;

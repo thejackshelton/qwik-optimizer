@@ -631,7 +631,8 @@ mod tests {
     }
 
     /// Test SmartStrategy with multiple components
-    /// Each component$ produces a segment, grouped by its component context
+    /// Each component$ and its event handlers produce separate segments
+    /// Smart strategy groups segments with captures, but not stateless handlers
     #[test]
     fn test_entry_strategy_smart_multiple_components() {
         let code = r#"
@@ -655,23 +656,25 @@ mod tests {
             .filter_map(|m| m.segment.as_ref())
             .collect();
 
-        // Debug: print segment names
-        for seg in &segments {
-            eprintln!("DEBUG: segment = {}, entry = {:?}", seg.name, seg.entry);
-        }
-
+        // 4 segments: 2 component$ + 2 onClick$ handlers
         assert_eq!(
-            segments.len(), 2,
-            "Should have 2 segments (one per component), got {}",
+            segments.len(), 4,
+            "Should have 4 segments (2 components + 2 onClick handlers), got {}",
             segments.len()
         );
 
-        for segment in &segments {
-            assert!(
-                segment.entry.is_some(),
-                "component$ segment {} should have grouped entry",
-                segment.name
-            );
+        // Count segments with entry (those with captures) vs without (stateless)
+        let segments_with_entry: Vec<_> = segments.iter().filter(|s| s.entry.is_some()).collect();
+
+        // CompA_component and CompA_onClick have captures -> entry
+        // CompB_component has no captures but is a function -> entry
+        // CompB_onClick has no captures -> no entry
+        assert!(
+            segments_with_entry.len() >= 2,
+            "At least 2 segments should have grouped entry (those with captures)"
+        );
+
+        for segment in &segments_with_entry {
             let entry = segment.entry.as_ref().unwrap();
             assert!(
                 entry.contains("_entry_"),

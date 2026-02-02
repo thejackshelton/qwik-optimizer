@@ -55,6 +55,7 @@ None
 import { _fnSignal } from "@qwik.dev/core";
 import { _jsxSorted } from "@qwik.dev/core";
 import { hola } from "sdfds";
+import { useLexicalScope } from "@qwik.dev/core";
 const _hf0 = (p0)=>({
 	"foo": true,
 	"bar": p0.condition,

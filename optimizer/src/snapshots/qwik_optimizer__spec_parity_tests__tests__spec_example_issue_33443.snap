@@ -31,7 +31,7 @@ import { inlinedQrl } from "@qwik.dev/core";
 import { _fnSignal } from "@qwik.dev/core";
 import { componentQrl } from "@qwik.dev/core";
 import { useSignal } from "@qwik.dev/core";
-export const Issue3742 = /*#__PURE__*/ componentQrl(/*#__PURE__*/ inlinedQrl(({ description = "", other })=>{
+export const Issue3742 = /*#__PURE__*/ componentQrl(/*#__PURE__*/ inlinedQrl((_rawProps)=>{
 	const counter = useSignal(0);
 	return /*#__PURE__*/ _jsxSorted("div", { title: _fnSignal(_hf0, [counter], _hf0_str) }, null, ["Issue3742", /*#__PURE__*/ _jsxSorted("button", { "on:click": /*#__PURE__*/ inlinedQrl(()=>{
 		const [counter] = useLexicalScope();

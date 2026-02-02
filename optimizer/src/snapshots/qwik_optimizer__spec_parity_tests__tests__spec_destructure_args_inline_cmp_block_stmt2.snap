@@ -16,16 +16,44 @@ export default (props: { data: any }) => {
   );
 };
 
+============================= test.tsx_test_div_onClick_GbMO6TGQv9M.js (ENTRY POINT)==
+
+export const test_div_onClick_GbMO6TGQv9M = ()=>{
+	data.selectedOutputDetail = "options";
+};
+
+
+None
+/*
+{
+  "origin": "test.tsx",
+  "name": "test_div_onClick_GbMO6TGQv9M",
+  "entry": null,
+  "displayName": "test.tsx_test_div_onClick",
+  "hash": "GbMO6TGQv9M",
+  "canonicalFilename": "test.tsx_test_div_onClick_GbMO6TGQv9M",
+  "path": "",
+  "extension": "js",
+  "parent": null,
+  "ctxKind": "eventHandler",
+  "ctxName": "onClick$",
+  "captures": false,
+  "loc": [
+    0,
+    0
+  ]
+}
+*/
 ============================= test.js ==
 
 import { qrl } from "@qwik.dev/core";
 import { _jsxSorted } from "@qwik.dev/core";
-const i_onClick = ()=>import("./test.tsx");
+const i_GbMO6TGQv9M = ()=>import("./test.tsx_test_div_onClick_GbMO6TGQv9M");
 export default (props)=>{
 	const { data } = props;
 	return /*#__PURE__*/ _jsxSorted("div", {
 		data-is-active: data.selectedOutputDetail === "options",
-		"on:click": /*#__PURE__*/ qrl(i_onClick, "test_div_onClick")
+		"on:click": /*#__PURE__*/ qrl(i_GbMO6TGQv9M, "test_div_onClick_GbMO6TGQv9M")
 	}, null, null, 3, null);
 };
 

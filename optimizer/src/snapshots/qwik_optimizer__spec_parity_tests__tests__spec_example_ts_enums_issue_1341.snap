@@ -24,6 +24,7 @@ export const App = component$(() => {
 
 import { _jsxSorted } from "@qwik.dev/core";
 import { Fragment as _Fragment } from "@qwik.dev/core/jsx-runtime";
+import { useLexicalScope } from "@qwik.dev/core";
 export const App_component_ckEPmXZlub0 = ()=>{
 	const [Thing] = useLexicalScope();
 	console.log(Thing.A);

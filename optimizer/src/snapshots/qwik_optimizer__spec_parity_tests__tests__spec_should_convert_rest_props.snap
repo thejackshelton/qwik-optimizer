@@ -44,9 +44,11 @@ None
 */
 ============================= test.tsx_test_component_LUXeXe0DQrg.js (ENTRY POINT)==
 
+import { _restProps } from "@qwik.dev/core";
 import { useTaskQrl } from "@qwik.dev/core";
 import { qrl } from "@qwik.dev/core";
-export const test_component_LUXeXe0DQrg = ({ ...props })=>{
+export const test_component_LUXeXe0DQrg = (_rawProps)=>{
+	const props = _restProps(_rawProps);
 	/*#__PURE__*/ useTaskQrl(/*#__PURE__*/ qrl(i_jewzFYh3XmQ, "test_component_useTask_jewzFYh3XmQ"));
 	return "hi";
 };

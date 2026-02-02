@@ -31,7 +31,7 @@ export const Bar = component$(({bar}) => {
 ============================= test.tsx_Foo_component_HTDRsvUbLiE.tsx (ENTRY POINT)==
 
 import { qrl } from "@qwik.dev/core";
-export const Foo_component_HTDRsvUbLiE = ({ foo })=>{
+export const Foo_component_HTDRsvUbLiE = (_rawProps)=>{
 	const arg0 = 20;
 	return /*#__PURE__*/ qrl(i_DvU6FitWglY, "Foo_component_1_DvU6FitWglY", [arg0]);
 };
@@ -61,7 +61,7 @@ None
 ============================= test.tsx_Bar_component_L80pS8Hxf1Y.tsx (ENTRY POINT)==
 
 import { qrl } from "@qwik.dev/core";
-export const Bar_component_L80pS8Hxf1Y = ({ bar })=>{
+export const Bar_component_L80pS8Hxf1Y = (_rawProps)=>{
 	return /*#__PURE__*/ qrl(i_0xSyNSnVu3k, "Bar_component_1_0xSyNSnVu3k");
 };
 
@@ -89,6 +89,7 @@ None
 */
 ============================= test.tsx_Foo_component_1_DvU6FitWglY.tsx (ENTRY POINT)==
 
+import { useLexicalScope } from "@qwik.dev/core";
 export const Foo_component_1_DvU6FitWglY = ()=>{
 	const [arg0] = useLexicalScope();
 	const fn = ({ aaa })=>aaa;

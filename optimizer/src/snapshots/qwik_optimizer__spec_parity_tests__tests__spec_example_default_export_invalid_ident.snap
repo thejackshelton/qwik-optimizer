@@ -16,9 +16,9 @@ export default component$(() => {
 ============================= 404.tsx__404_component_zRvoWc98eqo.tsx (ENTRY POINT)==
 
 import { qrl } from "@qwik.dev/core";
-const i_onClick = ()=>import("./404.tsx");
+const i_OiMo9dvEW9Q = ()=>import("./404.tsx__404_component_div_onClick_OiMo9dvEW9Q");
 export const _404_component_zRvoWc98eqo = ()=>{
-	return <div on:click={/*#__PURE__*/ qrl(i_onClick, "_404_component_div_onClick")}>
+	return <div on:click={/*#__PURE__*/ qrl(i_OiMo9dvEW9Q, "_404_component_div_onClick_OiMo9dvEW9Q")}>
 		</div>;
 };
 
@@ -41,6 +41,32 @@ None
   "loc": [
     72,
     150
+  ]
+}
+*/
+============================= 404.tsx__404_component_div_onClick_OiMo9dvEW9Q.tsx (ENTRY POINT)==
+
+export const _404_component_div_onClick_OiMo9dvEW9Q = ()=>console.log(mongodb);
+
+
+None
+/*
+{
+  "origin": "src/components/mongo/404.tsx",
+  "name": "_404_component_div_onClick_OiMo9dvEW9Q",
+  "entry": null,
+  "displayName": "404.tsx__404_component_div_onClick",
+  "hash": "OiMo9dvEW9Q",
+  "canonicalFilename": "404.tsx__404_component_div_onClick_OiMo9dvEW9Q",
+  "path": "src/components/mongo",
+  "extension": "tsx",
+  "parent": null,
+  "ctxKind": "eventHandler",
+  "ctxName": "onClick$",
+  "captures": false,
+  "loc": [
+    0,
+    0
   ]
 }
 */

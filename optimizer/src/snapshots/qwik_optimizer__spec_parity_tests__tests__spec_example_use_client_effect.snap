@@ -30,6 +30,7 @@ export const Child = component$(() => {
 
 ============================= test.tsx_Child_component_useBrowserVisibleTask_0IGFPOyJmQA.js (ENTRY POINT)==
 
+import { useLexicalScope } from "@qwik.dev/core";
 export const Child_component_useBrowserVisibleTask_0IGFPOyJmQA = ()=>{
 	const [state] = useLexicalScope();
 	const timer = setInterval(()=>{

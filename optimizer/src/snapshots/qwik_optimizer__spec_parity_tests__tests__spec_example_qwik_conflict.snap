@@ -66,14 +66,14 @@ None
 
 import { _jsxSorted } from "@qwik.dev/core";
 import { useStylesQrl } from "@qwik.dev/core";
-const i_onClick = ()=>import("./test.tsx");
+const i_M48DYiidSJw = ()=>import("./test.tsx_Foo_component_div_onClick_M48DYiidSJw");
 const i_pV9TSCBIhw8 = ()=>import("./test.tsx_Foo_component_useStyles_pV9TSCBIhw8");
 export const Foo_component_HTDRsvUbLiE = ()=>{
 	/*#__PURE__*/ useStylesQrl(/*#__PURE__*/ qrl(i_pV9TSCBIhw8, "Foo_component_useStyles_pV9TSCBIhw8"));
 	const qwik = /*#__PURE__*/ useStylesQrl(/*#__PURE__*/ qrl(i_pV9TSCBIhw8, "Foo_component_useStyles_pV9TSCBIhw8"));
 	console.log(qwik);
 	const qrl = 23;
-	return /*#__PURE__*/ _jsxSorted("div", { "on:click": /*#__PURE__*/ qrl(i_onClick, "Foo_component_div_onClick", [qrl]) }, null, null, 3, null);
+	return /*#__PURE__*/ _jsxSorted("div", { "on:click": /*#__PURE__*/ qrl(i_M48DYiidSJw, "Foo_component_div_onClick_M48DYiidSJw", [qrl]) }, null, null, 3, null);
 };
 
 
@@ -182,6 +182,36 @@ None
   "loc": [
     520,
     555
+  ]
+}
+*/
+============================= test.tsx_Foo_component_div_onClick_M48DYiidSJw.js (ENTRY POINT)==
+
+import { useLexicalScope } from "@qwik.dev/core";
+export const Foo_component_div_onClick_M48DYiidSJw = ()=>{
+	const [qrl] = useLexicalScope();
+	return console.log(qrl);
+};
+
+
+None
+/*
+{
+  "origin": "test.tsx",
+  "name": "Foo_component_div_onClick_M48DYiidSJw",
+  "entry": null,
+  "displayName": "test.tsx_Foo_component_div_onClick",
+  "hash": "M48DYiidSJw",
+  "canonicalFilename": "test.tsx_Foo_component_div_onClick_M48DYiidSJw",
+  "path": "",
+  "extension": "js",
+  "parent": null,
+  "ctxKind": "eventHandler",
+  "ctxName": "onClick$",
+  "captures": true,
+  "loc": [
+    0,
+    0
   ]
 }
 */
