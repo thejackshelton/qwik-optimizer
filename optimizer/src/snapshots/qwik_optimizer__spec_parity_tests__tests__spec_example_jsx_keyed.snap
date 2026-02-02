@@ -20,15 +20,20 @@ export const App = component$((props: Stuff) => {
 
 ============================= test.tsx_App_component_ckEPmXZlub0.js (ENTRY POINT)==
 
+import { _fnSignal } from "@qwik.dev/core";
 import { _jsxSorted } from "@qwik.dev/core";
 import { Fragment as _Fragment } from "@qwik.dev/core/jsx-runtime";
+const _hf0 = (p0)=>p0.stuff;
+const _hf0_str = "p0.stuff";
+const _hf1 = (p0)=>p0.stuff;
+const _hf1_str = "p0.stuff";
 export const App_component_ckEPmXZlub0 = (props)=>{
 	return /*#__PURE__*/ _jsxSorted(_Fragment, null, null, [
 		_jsxSorted(Cmp, null, null, null, 3, "stuff"),
 		_jsxSorted(Cmp, null, null, null, 3, null),
 		_jsxSorted(Cmp, null, { prop: "23" }, null, 3, null),
-		_jsxSorted(Cmp, null, { prop: "23" }, null, 3, props.stuff),
-		/*#__PURE__*/ _jsxSorted("p", null, null, "Hello Qwik", 3, props.stuff)
+		_jsxSorted(Cmp, null, { prop: "23" }, null, 3, _fnSignal(_hf0, [props], _hf0_str)),
+		/*#__PURE__*/ _jsxSorted("p", null, null, "Hello Qwik", 3, _fnSignal(_hf1, [props], _hf1_str))
 	], 3, null);
 };
 

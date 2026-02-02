@@ -28,15 +28,18 @@ export const PANELS: ActivePanel[] = ['Examples', 'Input', 'Output', 'Console'];
 
 ============================= test.tsx_test_component_LUXeXe0DQrg.js (ENTRY POINT)==
 
+import { _fnSignal } from "@qwik.dev/core";
 import { _jsxSorted } from "@qwik.dev/core";
 import { useStore } from "@qwik.dev/core";
+const _hf0 = (p0)=>p0.active ? "yes" : "no";
+const _hf0_str = "p0.active?`yes`:`no`";
 export const test_component_LUXeXe0DQrg = ()=>{
 	const panelStore = useStore(()=>({
 		active: "Input",
 		list: PANELS
 	}));
 	return /*#__PURE__*/ _jsxSorted("div", {
-		stuff: panelStore.active ? "yes" : "no",
+		stuff: _fnSignal(_hf0, [panelStore], _hf0_str),
 		class: {
 			"too-long-to-wrap": true,
 			"examples-panel-input": panelStore.active === "Input",

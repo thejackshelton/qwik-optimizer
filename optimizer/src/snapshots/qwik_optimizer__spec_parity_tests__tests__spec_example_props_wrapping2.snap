@@ -22,22 +22,21 @@ export const Works = component$((props: { fromProps: number }) => {
 ============================= test.js ==
 
 import { useSignal } from "@qwik.dev/core";
-import { inlinedQrl } from "@qwik.dev/core";
 import { componentQrl } from "@qwik.dev/core";
 import { _jsxSorted } from "@qwik.dev/core";
+import { _fnSignal } from "@qwik.dev/core";
+import { inlinedQrl } from "@qwik.dev/core";
+import { _fnSignal } from "@qwik.dev/core";
 import { componentQrl } from "@qwik.dev/core";
 import { useSignal } from "@qwik.dev/core";
 export const Works = /*#__PURE__*/ componentQrl(/*#__PURE__*/ inlinedQrl((props)=>{
 	let fromLocal = useSignal(0);
 	return /*#__PURE__*/ _jsxSorted("div", {
-		computed: fromLocal + props.fromProps,
+		computed: _fnSignal(_hf0, [props], _hf0_str),
 		local: fromLocal,
-		props-wrap: props.fromProps,
-		props-only: { props: props.fromProps },
-		props: {
-			props: props.fromProps,
-			local: fromLocal
-		}
+		props-wrap: _fnSignal(_hf1, [props], _hf1_str),
+		props-only: _fnSignal(_hf2, [props], _hf2_str),
+		props: _fnSignal(_hf3, [props], _hf3_str)
 	}, null, null, 3, null);
 }, "Works_component_t45qL4vNGv0"));
 
