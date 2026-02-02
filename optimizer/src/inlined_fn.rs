@@ -11,6 +11,64 @@ use std::collections::HashMap;
 
 pub const MAX_EXPR_LENGTH: usize = 150;
 
+/// Detect compound signal expressions like (a || b).value, (a ? b : c).value
+/// These need _fnSignal instead of _wrapProp because:
+/// 1. The base is a compound expression (LogicalExpression, ConditionalExpression)
+/// 2. There's a .value access
+pub fn is_compound_signal_expression(expr: &Expression) -> bool {
+    // Check for MemberExpression ending in .value
+    if let Expression::StaticMemberExpression(member) = expr {
+        if member.property.name == "value" {
+            // Check if object is compound (logical, conditional, etc)
+            return matches!(
+                member.object.without_parentheses(),
+                Expression::LogicalExpression(_)
+                    | Expression::ConditionalExpression(_)
+                    | Expression::BinaryExpression(_)
+            );
+        }
+    }
+    false
+}
+
+/// Extract all identifier names from a compound signal expression for _fnSignal captures
+pub fn extract_compound_signal_captures(expr: &Expression) -> Vec<String> {
+    let mut captures = Vec::new();
+    collect_compound_identifiers(expr, &mut captures);
+    captures
+}
+
+fn collect_compound_identifiers(expr: &Expression, captures: &mut Vec<String>) {
+    match expr.without_parentheses() {
+        Expression::Identifier(id) => {
+            let name = id.name.to_string();
+            if !captures.contains(&name) {
+                captures.push(name);
+            }
+        }
+        Expression::LogicalExpression(log) => {
+            collect_compound_identifiers(&log.left, captures);
+            collect_compound_identifiers(&log.right, captures);
+        }
+        Expression::ConditionalExpression(cond) => {
+            collect_compound_identifiers(&cond.test, captures);
+            collect_compound_identifiers(&cond.consequent, captures);
+            collect_compound_identifiers(&cond.alternate, captures);
+        }
+        Expression::StaticMemberExpression(member) => {
+            collect_compound_identifiers(&member.object, captures);
+        }
+        Expression::BinaryExpression(bin) => {
+            collect_compound_identifiers(&bin.left, captures);
+            collect_compound_identifiers(&bin.right, captures);
+        }
+        Expression::ParenthesizedExpression(paren) => {
+            collect_compound_identifiers(&paren.expression, captures);
+        }
+        _ => {}
+    }
+}
+
 pub struct InlinedFnResult<'a> {
     pub hoisted_fn: ArrowFunctionExpression<'a>,
     pub hoisted_name: String,
