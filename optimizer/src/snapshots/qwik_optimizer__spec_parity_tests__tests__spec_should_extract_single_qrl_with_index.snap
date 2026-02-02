@@ -90,9 +90,9 @@ import { useSignal } from "@qwik.dev/core";
 import { qrl } from "@qwik.dev/core";
 const i_oAuQ8nCHRUg = ()=>import("./test.tsx_App_component_div_map_tr_td_a_onClick_1_oAuQ8nCHRUg");
 const i_mlLHNlVHR0g = ()=>import("./test.tsx_App_component_div_map_tr_td_a_onClick_mlLHNlVHR0g");
-const _hf0 = (p0, p1)=>p0.value.selected.value ? "danger" : "";
+const _hf0 = (p0)=>p0.value.selected.value ? "danger" : "";
 const _hf0_str = "p0.value.selected.value?`danger`:``";
-const _hf1 = (p0, p1)=>p0.value.id;
+const _hf1 = (p0)=>p0.value.id;
 const _hf1_str = "p0.value.id";
 export const App_component_ckEPmXZlub0 = ()=>{
 	const data = useSignal([]);
@@ -100,8 +100,8 @@ export const App_component_ckEPmXZlub0 = ()=>{
 	const clickedIndex = useSignal(null);
 	const App_component_div_map_tr_td_a_onClick_mlLHNlVHR0g = /*#__PURE__*/ qrl(i_mlLHNlVHR0g, "App_component_div_map_tr_td_a_onClick_mlLHNlVHR0g", [clickedIndex, selectedItem]);
 	const App_component_div_map_tr_td_a_onClick_1_oAuQ8nCHRUg = /*#__PURE__*/ qrl(i_oAuQ8nCHRUg, "App_component_div_map_tr_td_a_onClick_1_oAuQ8nCHRUg", [data]);
-	return /*#__PURE__*/ _jsxSorted("div", null, null, data.value.map((row, idx)=>/*#__PURE__*/ _jsxSorted("tr", { class: _fnSignal(_hf0, [row, idx], _hf0_str) }, null, [
-		/*#__PURE__*/ _jsxSorted("td", null, { class: "col-md-1" }, _fnSignal(_hf1, [row, idx], _hf1_str), 1, null),
+	return /*#__PURE__*/ _jsxSorted("div", null, null, data.value.map((row, idx)=>/*#__PURE__*/ _jsxSorted("tr", { class: _fnSignal(_hf0, [row], _hf0_str) }, null, [
+		/*#__PURE__*/ _jsxSorted("td", null, { class: "col-md-1" }, _fnSignal(_hf1, [row], _hf1_str), 1, null),
 		/*#__PURE__*/ _jsxSorted("td", null, { class: "col-md-4" }, /*#__PURE__*/ _jsxSorted("a", {
 			"on:click": App_component_div_map_tr_td_a_onClick_mlLHNlVHR0g,
 			"q:ps": [idx, row]
