@@ -29,6 +29,17 @@ import { inlinedQrl } from "@qwik.dev/core";
 import { _fnSignal } from "@qwik.dev/core";
 import { componentQrl } from "@qwik.dev/core";
 import { useSignal } from "@qwik.dev/core";
+const _hf0 = (p0, p1)=>p0 + p1.fromProps;
+const _hf0_str = "p0+p1.fromProps";
+const _hf1 = (p0)=>p0.fromProps;
+const _hf1_str = "p0.fromProps";
+const _hf2 = (p0)=>({ props: p0.fromProps });
+const _hf2_str = "({props:p0.fromProps})";
+const _hf3 = (p0, p1)=>({
+	props: p0.fromProps,
+	local: p1
+});
+const _hf3_str = "({props:p0.fromProps,local:p1})";
 export const Works = /*#__PURE__*/ componentQrl(/*#__PURE__*/ inlinedQrl((props)=>{
 	let fromLocal = useSignal(0);
 	return /*#__PURE__*/ _jsxSorted("div", {

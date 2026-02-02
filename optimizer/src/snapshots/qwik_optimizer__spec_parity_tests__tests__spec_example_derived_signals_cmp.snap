@@ -62,6 +62,14 @@ import { useStore } from "@qwik.dev/core";
 import { mutable } from "@qwik.dev/core";
 import { dep } from "./file";
 import { Cmp } from "./cmp";
+const _hf0 = (p0)=>12 + p0.value;
+const _hf0_str = "12+p0.value";
+const _hf1 = (p0)=>p0.address.city.name;
+const _hf1_str = "p0.address.city.name";
+const _hf2 = (p0)=>p0.address.city.name ? "true" : "false";
+const _hf2_str = "p0.address.city.name?`true`:`false`";
+const _hf3 = (p0)=>p0.value + dep;
+const _hf3_str = "p0.value+dep";
 export const App = /*#__PURE__*/ componentQrl(/*#__PURE__*/ inlinedQrl(()=>{
 	const signal = useSignal(0);
 	const store = useStore({});

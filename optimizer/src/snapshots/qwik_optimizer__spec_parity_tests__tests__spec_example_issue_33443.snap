@@ -31,9 +31,11 @@ import { inlinedQrl } from "@qwik.dev/core";
 import { _fnSignal } from "@qwik.dev/core";
 import { componentQrl } from "@qwik.dev/core";
 import { useSignal } from "@qwik.dev/core";
+const _hf0 = (p0, p1)=>description && "description" in p0.other ? `Hello ${counter.value}` : `Bye ${counter.value}`;
+const _hf0_str = "description&&`description`in p0.other?`Hello ${counter.value}`:`Bye ${counter.value}`";
 export const Issue3742 = /*#__PURE__*/ componentQrl(/*#__PURE__*/ inlinedQrl((_rawProps)=>{
 	const counter = useSignal(0);
-	return /*#__PURE__*/ _jsxSorted("div", { title: _fnSignal(_hf0, [counter], _hf0_str) }, null, ["Issue3742", /*#__PURE__*/ _jsxSorted("button", { "on:click": /*#__PURE__*/ inlinedQrl(()=>{
+	return /*#__PURE__*/ _jsxSorted("div", { title: _fnSignal(_hf0, [_rawProps, counter], _hf0_str) }, null, ["Issue3742", /*#__PURE__*/ _jsxSorted("button", { "on:click": /*#__PURE__*/ inlinedQrl(()=>{
 		const [counter] = useLexicalScope();
 		return counter.value++;
 	}, "Issue3742_component_div_button_onClick_a504K2BCEXg", [counter]) }, null, "Increment", 3, null)], 3, null);
