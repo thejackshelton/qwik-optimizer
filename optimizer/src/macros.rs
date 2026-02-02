@@ -14,6 +14,39 @@ macro_rules! function_name {
 
 #[macro_export]
 macro_rules! snapshot_res {
+    ($res: expr, $prefix: expr, $name: expr) => {
+        match $res {
+            Ok(v) => {
+                let mut output: String = $prefix;
+
+                for module in &v.modules {
+                    let is_entry = if module.is_entry { "(ENTRY POINT)" } else { "" };
+                    output += format!(
+                        "\n============================= {} {}==\n\n{}\n\n{:?}",
+                        module.path, is_entry, module.code, module.map
+                    )
+                    .as_str();
+                    if let Some(segment) = &module.segment {
+                        let segment = to_string_pretty(&segment).unwrap();
+                        output += &format!("\n/*\n{}\n*/", segment);
+                    }
+                }
+                output += format!(
+                    "\n== DIAGNOSTICS ==\n\n{}",
+                    to_string_pretty(&v.diagnostics).unwrap()
+                )
+                .as_str();
+                insta::with_settings!({prepend_module_to_snapshot => false}, {
+                    insta::assert_snapshot!($name, output);
+                });
+            }
+            Err(err) => {
+                insta::with_settings!({prepend_module_to_snapshot => false}, {
+                    insta::assert_snapshot!($name, err);
+                });
+            }
+        }
+    };
     ($res: expr, $prefix: expr) => {
         match $res {
             Ok(v) => {

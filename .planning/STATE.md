@@ -190,13 +190,22 @@ None - Phase 26 COMPLETE. FUNCTIONAL PARITY ACHIEVED.
 
 ## Session Continuity
 
-Last session: 2026-02-01T22:45:00Z
-Stopped at: Completed 28-02-PLAN.md - Fix QRL Declaration Style
+Last session: 2026-02-01T23:30:00Z
+Stopped at: Completed 28-01-PLAN.md - Props Member Access Transformation
 Resume file: None
 
 ## Phase 28 Complete Snapshot Parity Progress
 
-### Status: IN PROGRESS (2/? plans)
+### Status: IN PROGRESS (3/? plans)
+
+**Plan 28-01: Props Member Access Transformation - COMPLETE (120 min)**
+- Added transform_props_to_member_access function to jsx/attribute.rs
+- Recursively transforms fromProps to _rawProps.fromProps member expressions
+- Integrated before _fnSignal detection for correct wrapping
+- Added _rawProps to scoped_idents when props transformed
+- Fixed hoisted functions being discarded in handle_inline_qrl
+- Hoisted function placement reduced from 23 to 19
+- SUMMARY: .planning/phases/28-complete-snapshot-parity-rename-snapshots/28-01-SUMMARY.md
 
 **Plan 28-02: Fix QRL Declaration Style - COMPLETE (45 min)**
 - Fixed non-loop event handlers to create segment files via QrlComponent
@@ -216,6 +225,10 @@ Resume file: None
 - SUMMARY: .planning/phases/28-complete-snapshot-parity-rename-snapshots/28-03-SUMMARY.md
 
 Key decisions from Phase 28:
+- [28-01]: Transform fromProps to _rawProps.fromProps before _fnSignal detection
+- [28-01]: Add _rawProps to scoped_idents when any props are transformed
+- [28-01]: Merge hoisted functions to parent level in handle_inline_qrl for emission
+- [28-01]: Capture ALL referenced identifiers, not just member expression objects
 - [28-02]: Non-loop event handlers must create QrlComponent for correct segment paths
 - [28-02]: useLexicalScope import applies to ALL handlers with captures, not just loop handlers
 - [28-02]: Entry strategy grouping via get_entry_for_segment() for consistent bundling

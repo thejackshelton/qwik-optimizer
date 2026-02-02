@@ -61,7 +61,8 @@ mod tests {
 
             let result = transform_modules(options);
 
-            crate::snapshot_res!(result, format!("==INPUT==\n\n{}", code.to_string()));
+            // Use function name as snapshot name (e.g., "spec_example_1")
+            crate::snapshot_res!(result, format!("==INPUT==\n\n{}", code.to_string()), func_name);
         }};
     }
 
