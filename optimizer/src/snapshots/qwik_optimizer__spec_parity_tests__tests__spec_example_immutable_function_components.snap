@@ -16,7 +16,12 @@ export const App = component$((props: Stuff) => {
 
 ============================= test.js ==
 
-import { Slot, _jsxSorted, componentQrl, inlinedQrl } from "@qwik.dev/core";
+import { inlinedQrl } from "@qwik.dev/core";
+import { componentQrl } from "@qwik.dev/core";
+import { _jsxSorted } from "@qwik.dev/core";
+import { Slot } from "@qwik.dev/core";
+import { componentQrl } from "@qwik.dev/core";
+import { Slot } from "@qwik.dev/core";
 export const App = /*#__PURE__*/ componentQrl(/*#__PURE__*/ inlinedQrl((props)=>{
 	return /*#__PURE__*/ _jsxSorted("div", null, null, _jsxSorted(Slot, null, null, null, 3, null), 3, null);
 }, "App_component_ckEPmXZlub0"));

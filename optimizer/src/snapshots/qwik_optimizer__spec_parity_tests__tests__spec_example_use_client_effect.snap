@@ -28,15 +28,6 @@ export const Child = component$(() => {
 	);
 });
 
-============================= test.js ==
-
-import { componentQrl, qrl } from "@qwik.dev/core";
-const i_0IGFPOyJmQA = ()=>import("./test.tsx_Child_component_useBrowserVisibleTask_0IGFPOyJmQA");
-const i_9GyF01GDKqw = ()=>import("./test.tsx_Child_component_9GyF01GDKqw");
-export const Child = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_9GyF01GDKqw, "Child_component_9GyF01GDKqw"));
-
-
-None
 ============================= test.tsx_Child_component_useBrowserVisibleTask_0IGFPOyJmQA.js (ENTRY POINT)==
 
 export const Child_component_useBrowserVisibleTask_0IGFPOyJmQA = ()=>{
@@ -73,7 +64,10 @@ None
 */
 ============================= test.tsx_Child_component_9GyF01GDKqw.js (ENTRY POINT)==
 
-import { _jsxSorted, qrl, useBrowserVisibleTaskQrl, useStore } from "@qwik.dev/core";
+import { _jsxSorted } from "@qwik.dev/core";
+import { useBrowserVisibleTaskQrl } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
+import { useStore } from "@qwik.dev/core";
 export const Child_component_9GyF01GDKqw = ()=>{
 	const state = useStore({ count: 0 });
 	/*#__PURE__*/ useBrowserVisibleTaskQrl(/*#__PURE__*/ qrl(i_0IGFPOyJmQA, "Child_component_useBrowserVisibleTask_0IGFPOyJmQA", [state]));
@@ -102,6 +96,17 @@ None
   ]
 }
 */
+============================= test.js ==
+
+import { componentQrl } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
+import { componentQrl } from "@qwik.dev/core";
+const i_0IGFPOyJmQA = ()=>import("./test.tsx_Child_component_useBrowserVisibleTask_0IGFPOyJmQA");
+const i_9GyF01GDKqw = ()=>import("./test.tsx_Child_component_9GyF01GDKqw");
+export const Child = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_9GyF01GDKqw, "Child_component_9GyF01GDKqw"));
+
+
+None
 == DIAGNOSTICS ==
 
 []

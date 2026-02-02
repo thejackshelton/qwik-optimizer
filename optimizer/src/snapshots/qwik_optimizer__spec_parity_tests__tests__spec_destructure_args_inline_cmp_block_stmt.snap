@@ -17,7 +17,8 @@ export default ({ data }: { data: any }) => {
 
 ============================= test.js ==
 
-import { _jsxSorted, qrl } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
+import { _jsxSorted } from "@qwik.dev/core";
 const i_onClick = ()=>import("./test.tsx");
 export default ({ data })=>{
 	return /*#__PURE__*/ _jsxSorted("div", {

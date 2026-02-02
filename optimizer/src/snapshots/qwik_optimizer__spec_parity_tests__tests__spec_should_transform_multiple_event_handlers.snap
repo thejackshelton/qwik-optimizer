@@ -16,17 +16,11 @@ const Foo = component$(function() {
   </div>;
 })
 
-============================= test.js ==
-
-import { componentQrl, qrl } from "@qwik.dev/core";
-const i_HTDRsvUbLiE = ()=>import("./test.tsx_Foo_component_HTDRsvUbLiE");
-/*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_HTDRsvUbLiE, "Foo_component_HTDRsvUbLiE"));
-
-
-None
 ============================= test.tsx_Foo_component_HTDRsvUbLiE.js (ENTRY POINT)==
 
-import { _jsxSorted, qrl, useSignal } from "@qwik.dev/core";
+import { _jsxSorted } from "@qwik.dev/core";
+import { useSignal } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
 const i_QcT2tClxN5w = ()=>import("./test.tsx_Foo_component_div_map_div_p_onClick_QcT2tClxN5w");
 const i_ixif7o07rP0 = ()=>import("./test.tsx_Foo_component_div_map_div_onMouseOver_ixif7o07rP0");
 const i_mfLVIFxdDiU = ()=>import("./test.tsx_Foo_component_div_map_div_onClick_mfLVIFxdDiU");
@@ -145,6 +139,16 @@ None
   ]
 }
 */
+============================= test.js ==
+
+import { componentQrl } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
+import { componentQrl } from "@qwik.dev/core";
+const i_HTDRsvUbLiE = ()=>import("./test.tsx_Foo_component_HTDRsvUbLiE");
+/*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_HTDRsvUbLiE, "Foo_component_HTDRsvUbLiE"));
+
+
+None
 == DIAGNOSTICS ==
 
 []

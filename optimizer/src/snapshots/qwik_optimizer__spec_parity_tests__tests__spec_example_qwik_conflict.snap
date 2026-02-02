@@ -36,24 +36,6 @@ export const Root = component$(() => {
 	tagName: "my-foo",
 });
 
-============================= test.js ==
-
-import { componentQrl, qrl } from "@qwik.dev/core";
-import { qrl } from "@qwik.dev/core/what";
-const i_pV9TSCBIhw8 = ()=>import("./test.tsx_Foo_component_useStyles_pV9TSCBIhw8");
-const i_HTDRsvUbLiE = ()=>import("./test.tsx_Foo_component_HTDRsvUbLiE");
-const i_u5DkUxGrGnU = ()=>import("./test.tsx_Root_component_useStyles_u5DkUxGrGnU");
-const i_cBpQNYDUHI4 = ()=>import("./test.tsx_Root_component_1_cBpQNYDUHI4");
-const i_royhjYaCbYE = ()=>import("./test.tsx_Root_component_royhjYaCbYE");
-export const hW = 12;
-export const handleWatch = 42;
-const componentQrl = ()=>console.log("not this", qrl());
-componentQrl();
-export const Foo = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_HTDRsvUbLiE, "Foo_component_HTDRsvUbLiE"));
-export const Root = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_royhjYaCbYE, "Root_component_royhjYaCbYE"));
-
-
-None
 ============================= test.tsx_Foo_component_useStyles_pV9TSCBIhw8.js (ENTRY POINT)==
 
 export const Foo_component_useStyles_pV9TSCBIhw8 = "thing";
@@ -82,7 +64,8 @@ None
 */
 ============================= test.tsx_Foo_component_HTDRsvUbLiE.js (ENTRY POINT)==
 
-import { _jsxSorted, useStylesQrl } from "@qwik.dev/core";
+import { _jsxSorted } from "@qwik.dev/core";
+import { useStylesQrl } from "@qwik.dev/core";
 const i_onClick = ()=>import("./test.tsx");
 const i_pV9TSCBIhw8 = ()=>import("./test.tsx_Foo_component_useStyles_pV9TSCBIhw8");
 export const Foo_component_HTDRsvUbLiE = ()=>{
@@ -143,7 +126,8 @@ None
 */
 ============================= test.tsx_Root_component_royhjYaCbYE.js (ENTRY POINT)==
 
-import { qrl, useStyles } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
+import { useStyles } from "@qwik.dev/core";
 const i_u5DkUxGrGnU = ()=>import("./test.tsx_Root_component_useStyles_u5DkUxGrGnU");
 export const Root_component_royhjYaCbYE = ()=>{
 	useStyles(/*#__PURE__*/ qrl(i_u5DkUxGrGnU, "Root_component_useStyles_u5DkUxGrGnU"));
@@ -201,6 +185,28 @@ None
   ]
 }
 */
+============================= test.js ==
+
+import { qrl } from "@qwik.dev/core/what";
+import { componentQrl } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
+import { componentQrl } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core/what";
+const i_pV9TSCBIhw8 = ()=>import("./test.tsx_Foo_component_useStyles_pV9TSCBIhw8");
+const i_HTDRsvUbLiE = ()=>import("./test.tsx_Foo_component_HTDRsvUbLiE");
+const i_u5DkUxGrGnU = ()=>import("./test.tsx_Root_component_useStyles_u5DkUxGrGnU");
+const i_cBpQNYDUHI4 = ()=>import("./test.tsx_Root_component_1_cBpQNYDUHI4");
+const i_royhjYaCbYE = ()=>import("./test.tsx_Root_component_royhjYaCbYE");
+export const hW = 12;
+export const handleWatch = 42;
+const componentQrl = ()=>console.log("not this", qrl());
+componentQrl();
+export const Foo = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_HTDRsvUbLiE, "Foo_component_HTDRsvUbLiE"));
+export const Root = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_royhjYaCbYE, "Root_component_royhjYaCbYE"));
+
+
+None
 == DIAGNOSTICS ==
 
 []

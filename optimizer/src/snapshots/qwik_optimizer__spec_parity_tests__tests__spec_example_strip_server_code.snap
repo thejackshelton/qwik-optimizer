@@ -46,18 +46,6 @@ export const Parent = component$(() => {
 	);
 });
 
-============================= test.js ==
-
-import { componentQrl, qrl } from "@qwik.dev/core";
-const i_gDH1EtUWqBU = ()=>import("./test.tsx_Parent_component_useTask_gDH1EtUWqBU");
-const i_r1qAHX7Opp0 = ()=>import("./test.tsx_Parent_component_serverStuff_r1qAHX7Opp0");
-const i_k1L0DiPQV1I = ()=>import("./test.tsx_Parent_component_serverLoader_k1L0DiPQV1I");
-const i_P8oRQhHsurk = ()=>import("./test.tsx_Parent_component_useTask_1_P8oRQhHsurk");
-const i_0TaiDayHrlo = ()=>import("./test.tsx_Parent_component_0TaiDayHrlo");
-export const Parent = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_0TaiDayHrlo, "s_0TaiDayHrlo"));
-
-
-None
 ============================= test.tsx_Parent_component_useTask_gDH1EtUWqBU.js (ENTRY POINT)==
 
 import mongo from "mongodb";
@@ -209,7 +197,9 @@ None
 */
 ============================= test.tsx_Parent_component_serverStuff_r1qAHX7Opp0.js (ENTRY POINT)==
 
-import { clientQrl, qrl } from "@qwik.dev/core";
+import { clientQrl } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
 const i_v9qawr2Inkk = ()=>import("./test.tsx_Parent_component_serverStuff_b_client_v9qawr2Inkk");
 const i_2ca3HLDC7yc = ()=>import("./test.tsx_Parent_component_serverStuff_a_2ca3HLDC7yc");
 export const s_r1qAHX7Opp0 = async ()=>{
@@ -266,6 +256,24 @@ None
   ]
 }
 */
+============================= test.js ==
+
+import { qrl } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
+import { componentQrl } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
+import { componentQrl } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
+const i_gDH1EtUWqBU = ()=>import("./test.tsx_Parent_component_useTask_gDH1EtUWqBU");
+const i_r1qAHX7Opp0 = ()=>import("./test.tsx_Parent_component_serverStuff_r1qAHX7Opp0");
+const i_k1L0DiPQV1I = ()=>import("./test.tsx_Parent_component_serverLoader_k1L0DiPQV1I");
+const i_P8oRQhHsurk = ()=>import("./test.tsx_Parent_component_useTask_1_P8oRQhHsurk");
+const i_0TaiDayHrlo = ()=>import("./test.tsx_Parent_component_0TaiDayHrlo");
+export const Parent = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_0TaiDayHrlo, "s_0TaiDayHrlo"));
+
+
+None
 == DIAGNOSTICS ==
 
 []

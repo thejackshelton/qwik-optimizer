@@ -21,7 +21,9 @@ export const AtomStatus = component$(({ctx,atom})=>{
 
 ============================= test.tsx ==
 
-import { componentQrl, inlinedQrl } from "@qwik.dev/core";
+import { inlinedQrl } from "@qwik.dev/core";
+import { componentQrl } from "@qwik.dev/core";
+import { componentQrl } from "@qwik.dev/core";
 export const AtomStatus = /*#__PURE__*/ componentQrl(/*#__PURE__*/ inlinedQrl(({ ctx, atom })=>{
 	let status = atom.status;
 	if (!atom.real) {

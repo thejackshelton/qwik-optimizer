@@ -43,13 +43,28 @@ export const Parent = component$(() => {
 
 ============================= components/component.js ==
 
+import redis from "redis";
+import mongo from "mongodb";
+import { useTaskQrl } from "@qwik.dev/core";
+import { useStore } from "@qwik.dev/core";
+import { useLexicalScope } from "@qwik.dev/core";
+import { useClientMountQrl } from "@qwik.dev/core";
+import { inlinedQrl } from "@qwik.dev/core";
+import { componentQrl } from "@qwik.dev/core";
 import { c } from "../../remove";
 import { b } from "../keep2";
 import { a } from "./keep";
-import { _jsxSorted, componentQrl, inlinedQrl, useClientMountQrl, useLexicalScope, useStore, useTaskQrl } from "@qwik.dev/core";
+import { _jsxSorted } from "@qwik.dev/core";
+import { componentQrl } from "@qwik.dev/core";
+import { useClientMountQrl } from "@qwik.dev/core";
+import { useStore } from "@qwik.dev/core";
+import { useTaskQrl } from "@qwik.dev/core";
 import mongo from "mongodb";
 import redis from "redis";
 import threejs from "threejs";
+import { a } from "./keep";
+import { b } from "../keep2";
+import { c } from "../../remove";
 export const Parent = /*#__PURE__*/ componentQrl(/*#__PURE__*/ inlinedQrl(()=>{
 	const state = useStore({ text: "" });
 	// Double count watch

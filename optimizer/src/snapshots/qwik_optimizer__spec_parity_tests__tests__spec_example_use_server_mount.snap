@@ -43,18 +43,6 @@ export const Child = component$(() => {
 	);
 });
 
-============================= test.js ==
-
-import { componentQrl, qrl } from "@qwik.dev/core";
-const i_gDH1EtUWqBU = ()=>import("./test.tsx_Parent_component_useTask_gDH1EtUWqBU");
-const i_0TaiDayHrlo = ()=>import("./test.tsx_Parent_component_0TaiDayHrlo");
-const i_Oh4n7ZeqJkU = ()=>import("./test.tsx_Child_component_useTask_Oh4n7ZeqJkU");
-const i_9GyF01GDKqw = ()=>import("./test.tsx_Child_component_9GyF01GDKqw");
-export const Parent = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_0TaiDayHrlo, "Parent_component_0TaiDayHrlo"));
-export const Child = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_9GyF01GDKqw, "Child_component_9GyF01GDKqw"));
-
-
-None
 ============================= test.tsx_Parent_component_useTask_gDH1EtUWqBU.js (ENTRY POINT)==
 
 import mongo from "mongodb";
@@ -181,6 +169,21 @@ None
   ]
 }
 */
+============================= test.js ==
+
+import { qrl } from "@qwik.dev/core";
+import { componentQrl } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
+import { componentQrl } from "@qwik.dev/core";
+const i_gDH1EtUWqBU = ()=>import("./test.tsx_Parent_component_useTask_gDH1EtUWqBU");
+const i_0TaiDayHrlo = ()=>import("./test.tsx_Parent_component_0TaiDayHrlo");
+const i_Oh4n7ZeqJkU = ()=>import("./test.tsx_Child_component_useTask_Oh4n7ZeqJkU");
+const i_9GyF01GDKqw = ()=>import("./test.tsx_Child_component_9GyF01GDKqw");
+export const Parent = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_0TaiDayHrlo, "Parent_component_0TaiDayHrlo"));
+export const Child = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_9GyF01GDKqw, "Child_component_9GyF01GDKqw"));
+
+
+None
 == DIAGNOSTICS ==
 
 []

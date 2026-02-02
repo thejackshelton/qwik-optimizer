@@ -25,19 +25,6 @@ export const App = component$(() => {
 	return "hi";
 });
 
-============================= test.js ==
-
-import { componentQrl, qrl, qwikifyQrl } from "@qwik.dev/core";
-import { qwikifyQrl } from "@qwik.dev/react";
-const i_0Yoy9qA0SC0 = ()=>import("./test.tsx_Foo_qwikify_0Yoy9qA0SC0");
-const i_GXXnVUtURSw = ()=>import("./test.tsx_Bar_GXXnVUtURSw");
-const i_ckEPmXZlub0 = ()=>import("./test.tsx_App_component_ckEPmXZlub0");
-export const Foo = /*#__PURE__*/ qwikifyQrl(/*#__PURE__*/ qrl(i_0Yoy9qA0SC0, "Foo_qwikify_0Yoy9qA0SC0"));
-export const Bar = /*#__PURE__*/ qrl(i_GXXnVUtURSw, "Bar_GXXnVUtURSw");
-export const App = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_ckEPmXZlub0, "App_component_ckEPmXZlub0"));
-
-
-None
 ============================= test.tsx_Bar_GXXnVUtURSw.js (ENTRY POINT)==
 
 export const Bar_GXXnVUtURSw = "a thing";
@@ -92,10 +79,10 @@ None
 */
 ============================= test.tsx_App_component_ckEPmXZlub0.js (ENTRY POINT)==
 
-import sdk from "@builder.io/sdk";
 import { isDev } from "@qwik.dev/core/build";
-import { stuff } from "@qwik.dev/router";
 import { moreStuff } from "@qwik.dev/router/more/here";
+import { stuff } from "@qwik.dev/router";
+import sdk from "@builder.io/sdk";
 export const App_component_ckEPmXZlub0 = ()=>{
 	sdk.hello();
 	if (isDev) {
@@ -128,6 +115,25 @@ None
   ]
 }
 */
+============================= test.js ==
+
+import { qwikifyQrl } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
+import { componentQrl } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
+import { componentQrl } from "@qwik.dev/core";
+import { qwikifyQrl } from "@qwik.dev/react";
+const i_0Yoy9qA0SC0 = ()=>import("./test.tsx_Foo_qwikify_0Yoy9qA0SC0");
+const i_GXXnVUtURSw = ()=>import("./test.tsx_Bar_GXXnVUtURSw");
+const i_ckEPmXZlub0 = ()=>import("./test.tsx_App_component_ckEPmXZlub0");
+export const Foo = /*#__PURE__*/ qwikifyQrl(/*#__PURE__*/ qrl(i_0Yoy9qA0SC0, "Foo_qwikify_0Yoy9qA0SC0"));
+export const Bar = /*#__PURE__*/ qrl(i_GXXnVUtURSw, "Bar_GXXnVUtURSw");
+export const App = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_ckEPmXZlub0, "App_component_ckEPmXZlub0"));
+
+
+None
 == DIAGNOSTICS ==
 
 []

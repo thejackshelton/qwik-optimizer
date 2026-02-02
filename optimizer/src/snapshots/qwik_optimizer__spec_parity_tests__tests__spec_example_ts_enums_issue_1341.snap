@@ -20,19 +20,6 @@ export const App = component$(() => {
 	);
 });
 
-============================= test.js ==
-
-import { componentQrl, qrl } from "@qwik.dev/core";
-const i_ckEPmXZlub0 = ()=>import("./test.tsx_App_component_ckEPmXZlub0");
-var Thing = /*#__PURE__*/ function(Thing) {
-	Thing[Thing["A"] = 0] = "A";
-	Thing[Thing["B"] = 1] = "B";
-	return Thing;
-}(Thing || {});
-export const App = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_ckEPmXZlub0, "App_component_ckEPmXZlub0", [Thing]));
-
-
-None
 ============================= test.tsx_App_component_ckEPmXZlub0.js (ENTRY POINT)==
 
 import { _jsxSorted } from "@qwik.dev/core";
@@ -65,6 +52,21 @@ None
   ]
 }
 */
+============================= test.js ==
+
+import { componentQrl } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
+import { componentQrl } from "@qwik.dev/core";
+const i_ckEPmXZlub0 = ()=>import("./test.tsx_App_component_ckEPmXZlub0");
+var Thing = /*#__PURE__*/ function(Thing) {
+	Thing[Thing["A"] = 0] = "A";
+	Thing[Thing["B"] = 1] = "B";
+	return Thing;
+}(Thing || {});
+export const App = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_ckEPmXZlub0, "App_component_ckEPmXZlub0", [Thing]));
+
+
+None
 == DIAGNOSTICS ==
 
 []

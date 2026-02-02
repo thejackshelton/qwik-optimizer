@@ -14,17 +14,10 @@ export default component$(() => {
 	);
 });
 
-============================= src/routes/_repl/[id]/[[...slug]].js ==
-
-import { componentQrl, qrl } from "@qwik.dev/core";
-const i_pK900rcyxdM = ()=>import("./[[...slug]].tsx__slug_component_pK900rcyxdM");
-export default /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_pK900rcyxdM, "_slug_component_pK900rcyxdM"));
-
-
-None
 ============================= [[...slug]].tsx__slug_component_pK900rcyxdM.js (ENTRY POINT)==
 
-import { _jsxSorted, qrl } from "@qwik.dev/core";
+import { _jsxSorted } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
 const i_onClick = ()=>import("./[[...slug]].tsx");
 export const _slug_component_pK900rcyxdM = ()=>{
 	return /*#__PURE__*/ _jsxSorted("div", { "on:click": /*#__PURE__*/ qrl(i_onClick, "[[...slug]]_component_div_onClick") }, null, null, 3, null);
@@ -52,6 +45,16 @@ None
   ]
 }
 */
+============================= src/routes/_repl/[id]/[[...slug]].js ==
+
+import { componentQrl } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
+import { componentQrl } from "@qwik.dev/core";
+const i_pK900rcyxdM = ()=>import("./[[...slug]].tsx__slug_component_pK900rcyxdM");
+export default /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_pK900rcyxdM, "_slug_component_pK900rcyxdM"));
+
+
+None
 == DIAGNOSTICS ==
 
 []

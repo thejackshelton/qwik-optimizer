@@ -15,6 +15,7 @@ export const App = () => {
 ============================= test.tsx ==
 
 import { jsx } from "@qwik.dev/core";
+import { jsx } from "@qwik.dev/core";
 export const App = ()=>{
 	const props = {};
 	return jsx("div", props, "Hello Qwik");

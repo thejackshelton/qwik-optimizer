@@ -102,14 +102,6 @@ export const App = component$(() => {
       );
     });
 
-============================= test.js ==
-
-import { componentQrl, qrl } from "@qwik.dev/core";
-const i_ckEPmXZlub0 = ()=>import("./test.tsx_App_component_ckEPmXZlub0");
-export const App = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_ckEPmXZlub0, "App_component_ckEPmXZlub0"));
-
-
-None
 ============================= test.tsx_App_component_div_map_button_onClick_K5Zt4qx8Rig.js (ENTRY POINT)==
 
 import { useLexicalScope } from "@qwik.dev/core";
@@ -142,7 +134,10 @@ None
 */
 ============================= test.tsx_App_component_ckEPmXZlub0.js (ENTRY POINT)==
 
-import { _jsxSorted, qrl, useSignal, useStore } from "@qwik.dev/core";
+import { _jsxSorted } from "@qwik.dev/core";
+import { useSignal } from "@qwik.dev/core";
+import { useStore } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
 const i_K5Zt4qx8Rig = ()=>import("./test.tsx_App_component_div_map_button_onClick_K5Zt4qx8Rig");
 export const App_component_ckEPmXZlub0 = ()=>{
 	const cart = useStore([]);
@@ -183,6 +178,16 @@ None
   ]
 }
 */
+============================= test.js ==
+
+import { componentQrl } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
+import { componentQrl } from "@qwik.dev/core";
+const i_ckEPmXZlub0 = ()=>import("./test.tsx_App_component_ckEPmXZlub0");
+export const App = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_ckEPmXZlub0, "App_component_ckEPmXZlub0"));
+
+
+None
 == DIAGNOSTICS ==
 
 [

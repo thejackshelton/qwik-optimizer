@@ -28,8 +28,18 @@ export const Child = component$(() => {
 
 ============================= test.tsx ==
 
+import { useStylesQrl } from "@qwik.dev/core";
+import { useStore } from "@qwik.dev/core";
+import { useLexicalScope } from "@qwik.dev/core";
+import { useBrowserVisibleTaskQrl } from "@qwik.dev/core";
 import { thing } from "./sibling";
-import { componentQrl, inlinedQrl, useBrowserVisibleTaskQrl, useLexicalScope, useStore, useStylesQrl } from "@qwik.dev/core";
+import { inlinedQrl } from "@qwik.dev/core";
+import { componentQrl } from "@qwik.dev/core";
+import { componentQrl } from "@qwik.dev/core";
+import { useBrowserVisibleTaskQrl } from "@qwik.dev/core";
+import { useStore } from "@qwik.dev/core";
+import { useStylesQrl } from "@qwik.dev/core";
+import { thing } from "./sibling";
 import mongodb from "mongodb";
 export const Child = /*#__PURE__*/ componentQrl(/*#__PURE__*/ inlinedQrl(()=>{
 	/*#__PURE__*/ useStylesQrl(/*#__PURE__*/ inlinedQrl("somestring", "Child_component_useStyles_qBZTuFM0160"));

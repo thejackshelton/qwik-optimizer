@@ -23,6 +23,7 @@ export const Root = () => {
 ============================= test.tsx ==
 
 import { Counter } from "./counter.tsx";
+import { Counter } from "./counter.tsx";
 export const Root = ()=>{
 	return <html>
 			<head>

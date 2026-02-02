@@ -14,22 +14,6 @@ export const \$promoteToRoot$ = (ref: SeenRef) => {
 	return idx;
 };
 
-============================= test.js ==
-
-import { getObjectPathQrl, qrl } from "@qwik.dev/core";
-const i_ytJZPsFrXms = ()=>import("./test.tsx_promoteToRoot_path_getObjectPath_ytJZPsFrXms");
-export const promoteToRoot$ = (ref)=>{
-	const path = /*#__PURE__*/ getObjectPathQrl(/*#__PURE__*/ qrl(i_ytJZPsFrXms, "promoteToRoot_path_getObjectPath_ytJZPsFrXms", [ref]));
-	// should stay before the push
-	const idx = roots.length;
-	roots.push(new BackRef(path));
-	ref.parent$ = null;
-	ref.index$ = idx;
-	return idx;
-};
-
-
-None
 ============================= test.tsx_promoteToRoot_path_getObjectPath_ytJZPsFrXms.js (ENTRY POINT)==
 
 export const promoteToRoot_path_getObjectPath_ytJZPsFrXms = ref;
@@ -56,6 +40,23 @@ None
   ]
 }
 */
+============================= test.js ==
+
+import { getObjectPathQrl } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
+const i_ytJZPsFrXms = ()=>import("./test.tsx_promoteToRoot_path_getObjectPath_ytJZPsFrXms");
+export const promoteToRoot$ = (ref)=>{
+	const path = /*#__PURE__*/ getObjectPathQrl(/*#__PURE__*/ qrl(i_ytJZPsFrXms, "promoteToRoot_path_getObjectPath_ytJZPsFrXms", [ref]));
+	// should stay before the push
+	const idx = roots.length;
+	roots.push(new BackRef(path));
+	ref.parent$ = null;
+	ref.index$ = idx;
+	return idx;
+};
+
+
+None
 == DIAGNOSTICS ==
 
 []

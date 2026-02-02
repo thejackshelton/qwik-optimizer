@@ -28,23 +28,6 @@ export const Header = component$(() => {
 
 export const Footer = component$();
 
-============================= project/test.tsx ==
-
-import { componentQrl, qrl } from "@qwik.dev/core";
-const i_uWM1kg0IGO0 = ()=>import("./test.tsx_Header_component_1_uWM1kg0IGO0");
-const i_UVBJuFYfvDo = ()=>import("./test.tsx_Header_component_UVBJuFYfvDo");
-export const [a, { b, v1: [c], d = v2, ...e }, f = v3, ...g] = obj;
-const exp1 = 1;
-const internal = 2;
-export { exp1, internal as expr2 };
-export function foo() {}
-export class bar {}
-export default function DefaultFn() {}
-export const Header = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_UVBJuFYfvDo, "Header_component_UVBJuFYfvDo", [exp1, internal]));
-export const Footer = /*#__PURE__*/ qrl(i_uWM1kg0IGO0, "Header_component_1_uWM1kg0IGO0", [exp1, internal]);
-
-
-None
 ============================= test.tsx_Header_component_UVBJuFYfvDo.tsx (ENTRY POINT)==
 
 import { qrl } from "@qwik.dev/core";
@@ -77,7 +60,9 @@ None
 */
 ============================= test.tsx_Header_component_1_uWM1kg0IGO0.tsx (ENTRY POINT)==
 
-import { bar, foo, default as DefaultFn } from "./test";
+import { default as DefaultFn } from "./test";
+import { bar } from "./test";
+import { foo } from "./test";
 export const Header_component_1_uWM1kg0IGO0 = ()=>{
 	const [exp1, internal] = useLexicalScope();
 	return <Footer>
@@ -108,6 +93,24 @@ None
   ]
 }
 */
+============================= project/test.tsx ==
+
+import { qrl } from "@qwik.dev/core";
+import { componentQrl } from "@qwik.dev/core";
+const i_uWM1kg0IGO0 = ()=>import("./test.tsx_Header_component_1_uWM1kg0IGO0");
+const i_UVBJuFYfvDo = ()=>import("./test.tsx_Header_component_UVBJuFYfvDo");
+export const [a, { b, v1: [c], d = v2, ...e }, f = v3, ...g] = obj;
+const exp1 = 1;
+const internal = 2;
+export { exp1, internal as expr2 };
+export function foo() {}
+export class bar {}
+export default function DefaultFn() {}
+export const Header = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_UVBJuFYfvDo, "Header_component_UVBJuFYfvDo", [exp1, internal]));
+export const Footer = /*#__PURE__*/ qrl(i_uWM1kg0IGO0, "Header_component_1_uWM1kg0IGO0", [exp1, internal]);
+
+
+None
 == DIAGNOSTICS ==
 
 []

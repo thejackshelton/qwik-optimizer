@@ -17,17 +17,6 @@ return <Hola>
 </Hola>;
 });
 
-============================= test.js ==
-
-import { _getConstProps, _getVarProps, _jsxSplit, componentQrl, qrl } from "@qwik.dev/core";
-const i_LUXeXe0DQrg = ()=>import("./test.tsx_test_component_LUXeXe0DQrg");
-function Hola(props) {
-	return /*#__PURE__*/ _jsxSplit("div", { ..._getVarProps(props) }, _getConstProps(props), null, 0, null);
-}
-export default /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_LUXeXe0DQrg, "test_component_LUXeXe0DQrg"));
-
-
-None
 ============================= test.tsx_test_component_LUXeXe0DQrg.js (ENTRY POINT)==
 
 import { _jsxSorted } from "@qwik.dev/core";
@@ -57,6 +46,22 @@ None
   ]
 }
 */
+============================= test.js ==
+
+import { componentQrl } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
+import { _jsxSplit } from "@qwik.dev/core";
+import { _getVarProps } from "@qwik.dev/core";
+import { _getConstProps } from "@qwik.dev/core";
+import { componentQrl } from "@qwik.dev/core";
+const i_LUXeXe0DQrg = ()=>import("./test.tsx_test_component_LUXeXe0DQrg");
+function Hola(props) {
+	return /*#__PURE__*/ _jsxSplit("div", { ..._getVarProps(props) }, _getConstProps(props), null, 0, null);
+}
+export default /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_LUXeXe0DQrg, "test_component_LUXeXe0DQrg"));
+
+
+None
 == DIAGNOSTICS ==
 
 []

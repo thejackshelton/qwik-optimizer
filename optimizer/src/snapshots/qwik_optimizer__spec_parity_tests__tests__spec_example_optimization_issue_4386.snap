@@ -21,8 +21,10 @@ export const FOO_MAPPING = {
 
 ============================= test.tsx ==
 
+import { inlinedQrl } from "@qwik.dev/core";
+import { componentQrl } from "@qwik.dev/core";
 import { FOO_MAPPING } from "./test";
-import { componentQrl, inlinedQrl } from "@qwik.dev/core";
+import { componentQrl } from "@qwik.dev/core";
 export const FOO_MAPPING = {
 	A: 1,
 	B: 2,

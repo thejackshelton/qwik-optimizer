@@ -40,7 +40,19 @@ export const STYLES = ".red { color: red; }";
 
 ============================= test.tsx ==
 
-import { componentQrl, inlinedQrl, jsx, jsxs, useLexicalScope, useStore, useStylesQrl } from "@qwik.dev/core";
+import { useStylesQrl } from "@qwik.dev/core";
+import { useStore } from "@qwik.dev/core";
+import { useLexicalScope } from "@qwik.dev/core";
+import { jsxs } from "@qwik.dev/core";
+import { jsx } from "@qwik.dev/core";
+import { inlinedQrl } from "@qwik.dev/core";
+import { componentQrl } from "@qwik.dev/core";
+import { componentQrl } from "@qwik.dev/core";
+import { inlinedQrl } from "@qwik.dev/core";
+import { useStore } from "@qwik.dev/core";
+import { jsxs } from "@qwik.dev/core";
+import { jsx } from "@qwik.dev/core";
+import { useLexicalScope } from "@qwik.dev/core";
 export const App = /*#__PURE__*/ componentQrl(inlinedQrl(()=>{
 	/*#__PURE__*/ useStylesQrl(/*#__PURE__*/ inlinedQrl(inlinedQrl(STYLES, "STYLES_odz7dfdfdM"), "App_componentQrl_inlinedQrl_useStyles_p5SexbIOPVI"));
 	/*#__PURE__*/ useStylesQrl(/*#__PURE__*/ inlinedQrl(inlinedQrl(STYLES, "STYLES_odzdfdfdM"), "App_componentQrl_inlinedQrl_useStyles_1_tWtGBKzgu0o"));

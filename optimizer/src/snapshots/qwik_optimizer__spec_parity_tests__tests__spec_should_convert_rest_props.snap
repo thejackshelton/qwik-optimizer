@@ -14,15 +14,6 @@ useTask$(() => {
 return 'hi'
 })
 
-============================= test.js ==
-
-import { componentQrl, qrl } from "@qwik.dev/core";
-const i_jewzFYh3XmQ = ()=>import("./test.tsx_test_component_useTask_jewzFYh3XmQ");
-const i_LUXeXe0DQrg = ()=>import("./test.tsx_test_component_LUXeXe0DQrg");
-export default /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_LUXeXe0DQrg, "test_component_LUXeXe0DQrg"));
-
-
-None
 ============================= test.tsx_test_component_useTask_jewzFYh3XmQ.js (ENTRY POINT)==
 
 export const test_component_useTask_jewzFYh3XmQ = ()=>{
@@ -53,7 +44,8 @@ None
 */
 ============================= test.tsx_test_component_LUXeXe0DQrg.js (ENTRY POINT)==
 
-import { qrl, useTaskQrl } from "@qwik.dev/core";
+import { useTaskQrl } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
 export const test_component_LUXeXe0DQrg = ({ ...props })=>{
 	/*#__PURE__*/ useTaskQrl(/*#__PURE__*/ qrl(i_jewzFYh3XmQ, "test_component_useTask_jewzFYh3XmQ"));
 	return "hi";
@@ -81,6 +73,17 @@ None
   ]
 }
 */
+============================= test.js ==
+
+import { componentQrl } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
+import { componentQrl } from "@qwik.dev/core";
+const i_jewzFYh3XmQ = ()=>import("./test.tsx_test_component_useTask_jewzFYh3XmQ");
+const i_LUXeXe0DQrg = ()=>import("./test.tsx_test_component_LUXeXe0DQrg");
+export default /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_LUXeXe0DQrg, "test_component_LUXeXe0DQrg"));
+
+
+None
 == DIAGNOSTICS ==
 
 []

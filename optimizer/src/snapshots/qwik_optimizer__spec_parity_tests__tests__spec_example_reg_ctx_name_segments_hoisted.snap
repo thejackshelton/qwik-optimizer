@@ -18,7 +18,15 @@ const STYLES = '.class {}';
 
 ============================= test.js ==
 
-import { _jsxSorted, componentQrl, inlinedQrl, serverQrl, useLexicalScope, useStyleQrl } from "@qwik.dev/core";
+import { useStyleQrl } from "@qwik.dev/core";
+import { useLexicalScope } from "@qwik.dev/core";
+import { serverQrl } from "@qwik.dev/core";
+import { inlinedQrl } from "@qwik.dev/core";
+import { componentQrl } from "@qwik.dev/core";
+import { _jsxSorted } from "@qwik.dev/core";
+import { componentQrl } from "@qwik.dev/core";
+import { serverQrl } from "@qwik.dev/core";
+import { useStyleQrl } from "@qwik.dev/core";
 export const Works = /*#__PURE__*/ componentQrl(/*#__PURE__*/ inlinedQrl((props)=>{
 	/*#__PURE__*/ useStyleQrl(/*#__PURE__*/ inlinedQrl(STYLES, "Works_component_useStyle_i40UL9JyQpg"));
 	const text = "hola";

@@ -21,15 +21,6 @@ export const Greeter = component$(() => {
 	)
 });
 
-============================= test.tsx ==
-
-import { componentQrl, qrl } from "@qwik.dev/core";
-const i_ibjq2Rfokxw = ()=>import("./test.tsx_Greeter_component_useTask_ibjq2Rfokxw");
-const i_n7HuG2hhU0Q = ()=>import("./test.tsx_Greeter_component_n7HuG2hhU0Q");
-export const Greeter = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_n7HuG2hhU0Q, "Greeter_component_n7HuG2hhU0Q"));
-
-
-None
 ============================= test.tsx_Greeter_component_useTask_ibjq2Rfokxw.tsx (ENTRY POINT)==
 
 import mongo from "mongodb";
@@ -96,6 +87,19 @@ None
   ]
 }
 */
+============================= test.tsx ==
+
+import { qrl } from "@qwik.dev/core";
+import { componentQrl } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
+import { componentQrl } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
+const i_ibjq2Rfokxw = ()=>import("./test.tsx_Greeter_component_useTask_ibjq2Rfokxw");
+const i_n7HuG2hhU0Q = ()=>import("./test.tsx_Greeter_component_n7HuG2hhU0Q");
+export const Greeter = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_n7HuG2hhU0Q, "Greeter_component_n7HuG2hhU0Q"));
+
+
+None
 == DIAGNOSTICS ==
 
 []

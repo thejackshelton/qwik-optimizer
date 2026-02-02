@@ -24,18 +24,13 @@ export const FieldInput = component$(
   }
 );
 
-============================= test.js ==
-
-import { componentQrl, qrl } from "@qwik.dev/core";
-const i_V4XAtJSTRKg = ()=>import("./test.tsx_FieldInput_component_V4XAtJSTRKg");
-export const FieldInput = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_V4XAtJSTRKg, "FieldInput_component_V4XAtJSTRKg"));
-
-
-None
 ============================= test.tsx_FieldInput_component_V4XAtJSTRKg.js (ENTRY POINT)==
 
+import { _getConstProps } from "@qwik.dev/core";
+import { _getVarProps } from "@qwik.dev/core";
+import { _jsxSplit } from "@qwik.dev/core";
 import { destructureBindings } from "./destructure-bindings";
-import { _getConstProps, _getVarProps, _jsxSplit, qrl } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
 const i_onClick = ()=>import("./test.tsx");
 export const FieldInput_component_V4XAtJSTRKg = (props)=>{
 	const initialValues = { value: undefined };
@@ -68,6 +63,16 @@ None
   ]
 }
 */
+============================= test.js ==
+
+import { componentQrl } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
+import { componentQrl } from "@qwik.dev/core";
+const i_V4XAtJSTRKg = ()=>import("./test.tsx_FieldInput_component_V4XAtJSTRKg");
+export const FieldInput = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_V4XAtJSTRKg, "FieldInput_component_V4XAtJSTRKg"));
+
+
+None
 == DIAGNOSTICS ==
 
 []

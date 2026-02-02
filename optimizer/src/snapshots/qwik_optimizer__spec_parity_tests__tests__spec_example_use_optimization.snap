@@ -21,7 +21,9 @@ export const Works = component$((props) => {
 
 ============================= test.tsx ==
 
-import { componentQrl, inlinedQrl } from "@qwik.dev/core";
+import { inlinedQrl } from "@qwik.dev/core";
+import { componentQrl } from "@qwik.dev/core";
+import { componentQrl } from "@qwik.dev/core";
 export const Works = /*#__PURE__*/ componentQrl(/*#__PURE__*/ inlinedQrl((props)=>{
 	const { countNested } = useStore({ value: { count: 0 } }).value;
 	const countNested2 = countNested;

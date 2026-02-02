@@ -7,14 +7,6 @@ expression: output
 import { component$ } from '@qwik.dev/core';
 export const Greeter = component$(() => <div/>)
 
-============================= components\apps\apps.js ==
-
-import { componentQrl, qrl } from "@qwik.dev/core";
-const i_Q7eEoxaolmI = ()=>import("./components\\apps\\apps.tsx_Greeter_component_Q7eEoxaolmI");
-export const Greeter = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_Q7eEoxaolmI, "Greeter_component_Q7eEoxaolmI"));
-
-
-None
 ============================= components\apps\apps.tsx_Greeter_component_Q7eEoxaolmI.js (ENTRY POINT)==
 
 import { _jsxSorted } from "@qwik.dev/core";
@@ -42,6 +34,16 @@ None
   ]
 }
 */
+============================= components\apps\apps.js ==
+
+import { componentQrl } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
+import { componentQrl } from "@qwik.dev/core";
+const i_Q7eEoxaolmI = ()=>import("./components\\apps\\apps.tsx_Greeter_component_Q7eEoxaolmI");
+export const Greeter = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_Q7eEoxaolmI, "Greeter_component_Q7eEoxaolmI"));
+
+
+None
 == DIAGNOSTICS ==
 
 []

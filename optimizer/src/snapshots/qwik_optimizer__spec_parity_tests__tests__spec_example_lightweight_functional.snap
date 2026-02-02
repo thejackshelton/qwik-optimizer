@@ -29,21 +29,6 @@ export const ButtonArrow = ({text, color}) => {
 	);
 }
 
-============================= test.tsx ==
-
-import { componentQrl, qrl } from "@qwik.dev/core";
-const i_HTDRsvUbLiE = ()=>import("./test.tsx_Foo_component_HTDRsvUbLiE");
-const i_onClick = ()=>import("./test.tsx");
-export const Foo = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_HTDRsvUbLiE, "Foo_component_HTDRsvUbLiE"));
-export function Button({ text, color }) {
-	return <button on:color={color} on:click={/*#__PURE__*/ qrl(i_onClick, "Button_button_onClick")}>{text}</button>;
-}
-export const ButtonArrow = ({ text, color })=>{
-	return <button on:color={color} on:click={/*#__PURE__*/ qrl(i_onClick, "ButtonArrow_button_onClick")}>{text}</button>;
-};
-
-
-None
 ============================= test.tsx_Foo_component_HTDRsvUbLiE.tsx (ENTRY POINT)==
 
 export const Foo_component_HTDRsvUbLiE = (props)=>{
@@ -75,6 +60,24 @@ None
   ]
 }
 */
+============================= test.tsx ==
+
+import { qrl } from "@qwik.dev/core";
+import { componentQrl } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
+import { componentQrl } from "@qwik.dev/core";
+const i_HTDRsvUbLiE = ()=>import("./test.tsx_Foo_component_HTDRsvUbLiE");
+const i_onClick = ()=>import("./test.tsx");
+export const Foo = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_HTDRsvUbLiE, "Foo_component_HTDRsvUbLiE"));
+export function Button({ text, color }) {
+	return <button on:color={color} on:click={/*#__PURE__*/ qrl(i_onClick, "Button_button_onClick")}>{text}</button>;
+}
+export const ButtonArrow = ({ text, color })=>{
+	return <button on:color={color} on:click={/*#__PURE__*/ qrl(i_onClick, "ButtonArrow_button_onClick")}>{text}</button>;
+};
+
+
+None
 == DIAGNOSTICS ==
 
 []

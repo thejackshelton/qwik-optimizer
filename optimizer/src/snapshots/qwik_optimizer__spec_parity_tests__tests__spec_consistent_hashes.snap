@@ -21,15 +21,6 @@ export const Greeter = component$(() => {
 	)
 });
 
-============================= test.js ==
-
-import { componentQrl, qrl } from "@qwik.dev/core";
-const i_ibjq2Rfokxw = ()=>import("./test.tsx_Greeter_component_useTask_ibjq2Rfokxw");
-const i_n7HuG2hhU0Q = ()=>import("./test.tsx_Greeter_component_n7HuG2hhU0Q");
-export const Greeter = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_n7HuG2hhU0Q, "Greeter_component_n7HuG2hhU0Q"));
-
-
-None
 ============================= test.tsx_Greeter_component_useTask_ibjq2Rfokxw.js (ENTRY POINT)==
 
 import mongo from "mongodb";
@@ -61,7 +52,8 @@ None
 */
 ============================= test.tsx_Greeter_component_n7HuG2hhU0Q.js (ENTRY POINT)==
 
-import { _jsxSorted, qrl } from "@qwik.dev/core";
+import { _jsxSorted } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
 const i_2 = ()=>import("./test.tsx");
 const i_1 = ()=>import("./test.tsx");
 const i_ibjq2Rfokxw = ()=>import("./test.tsx_Greeter_component_useTask_ibjq2Rfokxw");
@@ -96,6 +88,18 @@ None
   ]
 }
 */
+============================= test.js ==
+
+import { qrl } from "@qwik.dev/core";
+import { componentQrl } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
+import { componentQrl } from "@qwik.dev/core";
+const i_ibjq2Rfokxw = ()=>import("./test.tsx_Greeter_component_useTask_ibjq2Rfokxw");
+const i_n7HuG2hhU0Q = ()=>import("./test.tsx_Greeter_component_n7HuG2hhU0Q");
+export const Greeter = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_n7HuG2hhU0Q, "Greeter_component_n7HuG2hhU0Q"));
+
+
+None
 == DIAGNOSTICS ==
 
 []

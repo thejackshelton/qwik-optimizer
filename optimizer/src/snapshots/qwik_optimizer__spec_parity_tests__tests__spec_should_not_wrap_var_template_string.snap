@@ -21,15 +21,6 @@ export default component$(() => {
 	);
 });
 
-============================= test.js ==
-
-import { componentQrl, qrl } from "@qwik.dev/core";
-const i_ZVQVUkxqtiQ = ()=>import("./test.tsx_test_component_productTitle_useComputed_ZVQVUkxqtiQ");
-const i_LUXeXe0DQrg = ()=>import("./test.tsx_test_component_LUXeXe0DQrg");
-export default /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_LUXeXe0DQrg, "test_component_LUXeXe0DQrg"));
-
-
-None
 ============================= test.tsx_test_component_productTitle_useComputed_ZVQVUkxqtiQ.js (ENTRY POINT)==
 
 export const test_component_productTitle_useComputed_ZVQVUkxqtiQ = ()=>{
@@ -60,8 +51,10 @@ None
 */
 ============================= test.tsx_test_component_LUXeXe0DQrg.js (ENTRY POINT)==
 
-import { _jsxSorted, qrl, useComputedQrl } from "@qwik.dev/core";
+import { _jsxSorted } from "@qwik.dev/core";
 import { inlineTranslate } from "translate-lib";
+import { useComputedQrl } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
 const i_ZVQVUkxqtiQ = ()=>import("./test.tsx_test_component_productTitle_useComputed_ZVQVUkxqtiQ");
 export const test_component_LUXeXe0DQrg = ()=>{
 	const t = inlineTranslate();
@@ -94,6 +87,17 @@ None
   ]
 }
 */
+============================= test.js ==
+
+import { componentQrl } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
+import { componentQrl } from "@qwik.dev/core";
+const i_ZVQVUkxqtiQ = ()=>import("./test.tsx_test_component_productTitle_useComputed_ZVQVUkxqtiQ");
+const i_LUXeXe0DQrg = ()=>import("./test.tsx_test_component_LUXeXe0DQrg");
+export default /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_LUXeXe0DQrg, "test_component_LUXeXe0DQrg"));
+
+
+None
 == DIAGNOSTICS ==
 
 []

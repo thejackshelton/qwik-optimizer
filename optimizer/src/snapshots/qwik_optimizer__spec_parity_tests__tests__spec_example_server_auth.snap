@@ -43,21 +43,10 @@ export const { onRequest, logout, getSession, signup } = auth$({
 	]
 });
 
-============================= test.js ==
-
-import { authQrl, serverAuthQrl } from "@auth/qwik";
-import { authQrl, qrl, serverAuthQrl } from "@qwik.dev/core";
-const i_qVqpX2a0p9Y = ()=>import("./test.tsx_serverAuth_qVqpX2a0p9Y");
-const i_GU0aY5QCETY = ()=>import("./test.tsx_auth_GU0aY5QCETY");
-export const { onRequest, logout, getSession, signup } = /*#__PURE__*/ serverAuthQrl(/*#__PURE__*/ qrl(i_qVqpX2a0p9Y, "serverAuth_qVqpX2a0p9Y"));
-export const { onRequest, logout, getSession, signup } = /*#__PURE__*/ authQrl(/*#__PURE__*/ qrl(i_GU0aY5QCETY, "auth_GU0aY5QCETY"));
-
-
-None
 ============================= test.tsx_auth_GU0aY5QCETY.js (ENTRY POINT)==
 
-import GitHub from "@auth/core/providers/github";
 import Facebook from "next-auth/providers/facebook";
+import GitHub from "@auth/core/providers/github";
 import Google from "next-auth/providers/google";
 export const auth_GU0aY5QCETY = { providers: [
 	GitHub({
@@ -98,8 +87,8 @@ None
 */
 ============================= test.tsx_serverAuth_qVqpX2a0p9Y.js (ENTRY POINT)==
 
-import GitHub from "@auth/core/providers/github";
 import Facebook from "next-auth/providers/facebook";
+import GitHub from "@auth/core/providers/github";
 import Google from "next-auth/providers/google";
 export const serverAuth_qVqpX2a0p9Y = { providers: [
 	GitHub({
@@ -138,6 +127,21 @@ None
   ]
 }
 */
+============================= test.js ==
+
+import { serverAuthQrl } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
+import { authQrl } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
+import { serverAuthQrl } from "@auth/qwik";
+import { authQrl } from "@auth/qwik";
+const i_qVqpX2a0p9Y = ()=>import("./test.tsx_serverAuth_qVqpX2a0p9Y");
+const i_GU0aY5QCETY = ()=>import("./test.tsx_auth_GU0aY5QCETY");
+export const { onRequest, logout, getSession, signup } = /*#__PURE__*/ serverAuthQrl(/*#__PURE__*/ qrl(i_qVqpX2a0p9Y, "serverAuth_qVqpX2a0p9Y"));
+export const { onRequest, logout, getSession, signup } = /*#__PURE__*/ authQrl(/*#__PURE__*/ qrl(i_GU0aY5QCETY, "auth_GU0aY5QCETY"));
+
+
+None
 == DIAGNOSTICS ==
 
 []

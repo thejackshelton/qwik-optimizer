@@ -27,15 +27,6 @@ export const FieldInput = component$(() => {
   );
 });
 
-============================= test.js ==
-
-import { componentQrl, qrl } from "@qwik.dev/core";
-const i_Zg4NvOwcLaM = ()=>import("./test.tsx_FieldInput_component_input_onInput_1_Zg4NvOwcLaM");
-const i_V4XAtJSTRKg = ()=>import("./test.tsx_FieldInput_component_V4XAtJSTRKg");
-export const FieldInput = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_V4XAtJSTRKg, "FieldInput_component_V4XAtJSTRKg"));
-
-
-None
 ============================= test.tsx_FieldInput_component_input_onInput_1_Zg4NvOwcLaM.js (ENTRY POINT)==
 
 export const FieldInput_component_input_onInput_1_Zg4NvOwcLaM = (ev, el)=>{
@@ -67,7 +58,9 @@ None
 */
 ============================= test.tsx_FieldInput_component_V4XAtJSTRKg.js (ENTRY POINT)==
 
-import { _jsxSorted, qrl, useSignal } from "@qwik.dev/core";
+import { _jsxSorted } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
+import { useSignal } from "@qwik.dev/core";
 const i_onFocus = ()=>import("./test.tsx");
 const i_Zg4NvOwcLaM = ()=>import("./test.tsx_FieldInput_component_input_onInput_1_Zg4NvOwcLaM");
 export const FieldInput_component_V4XAtJSTRKg = ()=>{
@@ -101,6 +94,18 @@ None
   ]
 }
 */
+============================= test.js ==
+
+import { componentQrl } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
+import { componentQrl } from "@qwik.dev/core";
+const i_Zg4NvOwcLaM = ()=>import("./test.tsx_FieldInput_component_input_onInput_1_Zg4NvOwcLaM");
+const i_V4XAtJSTRKg = ()=>import("./test.tsx_FieldInput_component_V4XAtJSTRKg");
+export const FieldInput = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_V4XAtJSTRKg, "FieldInput_component_V4XAtJSTRKg"));
+
+
+None
 == DIAGNOSTICS ==
 
 []

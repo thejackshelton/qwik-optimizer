@@ -37,22 +37,16 @@ export const RouterHead = component$(() => {
 	);
 });
 
-============================= test.js ==
-
-import { componentQrl, qrl } from "@qwik.dev/core";
-const i_DPA76mgIou0 = ()=>import("./test.tsx_RouterHead_component_DPA76mgIou0");
-/**
-* The RouterHead component is placed inside of the document `<head>` element.
-*/
-export const RouterHead = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_DPA76mgIou0, "RouterHead_component_DPA76mgIou0"));
-
-
-None
 ============================= test.tsx_RouterHead_component_DPA76mgIou0.js (ENTRY POINT)==
 
-import { _fnSignal, _getConstProps, _getVarProps, _jsxSorted, _jsxSplit } from "@qwik.dev/core";
+import { _fnSignal } from "@qwik.dev/core";
+import { _getConstProps } from "@qwik.dev/core";
+import { _getVarProps } from "@qwik.dev/core";
+import { _jsxSorted } from "@qwik.dev/core";
+import { _jsxSplit } from "@qwik.dev/core";
+import { useDocumentHead } from "@qwik.dev/router";
+import { useLocation } from "@qwik.dev/router";
 import { Fragment as _Fragment } from "@qwik.dev/core/jsx-runtime";
-import { useDocumentHead, useLocation } from "@qwik.dev/router";
 const _hf0 = (p0)=>p0.key;
 const _hf0_str = "p0.key";
 const _hf1 = (p0)=>p0.style;
@@ -105,6 +99,19 @@ None
   ]
 }
 */
+============================= test.js ==
+
+import { componentQrl } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
+import { componentQrl } from "@qwik.dev/core";
+const i_DPA76mgIou0 = ()=>import("./test.tsx_RouterHead_component_DPA76mgIou0");
+/**
+* The RouterHead component is placed inside of the document `<head>` element.
+*/
+export const RouterHead = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_DPA76mgIou0, "RouterHead_component_DPA76mgIou0"));
+
+
+None
 == DIAGNOSTICS ==
 
 []

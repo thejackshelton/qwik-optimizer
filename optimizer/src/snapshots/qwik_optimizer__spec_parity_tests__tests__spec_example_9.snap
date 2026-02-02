@@ -17,14 +17,6 @@ const Header = $((decl1, {decl2}, [decl3]) => {
 	try{}catch({decl19}){}
 });
 
-============================= test.tsx ==
-
-import { qrl } from "@qwik.dev/core";
-const i_WjUaUQN7Oxg = ()=>import("./test.tsx_Header_WjUaUQN7Oxg");
-/*#__PURE__*/ qrl(i_WjUaUQN7Oxg, "Header_WjUaUQN7Oxg");
-
-
-None
 ============================= test.tsx_Header_WjUaUQN7Oxg.tsx (ENTRY POINT)==
 
 export const Header_WjUaUQN7Oxg = (decl1, { decl2 }, [decl3])=>{
@@ -55,6 +47,15 @@ None
   ]
 }
 */
+============================= test.tsx ==
+
+import { qrl } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
+const i_WjUaUQN7Oxg = ()=>import("./test.tsx_Header_WjUaUQN7Oxg");
+/*#__PURE__*/ qrl(i_WjUaUQN7Oxg, "Header_WjUaUQN7Oxg");
+
+
+None
 == DIAGNOSTICS ==
 
 []

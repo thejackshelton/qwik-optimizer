@@ -28,17 +28,10 @@ const ManyEventsComponent = component$(() => {
 	);
 });
 
-============================= test.js ==
-
-import { componentQrl, qrl } from "@qwik.dev/core";
-const i_ndbrzxiyG3g = ()=>import("./test.tsx_ManyEventsComponent_component_ndbrzxiyG3g");
-/*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_ndbrzxiyG3g, "ManyEventsComponent_component_ndbrzxiyG3g"));
-
-
-None
 ============================= test.tsx_ManyEventsComponent_component_ndbrzxiyG3g.js (ENTRY POINT)==
 
-import { _jsxSorted, qrl } from "@qwik.dev/core";
+import { _jsxSorted } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
 const i_2 = ()=>import("./test.tsx");
 const i_onFocus = ()=>import("./test.tsx");
 const i_on-anotherCustom = ()=>import("./test.tsx");
@@ -81,6 +74,16 @@ None
   ]
 }
 */
+============================= test.js ==
+
+import { componentQrl } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
+import { componentQrl } from "@qwik.dev/core";
+const i_ndbrzxiyG3g = ()=>import("./test.tsx_ManyEventsComponent_component_ndbrzxiyG3g");
+/*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_ndbrzxiyG3g, "ManyEventsComponent_component_ndbrzxiyG3g"));
+
+
+None
 == DIAGNOSTICS ==
 
 []

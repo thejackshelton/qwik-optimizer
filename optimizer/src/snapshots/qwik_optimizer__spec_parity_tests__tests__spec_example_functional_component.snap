@@ -14,14 +14,6 @@ const Header = component$(() => {
 	);
 });
 
-============================= test.tsx ==
-
-import { componentQrl, qrl } from "@qwik.dev/core";
-const i_J4uyIhaBNR4 = ()=>import("./test.tsx_Header_component_J4uyIhaBNR4");
-/*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_J4uyIhaBNR4, "Header_component_J4uyIhaBNR4"));
-
-
-None
 ============================= test.tsx_Header_component_J4uyIhaBNR4.tsx (ENTRY POINT)==
 
 import { useStore } from "@qwik.dev/core";
@@ -53,6 +45,16 @@ None
   ]
 }
 */
+============================= test.tsx ==
+
+import { componentQrl } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
+import { componentQrl } from "@qwik.dev/core";
+const i_J4uyIhaBNR4 = ()=>import("./test.tsx_Header_component_J4uyIhaBNR4");
+/*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_J4uyIhaBNR4, "Header_component_J4uyIhaBNR4"));
+
+
+None
 == DIAGNOSTICS ==
 
 []

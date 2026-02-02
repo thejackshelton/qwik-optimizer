@@ -15,18 +15,6 @@ export const App = component$((props) => {
 	));
 });
 
-============================= test.js ==
-
-import { componentQrl, qrl } from "@qwik.dev/core";
-const i_T7IDIUVU4lI = ()=>import("./test.tsx_handler_T7IDIUVU4lI");
-const i_t35nSa5UV7U = ()=>import("./test.tsx_App_component_useStyles_t35nSa5UV7U");
-const i_w0t0o3QMovU = ()=>import("./test.tsx_App_component_1_w0t0o3QMovU");
-const i_ckEPmXZlub0 = ()=>import("./test.tsx_App_component_ckEPmXZlub0");
-export const handler = /*#__PURE__*/ qrl(i_T7IDIUVU4lI, "handler_T7IDIUVU4lI");
-export const App = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_ckEPmXZlub0, "App_component_ckEPmXZlub0"));
-
-
-None
 ============================= test.tsx_handler_T7IDIUVU4lI.js (ENTRY POINT)==
 
 export const handler_T7IDIUVU4lI = ()=>console.log("hola");
@@ -81,7 +69,9 @@ None
 */
 ============================= test.tsx_App_component_ckEPmXZlub0.js (ENTRY POINT)==
 
-import { qrl, useStylesQrl } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
+import { useStylesQrl } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
 export const App_component_ckEPmXZlub0 = (props)=>{
 	/*#__PURE__*/ useStylesQrl(/*#__PURE__*/ qrl(i_t35nSa5UV7U, "App_component_useStyles_t35nSa5UV7U"));
 	return /*#__PURE__*/ qrl(i_w0t0o3QMovU, "App_component_1_w0t0o3QMovU");
@@ -136,6 +126,20 @@ None
   ]
 }
 */
+============================= test.js ==
+
+import { qrl } from "@qwik.dev/core";
+import { componentQrl } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
+const i_T7IDIUVU4lI = ()=>import("./test.tsx_handler_T7IDIUVU4lI");
+const i_t35nSa5UV7U = ()=>import("./test.tsx_App_component_useStyles_t35nSa5UV7U");
+const i_w0t0o3QMovU = ()=>import("./test.tsx_App_component_1_w0t0o3QMovU");
+const i_ckEPmXZlub0 = ()=>import("./test.tsx_App_component_ckEPmXZlub0");
+export const handler = /*#__PURE__*/ qrl(i_T7IDIUVU4lI, "handler_T7IDIUVU4lI");
+export const App = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_ckEPmXZlub0, "App_component_ckEPmXZlub0"));
+
+
+None
 == DIAGNOSTICS ==
 
 []

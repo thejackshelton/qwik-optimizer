@@ -18,18 +18,10 @@ export const Foo = component$(({foo}) => {
 	);
 })
 
-============================= test.tsx ==
-
-import { componentQrl, qrl } from "@qwik.dev/core";
-const i_aaEQlcpxVis = ()=>import("./test.tsx_Foo_component_useMount_aaEQlcpxVis");
-const i_HTDRsvUbLiE = ()=>import("./test.tsx_Foo_component_HTDRsvUbLiE");
-export const Foo = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_HTDRsvUbLiE, "Foo_component_HTDRsvUbLiE"));
-
-
-None
 ============================= test.tsx_Foo_component_HTDRsvUbLiE.tsx (ENTRY POINT)==
 
-import { qrl, useMountQrl } from "@qwik.dev/core";
+import { useMountQrl } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
 export const Foo_component_HTDRsvUbLiE = ({ foo })=>{
 	/*#__PURE__*/ useMountQrl(/*#__PURE__*/ qrl(i_aaEQlcpxVis, "Foo_component_useMount_aaEQlcpxVis"));
 	return <div />;
@@ -88,6 +80,17 @@ None
   ]
 }
 */
+============================= test.tsx ==
+
+import { componentQrl } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
+import { componentQrl } from "@qwik.dev/core";
+const i_aaEQlcpxVis = ()=>import("./test.tsx_Foo_component_useMount_aaEQlcpxVis");
+const i_HTDRsvUbLiE = ()=>import("./test.tsx_Foo_component_HTDRsvUbLiE");
+export const Foo = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_HTDRsvUbLiE, "Foo_component_HTDRsvUbLiE"));
+
+
+None
 == DIAGNOSTICS ==
 
 []

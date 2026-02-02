@@ -34,17 +34,13 @@ return (
 );
 });
 
-============================= test.js ==
-
-import { componentQrl, qrl } from "@qwik.dev/core";
-const i_0TaiDayHrlo = ()=>import("./test.tsx_Parent_component_0TaiDayHrlo");
-/*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_0TaiDayHrlo, "Parent_component_0TaiDayHrlo"));
-
-
-None
 ============================= test.tsx_Parent_component_0TaiDayHrlo.js (ENTRY POINT)==
 
-import { _jsxSorted, qrl, useSignal, useStore } from "@qwik.dev/core";
+import { _jsxSorted } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
+import { useSignal } from "@qwik.dev/core";
+import { useStore } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
 const i_MKOvE0RDw7w = ()=>import("./test.tsx_Parent_component_div_map_button_onClick_MKOvE0RDw7w");
 const i_onClick = ()=>import("./test.tsx");
 export const Parent_component_0TaiDayHrlo = ()=>{
@@ -114,6 +110,16 @@ None
   ]
 }
 */
+============================= test.js ==
+
+import { componentQrl } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
+import { componentQrl } from "@qwik.dev/core";
+const i_0TaiDayHrlo = ()=>import("./test.tsx_Parent_component_0TaiDayHrlo");
+/*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_0TaiDayHrlo, "Parent_component_0TaiDayHrlo"));
+
+
+None
 == DIAGNOSTICS ==
 
 []

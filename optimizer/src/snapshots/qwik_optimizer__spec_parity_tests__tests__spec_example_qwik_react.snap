@@ -97,8 +97,32 @@ export { qwikify$, qwikifyQrl, renderToString };
 
 ============================= ../node_modules/@qwik.dev/react/index.qwik.mjs ==
 
-import { SkipRerender, componentQrl, implicit$FirstArg, inlinedQrl, isBrowser, isServer, noSerialize, useHostElement, useLexicalScope, useStore, useTaskQrl } from "@qwik.dev/core";
-import { Fragment, jsx } from "@qwik.dev/core/jsx-runtime";
+import { useTaskQrl } from "@qwik.dev/core";
+import { useStore } from "@qwik.dev/core";
+import { useLexicalScope } from "@qwik.dev/core";
+import { useHostElement } from "@qwik.dev/core";
+import { noSerialize } from "@qwik.dev/core";
+import { jsx } from "@qwik.dev/core/jsx-runtime";
+import { isServer } from "@qwik.dev/core";
+import { isBrowser } from "@qwik.dev/core";
+import { inlinedQrl } from "@qwik.dev/core";
+import { implicit$FirstArg } from "@qwik.dev/core";
+import { componentQrl } from "@qwik.dev/core";
+import { SkipRerender } from "@qwik.dev/core";
+import { Fragment } from "@qwik.dev/core/jsx-runtime";
+import { componentQrl } from "@qwik.dev/core";
+import { inlinedQrl } from "@qwik.dev/core";
+import { useLexicalScope } from "@qwik.dev/core";
+import { useHostElement } from "@qwik.dev/core";
+import { useStore } from "@qwik.dev/core";
+import { useTaskQrl } from "@qwik.dev/core";
+import { noSerialize } from "@qwik.dev/core";
+import { SkipRerender } from "@qwik.dev/core";
+import { implicit$FirstArg } from "@qwik.dev/core";
+import { jsx } from "@qwik.dev/core/jsx-runtime";
+import { Fragment } from "@qwik.dev/core/jsx-runtime";
+import { isBrowser } from "@qwik.dev/core";
+import { isServer } from "@qwik.dev/core";
 function qwikifyQrl(reactCmpQrl) {
 	return /*#__PURE__*/ componentQrl(inlinedQrl((props)=>{
 		const [reactCmpQrl] = useLexicalScope();

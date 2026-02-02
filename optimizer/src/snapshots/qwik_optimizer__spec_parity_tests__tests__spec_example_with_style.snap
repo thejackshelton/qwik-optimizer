@@ -15,15 +15,6 @@ export const Foo = component$(() => {
 	tagName: "my-foo",
 });
 
-============================= test.tsx ==
-
-import { componentQrl, qrl } from "@qwik.dev/core";
-const i_pV9TSCBIhw8 = ()=>import("./test.tsx_Foo_component_useStyles_pV9TSCBIhw8");
-const i_HTDRsvUbLiE = ()=>import("./test.tsx_Foo_component_HTDRsvUbLiE");
-export const Foo = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_HTDRsvUbLiE, "Foo_component_HTDRsvUbLiE"));
-
-
-None
 ============================= test.tsx_Foo_component_useStyles_pV9TSCBIhw8.tsx (ENTRY POINT)==
 
 export const Foo_component_useStyles_pV9TSCBIhw8 = ".class {}";
@@ -52,7 +43,8 @@ None
 */
 ============================= test.tsx_Foo_component_HTDRsvUbLiE.tsx (ENTRY POINT)==
 
-import { qrl, useStylesQrl } from "@qwik.dev/core";
+import { useStylesQrl } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
 export const Foo_component_HTDRsvUbLiE = ()=>{
 	/*#__PURE__*/ useStylesQrl(/*#__PURE__*/ qrl(i_pV9TSCBIhw8, "Foo_component_useStyles_pV9TSCBIhw8"));
 	return <div class="class" />;
@@ -80,6 +72,17 @@ None
   ]
 }
 */
+============================= test.tsx ==
+
+import { componentQrl } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
+import { componentQrl } from "@qwik.dev/core";
+const i_pV9TSCBIhw8 = ()=>import("./test.tsx_Foo_component_useStyles_pV9TSCBIhw8");
+const i_HTDRsvUbLiE = ()=>import("./test.tsx_Foo_component_HTDRsvUbLiE");
+export const Foo = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_HTDRsvUbLiE, "Foo_component_HTDRsvUbLiE"));
+
+
+None
 == DIAGNOSTICS ==
 
 []

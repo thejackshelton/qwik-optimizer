@@ -33,29 +33,6 @@ export default component$(() => {
 	)
 	});
 
-============================= test.js ==
-
-import { secret, sideEffect } from "./secret";
-import { componentQrl, qrl, serverQrl } from "@qwik.dev/core";
-import { serverQrl } from "@qwik.dev/router";
-import { Client } from "openai";
-import { clientSupabase } from "supabase";
-const i_JonPp043gH0 = ()=>import("./test.tsx_api_server_JonPp043gH0");
-const i_LUXeXe0DQrg = ()=>import("./test.tsx_test_component_LUXeXe0DQrg");
-const supabase = clientSupabase();
-const dfd = new Client(secret);
-(function() {
-	console.log("run");
-})();
-(()=>{
-	console.log("run");
-})();
-sideEffect();
-export const api = /*#__PURE__*/ serverQrl(/*#__PURE__*/ qrl(i_JonPp043gH0, "api_server_JonPp043gH0", [dfd, supabase]));
-export default /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_LUXeXe0DQrg, "test_component_LUXeXe0DQrg"));
-
-
-None
 ============================= test.tsx_api_server_JonPp043gH0.js (ENTRY POINT)==
 
 export const api_server_JonPp043gH0 = ()=>{
@@ -87,7 +64,8 @@ None
 */
 ============================= test.tsx_test_component_LUXeXe0DQrg.js (ENTRY POINT)==
 
-import { _jsxSorted, qrl } from "@qwik.dev/core";
+import { _jsxSorted } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
 const i_onClick = ()=>import("./test.tsx");
 export const test_component_LUXeXe0DQrg = ()=>{
 	return /*#__PURE__*/ _jsxSorted("button", { "on:click": /*#__PURE__*/ qrl(i_onClick, "test_component_button_onClick") }, null, null, 3, null);
@@ -115,6 +93,38 @@ None
   ]
 }
 */
+============================= test.js ==
+
+import { sideEffect } from "./secret";
+import { serverQrl } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
+import { secret } from "./secret";
+import { componentQrl } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
+import { clientSupabase } from "supabase";
+import { Client } from "openai";
+import { componentQrl } from "@qwik.dev/core";
+import { serverQrl } from "@qwik.dev/router";
+import { clientSupabase } from "supabase";
+import { Client } from "openai";
+import { secret } from "./secret";
+import { sideEffect } from "./secret";
+const i_JonPp043gH0 = ()=>import("./test.tsx_api_server_JonPp043gH0");
+const i_LUXeXe0DQrg = ()=>import("./test.tsx_test_component_LUXeXe0DQrg");
+const supabase = clientSupabase();
+const dfd = new Client(secret);
+(function() {
+	console.log("run");
+})();
+(()=>{
+	console.log("run");
+})();
+sideEffect();
+export const api = /*#__PURE__*/ serverQrl(/*#__PURE__*/ qrl(i_JonPp043gH0, "api_server_JonPp043gH0", [dfd, supabase]));
+export default /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_LUXeXe0DQrg, "test_component_LUXeXe0DQrg"));
+
+
+None
 == DIAGNOSTICS ==
 
 []

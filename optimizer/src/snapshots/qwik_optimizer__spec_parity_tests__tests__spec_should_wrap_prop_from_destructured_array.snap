@@ -51,22 +51,14 @@ export default component$(() => {
 	);
 });
 
-============================= test.js ==
-
-import { componentQrl, qrl } from "@qwik.dev/core";
-const i_Sbgs9Wtfkt0 = ()=>import("./test.tsx_Input_component_useTask_Sbgs9Wtfkt0");
-const i_9metqqaxlN8 = ()=>import("./test.tsx_Input_component_9metqqaxlN8");
-const i_LUXeXe0DQrg = ()=>import("./test.tsx_test_component_LUXeXe0DQrg");
-export const Input = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_9metqqaxlN8, "Input_component_9metqqaxlN8"));
-export default /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_LUXeXe0DQrg, "test_component_LUXeXe0DQrg"));
-
-
-None
 ============================= test.tsx_test_component_LUXeXe0DQrg.js (ENTRY POINT)==
 
-import { useForm, useForm2 } from "./some-file.ts";
 import { Input } from "./test";
-import { _jsxSorted, qrl, useStore } from "@qwik.dev/core";
+import { _jsxSorted } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
+import { useForm } from "./some-file.ts";
+import { useForm2 } from "./some-file.ts";
+import { useStore } from "@qwik.dev/core";
 const i_onClick = ()=>import("./test.tsx");
 const i_Sbgs9Wtfkt0 = ()=>import("./test.tsx_Input_component_useTask_Sbgs9Wtfkt0");
 export const test_component_LUXeXe0DQrg = ()=>{
@@ -147,7 +139,9 @@ None
 */
 ============================= test.tsx_Input_component_9metqqaxlN8.js (ENTRY POINT)==
 
-import { _jsxSorted, qrl, useTaskQrl } from "@qwik.dev/core";
+import { _jsxSorted } from "@qwik.dev/core";
+import { useTaskQrl } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
 import { Fragment as _Fragment } from "@qwik.dev/core/jsx-runtime";
 export const Input_component_9metqqaxlN8 = (props)=>{
 	/*#__PURE__*/ useTaskQrl(/*#__PURE__*/ qrl(i_Sbgs9Wtfkt0, "Input_component_useTask_Sbgs9Wtfkt0", [props]));
@@ -176,6 +170,19 @@ None
   ]
 }
 */
+============================= test.js ==
+
+import { componentQrl } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
+import { componentQrl } from "@qwik.dev/core";
+const i_Sbgs9Wtfkt0 = ()=>import("./test.tsx_Input_component_useTask_Sbgs9Wtfkt0");
+const i_9metqqaxlN8 = ()=>import("./test.tsx_Input_component_9metqqaxlN8");
+const i_LUXeXe0DQrg = ()=>import("./test.tsx_test_component_LUXeXe0DQrg");
+export const Input = /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_9metqqaxlN8, "Input_component_9metqqaxlN8"));
+export default /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_LUXeXe0DQrg, "test_component_LUXeXe0DQrg"));
+
+
+None
 == DIAGNOSTICS ==
 
 []

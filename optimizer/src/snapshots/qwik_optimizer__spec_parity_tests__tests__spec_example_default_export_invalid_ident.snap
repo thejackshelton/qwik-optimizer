@@ -13,14 +13,6 @@ export default component$(() => {
 	);
 });
 
-============================= src/components/mongo/404.tsx ==
-
-import { componentQrl, qrl } from "@qwik.dev/core";
-const i_zRvoWc98eqo = ()=>import("./404.tsx__404_component_zRvoWc98eqo");
-export default /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_zRvoWc98eqo, "_404_component_zRvoWc98eqo"));
-
-
-None
 ============================= 404.tsx__404_component_zRvoWc98eqo.tsx (ENTRY POINT)==
 
 import { qrl } from "@qwik.dev/core";
@@ -52,6 +44,16 @@ None
   ]
 }
 */
+============================= src/components/mongo/404.tsx ==
+
+import { componentQrl } from "@qwik.dev/core";
+import { qrl } from "@qwik.dev/core";
+import { componentQrl } from "@qwik.dev/core";
+const i_zRvoWc98eqo = ()=>import("./404.tsx__404_component_zRvoWc98eqo");
+export default /*#__PURE__*/ componentQrl(/*#__PURE__*/ qrl(i_zRvoWc98eqo, "_404_component_zRvoWc98eqo"));
+
+
+None
 == DIAGNOSTICS ==
 
 []
