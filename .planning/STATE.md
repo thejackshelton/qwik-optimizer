@@ -10,9 +10,9 @@ See: .planning/PROJECT.md (updated 2026-01-29)
 ## Current Position
 
 Phase: 29 of 29 (True Byte-for-Byte Parity)
-Plan: 00 (not started)
+Plan: 01 (completed)
 Status: PHASE IN PROGRESS
-Last activity: 2026-02-01 - Started Phase 29, fixed snapshot_verify to fail on differences
+Last activity: 2026-02-02 - Completed 29-01: Compound signal _fnSignal generation
 
 Progress: [===================== ] 97% (28 phases complete, 1 in progress)
 
@@ -189,7 +189,7 @@ Key decisions from Phase 18:
 ### Blockers/Concerns
 
 **162 snapshot differences must be fixed:**
-- 19 hoisted function placement
+- 18 hoisted function placement (was 19, fixed 1 in 29-01)
 - 1 QRL declaration style
 - 73 segment count differences
 
@@ -197,30 +197,42 @@ snapshot_verify test now FAILS until all differences are resolved.
 
 ## Session Continuity
 
-Last session: 2026-02-01T12:00:00Z
-Stopped at: Started Phase 29 - snapshot_verify now fails on differences
+Last session: 2026-02-02T05:47:24Z
+Stopped at: Completed 29-01-PLAN.md - Compound signal _fnSignal generation
 Resume file: None
 
 ## Phase 29 True Byte-for-Byte Parity Progress
 
-### Status: IN PROGRESS (0/4 plans)
+### Status: IN PROGRESS (1/4 plans)
 
 **Goal:** Fix ALL 162 differences - no exceptions
 
 **Differences to fix:**
 | Issue | Count | Root Cause |
 |-------|-------|------------|
-| Hoisted function placement | 19 | _hf emitted in wrong file |
+| Hoisted function placement | 18 | _hf emitted in wrong file (was 19, fixed 1) |
 | QRL declaration style | 1 | QRL inline vs hoisted const |
 | Segment count - Category A | 8 | OXC creates more segments |
 | Segment count - Category B | 40 | qwik-core creates more segments |
 | Segment count - Category C | 24 | Different file names |
 
 **Plans:**
-- [ ] 29-01-PLAN.md — Fix hoisted function placement
+- [x] 29-01-PLAN.md — Fix compound signal _fnSignal generation (5 min)
 - [ ] 29-02-PLAN.md — Fix QRL declaration style
 - [ ] 29-03-PLAN.md — Fix segment count differences
 - [ ] 29-04-PLAN.md — Final verification (0 differences)
+
+**Plan 29-01: Compound Signal _fnSignal - COMPLETE (5 min)**
+- Added is_compound_signal_expression() to detect (a || b).value patterns
+- Implemented convert_compound_signal_fn() for AST-based transformation
+- child.rs now generates _fnSignal for compound expressions instead of _wrapProp
+- Hoisted function placement reduced from 19 to 18
+- SUMMARY: .planning/phases/29-true-byte-parity/29-01-SUMMARY.md
+
+Key decisions from Phase 29:
+- [29-01]: Use AST transformation (not string replacement) for identifier substitution
+- [29-01]: Check compound signal expressions BEFORE simple signal wrap
+- [29-01]: Minify hoisted_fn_str but keep function code readable
 
 ## Phase 28 Complete Snapshot Parity Progress
 

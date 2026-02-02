@@ -180,13 +180,36 @@ fn parse_snapshot_sections(content: &str) -> HashMap<String, String> {
 }
 
 /// Strip metadata comments (/* { ... } */) from code content
+///
+/// Metadata blocks in snapshots look like:
+/// ```
+/// /*
+/// {
+///   "origin": "test.tsx",
+///   ...
+/// }
+/// */
+/// ```
+///
+/// These are different from PURE comments which look like:
+/// ```
+/// /*#__PURE__*/ _jsxSorted("button", null, {
+/// ```
+///
+/// The key difference is that metadata blocks have `/*` alone on a line,
+/// while PURE comments have `/*#__PURE__*/` inline with code.
 fn strip_metadata_comments(content: &str) -> String {
     let mut result = String::new();
     let mut in_metadata = false;
 
     for line in content.lines() {
-        // Start of metadata block
-        if line.trim().starts_with("/*") && line.trim().contains("{") {
+        let trimmed = line.trim();
+
+        // Start of metadata block - ONLY if line is exactly "/*" or starts with "/*" but is NOT a PURE comment
+        // PURE comments look like: /*#__PURE__*/ ... and should NOT trigger metadata mode
+        // Metadata comments look like: /* on its own line, or /* { on its own line
+        if trimmed.starts_with("/*") && !trimmed.contains("*/") && !trimmed.contains("#__PURE__") {
+            // This is the start of a multi-line comment that's NOT a PURE annotation
             in_metadata = true;
             continue;
         }
@@ -203,7 +226,6 @@ fn strip_metadata_comments(content: &str) -> String {
 
         // Skip lines that are metadata JSON (have specific metadata keys)
         // These are keys like "origin", "name", "hash", etc. NOT code attributes like "q:p" or "on:click"
-        let trimmed = line.trim();
         if trimmed.starts_with("\"")
             && (trimmed.starts_with("\"origin\"")
                 || trimmed.starts_with("\"name\"")
@@ -276,9 +298,22 @@ impl ContentDiff {
     }
 
     fn has_qrl_placement_mismatch(&self) -> bool {
-        // OXC inlines QRLs, qwik-core hoists them to const declarations
-        (self.oxc_has_inlined_qrls && self.qwik_has_hoisted_qrls)
-            || (self.oxc_has_hoisted_qrls && self.qwik_has_inlined_qrls)
+        // A mismatch occurs when the QRL PATTERNS are different between OXC and qwik-core.
+        // Both implementations may have BOTH inline and hoisted QRLs (for different handlers).
+        // For example:
+        //   - Outer div handler: inline qrl() call
+        //   - Inner map button handler: hoisted const qrl() call
+        //
+        // The old logic falsely detected a mismatch when both have both types.
+        // Correct logic: mismatch only if the presence of each type differs.
+        //
+        // Examples:
+        //   - Both have inline + hoisted = NO mismatch (same pattern)
+        //   - OXC has inline only, qwik has hoisted only = mismatch
+        //   - OXC has both, qwik has inline only = mismatch
+        let inline_pattern_differs = self.oxc_has_inlined_qrls != self.qwik_has_inlined_qrls;
+        let hoisted_pattern_differs = self.oxc_has_hoisted_qrls != self.qwik_has_hoisted_qrls;
+        inline_pattern_differs || hoisted_pattern_differs
     }
 
     fn has_attribute_format_mismatch(&self) -> bool {
