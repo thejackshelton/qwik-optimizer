@@ -894,9 +894,12 @@ fn verify_snapshots_match_qwik_core() {
     println!();
     println!("============================================================");
 
-    // Note: This test documents differences, does not fail on them.
-    // The goal is functional parity (all 163 spec_parity tests pass).
-    // Structural differences are tracked and documented.
+    // FAIL THE TEST if any snapshots differ
+    assert!(
+        different.is_empty(),
+        "SNAPSHOT PARITY FAILED: {} snapshots differ from qwik-core. Run with --nocapture to see details.",
+        different.len()
+    );
 }
 
 #[test]
