@@ -32,11 +32,11 @@ import { useSignal } from "@qwik.dev/core";
 export const Works = /*#__PURE__*/ componentQrl(/*#__PURE__*/ inlinedQrl((props)=>{
 	let fromLocal = useSignal(0);
 	return /*#__PURE__*/ _jsxSorted("div", {
-		computed: _fnSignal(_hf0, [props], _hf0_str),
+		computed: _fnSignal(_hf0, [fromLocal, props], _hf0_str),
 		local: fromLocal,
 		props-wrap: _fnSignal(_hf1, [props], _hf1_str),
 		props-only: _fnSignal(_hf2, [props], _hf2_str),
-		props: _fnSignal(_hf3, [props], _hf3_str)
+		props: _fnSignal(_hf3, [props, fromLocal], _hf3_str)
 	}, null, null, 3, null);
 }, "Works_component_t45qL4vNGv0"));
 

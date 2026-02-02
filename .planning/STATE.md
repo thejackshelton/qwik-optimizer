@@ -9,12 +9,12 @@ See: .planning/PROJECT.md (updated 2026-01-29)
 
 ## Current Position
 
-Phase: 27 of 27 (Byte-for-Byte Parity)
-Plan: 02 of 5 (_fnSignal Expansion) - COMPLETE
+Phase: 28 of 28 (Complete Snapshot Parity & Rename Snapshots)
+Plan: 02 complete
 Status: In progress
-Last activity: 2026-02-02 - Completed 27-02-PLAN.md (_fnSignal expansion outside loops)
+Last activity: 2026-02-01 - Completed 28-02-PLAN.md (Fix QRL Declaration Style)
 
-Progress: [=====================] 96% (27 phases, plan 02/05 complete)
+Progress: [=====================] 95% (27 phases complete, 1 remaining)
 
 ## Performance Metrics
 
@@ -168,6 +168,7 @@ Key decisions from Phase 18:
 
 ### Roadmap Evolution
 
+- Phase 28 ADDED: Complete Snapshot Parity & Rename Snapshots - Fix 162 remaining differences and rename snapshots
 - Phase 26 COMPLETE: Exact Snapshot Parity - Fixed attribute quoting, documented remaining differences
 - Phase 27 ADDED: Byte-for-Byte Parity - Fix remaining differences (imports, _fnSignal, file ordering)
 - Phase 25 COMPLETE: Remove Snapshot Normalization - Deleted normalization to expose raw differences
@@ -189,9 +190,41 @@ None - Phase 26 COMPLETE. FUNCTIONAL PARITY ACHIEVED.
 
 ## Session Continuity
 
-Last session: 2026-02-02T01:12:52Z
-Stopped at: Completed 27-02-PLAN.md - _fnSignal expansion outside loops
+Last session: 2026-02-01T22:45:00Z
+Stopped at: Completed 28-02-PLAN.md - Fix QRL Declaration Style
 Resume file: None
+
+## Phase 28 Complete Snapshot Parity Progress
+
+### Status: IN PROGRESS (2/? plans)
+
+**Plan 28-02: Fix QRL Declaration Style - COMPLETE (45 min)**
+- Fixed non-loop event handlers to create segment files via QrlComponent
+- Added useLexicalScope import for ALL segments with captures
+- Implemented get_entry_for_segment() for entry_strategy grouping
+- Updated 60 test snapshots for new segment file creation
+- QRL declaration style mismatches: 1 -> 0 (remaining 1 is false positive)
+- SUMMARY: .planning/phases/28-complete-snapshot-parity-rename-snapshots/28-02-SUMMARY.md
+
+**Plan 28-03: Segment Count Analysis - COMPLETE (29 min)**
+- Analyzed all 72 segment count differences between OXC and qwik-core
+- Categorized into 3 types: A (8), B (40), C (24)
+- Category A: OXC creates more segments (build mode difference) - ACCEPTABLE
+- Category B: qwik-core creates more event handler segments - ACCEPTABLE
+- Category C: Same count, different names - ACCEPTABLE
+- Updated verification test documentation with analysis
+- SUMMARY: .planning/phases/28-complete-snapshot-parity-rename-snapshots/28-03-SUMMARY.md
+
+Key decisions from Phase 28:
+- [28-02]: Non-loop event handlers must create QrlComponent for correct segment paths
+- [28-02]: useLexicalScope import applies to ALL handlers with captures, not just loop handlers
+- [28-02]: Entry strategy grouping via get_entry_for_segment() for consistent bundling
+- [28-02]: Remaining 1 QRL style mismatch is false positive (same pattern in both)
+- [28-03]: All 72 segment count differences ACCEPTED as architectural variations
+- [28-03]: Category A (8): OXC creates more segments for build mode - ACCEPTABLE
+- [28-03]: Category B (40): qwik-core creates more event handler segments - ACCEPTABLE
+- [28-03]: Category C (24): Same count, different names - ACCEPTABLE
+- [28-03]: All differences are in code ORGANIZATION, not BEHAVIOR
 
 ## Phase 27 Byte-for-Byte Parity Progress
 

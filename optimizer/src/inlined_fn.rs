@@ -101,6 +101,34 @@ impl<'a, 'b> Visit<'a> for ObjectUsageCollector<'b> {
     }
 }
 
+/// Collects ALL scoped_idents that are referenced anywhere in the expression.
+/// Used to determine which captures are needed for _fnSignal.
+fn get_all_referenced_idents(expr: &Expression, scoped_idents: &[Id]) -> Vec<Id> {
+    let mut collector = AllIdentCollector {
+        identifiers: scoped_idents,
+        referenced: Vec::new(),
+    };
+
+    collector.visit_expression(expr);
+
+    collector.referenced
+}
+
+struct AllIdentCollector<'b> {
+    identifiers: &'b [Id],
+    referenced: Vec<Id>,
+}
+
+impl<'a, 'b> Visit<'a> for AllIdentCollector<'b> {
+    fn visit_identifier_reference(&mut self, ident: &IdentifierReference<'a>) {
+        for id in self.identifiers {
+            if id.0 == ident.name.as_str() && !self.referenced.iter().any(|r| r.0 == id.0) {
+                self.referenced.push(id.clone());
+            }
+        }
+    }
+}
+
 struct ObjectUsageChecker<'b> {
     identifiers: &'b [Id],
     used_as_object: bool,
@@ -183,8 +211,10 @@ pub fn convert_inlined_fn<'a>(
         return None;
     }
 
-    // Get only the identifiers that are actually used as objects of member expressions
-    let actual_captures = get_used_as_object_idents(expr, scoped_idents);
+    // Get ALL scoped_idents that are referenced anywhere in the expression.
+    // This includes both identifiers used as objects of member expressions (like _rawProps in _rawProps.fromProps)
+    // AND identifiers used directly (like fromLocal in fromLocal + _rawProps.fromProps).
+    let actual_captures = get_all_referenced_idents(expr, scoped_idents);
     if actual_captures.is_empty() {
         return None;
     }
