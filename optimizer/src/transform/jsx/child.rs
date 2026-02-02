@@ -167,7 +167,38 @@ pub fn exit_jsx_child<'a>(
                     }
                 } else if gen.loop_depth > 0 {
                     let iteration_vars = gen.iteration_var_stack.last().cloned().unwrap_or_default();
-                    if crate::inlined_fn::should_wrap_in_fn_signal(expr, &iteration_vars) {
+
+                    // First, check for simple member access like `btn.name` where btn is an iteration var.
+                    // qwik-core uses _wrapProp(btn, "name") for these patterns instead of _fnSignal.
+                    if let Some((obj_name, prop_name)) = crate::inlined_fn::is_simple_member_access(expr, &iteration_vars) {
+                        gen.needs_wrap_prop_import = true;
+                        // Also add to import_stack for segment file imports
+                        if let Some(import_set) = gen.import_stack.last_mut() {
+                            import_set.insert(Import::new(
+                                vec![ImportId::Named("_wrapProp".into())],
+                                QWIK_CORE_SOURCE,
+                            ));
+                        }
+                        let prop_name_str: &'a str = ctx.ast.allocator.alloc_str(&prop_name);
+                        Some(
+                            ctx.ast
+                                .expression_call(
+                                    span,
+                                    ctx.ast.expression_identifier(SPAN, "_wrapProp"),
+                                    NONE,
+                                    ctx.ast.vec_from_array([
+                                        Argument::from(ctx.ast.expression_identifier(SPAN, ctx.ast.atom(&obj_name))),
+                                        Argument::from(ctx.ast.expression_string_literal(
+                                            SPAN,
+                                            prop_name_str,
+                                            None,
+                                        )),
+                                    ]),
+                                    false,
+                                )
+                                .into(),
+                        )
+                    } else if crate::inlined_fn::should_wrap_in_fn_signal(expr, &iteration_vars) {
                         // Get current counter value for convert_inlined_fn and name generation
                         let counter = gen.hoisted_fn_counter;
                         if let Some(result) = crate::inlined_fn::convert_inlined_fn(

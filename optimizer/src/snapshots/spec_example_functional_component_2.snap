@@ -96,16 +96,14 @@ None
 */
 ============================= test.tsx_App_component_ckEPmXZlub0.js (ENTRY POINT)==
 
-import { _fnSignal } from "@qwik.dev/core";
 import { _jsxSorted } from "@qwik.dev/core";
+import { _wrapProp } from "@qwik.dev/core";
 import { qrl } from "@qwik.dev/core";
 import { useCounter } from "./test";
 import { useStore } from "@qwik.dev/core";
 import { qrl } from "@qwik.dev/core";
 const i_5a2ivZyN1Y0 = ()=>import("./test.tsx_App_component_div_button_on_click_5a2ivZyN1Y0");
 const i_V4v7mvdC0xU = ()=>import("./test.tsx_App_component_div_on_click_V4v7mvdC0xU");
-const _hf0 = (p0)=>p0.name;
-const _hf0_str = "p0.name";
 export const App_component_ckEPmXZlub0 = (props)=>{
 	const state = useCounter();
 	const thing = useStore({ thing: 0 });
@@ -120,7 +118,7 @@ export const App_component_ckEPmXZlub0 = (props)=>{
 	return /*#__PURE__*/ _jsxSorted("div", { "on:click": /*#__PURE__*/ qrl(i_V4v7mvdC0xU, "App_component_div_on_click_V4v7mvdC0xU", [count2, state]) }, null, [/*#__PURE__*/ _jsxSorted("span", null, null, state.count, 1, null), buttons.map((btn)=>/*#__PURE__*/ _jsxSorted("button", {
 		"on:click": App_component_div_button_on_click_5a2ivZyN1Y0,
 		"q:p": btn
-	}, null, _fnSignal(_hf0, [btn], _hf0_str), 1, null))], 1, null);
+	}, null, _wrapProp(btn, "name"), 1, null))], 1, null);
 };
 
 

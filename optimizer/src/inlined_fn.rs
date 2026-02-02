@@ -11,6 +11,27 @@ use std::collections::HashMap;
 
 pub const MAX_EXPR_LENGTH: usize = 150;
 
+/// Detect simple member access patterns like `obj.prop` where obj is an identifier.
+/// These can use _wrapProp(obj, "prop") instead of _fnSignal for better qwik-core compatibility.
+/// Returns Some((object_name, property_name)) if it's a simple member access, None otherwise.
+pub fn is_simple_member_access(expr: &Expression, iteration_vars: &[Id]) -> Option<(String, String)> {
+    if let Expression::StaticMemberExpression(member) = expr {
+        // Check if object is a simple identifier (not nested access, not compound)
+        if let Expression::Identifier(obj_ident) = &member.object {
+            let obj_name = obj_ident.name.to_string();
+            let prop_name = member.property.name.to_string();
+
+            // Check if the object is an iteration variable
+            for (var_name, _scope_id) in iteration_vars {
+                if var_name == &obj_name {
+                    return Some((obj_name, prop_name));
+                }
+            }
+        }
+    }
+    None
+}
+
 /// Detect compound signal expressions like (a || b).value, (a ? b : c).value
 /// These need _fnSignal instead of _wrapProp because:
 /// 1. The base is a compound expression (LogicalExpression, ConditionalExpression)

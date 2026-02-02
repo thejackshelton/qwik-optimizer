@@ -71,24 +71,20 @@ None
 */
 ============================= test.tsx_test_component_LUXeXe0DQrg.js (ENTRY POINT)==
 
-import { _fnSignal } from "@qwik.dev/core";
 import { _getConstProps } from "@qwik.dev/core";
 import { _getVarProps } from "@qwik.dev/core";
 import { _jsxSplit } from "@qwik.dev/core";
+import { _wrapProp } from "@qwik.dev/core";
 import { qrl } from "@qwik.dev/core";
 const i_i552ahxj0Ag = ()=>import("./test.tsx_test_component_p_on_const_i552ahxj0Ag");
 const i_UJAnjrKiyXk = ()=>import("./test.tsx_test_component_p_on_hi_UJAnjrKiyXk");
-const _hf0 = (p0)=>p0.helloHandler$;
-const _hf0_str = "p0.helloHandler$";
-const _hf1 = (p0)=>p0.onVarHandler$;
-const _hf1_str = "p0.onVarHandler$";
 export const test_component_LUXeXe0DQrg = (props)=>{
 	return /*#__PURE__*/ _jsxSplit("p", {
 		"on:hi": /*#__PURE__*/ qrl(i_UJAnjrKiyXk, "test_component_p_on_hi_UJAnjrKiyXk"),
 		..._getVarProps(props.foo),
-		"on:hello": _fnSignal(_hf0, [props], _hf0_str),
+		"on:hello": _wrapProp(props, "helloHandler$"),
 		..._getVarProps(props.rest),
-		"on:var": _fnSignal(_hf1, [props], _hf1_str),
+		"on:var": _wrapProp(props, "onVarHandler$"),
 		"on:const": /*#__PURE__*/ qrl(i_i552ahxj0Ag, "test_component_p_on_const_i552ahxj0Ag"),
 		asd: "1"
 	}, _getConstProps(props.rest), null, 0, null);

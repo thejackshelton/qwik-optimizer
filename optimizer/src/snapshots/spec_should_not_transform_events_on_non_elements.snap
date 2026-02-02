@@ -76,14 +76,12 @@ None
 import { AnotherComponent } from "./another-component";
 import { CustomComponent } from "./custom-component";
 import { qrl } from "@qwik.dev/core";
-import { qrl } from "@qwik.dev/core";
 const i_G9biBAxcdm4 = ()=>import("./test.tsx_Greeter_component_div_AnotherComponent_on_click_G9biBAxcdm4");
 const i_JOEiKoqcOwE = ()=>import("./test.tsx_Greeter_component_div_CustomComponent_on_click_JOEiKoqcOwE");
 export const Greeter_component_n7HuG2hhU0Q = ()=>{
-	const Greeter_component_div_AnotherComponent_on_click_G9biBAxcdm4 = /*#__PURE__*/ qrl(i_G9biBAxcdm4, "Greeter_component_div_AnotherComponent_on_click_G9biBAxcdm4");
 	return <div>
 			<CustomComponent onClick$={/*#__PURE__*/ qrl(i_JOEiKoqcOwE, "Greeter_component_div_CustomComponent_on_click_JOEiKoqcOwE")} />
-			{array.map((item)=><AnotherComponent onClick$={Greeter_component_div_AnotherComponent_on_click_G9biBAxcdm4} />)}
+			{array.map((item)=><AnotherComponent onClick$={/*#__PURE__*/ qrl(i_G9biBAxcdm4, "Greeter_component_div_AnotherComponent_on_click_G9biBAxcdm4")} />)}
 		</div>;
 };
 
