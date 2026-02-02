@@ -69,6 +69,41 @@ fn collect_compound_identifiers(expr: &Expression, captures: &mut Vec<String>) {
     }
 }
 
+/// Convert a compound signal expression to hoisted function code and string.
+/// Returns (hoisted_fn_code, hoisted_fn_str) like:
+/// - hoisted_fn_code: "(p0,p1)=>(p0||p1).value"
+/// - hoisted_fn_str: "(p0||p1).value"
+pub fn convert_compound_signal_fn(
+    expr: &Expression,
+    captures: &[String],
+    allocator: &Allocator,
+) -> (String, String) {
+    // Build identifier map: original name -> p0, p1, etc
+    let mut ident_map: HashMap<String, String> = HashMap::new();
+    for (i, name) in captures.iter().enumerate() {
+        ident_map.insert(name.clone(), format!("p{}", i));
+    }
+
+    // Clone and transform the expression
+    let builder = AstBuilder::new(allocator);
+    let cloned_expr = expr.clone_in(allocator);
+    let transformed_expr = replace_identifiers_in_expr(cloned_expr, &ident_map, &builder, allocator);
+
+    // Render with minification for consistent output
+    let hoisted_fn_str = render_expression(&transformed_expr);
+
+    // Build parameter string: p0,p1,...
+    let params_str = captures.iter().enumerate()
+        .map(|(i, _)| format!("p{}", i))
+        .collect::<Vec<_>>()
+        .join(",");
+
+    // Build hoisted function code: (p0,p1)=>(p0||p1).value
+    let hoisted_fn_code = format!("({})=>{}", params_str, hoisted_fn_str);
+
+    (hoisted_fn_code, hoisted_fn_str)
+}
+
 pub struct InlinedFnResult<'a> {
     pub hoisted_fn: ArrowFunctionExpression<'a>,
     pub hoisted_name: String,

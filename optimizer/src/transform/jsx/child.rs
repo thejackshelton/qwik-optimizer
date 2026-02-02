@@ -88,6 +88,65 @@ pub fn exit_jsx_child<'a>(
                             )
                             .into(),
                     )
+                } else if crate::inlined_fn::is_compound_signal_expression(expr) {
+                    // Compound signal expression like (a || b).value - use _fnSignal with hoisted function
+                    // Use convert_compound_signal_fn to handle the AST transformation properly
+                    let captures = crate::inlined_fn::extract_compound_signal_captures(expr);
+
+                    if !captures.is_empty() {
+                        // Generate hoisted function: (p0, p1) => (p0 || p1).value
+                        let counter = gen.hoisted_fn_counter;
+                        let hf_name = format!("_hf{}", counter);
+                        let hf_str_name = format!("{}_str", &hf_name);
+                        gen.hoisted_fn_counter += 1;
+
+                        // Use AST transformation to properly replace identifiers
+                        let (hoisted_fn_code, hoisted_fn_str) = crate::inlined_fn::convert_compound_signal_fn(
+                            expr,
+                            &captures,
+                            ctx.ast.allocator,
+                        );
+
+                        // Store in component_hoisted_fns for emission in entry point file
+                        if let Some(hf_stack) = gen.component_hoisted_fns.last_mut() {
+                            hf_stack.push((hf_name.clone(), hoisted_fn_code, hoisted_fn_str));
+                        }
+
+                        gen.needs_fn_signal_import = true;
+
+                        if let Some(import_set) = gen.import_stack.last_mut() {
+                            import_set.insert(Import::new(
+                                vec![ImportId::Named("_fnSignal".into())],
+                                QWIK_CORE_SOURCE,
+                            ));
+                        }
+
+                        // Create captures array with original variable references
+                        let captures_array = ctx.ast.expression_array(
+                            SPAN,
+                            ctx.ast.vec_from_iter(captures.iter().map(|name| {
+                                ArrayExpressionElement::from(ctx.ast.expression_identifier(SPAN, ctx.ast.atom(name)))
+                            })),
+                        );
+
+                        // Create _fnSignal call: _fnSignal(_hf0, [count, count2], _hf0_str)
+                        Some(
+                            ctx.ast.expression_call(
+                                span,
+                                ctx.ast.expression_identifier(SPAN, "_fnSignal"),
+                                NONE,
+                                ctx.ast.vec_from_array([
+                                    Argument::from(ctx.ast.expression_identifier(SPAN, ctx.ast.atom(&hf_name))),
+                                    Argument::from(captures_array),
+                                    Argument::from(ctx.ast.expression_identifier(SPAN, ctx.ast.atom(&hf_str_name))),
+                                ]),
+                                false,
+                            )
+                            .into(),
+                        )
+                    } else {
+                        Some(move_expression(&gen.builder, expr).into())
+                    }
                 } else if needs_signal_wrap {
                     gen.needs_wrap_prop_import = true;
                     if let Expression::StaticMemberExpression(static_member) = expr {
