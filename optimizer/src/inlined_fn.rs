@@ -54,6 +54,53 @@ fn is_used_as_object_or_call(expr: &Expression, scoped_idents: &[Id]) -> (bool, 
     (checker.used_as_object, checker.used_as_call)
 }
 
+/// Returns the subset of scoped_idents that are used as objects of member expressions.
+fn get_used_as_object_idents(expr: &Expression, scoped_idents: &[Id]) -> Vec<Id> {
+    let mut collector = ObjectUsageCollector {
+        identifiers: scoped_idents,
+        used_idents: Vec::new(),
+    };
+
+    collector.visit_expression(expr);
+
+    collector.used_idents
+}
+
+struct ObjectUsageCollector<'b> {
+    identifiers: &'b [Id],
+    used_idents: Vec<Id>,
+}
+
+impl<'b> ObjectUsageCollector<'b> {
+    fn recursively_collect_object_expr<'a>(&mut self, expr: &Expression<'a>) {
+        match expr {
+            Expression::Identifier(ident) => {
+                for id in self.identifiers {
+                    if id.0 == ident.name.as_str() && !self.used_idents.iter().any(|u| u.0 == id.0) {
+                        self.used_idents.push(id.clone());
+                    }
+                }
+            }
+            Expression::LogicalExpression(log_expr) => {
+                self.recursively_collect_object_expr(&log_expr.left);
+                self.recursively_collect_object_expr(&log_expr.right);
+            }
+            Expression::ParenthesizedExpression(paren_expr) => {
+                self.recursively_collect_object_expr(&paren_expr.expression);
+            }
+            _ => {}
+        }
+    }
+}
+
+impl<'a, 'b> Visit<'a> for ObjectUsageCollector<'b> {
+    fn visit_member_expression(&mut self, node: &MemberExpression<'a>) {
+        let obj = node.object();
+        self.recursively_collect_object_expr(obj);
+        oxc_ast_visit::walk::walk_member_expression(self, node);
+    }
+}
+
 struct ObjectUsageChecker<'b> {
     identifiers: &'b [Id],
     used_as_object: bool,
@@ -136,8 +183,14 @@ pub fn convert_inlined_fn<'a>(
         return None;
     }
 
+    // Get only the identifiers that are actually used as objects of member expressions
+    let actual_captures = get_used_as_object_idents(expr, scoped_idents);
+    if actual_captures.is_empty() {
+        return None;
+    }
+
     let mut ident_map: HashMap<String, String> = HashMap::new();
-    for (i, id) in scoped_idents.iter().enumerate() {
+    for (i, id) in actual_captures.iter().enumerate() {
         ident_map.insert(id.0.clone(), format!("p{}", i));
     }
 
@@ -149,7 +202,7 @@ pub fn convert_inlined_fn<'a>(
     }
 
     let params: oxc_allocator::Vec<'a, FormalParameter<'a>> = builder.vec_from_iter(
-        scoped_idents.iter().enumerate().map(|(i, _)| {
+        actual_captures.iter().enumerate().map(|(i, _)| {
             FormalParameter {
                 span: SPAN,
                 decorators: builder.vec(),
@@ -193,7 +246,7 @@ pub fn convert_inlined_fn<'a>(
         hoisted_fn,
         hoisted_name,
         hoisted_str: expr_str,
-        captures: scoped_idents.to_vec(),
+        captures: actual_captures,
         is_const: true,
     })
 }

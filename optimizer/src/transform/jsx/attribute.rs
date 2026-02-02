@@ -549,14 +549,32 @@ pub fn exit_jsx_attribute<'a>(
                             } else {
                                 move_expression(&gen.builder, inner_expr)
                             }
-                        } else if !is_const && gen.loop_depth > 0 {
-                            let iteration_vars = gen.iteration_var_stack.last().cloned().unwrap_or_default();
-                            if crate::inlined_fn::should_wrap_in_fn_signal(inner_expr, &iteration_vars) {
+                        } else if !is_const {
+                            // Get scoped identifiers for _fnSignal detection
+                            // Inside loops: use iteration_var_stack
+                            // Outside loops: collect all scoped idents from decl_stack
+                            let scoped_idents: Vec<(String, oxc_semantic::ScopeId)> = if gen.loop_depth > 0 {
+                                gen.iteration_var_stack.last().cloned().unwrap_or_default()
+                            } else {
+                                // Collect all declared variables that could be captured
+                                gen.decl_stack
+                                    .iter()
+                                    .flat_map(|v| v.iter())
+                                    .filter_map(|((name, _), ident_type)| {
+                                        if let IdentType::Var(_) = ident_type {
+                                            Some((name.clone(), oxc_semantic::ScopeId::new(0)))
+                                        } else {
+                                            None
+                                        }
+                                    })
+                                    .collect()
+                            };
+                            if crate::inlined_fn::should_wrap_in_fn_signal(inner_expr, &scoped_idents) {
                                 // Get current counter value for convert_inlined_fn and name generation
                                 let counter = gen.hoisted_fn_counter;
                                 if let Some(result) = crate::inlined_fn::convert_inlined_fn(
                                     inner_expr,
-                                    &iteration_vars,
+                                    &scoped_idents,
                                     counter,
                                     &gen.builder,
                                     gen.builder.allocator,
