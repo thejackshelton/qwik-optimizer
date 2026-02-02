@@ -255,6 +255,7 @@ pub fn exit_jsx_attribute<'a>(
                     let display_name = gen.current_display_name();
 
                     // When inside a loop, extract the handler to a separate segment file
+                    // and hoist the QRL declaration to the component function level
                     if gen.loop_depth > 0 {
                         let ctx_name = attr_name.clone();
                         let hash = qrl_module::compute_hash(
@@ -266,7 +267,7 @@ pub fn exit_jsx_attribute<'a>(
                         let segment_data = SegmentData::new_with_iteration_params(
                             &ctx_name,
                             display_name.clone(),
-                            hash,
+                            hash.clone(),
                             gen.source_info.rel_path.clone(),
                             lexical_captures.clone(),
                             descendent_idents.clone(),
@@ -299,8 +300,25 @@ pub fn exit_jsx_attribute<'a>(
                             gen.hoisted_imports_stack.last_mut().expect("hoisted_imports_stack should not be empty"),
                         );
 
-                        container.expression =
-                            JSXExpression::from(Expression::CallExpression(ctx.ast.alloc(call_expr)));
+                        // Hoist the QRL declaration to the component function level
+                        // Use the same display_name that's used in the qrl() call
+                        let const_name = qrl.display_name.clone();
+
+                        // Serialize the QRL call expression to code for hoisting
+                        let qrl_call_expr = Expression::CallExpression(ctx.ast.alloc(call_expr));
+                        let mut codegen = oxc_codegen::Codegen::new();
+                        codegen.print_expression(&qrl_call_expr);
+                        let qrl_call_code = codegen.into_source_text();
+                        // Apply qwik-core formatting
+                        let qrl_call_code = qrl_call_code.replace("/* @__PURE__ */", "/*#__PURE__*/");
+                        let qrl_call_code = qrl_call_code.replace(") => ", ")=>");
+
+                        // Add to hoisted QRLs stack (will be injected into function body)
+                        gen.add_hoisted_qrl(const_name.clone(), qrl_call_code);
+
+                        // Replace inline QRL call with identifier reference
+                        let ident_ref = ctx.ast.expression_identifier(SPAN, ctx.ast.atom(&const_name));
+                        container.expression = JSXExpression::from(ident_ref);
 
                         // Add q:p (single) or q:ps (multiple) prop if this handler uses iteration variables
                         // Only add for native elements, and only once per element

@@ -155,6 +155,14 @@ pub struct TransformGenerator<'gen> {
     pub(crate) iteration_var_stack: Vec<Vec<Id>>,
 
     skip_transform_names: HashSet<String>,
+
+    /// Stack of hoisted QRL declarations per component/QRL scope.
+    /// Each entry is Vec<(const_name, qrl_call_code)> where:
+    /// - const_name: the identifier name for the const declaration (e.g., "Foo_component_onClick_abc123")
+    /// - qrl_call_code: the serialized qrl() call expression
+    /// Push new Vec when entering component$/marker$, pop when exiting.
+    /// These are injected into the function body before the return statement.
+    pub(crate) component_hoisted_qrls: Vec<Vec<(String, String)>>,
 }
 
 impl<'gen> TransformGenerator<'gen> {
@@ -212,6 +220,16 @@ impl<'gen> TransformGenerator<'gen> {
             loop_depth: 0,
             iteration_var_stack: Vec::new(),
             skip_transform_names: HashSet::new(),
+            component_hoisted_qrls: vec![Vec::new()],
+        }
+    }
+
+    /// Add a hoisted QRL declaration to the current component scope.
+    /// const_name: the identifier name for the const declaration
+    /// qrl_call_code: the serialized qrl() call expression
+    pub(crate) fn add_hoisted_qrl(&mut self, const_name: String, qrl_call_code: String) {
+        if let Some(scope) = self.component_hoisted_qrls.last_mut() {
+            scope.push((const_name, qrl_call_code));
         }
     }
 
@@ -648,6 +666,13 @@ impl<'gen> TransformGenerator<'gen> {
                 .pop()
                 .unwrap_or_default();
 
+            // Pop hoisted QRL declarations for this component scope
+            // These are const declarations that go INSIDE the function body
+            let segment_hoisted_qrls = self
+                .component_hoisted_qrls
+                .pop()
+                .unwrap_or_default();
+
             let imported_names = qrl_module::collect_imported_names(&imports);
             let scoped_idents = qrl_module::filter_imported_from_scoped(scoped_idents, &imported_names);
 
@@ -695,11 +720,12 @@ impl<'gen> TransformGenerator<'gen> {
 
             let entry = self.entry_policy.get_entry_for_sym(&self.stack_ctxt, &segment_data);
 
-            QrlComponent::from_call_expression_argument_with_hoisted_fns(
+            QrlComponent::from_call_expression_argument_with_hoisted_all(
                 arg0,
                 imports,
                 segment_hoisted_imports,
                 segment_hoisted_fns,
+                segment_hoisted_qrls,
                 &self.segment_stack,
                 &self.scope,
                 &self.options,
@@ -935,6 +961,7 @@ impl<'a> Traverse<'a, ()> for TransformGenerator<'a> {
             self.import_stack.push(BTreeSet::new());
             self.hoisted_imports_stack.push(Vec::new());
             self.component_hoisted_fns.push(Vec::new());
+            self.component_hoisted_qrls.push(Vec::new());
             self.stack_ctxt.push(name.clone());
         }
 
