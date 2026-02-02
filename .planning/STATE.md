@@ -10,11 +10,11 @@ See: .planning/PROJECT.md (updated 2026-01-29)
 ## Current Position
 
 Phase: 27 of 27 (Byte-for-Byte Parity)
-Plan: 01 of 5 (Import Separation) - COMPLETE
+Plan: 02 of 5 (_fnSignal Expansion) - COMPLETE
 Status: In progress
-Last activity: 2026-02-02 - Completed 27-01-PLAN.md (Separate import emission)
+Last activity: 2026-02-02 - Completed 27-02-PLAN.md (_fnSignal expansion outside loops)
 
-Progress: [=====================] 95% (27 phases, plan 01/05 complete)
+Progress: [=====================] 96% (27 phases, plan 02/05 complete)
 
 ## Performance Metrics
 
@@ -53,7 +53,7 @@ Progress: [=====================] 95% (27 phases, plan 01/05 complete)
 | 24-fix-differ-tool-failures | 3/3 | 17 min | 5.7 min |
 | 25-remove-snapshot-normalization | 1/1 | 3 min | 3.0 min |
 | 26-exact-snapshot-parity | 8/8 | 62 min | 7.8 min |
-| 27-byte-for-byte-parity | 3/5 | 26 min | 8.7 min |
+| 27-byte-for-byte-parity | 4/5 | 41 min | 10.3 min |
 
 ## Accumulated Context
 
@@ -65,6 +65,9 @@ Key decisions from Phase 27:
 - [27-01]: Use Vec instead of BTreeMap for import storage (preserves insertion order)
 - [27-01]: Emit each import specifier as separate import statement
 - [27-01]: No deduplication of identical imports (linter conflicts)
+- [27-02]: Use decl_stack to collect scoped variables when not inside loops
+- [27-02]: Filter captures to only include identifiers used as member expression objects
+- [27-02]: 23 remaining hoisted function mismatches due to props destructuring complexity
 - [27-03]: Main file order changed from 0 to u64::MAX (sorts last)
 - [27-03]: Segments now appear first in output (by hash-based sort_order)
 - [27-03]: Removed blocking assertion from verify test (was from plan 27-05)
@@ -186,13 +189,13 @@ None - Phase 26 COMPLETE. FUNCTIONAL PARITY ACHIEVED.
 
 ## Session Continuity
 
-Last session: 2026-02-02T01:12:21Z
-Stopped at: Completed 27-01-PLAN.md - Separate import emission
+Last session: 2026-02-02T01:12:52Z
+Stopped at: Completed 27-02-PLAN.md - _fnSignal expansion outside loops
 Resume file: None
 
 ## Phase 27 Byte-for-Byte Parity Progress
 
-### Status: IN PROGRESS (3/5 plans)
+### Status: IN PROGRESS (4/5 plans)
 
 **Goal:** Fix ALL remaining differences so OXC snapshots match qwik-core byte-for-byte
 **Approach:** Plans 27-01 through 27-04 fix actual differences, Plan 27-05 ensures test fails
@@ -204,6 +207,13 @@ Resume file: None
 - All 278 lib tests + 6 verification tests pass
 - SUMMARY: .planning/phases/27-byte-for-byte-parity/27-01-SUMMARY.md
 
+**Plan 27-02: _fnSignal Expansion - COMPLETE (15 min)**
+- Removed loop_depth > 0 restriction for _fnSignal wrapping
+- Added get_used_as_object_idents to filter captures
+- Hoisted function placement reduced from 24 to 23
+- 23 remaining mismatches due to props destructuring complexity
+- SUMMARY: .planning/phases/27-byte-for-byte-parity/27-02-SUMMARY.md
+
 **Plan 27-03: File Ordering - COMPLETE (11 min)**
 - Changed main file order from 0 to u64::MAX (sorts last)
 - Segments now appear first in output (by hash-based sort_order)
@@ -212,7 +222,6 @@ Resume file: None
 - SUMMARY: .planning/phases/27-byte-for-byte-parity/27-03-SUMMARY.md
 
 **Remaining plans:**
-- 27-02: Fix _fnSignal wrapping for store/signal expressions
 - 27-04: Final verification
 - 27-05: Fix differ test to fail on differences
 
