@@ -655,6 +655,11 @@ mod tests {
             .filter_map(|m| m.segment.as_ref())
             .collect();
 
+        // Debug: print segment names
+        for seg in &segments {
+            eprintln!("DEBUG: segment = {}, entry = {:?}", seg.name, seg.entry);
+        }
+
         assert_eq!(
             segments.len(), 2,
             "Should have 2 segments (one per component), got {}",
