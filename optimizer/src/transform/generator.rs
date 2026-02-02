@@ -505,9 +505,17 @@ impl<'gen> TransformGenerator<'gen> {
             .cloned()
             .collect();
 
-        // Pop hoisted imports/functions (not used for inline, but need to pop)
+        // Pop hoisted imports (not used for inline, but need to pop)
         let _segment_hoisted_imports = self.hoisted_imports_stack.pop().unwrap_or_default();
-        let _segment_hoisted_fns = self.component_hoisted_fns.pop().unwrap_or_default();
+
+        // Pop hoisted functions and merge to parent level for inline strategy
+        // These need to be emitted in the main file by exit_program
+        let segment_hoisted_fns = self.component_hoisted_fns.pop().unwrap_or_default();
+        if !segment_hoisted_fns.is_empty() {
+            if let Some(parent_fns) = self.component_hoisted_fns.last_mut() {
+                parent_fns.extend(segment_hoisted_fns);
+            }
+        }
 
         // Merge imports back into parent scope (code stays in main file)
         if let Some(parent_imports) = self.import_stack.last_mut() {

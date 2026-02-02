@@ -15,6 +15,121 @@ use super::bind::{create_bind_handler, is_bind_directive, merge_event_handlers};
 use super::event::jsx_event_to_html_attribute;
 use super::{get_jsx_attribute_full_name, move_expression, _GET_VAR_PROPS};
 
+use crate::collector::Id;
+use std::collections::HashMap;
+
+/// Transforms destructured prop identifiers to _rawProps.propName member access.
+/// This transformation must happen BEFORE _fnSignal detection so the member access
+/// pattern is detected and properly wrapped.
+///
+/// Returns (transformed_expression, props_found) where props_found indicates if any
+/// prop identifiers were transformed (meaning _rawProps should be added to captures).
+fn transform_props_to_member_access<'a>(
+    expr: &mut Expression<'a>,
+    props_mapping: &HashMap<Id, String>,
+    builder: &oxc_ast::AstBuilder<'a>,
+) -> bool {
+    if props_mapping.is_empty() {
+        return false;
+    }
+
+    let mut props_found = false;
+
+    match expr {
+        Expression::Identifier(ident) => {
+            // Check if this identifier is a destructured prop
+            for (id, prop_key) in props_mapping {
+                if id.0 == ident.name.as_str() {
+                    // Transform: fromProps -> _rawProps.fromProps
+                    *expr = Expression::from(builder.member_expression_static(
+                        SPAN,
+                        builder.expression_identifier(SPAN, "_rawProps"),
+                        builder.identifier_name(SPAN, builder.atom(prop_key)),
+                        false,
+                    ));
+                    props_found = true;
+                    break;
+                }
+            }
+        }
+        Expression::BinaryExpression(bin) => {
+            let left_found = transform_props_to_member_access(&mut bin.left, props_mapping, builder);
+            let right_found = transform_props_to_member_access(&mut bin.right, props_mapping, builder);
+            props_found = left_found || right_found;
+        }
+        Expression::LogicalExpression(log) => {
+            let left_found = transform_props_to_member_access(&mut log.left, props_mapping, builder);
+            let right_found = transform_props_to_member_access(&mut log.right, props_mapping, builder);
+            props_found = left_found || right_found;
+        }
+        Expression::ConditionalExpression(cond) => {
+            let test_found = transform_props_to_member_access(&mut cond.test, props_mapping, builder);
+            let cons_found = transform_props_to_member_access(&mut cond.consequent, props_mapping, builder);
+            let alt_found = transform_props_to_member_access(&mut cond.alternate, props_mapping, builder);
+            props_found = test_found || cons_found || alt_found;
+        }
+        Expression::ParenthesizedExpression(paren) => {
+            props_found = transform_props_to_member_access(&mut paren.expression, props_mapping, builder);
+        }
+        Expression::UnaryExpression(unary) => {
+            props_found = transform_props_to_member_access(&mut unary.argument, props_mapping, builder);
+        }
+        Expression::ObjectExpression(obj) => {
+            for prop in &mut obj.properties {
+                if let ObjectPropertyKind::ObjectProperty(obj_prop) = prop {
+                    if transform_props_to_member_access(&mut obj_prop.value, props_mapping, builder) {
+                        props_found = true;
+                    }
+                }
+            }
+        }
+        Expression::ArrayExpression(arr) => {
+            for elem in &mut arr.elements {
+                if let ArrayExpressionElement::SpreadElement(spread) = elem {
+                    if transform_props_to_member_access(&mut spread.argument, props_mapping, builder) {
+                        props_found = true;
+                    }
+                } else if let Some(expr_elem) = elem.as_expression_mut() {
+                    if transform_props_to_member_access(expr_elem, props_mapping, builder) {
+                        props_found = true;
+                    }
+                }
+            }
+        }
+        Expression::TemplateLiteral(template) => {
+            for expr in &mut template.expressions {
+                if transform_props_to_member_access(expr, props_mapping, builder) {
+                    props_found = true;
+                }
+            }
+        }
+        Expression::CallExpression(call) => {
+            // Don't transform the callee, only arguments
+            for arg in &mut call.arguments {
+                if let Some(expr) = arg.as_expression_mut() {
+                    if transform_props_to_member_access(expr, props_mapping, builder) {
+                        props_found = true;
+                    }
+                }
+            }
+        }
+        Expression::StaticMemberExpression(mem) => {
+            // Transform the object but not the property
+            if transform_props_to_member_access(&mut mem.object, props_mapping, builder) {
+                props_found = true;
+            }
+        }
+        Expression::ComputedMemberExpression(mem) => {
+            let obj_found = transform_props_to_member_access(&mut mem.object, props_mapping, builder);
+            let expr_found = transform_props_to_member_access(&mut mem.expression, props_mapping, builder);
+            props_found = obj_found || expr_found;
+        }
+        _ => {}
+    }
+
+    props_found
+}
+
 /// Creates a PropertyKey for JSX attributes.
 /// Uses StringLiteral for keys containing colons (q:p, on:click, etc.) to match qwik-core.
 /// Uses StaticIdentifier for standard keys (class, id, etc.).
@@ -580,10 +695,18 @@ pub fn exit_jsx_attribute<'a>(
                                 move_expression(&gen.builder, inner_expr)
                             }
                         } else if !is_const {
+                            // Transform destructured prop identifiers to _rawProps.propName
+                            // This must happen BEFORE _fnSignal detection so member access is detected
+                            let props_transformed = transform_props_to_member_access(
+                                inner_expr,
+                                &gen.props_identifiers,
+                                &gen.builder,
+                            );
+
                             // Get scoped identifiers for _fnSignal detection
                             // Inside loops: use iteration_var_stack
                             // Outside loops: collect all scoped idents from decl_stack
-                            let scoped_idents: Vec<(String, oxc_semantic::ScopeId)> = if gen.loop_depth > 0 {
+                            let mut scoped_idents: Vec<(String, oxc_semantic::ScopeId)> = if gen.loop_depth > 0 {
                                 gen.iteration_var_stack.last().cloned().unwrap_or_default()
                             } else {
                                 // Collect all declared variables that could be captured
@@ -599,6 +722,12 @@ pub fn exit_jsx_attribute<'a>(
                                     })
                                     .collect()
                             };
+
+                            // If any props were transformed, add _rawProps to captures
+                            if props_transformed {
+                                scoped_idents.push(("_rawProps".to_string(), oxc_semantic::ScopeId::new(0)));
+                            }
+
                             if crate::inlined_fn::should_wrap_in_fn_signal(inner_expr, &scoped_idents) {
                                 // Get current counter value for convert_inlined_fn and name generation
                                 let counter = gen.hoisted_fn_counter;
