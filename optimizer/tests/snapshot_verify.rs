@@ -437,7 +437,7 @@ fn qwik_core_snapshots_dir() -> PathBuf {
 }
 
 fn extract_oxc_test_name(filename: &str) -> Option<&str> {
-    const PREFIX: &str = "qwik_optimizer__spec_parity_tests__tests__spec_";
+    const PREFIX: &str = "spec_";
     const SUFFIX: &str = ".snap";
 
     if filename.starts_with(PREFIX) && filename.ends_with(SUFFIX) {
@@ -1238,7 +1238,7 @@ fn test_attribute_formats_with_real_snapshot() {
     use std::path::PathBuf;
 
     let oxc_path = PathBuf::from(env!("CARGO_MANIFEST_DIR"))
-        .join("src/snapshots/qwik_optimizer__spec_parity_tests__tests__spec_should_transform_nested_loops.snap");
+        .join("src/snapshots/spec_should_transform_nested_loops.snap");
     let qwik_path = PathBuf::from(env!("CARGO_MANIFEST_DIR"))
         .join("../qwik-core/src/snapshots/qwik_core__test__should_transform_nested_loops.snap");
 
