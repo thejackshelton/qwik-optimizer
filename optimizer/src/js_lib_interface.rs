@@ -285,15 +285,15 @@ pub fn transform_modules(config: TransformModulesOptions) -> Result<TransformOut
             } else {
                 relative_path.clone()
             };
-            // Main file gets order 0 to sort first (qwik-core convention)
-            // Entry point segments use hash-based order (guaranteed > 0)
+            // Main file gets order u64::MAX to sort LAST (qwik-core convention)
+            // Entry point segments use hash-based order (guaranteed < u64::MAX)
             let mut modules = vec![TransformModule {
                 path: main_file_path,
                 code: optimized_app.body,
                 map: None, // Source maps not implemented
                 segment: None,
                 is_entry: false,
-                order: 0, // Main file first
+                order: u64::MAX, // Main file LAST (qwik-core convention)
             }];
             modules.extend(optimized_app.components.into_iter().map(|c| {
                 // Get path from segment_data, normalizing to match qwik-core format:
