@@ -1,34 +1,32 @@
-//! Snapshot Verification Test - Phase 24 Final Report
+//! Snapshot Verification Test - Phase 27 Byte-for-Byte Parity
 //!
 //! Compares OXC optimizer snapshots against qwik-core reference snapshots.
 //! This test categorizes all differences and produces an actionable report.
 //!
+//! # Test Behavior
+//!
+//! This test FAILS if ANY snapshot differs from qwik-core.
+//! The detailed report prints before the assertion, so run with
+//! `--nocapture` to see the full categorization.
+//!
+//! ```bash
+//! cargo test --test snapshot_verify -- --nocapture
+//! ```
+//!
 //! # Categorization System
 //!
-//! All snapshots are categorized into one of three tiers:
+//! All snapshots are categorized into one of two tiers:
 //!
 //! ## EXACT - Byte-for-byte identical (after header strip)
 //! No differences at all after stripping insta metadata header.
 //!
-//! ## COSMETIC - Only these normalized differences:
-//! 1. **Source maps**: OXC outputs `None`, qwik-core outputs JSON (Phase 18-04 decision)
-//! 2. **INPUT whitespace**: Different input normalization (OXC inline string vs qwik-core file)
-//! 3. **loc values**: Different due to input whitespace differences
-//! 4. **paramNames**: Not implemented in OXC
-//! 5. **Import merging**: OXC uses single import statements, qwik-core separates
-//! 6. **Whitespace**: Tab vs space indentation
-//!
-//! ## STRUCTURAL - Real differences in code organization:
+//! ## DIFFERENT - Any difference at all
+//! The report breaks down structural issues:
 //! 1. **Hoisted Function Placement**: _hf functions in different file
 //! 2. **QRL Hoisting**: QRL inline vs const declaration
 //! 3. **Attribute Quoting**: q:p: vs "q:p":
 //! 4. **Segment Count**: Different number of output files
 //! 5. **Other**: Code organization, destructuring patterns, etc.
-//!
-//! # Usage
-//! ```bash
-//! cargo test --test snapshot_verify -- --nocapture
-//! ```
 
 use regex::Regex;
 use similar::TextDiff;
@@ -895,6 +893,13 @@ fn verify_snapshots_match_qwik_core() {
     }
     println!();
     println!("============================================================");
+
+    // FAIL THE TEST if any snapshots differ
+    assert!(
+        different.is_empty(),
+        "SNAPSHOT PARITY FAILED: {} snapshots differ from qwik-core. Run with --nocapture to see details.",
+        different.len()
+    );
 }
 
 #[test]
