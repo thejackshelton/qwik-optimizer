@@ -3,17 +3,15 @@ use oxc_allocator::Allocator;
 use oxc_ast::ast::{ImportDeclaration, ImportOrExportKind, Program, Statement};
 use oxc_semantic::{SemanticBuilder, SemanticBuilderReturn};
 use oxc_traverse::{traverse_mut, Traverse, TraverseCtx};
-use std::collections::{BTreeMap, BTreeSet};
 
 pub(crate) struct ImportCleanUp<'a> {
-    imports: BTreeMap<&'a str, BTreeSet<ImportId>>,
+    /// Vec of (ImportId, source) pairs to preserve insertion order and emit separate imports
+    imports: Vec<(ImportId, &'a str)>,
 }
 
 impl ImportCleanUp<'_> {
     pub fn new() -> Self {
-        ImportCleanUp {
-            imports: BTreeMap::new(),
-        }
+        ImportCleanUp { imports: Vec::new() }
     }
 
     pub fn clean_up<'a>(program: &mut Program<'a>, allocator: &'a Allocator) {
@@ -28,16 +26,14 @@ impl ImportCleanUp<'_> {
 
         traverse_mut(&mut transform, allocator, program, scoping, ());
 
-        transform
-            .imports
-            .into_iter()
-            .rev()
-            .for_each(|(module, names)| {
-                program.body.insert(
-                    0,
-                    Import::new(names.into_iter().collect(), module).into_statement(allocator),
-                );
-            })
+        // Emit each import as a SEPARATE statement (no merging)
+        // Insert in reverse order so first collected import ends up first in output
+        transform.imports.into_iter().rev().for_each(|(import_id, source)| {
+            program.body.insert(
+                0,
+                Import::new(vec![import_id], source).into_statement(allocator),
+            );
+        })
     }
 
     /// Renames @builder.io/qwik imports to @qwik.dev equivalents.
@@ -100,20 +96,15 @@ impl<'a> Traverse<'a, ()> for ImportCleanUp<'a> {
     ) {
         node.retain_mut(|node| match node {
             Statement::ImportDeclaration(import) => {
-                let source = import.source.clone();
+                let source: &'a str = import.source.value.into();
                 if let Some(specifiers) = &import.specifiers {
                     for specifier in specifiers {
                         if !ctx
                             .scoping()
                             .symbol_is_unused(specifier.local().symbol_id())
                         {
-                            if let Some(existing_set) = self.imports.get_mut(source.value.into()) {
-                                existing_set.insert(specifier.into());
-                            } else {
-                                let mut set: BTreeSet<ImportId> = BTreeSet::new();
-                                set.insert(specifier.into());
-                                self.imports.insert(source.value.into(), set);
-                            }
+                            // Push each import specifier as a separate entry (no merging)
+                            self.imports.push((specifier.into(), source));
                         }
                     }
                     false
