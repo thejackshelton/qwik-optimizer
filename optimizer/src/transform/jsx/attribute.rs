@@ -6,7 +6,7 @@ use oxc_span::{GetSpan, SPAN};
 use oxc_traverse::TraverseCtx;
 
 use crate::collector::IdentCollector;
-use crate::component::{Import, QrlComponent, Qrl, QrlType, SegmentData, MARKER_SUFFIX};
+use crate::component::{Import, QrlComponent, QrlType, SegmentData, MARKER_SUFFIX};
 use crate::is_const::is_const_expr;
 use crate::transform::generator::{IdentType, IdPlusType, TransformGenerator};
 use crate::transform::qrl as qrl_module;
@@ -433,14 +433,44 @@ pub fn exit_jsx_attribute<'a>(
                             JSXExpression::from(Expression::CallExpression(ctx.ast.alloc(inlined_qrl_call)));
                     } else {
                         // Segment strategy: generate qrl with separate segment files
-                        let qrl = Qrl::new_with_iteration_params(
-                            gen.source_info.rel_path.clone(),
+                        // Must create a QrlComponent to properly generate the segment file path
+                        let ctx_name = attr_name.clone();
+                        let hash = qrl_module::compute_hash(
+                            &gen.source_info.rel_path,
                             &display_name,
-                            QrlType::Qrl,
-                            lexical_captures,
-                            referenced_exports,
-                            iteration_params,
+                            gen.scope.as_deref(),
                         );
+
+                        let segment_data = SegmentData::new_with_iteration_params(
+                            &ctx_name,
+                            display_name.clone(),
+                            hash.clone(),
+                            gen.source_info.rel_path.clone(),
+                            lexical_captures.clone(),
+                            descendent_idents.clone(),
+                            None,
+                            referenced_exports.clone(),
+                            iteration_params.clone(),
+                        );
+
+                        // Get entry based on entry_strategy (e.g., "entry_segments" for Single strategy)
+                        let entry = gen.get_entry_for_segment(&segment_data);
+
+                        let handler_expr = expr.clone_in(ctx.ast.allocator);
+                        let comp = QrlComponent::from_expression_with_qrl_type(
+                            handler_expr,
+                            imports_vec.clone(),
+                            &gen.segment_stack,
+                            &gen.scope,
+                            &gen.options,
+                            gen.source_info,
+                            Some(segment_data),
+                            entry,
+                            QrlType::Qrl,
+                        );
+
+                        let qrl = comp.qrl.clone();
+                        gen.components.push(comp);
 
                         let call_expr = qrl.into_call_expression(
                             ctx,

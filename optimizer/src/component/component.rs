@@ -153,9 +153,8 @@ impl QrlComponent {
         let mut all_imports = imports;
         all_imports.extend(source_file_imports);
 
-        // Add useLexicalScope import only for loop-extracted handlers with outer captures
-        // (these have iteration_params and scoped_idents)
-        if !scoped_idents.is_empty() && !iteration_params.is_empty() {
+        // Add useLexicalScope import for any segment that has lexical captures (scoped_idents)
+        if !scoped_idents.is_empty() {
             all_imports.push(Import::use_lexical_scope());
         }
 

@@ -233,6 +233,12 @@ impl<'gen> TransformGenerator<'gen> {
         }
     }
 
+    /// Get the entry name for a segment based on the current entry strategy.
+    /// Used by event handler extraction to ensure segments respect entry_strategy.
+    pub(crate) fn get_entry_for_segment(&self, segment_data: &SegmentData) -> Option<String> {
+        self.entry_policy.get_entry_for_sym(&self.stack_ctxt, segment_data)
+    }
+
     fn add_synthesized_import(&mut self, name: ImportId, source: &str) {
         self.synthesized_imports
             .entry(source.to_string())
@@ -991,7 +997,13 @@ impl<'a> Traverse<'a, ()> for TransformGenerator<'a> {
             self.loop_depth -= 1;
         }
 
-        if self.in_component_props {
+        // Only transform component props when exiting the component$ call itself
+        // (not nested calls like useSignal inside the component)
+        let callee_name = node.callee_name().unwrap_or_default().to_string();
+        if self.in_component_props
+            && callee_name.starts_with("component")
+            && callee_name.ends_with(MARKER_SUFFIX)
+        {
             self.transform_component_props(node, ctx);
             self.in_component_props = false;
         }
